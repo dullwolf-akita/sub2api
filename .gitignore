@@ -124,6 +124,8 @@ scripts
 !scripts/
 !scripts/start-local-dev.sh
 !scripts/migrate-db.sh
+!scripts/deploy-prod.sh
+!scripts/DEPLOY_PROD.md
 .code-review-state
 #openspec/
 code-reviews/
