@@ -42,20 +42,13 @@ if [ -n "$PID" ]; then
   sleep 1
 fi
 
-# Build frontend
-echo "Building frontend..."
-cd "$ROOT_DIR/frontend"
-if [ ! -d node_modules ]; then
-  pnpm install --no-frozen-lockfile
-fi
-# 跳过 vue-tsc 类型检查（生产环境不需要），直接 vite build
-./node_modules/.bin/vite build
-
-# Build backend
-echo "Building backend..."
+# Check if binary exists, if not rebuild
 cd "$ROOT_DIR/backend"
-export GOPROXY=https://goproxy.cn,direct
-go build -tags embed -o sub2api ./cmd/server
+if [ ! -f sub2api ]; then
+  echo "Binary not found, building backend..."
+  export GOPROXY=https://goproxy.cn,direct
+  go build -tags embed -o sub2api ./cmd/server
+fi
 
 # Start
 echo "Starting sub2api on port $PORT..."
