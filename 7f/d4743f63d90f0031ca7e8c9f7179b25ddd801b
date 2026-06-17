@@ -1,0 +1,25 @@
+scripts/deploy-prod.sh
+  s_d4793b0bf562c9::t_42ac8a3e3ea4d6 7,11-12,16-17,24-26,35,64,66,71,73,82,84-88,90-91,98,100,103-105,108-109,112,114-122,124-133,135-139,153,155-156,169,171,173,176
+scripts/restart-prod.sh
+  s_d4793b0bf562c9::t_77a257b73ecedb 1-6,10,36-60
+  s_d4793b0bf562c9::t_924433a58fca3c 61-74
+  s_d4793b0bf562c9::t_b58ebb9fe02aba 7-9,11-35
+.gitignore
+  s_d4793b0bf562c9::t_e32297fa594003 127
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.7",
+  "base_commit_sha": "7fd4743f63d90f0031ca7e8c9f7179b25ddd801b",
+  "prompts": {},
+  "sessions": {
+    "s_d4793b0bf562c9": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_12c826399ffeWH05Lpp03gzG9J",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Litien Zhao <DN7074@jsyyds.com>"
+    }
+  }
+}
