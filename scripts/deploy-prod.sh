@@ -125,9 +125,10 @@ fi
 echo "  编译前端..."
 cd "${NEW_DIR}/frontend"
 if [ ! -d node_modules ]; then
-  pnpm install
+  pnpm install --no-frozen-lockfile
 fi
-pnpm run build
+export NODE_OPTIONS="--max-old-space-size=512"
+./node_modules/.bin/vite build
 
 # 编译后端（嵌入前端）
 echo "  编译后端..."
