@@ -1,0 +1,24 @@
+scripts/start-local-dev.sh
+  s_d4793b0bf562c9::t_15426ec05950fc 1-178
+.gitignore
+  s_d4793b0bf562c9::t_6e3753db9c7b72 124
+  s_d4793b0bf562c9::t_dbd78ffd12e17a 122-123
+scripts/migrate-db.sh
+  s_d4793b0bf562c9::t_7e122715f3aed5 1-131
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.7",
+  "base_commit_sha": "ef6beccfeda11bb69e8e313e52a2620a9800c4e7",
+  "prompts": {},
+  "sessions": {
+    "s_d4793b0bf562c9": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_12c826399ffeWH05Lpp03gzG9J",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Litien Zhao <DN7074@jsyyds.com>"
+    }
+  }
+}
