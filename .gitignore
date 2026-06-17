@@ -121,6 +121,9 @@ CLAUDE.md
 scripts
 !backend/scripts/
 !backend/scripts/resolve-version.sh
+!scripts/
+!scripts/start-local-dev.sh
+!scripts/migrate-db.sh
 .code-review-state
 #openspec/
 code-reviews/
@@ -140,3 +143,5 @@ docs/*
 frontend/coverage/
 aicodex
 output/
+
+*.dump
