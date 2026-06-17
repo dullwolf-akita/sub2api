@@ -4,26 +4,26 @@ set -euo pipefail
 # =============================================================================
 # Sub2API 生产环境部署脚本
 # 用途：在一台已有旧 sub2api 运行的服务器上部署新版本（并行运行）
-# 步骤：创建新容器 → 迁移数据库 → 启动新项目
+# 步骤：创建新容器 → 迁移数据库 → 编译启动新项目
 # =============================================================================
 
 # ---------- 可配置参数（按需修改）----------
-NEW_DIR="${NEW_DIR:-/opt/sub2api-latest}"          # 新项目路径
-OLD_CONTAINER="${OLD_CONTAINER:-sub2api-postgres}"  # 旧数据库容器名
+NEW_DIR="${NEW_DIR:-/opt/sub2api-latest}"
+OLD_CONTAINER="${OLD_CONTAINER:-sub2api-postgres}"
 NEW_PG_CONTAINER="${NEW_PG_CONTAINER:-sub2api-latest-postgres}"
 NEW_REDIS_CONTAINER="${NEW_REDIS_CONTAINER:-sub2api-latest-redis}"
 
-NEW_PG_PORT="${NEW_PG_PORT:-5434}"        # 新 PostgreSQL 宿主机端口
-NEW_REDIS_PORT="${NEW_REDIS_PORT:-6381}"  # 新 Redis 宿主机端口
+NEW_PG_PORT="${NEW_PG_PORT:-5434}"
+NEW_REDIS_PORT="${NEW_REDIS_PORT:-6381}"
 NEW_BACKEND_PORT="${NEW_BACKEND_PORT:-18080}"
-NEW_FRONTEND_PORT="${NEW_FRONTEND_PORT:-18081}"
 
 NEW_PG_USER="${NEW_PG_USER:-sub2api}"
 NEW_PG_PASSWORD="${NEW_PG_PASSWORD:-sub2api_dev_password}"
 NEW_PG_DATABASE="${NEW_PG_DATABASE:-sub2api}"
 
-BACKEND_LOG="${BACKEND_LOG:-/tmp/sub2api-latest.log}"
-FRONTEND_LOG="${FRONTEND_LOG:-/tmp/sub2api-latest-frontend.log}"
+LOGFILE="${LOGFILE:-/tmp/sub2api-latest.log}"
+
+GOPROXY="${GOPROXY:-https://goproxy.cn,direct}"
 # -----------------------------------------
 
 GIT_REPO="${GIT_REPO:-https://github.com/dullwolf-akita/sub2api.git}"
@@ -32,7 +32,7 @@ echo "=============================================="
 echo " Sub2API 生产环境部署"
 echo "=============================================="
 
-# ---------- Step 1: 克隆新项目 ----------
+# ---------- Step 1: 克隆 ----------
 echo ""
 echo "[1/5] 克隆新项目..."
 if [ -d "$NEW_DIR" ]; then
@@ -61,20 +61,16 @@ docker run -d --name "$NEW_REDIS_CONTAINER" \
   -p "127.0.0.1:${NEW_REDIS_PORT}:6379" \
   redis:8-alpine
 
-echo "  等待新 PostgreSQL 就绪..."
+echo "  等待 PostgreSQL..."
 for i in $(seq 1 60); do
-  if docker exec "$NEW_PG_CONTAINER" pg_isready -U "$NEW_PG_USER" >/dev/null 2>&1; then
-    break
-  fi
+  docker exec "$NEW_PG_CONTAINER" pg_isready -U "$NEW_PG_USER" >/dev/null 2>&1 && break
   sleep 1
 done
 echo "  OK"
 
-echo "  等待新 Redis 就绪..."
+echo "  等待 Redis..."
 for i in $(seq 1 60); do
-  if docker exec "$NEW_REDIS_CONTAINER" redis-cli ping >/dev/null 2>&1; then
-    break
-  fi
+  docker exec "$NEW_REDIS_CONTAINER" redis-cli ping >/dev/null 2>&1 && break
   sleep 1
 done
 echo "  OK"
@@ -83,48 +79,64 @@ echo "  OK"
 echo ""
 echo "[3/5] 复制旧项目配置文件..."
 if [ -f "${NEW_DIR}/deploy/.env" ]; then
-  echo "  deploy/.env 已存在，跳过"
+  echo "  已存在，跳过"
 else
-  if command -v docker &>/dev/null && docker ps --format '{{.Names}}' | grep -q "sub2api$"; then
-    OLD_COMPOSE_DIR=$(docker inspect sub2api-postgres --format '{{index .Config.Labels "com.docker.compose.project.config_files"}}' 2>/dev/null || echo "")
-    OLD_DIR=$(dirname "$OLD_COMPOSE_DIR" 2>/dev/null || echo "")
-    if [ -n "$OLD_DIR" ] && [ -f "${OLD_DIR}/.env" ]; then
-      cp "${OLD_DIR}/.env" "${NEW_DIR}/deploy/.env"
-      echo "  从 ${OLD_DIR}/.env 复制成功"
-    else
-      echo "  ⚠️  找不到旧项目 .env，请手动配置 ${NEW_DIR}/deploy/.env"
+  for cand in "${NEW_DIR}/.env" /opt/sub2api/.env /opt/sub2api/sub2api/deploy/.env; do
+    if [ -f "$cand" ]; then
+      cp "$cand" "${NEW_DIR}/deploy/.env"
+      echo "  从 $cand 复制"
+      break
     fi
-  else
-    echo "  ⚠️  找不到旧项目 .env，请手动配置 ${NEW_DIR}/deploy/.env"
-  fi
+  done
+  [ -f "${NEW_DIR}/deploy/.env" ] || echo "  ⚠️  请手动配置 ${NEW_DIR}/deploy/.env"
 fi
 
 # ---------- Step 4: 迁移数据库 ----------
 echo ""
 echo "[4/5] 迁移数据库..."
 if ! docker ps --format '{{.Names}}' | grep -q "$OLD_CONTAINER"; then
-  echo "  ⚠️  旧数据库容器 $OLD_CONTAINER 未运行，跳过迁移"
-  echo "  后续请手动执行: docker exec -i $NEW_PG_CONTAINER pg_restore ..."
+  echo "  ⚠️  旧数据库容器 $OLD_CONTAINER 未运行，跳过"
 else
-  echo "  从 $OLD_CONTAINER 导出..."
+  echo "  导出中..."
   docker exec "$OLD_CONTAINER" pg_dump -U "$NEW_PG_USER" -d "$NEW_PG_DATABASE" \
     --format=custom --compress=9 > /tmp/sub2api_migrate.dump
-
-  echo "  导入到 $NEW_PG_CONTAINER..."
-  docker exec -i "$NEW_PG_CONTAINER" pg_restore -U "$NEW_PG_USER" -d "$NEW_PG_DATABASE" < /tmp/sub2api_migrate.dump
+  echo "  导入中..."
+  docker exec -i "$NEW_PG_CONTAINER" pg_restore -U "$NEW_PG_USER" -d "$NEW_PG_DATABASE" \
+    < /tmp/sub2api_migrate.dump
   rm /tmp/sub2api_migrate.dump
-
   echo "  验证:"
-  docker exec "$NEW_PG_CONTAINER" psql -U "$NEW_PG_USER" -d "$NEW_PG_DATABASE" -c "SELECT count(*) as users FROM users;"
+  docker exec "$NEW_PG_CONTAINER" psql -U "$NEW_PG_USER" -d "$NEW_PG_DATABASE" \
+    -c "SELECT count(*) as users FROM users;"
 fi
 
-# ---------- Step 5: 启动新项目 ----------
+# ---------- Step 5: 编译启动 ----------
 echo ""
-echo "[5/5] 启动新项目..."
+echo "[5/5] 编译并启动新项目..."
 
-# 后端
-echo "  启动后端 (端口 $NEW_BACKEND_PORT)..."
+# 如果端口已被占用则杀掉旧进程
+OLD_PID=$(lsof -ti :$NEW_BACKEND_PORT 2>/dev/null || true)
+if [ -n "$OLD_PID" ]; then
+  echo "  清理端口 $NEW_BACKEND_PORT (PID: $OLD_PID)..."
+  kill -9 "$OLD_PID" 2>/dev/null || true
+  sleep 1
+fi
+
+# 编译前端
+echo "  编译前端..."
+cd "${NEW_DIR}/frontend"
+if [ ! -d node_modules ]; then
+  pnpm install
+fi
+pnpm run build
+
+# 编译后端（嵌入前端）
+echo "  编译后端..."
 cd "${NEW_DIR}/backend"
+export GOPROXY
+go build -tags embed -o sub2api ./cmd/server
+
+# 启动
+echo "  启动..."
 AUTO_SETUP=true \
   SERVER_HOST=0.0.0.0 \
   SERVER_PORT="$NEW_BACKEND_PORT" \
@@ -138,10 +150,10 @@ AUTO_SETUP=true \
   REDIS_PORT="$NEW_REDIS_PORT" \
   REDIS_PASSWORD= \
   REDIS_DB=0 \
-  nohup go run ./cmd/server > "$BACKEND_LOG" 2>&1 &
+  nohup ./sub2api > "$LOGFILE" 2>&1 &
 
-echo "  等待后端就绪..."
-for i in $(seq 1 45); do
+echo "  等待就绪..."
+for i in $(seq 1 30); do
   sleep 2
   if curl -fsS "http://127.0.0.1:${NEW_BACKEND_PORT}/health" >/dev/null 2>&1; then
     echo "  后端 OK"
@@ -149,40 +161,19 @@ for i in $(seq 1 45); do
   fi
 done
 
-# 前端
-echo "  安装前端依赖..."
-cd "${NEW_DIR}/frontend"
-if [ ! -d node_modules ]; then
-  pnpm install 2>&1 | tail -3
-fi
-
-echo "  启动前端 (端口 $NEW_FRONTEND_PORT)..."
-VITE_DEV_PORT="$NEW_FRONTEND_PORT" \
-  VITE_DEV_PROXY_TARGET="http://127.0.0.1:${NEW_BACKEND_PORT}" \
-  nohup ./node_modules/.bin/vite --host 0.0.0.0 --port "$NEW_FRONTEND_PORT" > "$FRONTEND_LOG" 2>&1 &
-
-sleep 3
-if curl -sI "http://127.0.0.1:${NEW_FRONTEND_PORT}" >/dev/null 2>&1; then
-  echo "  前端 OK"
-fi
-
-# ---------- 完成 ----------
 echo ""
 echo "=============================================="
 echo "  部署完成！"
 echo "=============================================="
 echo ""
-echo "  后端 API:  http://<服务器IP>:${NEW_BACKEND_PORT}"
+echo "  访问地址:  http://<服务器IP>:${NEW_BACKEND_PORT}"
 echo "  Health:    http://<服务器IP>:${NEW_BACKEND_PORT}/health"
-echo "  前端页面:  http://<服务器IP>:${NEW_FRONTEND_PORT}"
+echo "  日志文件:  ${LOGFILE}"
 echo ""
-echo "  旧项目仍然运行在原有端口，不受影响。"
-echo "  后端日志:  ${BACKEND_LOG}"
-echo "  前端日志:  ${FRONTEND_LOG}"
+echo "  旧项目不受影响，仍然运行在原有端口。"
 echo ""
 echo "  停止新项目:"
-echo "    pkill -f 'go run.*cmd/server'"
-echo "    pkill -f 'vite.*${NEW_FRONTEND_PORT}'"
+echo "    kill \$(lsof -ti :${NEW_BACKEND_PORT})"
 echo ""
 echo "  删除新数据库（如需重置）:"
 echo "    docker rm -f ${NEW_PG_CONTAINER} ${NEW_REDIS_CONTAINER}"
