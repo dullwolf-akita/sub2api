@@ -50,9 +50,33 @@ if [ ! -f sub2api ]; then
   go build -tags embed -o sub2api ./cmd/server
 fi
 
-# Start
+# Source .env if exists
+ENV_FILE="$ROOT_DIR/deploy/.env"
+if [ ! -f "$ENV_FILE" ]; then
+  ENV_FILE="$ROOT_DIR/.env"
+fi
+if [ -f "$ENV_FILE" ]; then
+  set -a
+  source "$ENV_FILE"
+  set +a
+fi
+
+# Start with required env vars
 echo "Starting sub2api on port $PORT..."
-nohup ./sub2api > /tmp/sub2api-prod.log 2>&1 &
+AUTO_SETUP=true \
+  SERVER_HOST=0.0.0.0 \
+  SERVER_PORT="$PORT" \
+  DATABASE_HOST="${DATABASE_HOST:-127.0.0.1}" \
+  DATABASE_PORT="${DATABASE_PORT:-5434}" \
+  DATABASE_USER="${DATABASE_USER:-sub2api}" \
+  DATABASE_PASSWORD="${DATABASE_PASSWORD:-sub2api_dev_password}" \
+  DATABASE_DBNAME="${DATABASE_DBNAME:-sub2api}" \
+  DATABASE_SSLMODE=disable \
+  REDIS_HOST="${REDIS_HOST:-127.0.0.1}" \
+  REDIS_PORT="${REDIS_PORT:-6381}" \
+  REDIS_PASSWORD="${REDIS_PASSWORD:-}" \
+  REDIS_DB=0 \
+  nohup ./sub2api > /tmp/sub2api-prod.log 2>&1 &
 
 # Wait and verify
 for i in $(seq 1 15); do
