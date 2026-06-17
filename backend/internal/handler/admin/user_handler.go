@@ -78,7 +78,7 @@ type UpdateUserRequest struct {
 // UpdateBalanceRequest represents balance update request
 type UpdateBalanceRequest struct {
 	Balance   float64 `json:"balance" binding:"required,gt=0"`
-	Operation string  `json:"operation" binding:"required,oneof=set add subtract"`
+	Operation string  `json:"operation" binding:"required,oneof=set add subtract add_gift"`
 	Notes     string  `json:"notes"`
 }
 
