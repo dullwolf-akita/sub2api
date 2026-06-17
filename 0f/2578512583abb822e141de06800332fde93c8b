@@ -1,0 +1,23 @@
+scripts/DEPLOY_PROD.md
+  s_d4793b0bf562c9::t_1d3191234c7bfd 1-27,29-128
+scripts/deploy-prod.sh
+  s_d4793b0bf562c9::t_ef97fe80e8b14b 1-189
+.gitignore
+  s_d4793b0bf562c9::t_65f61146368c50 125-126
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.7",
+  "base_commit_sha": "0f2578512583abb822e141de06800332fde93c8b",
+  "prompts": {},
+  "sessions": {
+    "s_d4793b0bf562c9": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_12c826399ffeWH05Lpp03gzG9J",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Litien Zhao <DN7074@jsyyds.com>"
+    }
+  }
+}
