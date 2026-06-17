@@ -1,0 +1,21 @@
+backend/internal/handler/admin/user_handler.go
+  s_d4793b0bf562c9::t_54c0b67f532bb6 81
+backend/internal/service/admin_service.go
+  s_d4793b0bf562c9::t_9cbe2ac88597a0 998
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.7",
+  "base_commit_sha": "7524fc2306e320bce078b8c7fc6a8faf9cace640",
+  "prompts": {},
+  "sessions": {
+    "s_d4793b0bf562c9": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_12c826399ffeWH05Lpp03gzG9J",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Litien Zhao <DN7074@jsyyds.com>"
+    }
+  }
+}
