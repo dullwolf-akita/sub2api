@@ -19,7 +19,7 @@ cd "$ROOT_DIR/frontend"
 if [ ! -d node_modules ]; then
   pnpm install --no-frozen-lockfile
 fi
-export NODE_OPTIONS="--max-old-space-size=512"
+export NODE_OPTIONS="--max-old-space-size=2048"
 ./node_modules/.bin/vite build
 
 # Build backend (embed frontend)
