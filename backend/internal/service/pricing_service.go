@@ -111,6 +111,9 @@ type PricingService struct {
 	// 停止信号
 	stopCh chan struct{}
 	wg     sync.WaitGroup
+
+	// 本地文件热加载
+	lastFileModTime time.Time
 }
 
 // NewPricingService 创建价格服务
@@ -453,8 +456,10 @@ func (s *PricingService) loadPricingData(filePath string) error {
 	info, _ := os.Stat(filePath)
 	if info != nil {
 		s.lastUpdated = info.ModTime()
+		s.lastFileModTime = info.ModTime()
 	} else {
 		s.lastUpdated = time.Now()
+		s.lastFileModTime = time.Now()
 	}
 	s.mu.Unlock()
 
@@ -522,8 +527,27 @@ func (s *PricingService) validatePricingURL(raw string) (string, error) {
 	return normalized, nil
 }
 
+// refreshIfFileChanged 检查本地文件是否已变更，变更则热重载
+func (s *PricingService) refreshIfFileChanged() {
+	filePath := s.getPricingFilePath()
+	info, err := os.Stat(filePath)
+	if err != nil {
+		return
+	}
+	s.mu.RLock()
+	lastMod := s.lastFileModTime
+	s.mu.RUnlock()
+	if info.ModTime().After(lastMod) {
+		logger.LegacyPrintf("service.pricing", "[Pricing] File changed, hot-reloading...")
+		if err := s.loadPricingData(filePath); err != nil {
+			logger.LegacyPrintf("service.pricing", "[Pricing] Hot-reload failed: %v", err)
+		}
+	}
+}
+
 // GetModelPricing 获取模型价格（带模糊匹配）
 func (s *PricingService) GetModelPricing(modelName string) *LiteLLMModelPricing {
+	s.refreshIfFileChanged()
 	s.mu.RLock()
 	defer s.mu.RUnlock()
 
