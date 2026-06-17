@@ -470,7 +470,7 @@ func (s *adminServiceImpl) UpdateUserBalance(ctx context.Context, userID int64, 
 	switch operation {
 	case "set":
 		user.Balance = balance
-	case "add":
+	case "add", "add_gift":
 		user.Balance += balance
 	case "subtract":
 		user.Balance -= balance
