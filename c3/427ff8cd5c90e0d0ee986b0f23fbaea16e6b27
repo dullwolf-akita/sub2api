@@ -1,0 +1,19 @@
+scripts/restart-prod.sh
+  s_d4793b0bf562c9::t_f5b5b57ecb4dda 49,51-52
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.7",
+  "base_commit_sha": "c3427ff8cd5c90e0d0ee986b0f23fbaea16e6b27",
+  "prompts": {},
+  "sessions": {
+    "s_d4793b0bf562c9": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_12c826399ffeWH05Lpp03gzG9J",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Litien Zhao <DN7074@jsyyds.com>"
+    }
+  }
+}
