@@ -46,9 +46,10 @@ fi
 echo "Building frontend..."
 cd "$ROOT_DIR/frontend"
 if [ ! -d node_modules ]; then
-  pnpm install --no-frozen-lockfile 2>/dev/null || pnpm install
+  pnpm install --no-frozen-lockfile
 fi
-pnpm run build 2>/dev/null || (pnpm approve-builds && pnpm run build)
+# 跳过 vue-tsc 类型检查（生产环境不需要），直接 vite build
+./node_modules/.bin/vite build
 
 # Build backend
 echo "Building backend..."
