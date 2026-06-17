@@ -46,9 +46,9 @@ fi
 echo "Building frontend..."
 cd "$ROOT_DIR/frontend"
 if [ ! -d node_modules ]; then
-  pnpm install
+  pnpm install --no-frozen-lockfile 2>/dev/null || pnpm install
 fi
-pnpm run build
+pnpm run build 2>/dev/null || (pnpm approve-builds && pnpm run build)
 
 # Build backend
 echo "Building backend..."
