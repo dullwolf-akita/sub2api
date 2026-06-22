@@ -1,0 +1,21 @@
+scripts/restart-prod.sh
+  s_42e7c7e3d979f1::t_f66309344fa1a8 67,72,74-76,78-79,83-87,89-90,92-94,98,106
+  s_42e7c7e3d979f1::t_d441c9d69b02d1 10-16
+  s_42e7c7e3d979f1::t_edbd055c106e80 73
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.9",
+  "base_commit_sha": "ff3f29f3446565a9bbdc7335c275f90bcf94e0f4",
+  "prompts": {},
+  "sessions": {
+    "s_42e7c7e3d979f1": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "4a81546a-b165-4f8f-b6e1-5ca35b11b533",
+        "model": "default"
+      },
+      "human_author": "Litien Zhao <DN7074@jsyyds.com>"
+    }
+  }
+}
