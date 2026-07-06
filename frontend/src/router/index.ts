@@ -12,6 +12,7 @@ import { useNavigationLoadingState } from '@/composables/useNavigationLoading'
 import { useRoutePrefetch } from '@/composables/useRoutePrefetch'
 import { getSetupStatus } from '@/api/setup'
 import { resolveCompletedSetupRedirectPath } from './setupRedirect'
+import { redirectToLoginPage } from '@/utils/loginRedirect'
 import { resolveDocumentTitle } from './title'
 
 /**
@@ -757,7 +758,14 @@ router.beforeEach(async (to, _from, next) => {
     try {
       const status = await getSetupStatus()
       if (!status.needs_setup) {
-        next(resolveCompletedSetupRedirectPath(authStore.isAuthenticated, authStore.isAdmin))
+        const target = resolveCompletedSetupRedirectPath(authStore.isAuthenticated, authStore.isAdmin)
+        if (target === '/login') {
+          navigationLoading.endNavigation()
+          redirectToLoginPage()
+          next(false)
+          return
+        }
+        next(target)
         return
       }
     } catch {
@@ -783,7 +791,9 @@ router.beforeEach(async (to, _from, next) => {
     if (appStore.backendModeEnabled && !authStore.isAuthenticated) {
       const isAllowed = isBackendModePublicRouteAllowed(to.path, authStore.hasPendingAuthSession)
       if (!isAllowed) {
-        next('/login')
+        navigationLoading.endNavigation()
+        redirectToLoginPage(to.fullPath)
+        next(false)
         return
       }
     }
@@ -793,11 +803,9 @@ router.beforeEach(async (to, _from, next) => {
 
   // Route requires authentication
   if (!authStore.isAuthenticated) {
-    // Not authenticated, redirect to login
-    next({
-      path: '/login',
-      query: { redirect: to.fullPath } // Save intended destination
-    })
+    navigationLoading.endNavigation()
+    redirectToLoginPage(to.fullPath)
+    next(false)
     return
   }
 
@@ -865,7 +873,9 @@ router.beforeEach(async (to, _from, next) => {
     }
     const isAllowed = isBackendModePublicRouteAllowed(to.path, authStore.hasPendingAuthSession)
     if (!isAllowed) {
-      next('/login')
+      navigationLoading.endNavigation()
+      redirectToLoginPage(to.fullPath)
+      next(false)
       return
     }
   }
