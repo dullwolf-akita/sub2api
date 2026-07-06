@@ -511,6 +511,7 @@ export default {
         visibility: 'Visible To',
         visibilityUser: 'Regular Users',
         visibilityAdmin: 'Administrators',
+        visibilityChannelAgent: 'Channel Agents',
         add: 'Add Menu Item',
         remove: 'Remove',
         moveUp: 'Move Up',

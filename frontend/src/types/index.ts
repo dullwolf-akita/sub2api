@@ -171,7 +171,7 @@ export interface CustomMenuItem {
   icon_svg: string
   url: string
   page_slug?: string
-  visibility: 'user' | 'admin'
+  visibility: 'user' | 'admin' | 'channel_agent'
   sort_order: number
 }
 

@@ -507,6 +507,7 @@ export default {
         visibility: '可见角色',
         visibilityUser: '普通用户',
         visibilityAdmin: '管理员',
+        visibilityChannelAgent: '渠道代理人',
         add: '添加菜单项',
         remove: '删除',
         moveUp: '上移',
