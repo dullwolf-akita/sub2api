@@ -1,0 +1,24 @@
+frontend/src/utils/loginRedirect.ts
+  s_40a803114d1eea::t_420ae492455262 1-9
+frontend/src/router/index.ts
+  s_40a803114d1eea::t_29d0325f3aa9a0 794-796,806-808
+  s_40a803114d1eea::t_0cdf492fdcc42e 15
+  s_40a803114d1eea::t_9836a424d936d2 876-878
+  s_40a803114d1eea::t_519e384b57fcf8 761-768
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "513d12955c3dc7d4919e3f42f03a74b43b86a328",
+  "prompts": {},
+  "sessions": {
+    "s_40a803114d1eea": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "6fa4dba6-e2b4-4218-b88e-f856b2e60a92",
+        "model": "default"
+      },
+      "human_author": "Litien Zhao <DN7074@jsyyds.com>"
+    }
+  }
+}
