@@ -10,10 +10,11 @@ export function customMenuRequiresChannelAgent(item: CustomMenuItem): boolean {
 export function isCustomMenuVisibleToUser(
   item: CustomMenuItem,
   isChannelAgent: boolean | null,
+  isAdmin = false,
 ): boolean {
   if (item.visibility === 'admin') return false
   if (customMenuRequiresChannelAgent(item)) {
-    return isChannelAgent === true
+    return isAdmin || isChannelAgent === true
   }
   return item.visibility === 'user'
 }
