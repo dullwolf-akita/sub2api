@@ -214,7 +214,7 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
-import { useRouter, useRoute } from 'vue-router'
+import { useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import { useAppStore, useAuthStore, useOnboardingStore } from '@/stores'
 import { useAdminSettingsStore } from '@/stores/adminSettings'
@@ -223,7 +223,6 @@ import SubscriptionProgressMini from '@/components/common/SubscriptionProgressMi
 import AnnouncementBell from '@/components/common/AnnouncementBell.vue'
 import Icon from '@/components/icons/Icon.vue'
 
-const router = useRouter()
 const route = useRoute()
 const { t } = useI18n()
 const appStore = useAppStore()
@@ -306,7 +305,7 @@ async function handleLogout() {
     // Ignore logout errors - still redirect to login
     console.error('Logout error:', error)
   }
-  await router.push('/login')
+  window.location.href = '/login'
 }
 
 function handleReplayGuide() {
