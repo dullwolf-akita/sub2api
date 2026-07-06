@@ -1,0 +1,46 @@
+frontend/src/utils/customMenuVisibility.ts
+  s_40a803114d1eea::t_d260b4aae0674c 1-33
+frontend/src/i18n/locales/zh.ts
+  s_40a803114d1eea::t_e920986ff7d66c 6840
+  s_40a803114d1eea::t_aa6ed876792558 6057
+frontend/src/i18n/locales/en.ts
+  s_40a803114d1eea::t_73dbbae751f128 6686
+frontend/src/components/layout/AppSidebar.vue
+  s_40a803114d1eea::t_a6a7fabb3364ee 190-191
+  s_40a803114d1eea::t_350a0b68fa83e1 659-660
+  s_40a803114d1eea::t_3b8db76f1f8e19 706,710
+frontend/src/types/index.ts
+  s_40a803114d1eea::t_ab929311116660 173
+frontend/src/composables/useChannelAgentAccess.ts
+  s_40a803114d1eea::t_23d04ce18103f6 1-76
+frontend/src/api/channelAgent.ts
+  s_40a803114d1eea::t_856ca61e05ba55 1-37,39-41,43-44,46
+  s_40a803114d1eea::t_137babf30e8703 38,42,45
+frontend/src/views/user/CustomPageView.vue
+  s_40a803114d1eea::t_c1d1b2c0193b09 121
+  s_40a803114d1eea::t_6c297ea6bc25ad 146
+  s_40a803114d1eea::t_d82ad51bb57f5e 350-357
+  s_40a803114d1eea::t_7243397f52ed86 129-130
+  s_40a803114d1eea::t_1a120bf327932d 142
+backend/internal/handler/dto/settings.go
+  s_40a803114d1eea::t_9937a8047f11de 17
+frontend/src/views/admin/SettingsView.vue
+  s_40a803114d1eea::t_d85a4716c43a2d 5148-5150
+  s_40a803114d1eea::t_8863d5db7e9e3a 7708
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "72eead4f8cab8200d5e7b6d6ab3cbe002c0b629d",
+  "prompts": {},
+  "sessions": {
+    "s_40a803114d1eea": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "6fa4dba6-e2b4-4218-b88e-f856b2e60a92",
+        "model": "default"
+      },
+      "human_author": "Litien Zhao <DN7074@jsyyds.com>"
+    }
+  }
+}
