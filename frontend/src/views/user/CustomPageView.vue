@@ -95,20 +95,13 @@
 
         <!-- Iframe embed mode -->
         <div v-else class="custom-embed-shell">
-          <a
-            :href="embeddedUrl"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn-secondary btn-sm custom-open-fab"
-          >
-            <Icon name="externalLink" size="sm" class="mr-1.5" :stroke-width="2" />
-            {{ t('customPage.openInNewTab') }}
-          </a>
           <iframe
+            ref="embedFrame"
             :src="embeddedUrl"
             class="custom-embed-frame"
-            allow="clipboard-write"
+            allow="clipboard-write; payment *"
             allowfullscreen
+            @load="handleEmbedFrameLoad"
           ></iframe>
         </div>
       </div>
@@ -129,6 +122,7 @@ import { buildApiUrl } from '@/api/client'
 import { buildEmbeddedUrl, detectTheme } from '@/utils/embedded-url'
 import { customMenuRequiresChannelAgent } from '@/utils/customMenuVisibility'
 import { useChannelAgentAccess } from '@/composables/useChannelAgentAccess'
+import { useWalletBridge } from '@/composables/useWalletBridge'
 import { marked } from 'marked'
 import DOMPurify from 'dompurify'
 
@@ -147,6 +141,7 @@ const adminSettingsStore = useAdminSettingsStore()
 const { isChannelAgent } = useChannelAgentAccess()
 
 const loading = ref(false)
+const embedFrame = ref<HTMLIFrameElement | null>(null)
 const pageTheme = ref<'light' | 'dark'>('light')
 const renderedHtml = ref('')
 const markdownContainer = ref<HTMLElement | null>(null)
@@ -194,6 +189,8 @@ const isValidUrl = computed(() => {
   const url = embeddedUrl.value
   return url.startsWith('http://') || url.startsWith('https://')
 })
+
+const { handleFrameLoad: handleEmbedFrameLoad } = useWalletBridge(embedFrame, embeddedUrl)
 
 function generateHeadingId(text: string, index: number): string {
   const base = text
@@ -456,11 +453,6 @@ onUnmounted(() => {
   @apply h-full w-full overflow-hidden rounded-2xl;
   @apply bg-gradient-to-b from-gray-50 to-white dark:from-dark-900 dark:to-dark-950;
   @apply p-0;
-}
-
-.custom-open-fab {
-  @apply absolute right-3 top-3 z-10;
-  @apply shadow-sm backdrop-blur supports-[backdrop-filter]:bg-white/80 dark:supports-[backdrop-filter]:bg-dark-800/80;
 }
 
 .custom-embed-frame {
