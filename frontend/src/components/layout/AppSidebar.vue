@@ -707,7 +707,7 @@ const personalNavItems = computed((): NavItem[] => finalizeNav(buildSelfNavItems
 const customMenuItemsForUser = computed(() => {
   const items = appStore.cachedPublicSettings?.custom_menu_items ?? []
   return items
-    .filter((item) => isCustomMenuVisibleToUser(item, isChannelAgent.value))
+    .filter((item) => isCustomMenuVisibleToUser(item, isChannelAgent.value, authStore.isAdmin))
     .sort((a, b) => a.sort_order - b.sort_order)
 })
 

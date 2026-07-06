@@ -349,6 +349,7 @@ watch(markdownSlug, (slug) => {
 
 watch([menuItem, isChannelAgent], ([item, agent]) => {
   if (!item || agent === null) return
+  if (authStore.isAdmin) return
   if (customMenuRequiresChannelAgent(item) && agent === false) {
     appStore.showError(t('customPage.channelAgentOnly'))
     void router.replace('/dashboard')
