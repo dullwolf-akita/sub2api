@@ -1,0 +1,24 @@
+frontend/src/views/user/CustomPageView.vue
+  s_40a803114d1eea::t_79937d967eacdb 124
+  s_40a803114d1eea::t_142bb682f40415 143
+  s_40a803114d1eea::t_4729319acd0ac6 99,102,104
+  s_40a803114d1eea::t_df54a28d571db2 192-193
+frontend/src/composables/useWalletBridge.ts
+  s_40a803114d1eea::t_0d76e0e8796b85 1-297
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "253acd46d6138f4f423fef7e672f9648b058c599",
+  "prompts": {},
+  "sessions": {
+    "s_40a803114d1eea": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "6fa4dba6-e2b4-4218-b88e-f856b2e60a92",
+        "model": "default"
+      },
+      "human_author": "Litien Zhao <DN7074@jsyyds.com>"
+    }
+  }
+}
