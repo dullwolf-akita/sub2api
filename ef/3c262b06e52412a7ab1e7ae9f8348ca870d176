@@ -1,0 +1,23 @@
+frontend/src/utils/customMenuVisibility.ts
+  s_40a803114d1eea::t_ecce649851e72b 13,17
+frontend/src/components/layout/AppSidebar.vue
+  s_40a803114d1eea::t_5fe4fdc1dadb70 710
+frontend/src/views/user/CustomPageView.vue
+  s_40a803114d1eea::t_8691011fdace33 352
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "ef3c262b06e52412a7ab1e7ae9f8348ca870d176",
+  "prompts": {},
+  "sessions": {
+    "s_40a803114d1eea": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "6fa4dba6-e2b4-4218-b88e-f856b2e60a92",
+        "model": "default"
+      },
+      "human_author": "Litien Zhao <DN7074@jsyyds.com>"
+    }
+  }
+}
