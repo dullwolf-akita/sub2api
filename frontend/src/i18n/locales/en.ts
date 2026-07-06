@@ -5898,6 +5898,7 @@ export default {
         visibility: 'Visible To',
         visibilityUser: 'Regular Users',
         visibilityAdmin: 'Administrators',
+        visibilityChannelAgent: 'Channel Agents',
         add: 'Add Menu Item',
         remove: 'Remove',
         moveUp: 'Move Up',
@@ -6682,6 +6683,7 @@ export default {
     notFoundDesc: 'This custom page does not exist or has been removed.',
     notConfiguredTitle: 'Page URL not configured',
     notConfiguredDesc: 'The URL for this custom page has not been properly configured.',
+    channelAgentOnly: 'This page is only available to channel agents',
   },
 
   // Announcements Page

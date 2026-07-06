@@ -118,7 +118,7 @@
 
 <script setup lang="ts">
 import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import { useAppStore } from '@/stores'
 import { useAuthStore } from '@/stores/auth'
@@ -126,6 +126,8 @@ import { useAdminSettingsStore } from '@/stores/adminSettings'
 import AppLayout from '@/components/layout/AppLayout.vue'
 import Icon from '@/components/icons/Icon.vue'
 import { buildEmbeddedUrl, detectTheme } from '@/utils/embedded-url'
+import { customMenuRequiresChannelAgent } from '@/utils/customMenuVisibility'
+import { useChannelAgentAccess } from '@/composables/useChannelAgentAccess'
 import { marked } from 'marked'
 import DOMPurify from 'dompurify'
 
@@ -137,9 +139,11 @@ interface TocItem {
 
 const { t, locale } = useI18n()
 const route = useRoute()
+const router = useRouter()
 const appStore = useAppStore()
 const authStore = useAuthStore()
 const adminSettingsStore = useAdminSettingsStore()
+const { isChannelAgent } = useChannelAgentAccess()
 
 const loading = ref(false)
 const pageTheme = ref<'light' | 'dark'>('light')
@@ -342,6 +346,14 @@ watch(markdownSlug, (slug) => {
     tocItems.value = []
   }
 }, { immediate: true })
+
+watch([menuItem, isChannelAgent], ([item, agent]) => {
+  if (!item || agent === null) return
+  if (customMenuRequiresChannelAgent(item) && agent === false) {
+    appStore.showError(t('customPage.channelAgentOnly'))
+    void router.replace('/dashboard')
+  }
+})
 
 onMounted(async () => {
   pageTheme.value = detectTheme()

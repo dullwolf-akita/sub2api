@@ -5145,6 +5145,9 @@
                       <option value="admin">
                         {{ t("admin.settings.customMenu.visibilityAdmin") }}
                       </option>
+                      <option value="channel_agent">
+                        {{ t("admin.settings.customMenu.visibilityChannelAgent") }}
+                      </option>
                     </select>
                   </div>
 
@@ -7702,7 +7705,7 @@ const form = reactive<SettingsForm>({
     label: string;
     icon_svg: string;
     url: string;
-    visibility: "user" | "admin";
+    visibility: "user" | "admin" | "channel_agent";
     sort_order: number;
   }>,
   custom_endpoints: [] as Array<{

@@ -187,6 +187,8 @@ import { useAdminSettingsStore, useAppStore, useAuthStore, useOnboardingStore } 
 import VersionBadge from '@/components/common/VersionBadge.vue'
 import { sanitizeSvg } from '@/utils/sanitize'
 import { FeatureFlags, makeSidebarFlag } from '@/utils/featureFlags'
+import { useChannelAgentAccess } from '@/composables/useChannelAgentAccess'
+import { isCustomMenuVisibleToUser } from '@/utils/customMenuVisibility'
 
 interface NavItem {
   path: string
@@ -654,6 +656,8 @@ const flagRiskControl = makeSidebarFlag(FeatureFlags.riskControl)
 const flagOpsMonitoring = () => adminSettingsStore.opsMonitoringEnabled
 const flagAdminPayment = () => adminSettingsStore.paymentEnabled
 
+const { isChannelAgent } = useChannelAgentAccess()
+
 // buildSelfNavItems 构造用户自己的导航项（用户端主菜单和管理员的"我的账户"子菜单共享这组声明）。
 // withDashboard=true 时包含仪表盘（用户端），false 时不含（管理员的个人区已经有独立仪表盘入口）。
 //
@@ -699,11 +703,11 @@ const userNavItems = computed((): NavItem[] => finalizeNav(buildSelfNavItems(tru
 // separate admin entry, since the page is purely a user-facing view.
 const personalNavItems = computed((): NavItem[] => finalizeNav(buildSelfNavItems(false)))
 
-// Custom menu items filtered by visibility
+// Custom menu items filtered by visibility and channel-agent eligibility
 const customMenuItemsForUser = computed(() => {
   const items = appStore.cachedPublicSettings?.custom_menu_items ?? []
   return items
-    .filter((item) => item.visibility === 'user')
+    .filter((item) => isCustomMenuVisibleToUser(item, isChannelAgent.value))
     .sort((a, b) => a.sort_order - b.sort_order)
 })
 
