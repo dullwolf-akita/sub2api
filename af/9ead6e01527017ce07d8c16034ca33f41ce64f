@@ -1,0 +1,21 @@
+scripts/ensure-go-toolchain.sh
+  s_40a803114d1eea::t_7cb8319f42fc89 5-14,30-34,36,40-46,55,106,114
+scripts/rebuild-prod.sh
+  s_40a803114d1eea::t_f64ce6f5545198 33-36
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.12",
+  "base_commit_sha": "af9ead6e01527017ce07d8c16034ca33f41ce64f",
+  "prompts": {},
+  "sessions": {
+    "s_40a803114d1eea": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "6fa4dba6-e2b4-4218-b88e-f856b2e60a92",
+        "model": "default"
+      },
+      "human_author": "Litien Zhao <DN7074@jsyyds.com>"
+    }
+  }
+}
