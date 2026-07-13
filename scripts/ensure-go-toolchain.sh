@@ -2,6 +2,16 @@
 # 读取 backend/go.mod 的 go 版本；若本机 Go 不满足，从国内镜像安装到项目 .toolchain/
 # 避免 go build 卡在 go: downloading goX.Y.Z (go.dev 国内很慢)
 
+_go_version_tag() {
+  "$1" version 2>/dev/null | awk '{print $3}'
+}
+
+_go_version_exact_match() {
+  local go_bin="$1"
+  local required="$2"
+  [ "$(_go_version_tag "$go_bin")" = "go${required}" ]
+}
+
 ensure_go_toolchain() {
   local root_dir="${1:?project root required}"
   local go_mod="${root_dir}/backend/go.mod"
@@ -17,13 +27,23 @@ ensure_go_toolchain() {
     return 0
   fi
 
-  if command -v go >/dev/null 2>&1 && go version 2>/dev/null | grep -q "go${required} "; then
+  local install_dir="${root_dir}/.toolchain/go${required}"
+
+  # 优先使用项目内已缓存的 toolchain，避免系统 go 版本接近但不满足 go.mod
+  if [ -x "${install_dir}/bin/go" ] && _go_version_exact_match "${install_dir}/bin/go" "$required"; then
+    export PATH="${install_dir}/bin:${PATH}"
     export GOTOOLCHAIN=local
-    echo "Go toolchain OK: $(go version | awk '{print $3}')"
+    echo "Go toolchain OK (cached): $(_go_version_tag go)"
     return 0
   fi
 
-  local os arch tarball install_dir
+  if command -v go >/dev/null 2>&1 && _go_version_exact_match go "$required"; then
+    export GOTOOLCHAIN=local
+    echo "Go toolchain OK: $(_go_version_tag go)"
+    return 0
+  fi
+
+  local os arch tarball
   os=$(uname -s | tr '[:upper:]' '[:lower:]')
   arch=$(uname -m)
   case "$arch" in
@@ -31,16 +51,8 @@ ensure_go_toolchain() {
     aarch64|arm64) arch=arm64 ;;
   esac
   tarball="go${required}.${os}-${arch}.tar.gz"
-  install_dir="${root_dir}/.toolchain/go${required}"
 
-  if [ -x "${install_dir}/bin/go" ] && "${install_dir}/bin/go" version 2>/dev/null | grep -q "go${required} "; then
-    export PATH="${install_dir}/bin:${PATH}"
-    export GOTOOLCHAIN=local
-    echo "Go toolchain OK (cached): $("${install_dir}/bin/go" version | awk '{print $3}')"
-    return 0
-  fi
-
-  echo "Go ${required} required (current: $(go version 2>/dev/null || echo 'not found'))"
+  echo "Go ${required} required (current: $(_go_version_tag go 2>/dev/null || echo 'not found'))"
 
   local tmpdir archive
   tmpdir=$(mktemp -d)
@@ -91,7 +103,7 @@ ensure_go_toolchain() {
   fi
   rm -rf "$tmpdir"
 
-  if ! "${install_dir}/bin/go" version 2>/dev/null | grep -q "go${required} "; then
+  if ! _go_version_exact_match "${install_dir}/bin/go" "$required"; then
     rm -rf "$install_dir"
     echo "ERROR: Go ${required} install verification failed"
     return 1
@@ -99,5 +111,5 @@ ensure_go_toolchain() {
 
   export PATH="${install_dir}/bin:${PATH}"
   export GOTOOLCHAIN=local
-  echo "Go toolchain installed: $(go version | awk '{print $3}')"
+  echo "Go toolchain installed: $(_go_version_tag go)"
 }

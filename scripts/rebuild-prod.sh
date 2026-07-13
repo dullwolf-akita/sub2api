@@ -30,6 +30,10 @@ cd "$ROOT_DIR/backend"
 export GOPROXY="${GOPROXY:-https://goproxy.cn,direct}"
 export GOSUMDB="${GOSUMDB:-sum.golang.google.cn}"
 ensure_go_toolchain "$ROOT_DIR"
+if ! go version | awk -v req="$(awk '/^go / { print $2; exit }' go.mod)" '$3 != "go"req { exit 1 }'; then
+  echo "ERROR: active Go toolchain does not match go.mod (need go $(awk '/^go / { print $2; exit }' go.mod), got $(go version | awk '{print $3}'))"
+  exit 1
+fi
 go build -tags embed -o sub2api ./cmd/server
 
 echo "Build complete. Run restart-prod.sh to apply."
