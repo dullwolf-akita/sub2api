@@ -2,6 +2,8 @@
 set -e
 
 ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+# shellcheck source=ensure-go-toolchain.sh
+source "${ROOT_DIR}/scripts/ensure-go-toolchain.sh"
 
 # 检查内存/swap，如果内存不足自动提示
 TOTAL_MEM=$(free -m | awk '/^Mem:/{print $2}')
@@ -25,7 +27,9 @@ export NODE_OPTIONS="--max-old-space-size=2048"
 # Build backend (embed frontend)
 echo "Building backend..."
 cd "$ROOT_DIR/backend"
-export GOPROXY=https://goproxy.cn,direct
+export GOPROXY="${GOPROXY:-https://goproxy.cn,direct}"
+export GOSUMDB="${GOSUMDB:-sum.golang.google.cn}"
+ensure_go_toolchain "$ROOT_DIR"
 go build -tags embed -o sub2api ./cmd/server
 
 echo "Build complete. Run restart-prod.sh to apply."

@@ -134,6 +134,10 @@ export NODE_OPTIONS="--max-old-space-size=2048"
 echo "  编译后端..."
 cd "${NEW_DIR}/backend"
 export GOPROXY
+export GOSUMDB="${GOSUMDB:-sum.golang.google.cn}"
+# shellcheck source=ensure-go-toolchain.sh
+source "${NEW_DIR}/scripts/ensure-go-toolchain.sh"
+ensure_go_toolchain "$NEW_DIR"
 go build -tags embed -o sub2api ./cmd/server
 
 # 启动
