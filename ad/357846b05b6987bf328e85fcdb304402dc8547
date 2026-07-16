@@ -1,0 +1,976 @@
+backend/internal/repository/account_repo_auto_pause_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-72
+frontend/src/api/admin/channelMonitor.ts
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 8
+frontend/src/components/keys/UseKeyModal.vue
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 53-103,229-230,251,254-259,381-385,630,653-661,666-667,669,672,703,1225
+backend/internal/repository/api_key_repo_last_used_unit_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 6,129-140
+  s_42ac3c8d1d41ba::t_d700cdbe0c9e5f 141-142
+frontend/src/i18n/locales/en/dashboard.ts
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 88,141-144,172-173,407-408
+backend/internal/service/openai_gateway_grok_cache.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 4,18,47-53,105-106,135-296
+  s_42ac3c8d1d41ba::t_00b8116cef4e50 297
+frontend/src/components/common/GrokFreeIcon.vue
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-15
+backend/internal/handler/admin/idempotency_helper.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 42,52-57
+  s_42ac3c8d1d41ba::t_f213385027e7a0 58-59
+backend/internal/repository/usage_log_repo_query.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 22,428-482,534,546-574
+backend/internal/handler/failover_loop.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 8-9,34-35,73,76-80,82-84,91-93,99,148-153,182-201
+  s_42ac3c8d1d41ba::t_e78aae2074f020 202-203
+backend/internal/service/openai_images_responses.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 568,575,1015,1018-1021,1185,1267,1330-1335,1345,1574-1581,1613-1615,1696
+frontend/src/api/__tests__/admin.grok.spec.ts
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-37
+backend/internal/service/openai_image_intent_hint_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-338
+backend/internal/service/openai_ws_client_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 113-116
+.github/workflows/backend-ci.yml
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 11-19
+backend/internal/service/scheduler_snapshot_full_rebuild_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-162
+backend/internal/handler/admin/batch_update_credentials_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 39
+backend/internal/service/account_stats_pricing_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 462-481
+backend/internal/service/account_stats_pricing.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 68-74
+backend/internal/pkg/servertiming/http.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-104
+backend/internal/service/oauth_service.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 25
+backend/ent/channelmonitorrequesttemplate/channelmonitorrequesttemplate.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 106,116
+backend/internal/service/openai_codex_transform.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 86-87,317,324-340,621-625,865-870,893,907
+backend/internal/service/openai_codex_transform_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 620-758
+backend/internal/handler/openai_gateway_credential_failover_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-211
+backend/internal/service/billing_service.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 156-164,869-879,887-898,945-947,988-991,1055,1115-1124,1126-1136,1148,1279-1286
+backend/internal/service/grok_credential_failure.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-661
+frontend/src/api/admin/grok.ts
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 7-9,40-41,47-82,101-103,105-107,112-113,164-173
+frontend/src/components/admin/account/AccountActionMenu.vue
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 25-28,71,73-76
+frontend/src/components/common/DataTable.vue
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 157,165-169,172,185-186,189-190,400-405,552,555,559,562,565-566,638-643,645,647-652,682-730,830
+backend/internal/service/model_not_found_error_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 67-114
+backend/internal/service/openai_content_session_seed_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 4-5,9,203-380,400-550
+frontend/src/api/client.ts
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 9-14,83-90
+  s_42ac3c8d1d41ba::t_6f61ad5e3d44df 91-92
+.gitignore
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 119-120
+backend/internal/server/router.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 63
+backend/internal/handler/dto/mappers.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 602-650
+backend/internal/pkg/servertiming/collector_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-129
+backend/internal/service/openai_gateway_response_handling.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 42-58,69-70,73-88,95-99,101-121,123-130,139-140,144-147,178-202,219-264,275,300-311,313-327,340-347,349-363,368-370,378,449-453,478-488,504-506,515-521,526,529,535-553,555-568,575,577-578,583,590-592,595-598,601-603,606-613,619-623,629,631,635,645-649,653,657,678-691,696-698,702-714,1106-1109,1179-1183,1335-1337,1351-1403,1444-1445,1472-1474
+backend/internal/service/openai_responses_namespace_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-34
+frontend/src/components/admin/usage/__tests__/UsageTable.spec.ts
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 123-154
+frontend/src/composables/useAccountOAuth.ts
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 6
+backend/internal/repository/ops_error_where_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 104-137
+backend/internal/pkg/apicompat/responses_to_anthropic_read_tool_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-115
+backend/internal/service/openai_image_intent_hint.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-59
+backend/internal/service/vertex_service_account.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 21,199,215
+frontend/src/i18n/locales/en/admin/overview.ts
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 760
+backend/cmd/server/wire_gen.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 73,179,186-187,189-190,192,204-205,261,264-270,288
+backend/internal/service/model_not_found_error.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 25-48
+backend/internal/handler/admin/account_data.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 463
+backend/internal/service/admin_account.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 5-6,10,65-333,343-346,348-350,352-359,361-365,369-396,403,439-479,524-530,586,589,701-709,743,747,754-764,1114-1116
+backend/internal/service/openai_quota_service.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 11,25-26,122-123,159,162-188,192-206,211-216,219,230,233-237,240,263-265,286-290,302,319,357-367,390-474
+frontend/src/utils/errorCategory.ts
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 12
+backend/ent/schema/usage_log.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 103-105
+backend/internal/handler/admin/grok_oauth_handler.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 4-6,9-10,13,20-21,26-27,34,40-41,167-210,262,266-498,509
+backend/internal/service/ops_system_log_service.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 92
+backend/internal/handler/gateway_handler_usage_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-51
+backend/internal/service/channel_monitor_service_grok_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-85
+backend/internal/service/openai_account_runtime_block_fastpath.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 6,19-25,107-125,137,145,149-150,153,162-164,166,173-175,183,190,220-221,224-227,230-241
+frontend/src/composables/__tests__/useSwipeSelect.spec.ts
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-74
+backend/internal/server/middleware/cors.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 55,86
+backend/internal/service/openai_ws_forwarder_ingress.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 21-27,49-50,235-245,252-256,385-392,394-401,591-593,657-659,668-675,1371
+backend/internal/service/ops_system_log_service_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 104,123-124
+  s_42ac3c8d1d41ba::t_4b653ff501c6e0 125
+frontend/src/components/user/monitor/ProviderIcon.vue
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 54-58
+backend/internal/service/grok_quota_fetcher.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 6-7,29,33,35-61,63-67,71-74,79-88,90-92,94-97,103-117,119,123-171
+  s_42ac3c8d1d41ba::t_8307231b32f359 172
+backend/internal/service/openai_gateway_service.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 73,90,396,405-408,414,599-604,1104-1106
+frontend/src/views/user/__tests__/KeysView.spec.ts
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 45,166-171,305,317,319-331,370,372,383
+backend/internal/service/openai_gateway_response_flush_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-473
+frontend/src/views/admin/ops/components/OpsSystemLogTable.vue
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 51,179,293,319,461-464,514,522-524
+backend/ent/migrate/schema.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 626,771,1563,1596,1602,1608,1614,1620,1629,1634,1639,1644,1649,1654,1674,1679,1684
+README_CN.md
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 169-173,341,473-489
+frontend/src/views/admin/GroupsView.vue
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 131-136,3621-3622,3624-3629,3633,3684-3724,3727,3736-3739
+backend/internal/service/image_generation_intent_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 4,110-176,178
+  s_42ac3c8d1d41ba::t_ab97e6a5f9c93c 177,179-180
+README_JA.md
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 164-169,336,456-472
+frontend/src/composables/useAntigravityOAuth.ts
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 115-118,125-127,131
+backend/internal/handler/admin/account_handler_long_context_billing_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-165
+backend/internal/service/crs_sync_service.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 171,636-647,686,767-769,771-773,783-794,839,1128-1129
+  s_42ac3c8d1d41ba::t_3d8d97169a877d 1130-1131
+frontend/src/i18n/locales/zh/admin/ops.ts
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 53,269,295
+backend/internal/server/routes/gateway.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 45-51,94-109,150,205-206,239,275-276
+backend/internal/service/account_usage_service.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 114-115,127,202-214,297,302-303,314,327,373-374,697-701,719-731,960,965-974,984-997,1005-1107
+  s_42ac3c8d1d41ba::t_5c1a3f212347ad 1108
+backend/internal/web/embed_on.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 112-113,277,311,314-316
+backend/internal/pkg/xai/billing_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-127
+frontend/src/i18n/locales/en/admin/accounts.ts
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 353-355,408-410,455-458,828-832,834,879-885,893,1219-1220
+frontend/src/utils/__tests__/formatDateLocalInput.spec.ts
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-18
+backend/internal/handler/wire.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 167
+backend/internal/repository/wire.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 71
+backend/internal/service/account_test_service_openai_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 140-167
+backend/internal/handler/openai_alpha_search.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 109,127-130,188-194,203
+backend/internal/pkg/httpclient/pool.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 28,96
+deploy/APPLE_CONTAINER.md
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-221
+frontend/src/components/account/OAuthAuthorizationFlow.vue
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 18,51-61,204-279,826-828,849-851,866,903,910,915-927,958-964,966-969,1052-1057,1068,1079-1080
+backend/internal/pkg/apicompat/anthropic_responses_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 721,742-744,751-752
+frontend/src/views/admin/__tests__/AccountsView.sparkShadow.spec.ts
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 17,27,39,108,116,124-168,260,305-376,378-379
+  s_42ac3c8d1d41ba::t_160f9080a10b1c 377
+backend/internal/pkg/apicompat/anthropic_to_responses_response.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 167-168,214-215,422-424,437,445-451,517-521,523,530
+backend/internal/pkg/xai/sso_device.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-418
+backend/ent/mutation.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 41766-41843,43265-43300,44418,44497-44499,44614-44615,44713-44714,44942-44948,45580-45581
+  s_42ac3c8d1d41ba::t_b0509f1a46931b 45582
+backend/internal/service/channel_monitor_service.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 126,170,489,499-505
+backend/internal/service/openai_gateway_passthrough_image_intent_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-59
+backend/internal/repository/proxy_expiry_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-27
+backend/ent/usagelog/where.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 188-192,1473-1481
+  s_42ac3c8d1d41ba::t_c06ee0cf57bbb7 1482
+backend/internal/server/routes/admin.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 300,403-404
+backend/internal/pkg/apicompat/responses_to_anthropic_parallel_tool_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-277
+backend/internal/service/openai_codex_models_service_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 5-7,10-13,15-20,23-144,202-244,317-992
+backend/internal/service/openai_gateway_upstream_errors.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 282,474
+frontend/src/components/common/PlatformTypeBadge.vue
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 36-46,71,80,96-99,101-104,121-124,126-127,136-141,149-164,198,207
+backend/ent/usagelog.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 78-79,201,396-401,678-679
+  s_42ac3c8d1d41ba::t_b6c88f6578d4ca 680
+backend/internal/server/middleware/server_timing.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-205
+backend/internal/service/openai_gateway_count_tokens.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 218-226
+frontend/src/composables/__tests__/useAntigravityOAuth.spec.ts
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-56
+frontend/src/composables/useGrokOAuth.ts
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 124-125
+backend/internal/handler/gemini_v1beta_handler.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 371,486,494
+backend/internal/repository/account_repo_schedulable_projection_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-82
+backend/internal/handler/gateway_handler.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 330,452,460,618,874,882,1461-1468
+backend/internal/handler/admin/account_codex_import.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 75-93,123-126,504-538,620-622,858-860,891-898,948-951,1104-1134
+  s_42ac3c8d1d41ba::t_6f5a7b7834d96b 1135
+backend/internal/handler/openai_gateway_compact_log_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 69-82
+backend/internal/repository/api_key_repo.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 528,530-540
+backend/internal/service/channel_monitor_checker_body_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 67,84-87,198-280
+  s_42ac3c8d1d41ba::t_ce096ff65f8cf9 281
+backend/internal/service/openai_gateway_grok.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 14,27,29-32,50-53,65,72,111,118,197-200,320-348,585,622,629,751-752,763-765,791,795-796,822-838,929-959,974-999
+  s_42ac3c8d1d41ba::t_46c41d9cdefbdb 1000
+backend/internal/service/openai_gateway_grok_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 259,262,274-291,302-304,430-431,617-656,691-692,700-742,804,808,810-836,840-841,844-847,850-861,902,907,913,943,1006-1007,1014-1045,1080-1114,1124,1181-1185,1190,1223-1225,1238-1240,1297,1357,1420,1461-1531,1541,1682-1777,1879-1944,2044-2132
+backend/ent/usagelog_update.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 545-558,1216-1218,2002-2015,2703-2705
+backend/internal/service/ratelimit_service.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 2009-2010,2014-2021,2029-2036,2043-2045,2048
+deploy/.env.example
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 2,6,9-11,17,20,26-34,322-323,329-330
+backend/internal/handler/admin/openai_oauth_handler.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 307-310
+backend/internal/service/openai_oauth_passthrough_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 17,44-53,436-623,1008,1021-1269,1456-1590
+  s_42ac3c8d1d41ba::t_62bb930a367e25 1591
+backend/internal/config/config_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 20-36,101-128,230-251,306-314,1395-1404,1495-1504,1739-1758,2083-2085
+frontend/src/components/account/EditAccountModal.vue
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1789-1821,1877-1894,2596-2598,2818-2820,2948-2951,3252-3253,3268-3273,4256-4263,4440-4443
+  s_42ac3c8d1d41ba::t_4f0131c60f3147 4444
+backend/internal/pkg/apicompat/responses_namespace_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-164
+frontend/src/components/admin/account/AccountTestModal.vue
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 253,442-443
+backend/internal/handler/admin/admin_service_stub_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 36-38,394-396,421-429,431,440
+backend/internal/handler/openai_images.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 145-148,161-164,221-224,226,273,281-287,314,405-409
+  s_42ac3c8d1d41ba::t_952ef9c244863d 410-411
+backend/internal/pkg/apicompat/chatcompletions_responses_bridge.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 38-43,70-111
+  s_42ac3c8d1d41ba::t_5d101e1b4c2555 112-113
+backend/ent/channelmonitor/channelmonitor.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 170,180
+backend/internal/server/api_contract_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 597,1380,1724
+  s_42ac3c8d1d41ba::t_edee6d5454d00e 1725-1727
+backend/internal/service/grok_upstream_url_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-122
+backend/internal/pkg/apicompat/chatcompletions_anthropic_bridge.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-927
+backend/internal/service/channel_monitor_template_types.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 58
+backend/internal/service/openai_alpha_search_billing_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 53,61,69
+backend/internal/service/openai_gateway_service_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 2964,2975
+deploy/docker-compose.dev.yml
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 29
+backend/internal/handler/admin/account_codex_import_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 562,586,633,635,654-656,673,712,755,801
+frontend/src/views/admin/ops/components/__tests__/OpsSystemLogTable.spec.ts
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-135
+backend/internal/service/content_moderation_keyword_matcher.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-222
+backend/internal/service/openai_quota_reset_credits.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-141
+frontend/src/api/__tests__/client.spec.ts
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 15,124-224
+backend/internal/repository/account_repo.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 64,76-81,89-98,103,165-216,502-504,789,793-799,804,808-822,824-827,831-837,855,862,865-870,874-881,970-1260,1283-1292,1462-1497,1506,1760-1788,1884-1928,2069,2078,2083-2095,2098-2103,2106
+backend/internal/pkg/apicompat/chatcompletions_anthropic_bridge_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-1090
+backend/internal/service/gateway_usage_billing.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 950
+backend/internal/handler/admin/account_handler_grok_refresh_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-99
+backend/internal/handler/admin/ops_system_log_handler.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 18,60,158
+backend/internal/repository/scheduler_outbox_repo_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 7,13-62
+  s_42ac3c8d1d41ba::t_44f533e786e152 63
+backend/internal/service/openai_messages_dispatch_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 40-61
+backend/internal/service/openai_sse_json_documents.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-115
+backend/internal/service/token_refresh_pool_health_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-949
+frontend/src/components/admin/monitor/MonitorFormDialog.vue
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 16,21,25,54,84,218,221-222,404,407-422
+  s_42ac3c8d1d41ba::t_dcb063cb9e1a07 423
+backend/internal/service/billing_service_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 264-280,851-859
+  s_42ac3c8d1d41ba::t_e9bc1720b2e67c 860-861
+backend/internal/service/concurrency_service_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 48-86,88,328-434
+  s_42ac3c8d1d41ba::t_adcb351716dd73 435
+backend/ent/schema/channel_monitor_request_template.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 42
+frontend/src/components/admin/monitor/MonitorTemplateManagerDialog.vue
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 10,133,251,271,287
+frontend/src/components/admin/usage/UsageTable.vue
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 171-175
+backend/internal/handler/gateway_handler_warmup_intercept_unit_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 34-49
+backend/internal/handler/openai_codex_models_handler_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-288
+backend/internal/pkg/apicompat/responses_namespace.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-212
+backend/internal/repository/server_timing_redis_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-63
+frontend/src/i18n/locales/en/admin/ops.ts
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 53,269,295
+backend/internal/pkg/apicompat/responses_to_chatcompletions.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 92-98,307-313
+backend/internal/service/ops_upstream_context.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 191-195,212-214
+frontend/src/views/__tests__/KeyUsageView.spec.ts
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 165,209-230
+  s_42ac3c8d1d41ba::t_37ef0563876b75 231-233
+frontend/src/i18n/locales/zh/admin/overview.ts
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 19,31-34,44,753,1023-1030
+backend/ent/runtime/runtime.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1943-1946,1948,1952,1956,1960,1964,1968,1972,1976,1980,1984,1988,1992,1996
+backend/internal/handler/admin/grok_oauth_handler_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 11,45-60,64,66-84,86,106-107,110-112,115,117,126-128,131-142,155,173,187-300
+backend/internal/service/channel_monitor_const.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 50-51,59,63-66,121,127
+backend/internal/handler/failover_loop_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 5-6,12,134-177,183,200,216,231,237,243,262,279,288,297,307,312,328,347,361,366,383,388,401,404,408,412-448,461,471,474,494-497,500,504-505,509-530,541,558,561,570,579,588-589,604,608,617,634,640,647,652,657,675,682,689,701,706,711,726,735,745,757,830-852,862-904
+  s_42ac3c8d1d41ba::t_38bd9baea3026c 905
+frontend/src/views/admin/__tests__/GroupsView.columnSettings.spec.ts
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 34,255,270-271,279,285,296-318,336-360
+backend/internal/repository/account_repo_temp_unsched_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 6,13,29-252,258,263,265-273,275,282-284,293-295,297-331,338,349-351,367,369,374,378-380
+backend/internal/handler/payment_handler.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 26
+backend/internal/repository/scheduler_outbox_repo.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 96-113
+frontend/src/components/account/CreateAccountModal.vue
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 53,1969,2827-2858,3121-3123,3133,3531,3716-3717,3730-3734,4023-4024,4579-4580,4663,4699-4709,4829,5267-5336,5465,5543,5731
+backend/internal/service/channel_monitor_checker.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 16,38,171,209-229,419-421,439,540-541,551
+backend/internal/pkg/antigravity/client.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 20,344,386,417,468,547,686,845,888
+backend/internal/handler/admin/account_handler_mixed_channel_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 18
+backend/internal/handler/admin/channel_monitor_handler.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 40,44,58
+backend/internal/handler/openai_responses_failover_cancel_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-194
+backend/internal/repository/server_timing_sql.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-311
+backend/internal/service/openai_content_session_seed.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 4,15-18,29-93,96,101,106,111,118,139,178-330
+backend/internal/service/openai_gateway_chat_completions_raw.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 111,164,191,204,224
+backend/internal/pkg/xai/oauth.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 8,168-185,213,274-286,304-313,466-470,478-482,490-494,502-506,514-518,525-548,550-554
+backend/internal/service/image_generation_intent_benchmark_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-59
+backend/internal/service/openai_gateway_passthrough_flush_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-284
+backend/internal/service/openai_images.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 635,756-764
+backend/internal/service/ops_service_batch_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 100-147
+backend/internal/repository/concurrency_cache_integration_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 53-99
+backend/internal/repository/http_upstream.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 24,29,64-70,198,255,1113-1117,1132-1145
+  s_42ac3c8d1d41ba::t_1a59d3a6f373f3 1146-1147
+backend/internal/handler/admin/grok_import_probe.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-205
+backend/internal/service/ops_user_error_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 20,47
+backend/internal/repository/proxy_repo.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 492,506,519,523-524,527-533,539-554,557,562,569,571,574,577,579,583,587,590,593-594,597,599-600,602,604-605,608-626,628
+frontend/src/components/admin/account/__tests__/AccountActionMenu.spark_shadow.spec.ts
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 52-100
+backend/internal/handler/gateway_handler_chat_completions.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 162-164,184,261,269,336-341,343
+  s_42ac3c8d1d41ba::t_0313d85c40b51e 342
+backend/internal/repository/proxy_expiry_integration_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 7,74-106
+  s_42ac3c8d1d41ba::t_b80eeaf4fbcb02 107-108
+backend/internal/service/openai_agent_identity.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-522
+backend/cmd/server/VERSION
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1
+backend/internal/service/openai_gateway_chat_completions.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 280-286
+backend/internal/service/account_long_context_billing_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-290
+backend/migrations/latest_api_key_ip_index_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-19
+backend/internal/service/content_moderation_keyword_matcher_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-59
+backend/internal/service/upstream_models_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 180-191,217-232,296-321
+  s_42ac3c8d1d41ba::t_d63db7d15e45cc 322-323
+backend/internal/service/openai_ws_pool_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 742,753,1322-1324,1616-1622
+  s_42ac3c8d1d41ba::t_30eea0a85cfe3b 1623
+backend/internal/service/ops_system_log_sink.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 30,49-50,53,56,67-78,240
+frontend/src/components/account/__tests__/AccountUsageCell.spec.ts
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 663-1047
+backend/internal/service/concurrency_service.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 9,17,64-188,255-294
+  s_42ac3c8d1d41ba::t_a583d97924fd0f 295
+backend/internal/service/payment_order_lifecycle.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 16,161,163,205,207,216,218
+backend/internal/service/payment_refund.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 22,351,358,423,430
+backend/internal/service/token_refresh_service_candidates_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 7,18,29-30,35,39-41,46-53,55-57,61-67,69,73-74,80-81,87-88,95-96,170-176,184
+backend/internal/config/config.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 583-594,616,763-767,839-840,939-941,949-957,1488-1490,1646,1970-1971,1986-1988,2068,2127-2132,2686-2693,2769-2775,2783-2791
+backend/internal/service/upstream_models.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 134-135,149-176
+  s_42ac3c8d1d41ba::t_212183936b7e0c 177-178
+frontend/src/components/admin/monitor/MonitorAdvancedRequestConfig.vue
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 112-113,310,314-315
+backend/internal/service/ops_metrics_collector.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 42-45,382,386,391,415-435
+  s_42ac3c8d1d41ba::t_a68ef56b42b992 436
+backend/internal/service/ops_metrics_collector_projection_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-128
+backend/internal/service/openai_gateway_chat_completions_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 101,132
+backend/internal/service/openai_images_json_keepalive_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-252
+backend/internal/service/openai_gateway_responses_chat_fallback.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 46-53
+backend/internal/service/openai_gateway_passthrough_image_intent_benchmark_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-27
+backend/internal/service/openai_quota_spark_window_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 5-8,41-49,179-195,247-341,379,381,383
+frontend/src/components/keys/__tests__/UseKeyModal.spec.ts
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 47,81,110-115,117-118,121-158,195-199,201-283
+backend/internal/handler/gateway_handler_cancellation_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-98
+backend/internal/handler/admin/account_handler.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 55,64,74,90,791-794,862-909,1232-1244,1371-1374,1668-1673,1735
+backend/internal/service/account_credentials_redact.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 7
+backend/internal/service/account_test_service_grok_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 43-45,84-125,138-140,172-174
+backend/internal/service/openai_gateway_passthrough.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 3,12,15,32,34,49,106-116,129,186-206,208-226,228,230,373-381,460-463,467-477,483-555,562,564,593-596,606,609,611-612,636-637,654-660,663,993,995-1004,1025,1038-1039,1057-1072,1155-1158,1162,1256-1259,1301-1305
+backend/internal/service/openai_gateway_messages.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 248-250,254,258-261,265,280,331-337,358,796-798,813,838-841
+backend/internal/service/openai_gateway_usage.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 181-201,280,390,420-428,476,481-489,492-498
+backend/internal/service/openai_responses_lite_tools_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-267
+backend/internal/service/ops_system_log_sink_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 143,176-178,331-346
+  s_42ac3c8d1d41ba::t_d35fdf3ecbe656 347
+backend/internal/repository/ops_repo.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 163,585,721,764,832,865,981-982,987,1120-1141,1159-1163,1228,1294-1302
+  s_42ac3c8d1d41ba::t_25e0880427264c 1303
+backend/internal/service/account_test_service.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 18,76-77,550-554,590-596,599-603,613-625,667-675,701,727,747-749,758-760,776,785-786,788-789,867-874,881,883-886,915-917,927-939,950,973-981,1773-1785,1817-1829,1834,1839,1858,1870
+backend/internal/service/wire.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 134,136-194,202,204,248,664-665,690
+backend/migrations/175_add_ops_system_logs_host.sql
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-3
+deploy/config.example.yaml
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 23-25,158-166,269-274,404-406,667-684
+backend/internal/repository/account_repo_integration_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 7-8,16,31,38-58,70,81-105,233-260,317-398,885-934,1061-1064,1073-1362
+backend/internal/service/scheduler_snapshot_group_lifecycle_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-796
+frontend/src/i18n/locales/zh/admin/accounts.ts
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 320-321,456-458,513-514,556-558,915-919,921,966-972,980
+backend/internal/handler/gateway_helper.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 166-167,169,171-174,218-224
+  s_42ac3c8d1d41ba::t_53851b8c19ad5e 225-226
+backend/internal/repository/scheduler_cache.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 5-6,9,25-26,38-42,44-147,156-157,162,166-177,282-304,308-312,314-330,332-392,395-396,398-420,422-423,442-447,455-463,465,469-470,472-480,499-506,544,546-551,609-612,646,648,652,667,669-673,679,683,688-703
+backend/internal/service/account_service.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 21-49,121-132
+  s_42ac3c8d1d41ba::t_fa8410d4c5f8b6 133
+backend/internal/service/openai_gateway_record_usage_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 42-52,1059,1077-1115,1127-1182
+backend/internal/repository/req_client_pool.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 5,11,62,71-79
+  s_42ac3c8d1d41ba::t_9c1d224f13979b 80-81
+backend/internal/service/openai_images_actual_size_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-174
+backend/internal/service/openai_ws_client.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 7,43-49,72-93,130-135,339-345
+  s_42ac3c8d1d41ba::t_3bc341e8e6593c 346
+backend/internal/service/usage_log.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 145-152
+backend/internal/handler/gateway_helper_fastpath_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 14-20,103-118,120
+  s_42ac3c8d1d41ba::t_656fc32af15b18 119,121
+backend/internal/pkg/pagination/pagination.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 41
+backend/internal/service/grok_media.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 28-29,39,287,291,322-324,351,522,620
+backend/internal/web/static_cache_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-71
+deploy/tests/fixtures/bin/container
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-164
+frontend/src/components/account/__tests__/credentialsBuilder.spec.ts
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 9,11,14-15,296-380
+backend/internal/service/scheduler_outbox.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 20-21
+backend/internal/handler/openai_codex_models_handler.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 18-20,22-24,35-37,39-41,43-55,57-82
+backend/internal/pkg/apicompat/responses_to_anthropic.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 418-435,437,458-460,480-490,493
+backend/internal/handler/admin/account_data_handler_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 69
+backend/internal/service/admin_service_duplicate_account_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-322
+backend/internal/service/openai_first_output_timeout.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-335
+backend/internal/service/openai_gateway_request_body.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 139-147,150-152,376-426
+backend/internal/service/scheduler_snapshot_full_rebuild_lifecycle_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-666
+backend/internal/repository/account_repo_duplicate_integration_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-73
+backend/internal/repository/server_timing_redis.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-39
+backend/internal/handler/openai_image_intent_hint_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-44
+backend/internal/repository/server_timing_sql_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-258
+backend/internal/server/middleware/server_timing_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-258
+backend/internal/handler/admin/grok_import_probe_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-232
+backend/internal/repository/scheduler_cache_integration_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 70-72,107-176
+backend/internal/service/channel_monitor_validate.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 127-136
+backend/internal/service/ops_user_error.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 47,76
+frontend/src/components/common/__tests__/DataTable.spec.ts
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 65-261
+backend/internal/service/openai_quota_reset_credits_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-188
+backend/internal/handler/admin/ops_handler.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 389-390,473-474
+backend/internal/service/oauth_refresh_api.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 5,23-102,108,112-124,131,149-151,153,174-183,188-190,207,214-246,257,259-263,269-273,283-290,296-353,358,362-366,375-409
+  s_42ac3c8d1d41ba::t_1c81398d0ec8fe 410
+frontend/src/components/account/__tests__/CreateAccountModal.spec.ts
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-213
+backend/internal/service/token_refresh_service_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 8,18-48,69-71,76-78,82-102,106,117-294,314-330,335-336,340-353,378,390,822,961-962,973-975,990-994,1019,1035-1238,1245,1266,1306,1323,1332,1360-1609,1616,1627
+backend/internal/service/grok_token_refresher.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 25-26,33-34
+  s_42ac3c8d1d41ba::t_f26a35c9fc672d 35
+backend/internal/web/embed_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 8,11-12,446-476,488,545-570,623-642,646-656,750
+backend/migrations/174_add_usage_logs_api_key_latest_ip_index_notx.sql
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-5
+backend/internal/pkg/pagination/pagination_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 72-98
+frontend/src/api/admin/ops.ts
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 831,853,869
+backend/internal/handler/ops_error_logger.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 724,728-732,745,761,769,789-791,798-800,841,846,852-853,863,1001,1196-1266,1422,1477-1480,1605-1620,1635-1636,1654-1655
+backend/internal/handler/grok_media.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 34-43,169,178-180,195-198,268-277,282-285,312-315,336
+backend/internal/handler/admin/account_codex_agent_identity_import_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-47
+backend/internal/repository/backup_s3_store.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 16,67,74,82,87,95,100,117,121
+backend/internal/repository/redis.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 24-28
+backend/internal/service/account_base_url_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 258,266,269,277,296-409
+backend/internal/service/openai_compat_model_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 127-175
+backend/internal/repository/account_repo_schedulable_projection_integration_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-107
+backend/internal/service/openai_gateway_grok_chat_bridge_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 53-75,307,316-354,392-393,396-399
+backend/internal/service/grok_oauth_reconciliation.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-345
+backend/internal/service/openai_image_dimensions.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-92
+backend/internal/service/openai_ws_forwarder_ingress_session_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 167-271,406,427-428,528-570,580-601,974-983,1006-1011
+backend/internal/web/static_cache.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-53
+backend/internal/service/ops_port.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 197,214,235
+backend/internal/handler/admin/ops_system_log_handler_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 5,23-42,145-161,246-262
+  s_42ac3c8d1d41ba::t_1a2bcfaa3a89f5 263
+backend/internal/handler/admin/account_handler_available_models_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 35,69
+backend/internal/pkg/xai/billing.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-372
+backend/internal/repository/usage_log_repo_insert.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 74,267,280,719,728,804,860,956,965,1038,1094,1158,1171,1276
+backend/internal/service/grok_quota_service.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 10,12,17,23-24,28-40,54-55,63,65-68,74-98,100-118,122-127,138,152-154,163,167,172-173,184,190-205,210-378,394,404,416
+backend/internal/service/openai_codex_models_service.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 5-7,9,12,14,19-20,27-34,44-217,237-271,273-276,278-293,295-298,304-366,368-373,375-379,382-399,401-404,417-421,426-429,433-513
+backend/internal/handler/openai_gateway_handler_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 7,12,224-314,510,516,809-904,1401-1423,1496-1584
+  s_42ac3c8d1d41ba::t_63a59b4a29ac46 1585
+backend/internal/service/openai_image_generation_controls_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 90,96,111-113,123-127,139-156,245,278-280,318-403,576,581-582,595-661
+backend/internal/service/openai_model_mapping.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 6-9,11-12,18-19
+backend/internal/service/openai_ws_pool.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 42,64-70,211-218,453-462,552,734,1400,1435,1443,1486-1490,1522-1526,1541-1569,1648-1656,1658-1662,1666,1694,1750
+backend/internal/service/openai_account_runtime_block_fastpath_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 138,140,146-149,152,157-178
+backend/internal/service/scheduler_snapshot_service.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 7,9,19-22,26-33,36-37,39-49,54-109,111-134,203-204,213-223,238-244,292-297,299-300,353-356,386,388,390-394,587,590-705,717,719-745,748,756-758,760,763,767,774,780-781,783,786,790-802,805-829,836-845,849,855-857,867,872-879,891-901,903-906,910-914,918-919,921-1000,1003-1005,1008-1024,1027-1041,1043-1170,1172-1205,1210-1236,1238-1239,1241-1242,1245-1281,1284-1320,1365-1387
+  s_42ac3c8d1d41ba::t_631000a08953fb 1388
+frontend/src/api/__tests__/adminUIRequest.spec.ts
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-100
+backend/internal/server/middleware/cors_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 106-107,110
+backend/internal/service/scheduler_snapshot_batch_query_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-534
+backend/internal/handler/openai_embeddings.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 124-127,196-202
+backend/internal/pkg/apicompat/streaming_stop_reason_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-145
+backend/internal/repository/http_upstream_http2_keepalive_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-67
+backend/internal/service/ops_service.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 225-251,259
+backend/internal/service/grok_token_provider.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 6,13-24,45,69-72,74-81,84-89,94-96,100,105-119,127-130,136-141,144-148,170-187,189-221,223-239,244-267
+  s_42ac3c8d1d41ba::t_c86f4d5a98c160 268
+backend/internal/service/payment_order.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 19,449,451
+backend/migrations/175a_add_ops_system_logs_host_index_notx.sql
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-2
+frontend/src/components/account/__tests__/EditAccountModal.spec.ts
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 398-496
+backend/internal/service/openai_gateway_forward.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 23-24,47-73,125,134,143-154,213-217,219,231,531,616,624-627,733-744,746,750-755,757-759,761-763,777-786,788-793,799-801,812-821,880,968-978
+backend/internal/service/openai_ws_forwarder_payload.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 18-27,80-82
+frontend/src/components/account/__tests__/GrokQuotaProbeCell.spec.ts
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-54
+backend/internal/handler/payment_handler_resume_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 122,222,310,350
+backend/internal/repository/ops_repo_system_logs_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 21,41-45,75,85-89
+backend/internal/service/openai_gateway_request_body_reasoning_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-112
+backend/internal/repository/scheduler_cache_unit_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 6-8,10,13-14,18-84,239-613
+backend/internal/service/scheduler_snapshot_outbox_cleanup_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 7,10-11,15-20,27-47,76-77,96-138,155-164,166-169,321-866
+  s_42ac3c8d1d41ba::t_1003cbc38befc4 867
+backend/internal/server/routes/gateway_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 126-129,163-166
+frontend/src/views/admin/ops/components/OpsErrorDetailsModal.vue
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 75
+frontend/src/views/admin/ops/components/OpsErrorLogTable.vue
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 280-282
+backend/internal/service/openai_responses_lite_tools.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-191
+frontend/src/views/KeyUsageView.vue
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 426,502,506-508
+frontend/src/views/user/DashboardView.vue
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 24,31
+frontend/src/api/admin/accounts.ts
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 142-184,856
+  s_42ac3c8d1d41ba::t_e11cb168b3bb21 141
+backend/internal/service/grok_quota_service_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 6,9,11,13,18,35-38,61-67,82-188,194-196,199-200,203-205,208-213,235,248,257-260,276-277,284,300-339,346-347,379-383,388,411-413,419,444-779
+  s_42ac3c8d1d41ba::t_11fff21af6e0f6 780
+backend/internal/service/scheduler_snapshot_hydration_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 22-42
+frontend/src/components/admin/usage/UsageFilters.vue
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 280
+backend/internal/service/grok_oauth_service.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 6,103-104,179-190,245-250,287-303,318-321,324,329-331,333-338,340-341,343-344
+backend/internal/service/openai_ws_v2_passthrough_adapter.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 246-254,369-396,438-446,721-725,729
+backend/internal/service/openai_agent_identity_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-229
+backend/internal/pkg/xai/sso_device_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-115
+deploy/docker-compose.standalone.yml
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 40
+deploy/test-caddyfile-cache.sh
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-18
+deploy/tests/fixtures/bin/curl
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-4
+frontend/src/components/account/GrokQuotaProbeCell.vue
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 58-59,97-109,113,116-117,131-132
+backend/internal/service/grok_upstream_url.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-90
+backend/internal/handler/admin/account_handler_list_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 20
+backend/internal/handler/dto/types.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 485-492
+backend/migrations/channel_monitor_grok_provider_migration_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-20
+frontend/src/utils/format.ts
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 153-162
+  s_42ac3c8d1d41ba::t_4be83d05b4e7cd 152
+README.md
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 166-171,338,458-474,605-632,704,744-745,747,750,761
+backend/internal/service/openai_gateway_messages_chat_fallback.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 21,23-24,27-29,53-54,57,62,136,169,175-182,185-188,191,218-221
+backend/internal/repository/grok_oauth_client_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 53,67-83,85-90,112-120
+  s_42ac3c8d1d41ba::t_3c0c1bef9d6fba 121
+backend/internal/service/openai_ws_http_bridge_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 22-32,105,187,193-237,692-788
+backend/internal/service/ratelimit_service_model_not_found_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 128-201
+backend/internal/service/admin_service_spark_shadow_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 160-192
+backend/internal/pkg/servertiming/collector.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-349
+backend/internal/handler/openai_gateway_credential_failover_loop_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-926
+backend/internal/service/openai_gateway_grok_chat_bridge.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 14,145-146,149-160,167-201,256-261,304,309,345,352
+backend/internal/handler/openai_gateway_handler.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 43-44,61-68,295,343,347,350-355,372-375,469-476,480-493,521,525,530-541,889,893-895,915-918,1000-1006,1011-1017,1045,1171-1178,1385-1407,1411-1415,1422,1551-1589,1592-1594,1662,1665-1674,1831-1832,1834-1838,1840,1842-1853,1858,1863-1874,2076-2085,2127-2161,2226-2227,2230-2239,2242,2276-2277,2301-2328,2407-2410
+deploy/tests/apple-container-test.sh
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-78
+frontend/src/components/user/monitor/MonitorCard.vue
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 92
+frontend/src/i18n/locales/zh/dashboard.ts
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 88,141-144,176-177,412-413
+frontend/src/components/common/__tests__/PlatformTypeBadge.grok.spec.ts
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-85
+backend/migrations/175_default_openai_long_context_billing.sql
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-162
+backend/internal/handler/openai_gateway_first_output_timeout_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-51
+frontend/src/views/admin/AccountsView.vue
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 198,200,237-238,402,1150-1176,1710-1724
+backend/internal/service/openai_images_json_keepalive.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-274
+backend/internal/service/grok_oauth_service_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 7-8,18,31-34,89-116
+backend/internal/service/ops_models.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 11,30,124,153-156,160-161
+backend/migrations/174_add_usage_log_long_context_billing.sql
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-4
+backend/internal/handler/endpoint.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 27-28,93-96,182
+backend/internal/pkg/servertiming/http_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-168
+backend/internal/pkg/apicompat/chatcompletions_responses_bridge_custom_tools_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 37-106
+backend/internal/repository/ops_repo_args_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-37
+backend/internal/service/grok_credential_failure_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-1623
+backend/internal/service/openai_gateway_grok_cache_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 40-96,200-202,204-279,282-344,346-406,424,428-448,451-458
+frontend/src/components/admin/monitor/MonitorFiltersBar.vue
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 73,98
+backend/internal/repository/claude_oauth_service.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 279
+backend/internal/handler/admin/ops_ws_handler.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 19,327,362
+backend/internal/service/grok_quota_fetcher_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 23-50,98-121
+  s_42ac3c8d1d41ba::t_f7863d68efeab3 122-123
+backend/internal/service/scheduler_cache.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 5,18-46,80-102
+frontend/src/composables/useChannelMonitorFormat.ts
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 19,61-66,80-81,106-109,181-182
+frontend/src/i18n/locales/zh/misc.ts
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 539
+frontend/src/types/index.ts
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1023-1054,1080-1085,1385
+backend/internal/service/openai_ws_forwarder_v2.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 33,178-183,194-201,433,436-456,653-656
+frontend/src/views/admin/__tests__/ChannelMonitorView.grok.spec.ts
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-136
+backend/internal/service/openai_gateway_service_hotpath_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 30-56,224-241
+backend/internal/service/image_generation_intent.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 12-14,18-28,50-79
+backend/internal/service/crs_sync_long_context_billing_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-169
+backend/internal/service/openai_content_session_seed_benchmark_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-29
+frontend/src/api/__tests__/admin.accounts.duplicate.spec.ts
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-59
+backend/internal/service/token_refresh_service.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 13,20-54,59-60,73-85,101-105,109,114-118,132-139,142-150,152-153,155-164,203,220-222,232-235,247,252-254,261-268,270-395,397-401,403,405-410,412-429,431-433,435-478,480-484,486-492,494-506,508-519,521-565,567-575,580,582-584,587-782,784-787,790-823,828-838,840,842-862,865-866,870-880,885-886,889-890,892,897-908,910-913,917-934,937-950,954-983,988-991,993-1018,1023-1046,1054-1055,1059-1069,1072-1074,1080-1081,1090-1125,1142-1158,1198-1215,1267-1400
+  s_42ac3c8d1d41ba::t_8345a5575ed4e9 1401
+backend/internal/repository/req_client_pool_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 4-6,8,14,126-141
+  s_42ac3c8d1d41ba::t_4528e4f0c44543 142
+backend/migrations/openai_long_context_billing_migration_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-36
+backend/ent/usagelog/usagelog.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 69-70,185,257-258,425-427
+  s_42ac3c8d1d41ba::t_2ffe50bd04b9bf 428-429
+backend/internal/service/content_moderation_runtime_cache_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-451
+backend/internal/service/grok_oauth_reconciliation_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-578
+backend/internal/service/admin_service.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 70-75,586,612,633
+backend/internal/service/gateway_service.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 561-594,596-607,611-613,617-633
+  s_42ac3c8d1d41ba::t_8ad74ecd5c8192 634
+frontend/src/components/account/credentialsBuilder.ts
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 204-287
+backend/internal/repository/account_repo_grok_billing_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-16
+backend/ent/usagelog_create.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 354-367,724-727,845-847,1021-1024,1678-1689,2571-2584,3685-3697
+  s_42ac3c8d1d41ba::t_2c7dc88b0dc2f9 3698
+frontend/src/constants/channelMonitor.ts
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 15-18,27
+backend/internal/handler/admin/channel_monitor_template_handler.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 29
+backend/internal/handler/gateway_handler_responses.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 160-162,182,240,248,315-322
+backend/internal/pkg/xai/oauth_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 9,133-140,149,160-215,247
+backend/internal/service/openai_ws_http_bridge.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 25-33,204,212-214,247,445
+backend/internal/service/openai_gateway_cc_pipeline.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 121,201-203
+backend/internal/service/oauth_refresh_api_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 8,21-32,36-39,43-52,73-105,108-115,118-126,134-139,152-158,169-174,180,182,189,217,238,254,273,289,306,318-320,327,343,347-463,465,479-652,656,773,778,789,797,827,844-846,855,872-874,884,892,942-1012
+  s_42ac3c8d1d41ba::t_a71556c646a5bc 1013
+backend/internal/handler/gateway_helper_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 9-10,72-84
+  s_42ac3c8d1d41ba::t_9901df6c5a2a16 85-86
+backend/internal/server/routes/gateway_codex_models_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 13,16,20-23
+backend/internal/service/scheduler_snapshot_retirement_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-263
+deploy/docker-compose.yml
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 50
+deploy/README.md
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 3,10,20-22,33-49,99
+backend/migrations/176_channel_monitor_grok_provider.sql
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-39
+backend/internal/handler/dto/credentials_redact_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 23,39,52,90
+backend/internal/service/refresh_policy.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 64-71
+backend/internal/repository/migrations_runner.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 58-59,269-270
+backend/internal/service/content_moderation.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 25,95-97,518-521,526-533,580,718,795-797,802-803,806-807,812,815,905,1198-1199,1204,1462,1466-1470,1482-1611
+  s_42ac3c8d1d41ba::t_1e528aec7872c4 1612
+backend/ent/schema/channel_monitor.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 38
+backend/internal/handler/admin/grok_import_probe_handler_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-119
+backend/internal/repository/migrations_runner_notx_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 119-157
+backend/internal/repository/ops_repo_get_error_log_by_id_integration_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 94-110
+backend/internal/service/openai_sse_concatenated_json_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-271
+backend/internal/service/openai_gateway_messages_failed_response_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 80-157
+deploy/apple-container.sh
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-926
+frontend/src/api/adminUIRequest.ts
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-78
+frontend/src/components/account/AccountUsageCell.vue
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 385-393,401,408-415,428,621,634-635,1069-1117,1120,1353-1380
+  s_42ac3c8d1d41ba::t_f109c69b1558dc 1381
+backend/internal/service/openai_first_output_timeout_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-640
+backend/internal/service/openai_responses_namespace.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-83
+backend/internal/service/vertex_service_account_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 16,105-120
+  s_42ac3c8d1d41ba::t_a622fd4acce001 121-122
+backend/internal/service/openai_agent_identity_compat_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-500
+backend/internal/service/grok_token_provider_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 8,23-43,47-49,57-58,65-69,86-90,130-134,153,155-318
+backend/internal/service/openai_model_mapping_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 7-11,14,18-20,23,27-29,32-43,47-48,51,55,59-61,64,68,72-74,77,81,85-95,98,102-103,106,110-111,114,118-119,122,126-127,130,134-135,138,142-144,150
+deploy/docker-compose.local.yml
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 54
+frontend/src/composables/useSwipeSelect.ts
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 41-75,163-167
+  s_42ac3c8d1d41ba::t_366ae38ed04583 168-169
+frontend/src/views/user/KeysView.vue
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 93-96,1180,1195,1198,1200-1201
+backend/internal/handler/openai_chat_completions.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 136,139-141,157-160,242-248,253-259,287
+backend/internal/handler/admin/account_handler_duplicate_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-295
+backend/internal/repository/concurrency_cache.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 33-36,145-187,333-336,677-717
+  s_42ac3c8d1d41ba::t_aa2c774f719bf2 718
+backend/internal/repository/ent.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 18,51-63
+backend/internal/repository/grok_oauth_client.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 5,12,93-107,115-151,160-163,167-181
+backend/internal/repository/openai_long_context_billing_migration_integration_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 1-159
+backend/internal/service/account.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 85-86,1196-1203,1263-1265,1271-1274,1276,1283-1290,1292-1293,1295
+backend/internal/repository/usage_log_repo_request_type_test.go
+  s_42ac3c8d1d41ba::t_3cd85e7d331477 91,178,818,890,946,1002
+backend/internal/handler/admin/account_handler_passthrough_test.go
+  s_42ac3c8d1d41ba::t_1c3a5c97766114 28
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "ad357846b05b6987bf328e85fcdb304402dc8547",
+  "prompts": {},
+  "sessions": {
+    "s_42ac3c8d1d41ba": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f68ee-8748-7c61-973d-030b40498531",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Litien Zhao <DN7074@jsyyds.com>"
+    }
+  }
+}
