@@ -1,0 +1,21 @@
+backend/internal/service/pricing_service.go
+  s_42ac3c8d1d41ba::t_a31cc79e7a3f67 639-645
+backend/internal/service/pricing_service_test.go
+  s_42ac3c8d1d41ba::t_a31cc79e7a3f67 49-57
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "f41db948c1a7f556fe594213804b44649158202f",
+  "prompts": {},
+  "sessions": {
+    "s_42ac3c8d1d41ba": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f68ee-8748-7c61-973d-030b40498531",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Litien Zhao <DN7074@jsyyds.com>"
+    }
+  }
+}
