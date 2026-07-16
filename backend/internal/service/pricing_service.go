@@ -636,6 +636,13 @@ func (s *PricingService) validatePricingURL(raw string) (string, error) {
 
 // refreshIfFileChanged 检查本地文件是否已变更，变更则热重载
 func (s *PricingService) refreshIfFileChanged() {
+	// Some callers (especially focused billing tests) construct an in-memory
+	// pricing service without the application config. Hot reload is optional in
+	// that mode, so keep serving the already-loaded pricing data.
+	if s == nil || s.cfg == nil || strings.TrimSpace(s.cfg.Pricing.DataDir) == "" {
+		return
+	}
+
 	filePath := s.getPricingFilePath()
 	info, err := os.Stat(filePath)
 	if err != nil {

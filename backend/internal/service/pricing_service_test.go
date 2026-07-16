@@ -46,6 +46,15 @@ func TestParsePricingData_ParsesPriorityAndServiceTierFields(t *testing.T) {
 	require.True(t, pricing.SupportsServiceTier)
 }
 
+func TestGetModelPricingWithoutConfigSkipsHotReload(t *testing.T) {
+	want := &LiteLLMModelPricing{InputCostPerToken: 1e-6}
+	svc := &PricingService{pricingData: map[string]*LiteLLMModelPricing{
+		"in-memory-model": want,
+	}}
+
+	require.Same(t, want, svc.GetModelPricing("in-memory-model"))
+}
+
 func TestBillingService_GPT56CacheWritePricingUsesOfficialMultiplier(t *testing.T) {
 	tests := []struct {
 		model             string
