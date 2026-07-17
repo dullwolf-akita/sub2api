@@ -1,0 +1,19 @@
+backend/cmd/server/VERSION
+  s_42ac3c8d1d41ba::t_7fdc7182e07537 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "2eebbf05f7658a6af66d59d3af7fc35a5cab1d0c",
+  "prompts": {},
+  "sessions": {
+    "s_42ac3c8d1d41ba": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f68ee-8748-7c61-973d-030b40498531",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Litien Zhao <DN7074@jsyyds.com>"
+    }
+  }
+}
