@@ -1,0 +1,19 @@
+backend/cmd/server/VERSION
+  s_7248d3f1f5919d::t_c41051251c792c 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "2fc7be2679cbeb445c56bfa15a0f4ec091c76b0a",
+  "prompts": {},
+  "sessions": {
+    "s_7248d3f1f5919d": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_090442000ffeyfxa2dw64bDTDl",
+        "model": "grok-4.5"
+      },
+      "human_author": "Litien Zhao <DN7074@jsyyds.com>"
+    }
+  }
+}
