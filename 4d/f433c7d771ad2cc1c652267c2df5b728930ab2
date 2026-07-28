@@ -1,0 +1,31 @@
+backend/internal/web/embed_on.go
+  s_c05bb02c33f91a::t_3d95321f03eca0 7,19,47,118-120,126-190
+  s_0fd78a190aadc6::t_0605b17db9f38a 191
+backend/internal/web/embed_test.go
+  s_c05bb02c33f91a::t_9622763c69c95e 7,9,681-718
+  s_0fd78a190aadc6::t_da02ff47e2a9eb 719
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "4df433c7d771ad2cc1c652267c2df5b728930ab2",
+  "prompts": {},
+  "sessions": {
+    "s_0fd78a190aadc6": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_059904dbbffeWHZPGfaTRGHicR",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Litien Zhao <DN7074@jsyyds.com>"
+    },
+    "s_c05bb02c33f91a": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_05d5d5f3effeDQAdCN40j2jbJ2",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": null
+    }
+  }
+}
