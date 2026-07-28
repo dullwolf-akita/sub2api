@@ -4,6 +4,7 @@ package web
 
 import (
 	"bytes"
+	"compress/gzip"
 	"context"
 	"embed"
 	"encoding/json"
@@ -15,6 +16,7 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+	"sync"
 	"time"
 
 	"github.com/Wei-Shaw/sub2api/internal/server/middleware"
@@ -42,6 +44,7 @@ type FrontendServer struct {
 	cache       *HTMLCache
 	settings    PublicSettingsProvider
 	overrideDir string // local file override directory
+	gzipAssets  sync.Map
 }
 
 // NewFrontendServer creates a new frontend server with settings injection
@@ -112,8 +115,77 @@ func (s *FrontendServer) Middleware() gin.HandlerFunc {
 
 		// Serve static files normally (hashed assets get long-lived cache headers)
 		applyStaticAssetCacheHeaders(c.Writer.Header(), cleanPath)
+		if s.tryServeGzipAsset(c, cleanPath) {
+			return
+		}
 		s.fileServer.ServeHTTP(c.Writer, c.Request)
 		c.Abort()
+	}
+}
+
+func (s *FrontendServer) tryServeGzipAsset(c *gin.Context, cleanPath string) bool {
+	if c.Request.Method != http.MethodGet || c.GetHeader("Range") != "" || !acceptsGzip(c.GetHeader("Accept-Encoding")) || !isCompressibleAsset(cleanPath) {
+		return false
+	}
+
+	compressed, ok := s.gzipAssets.Load(cleanPath)
+	if !ok {
+		content, err := fs.ReadFile(s.distFS, cleanPath)
+		if err != nil {
+			return false
+		}
+
+		var buf bytes.Buffer
+		writer := gzip.NewWriter(&buf)
+		if _, err := writer.Write(content); err != nil {
+			return false
+		}
+		if err := writer.Close(); err != nil {
+			return false
+		}
+		compressed, _ = s.gzipAssets.LoadOrStore(cleanPath, buf.Bytes())
+	}
+
+	c.Header("Content-Encoding", "gzip")
+	c.Header("Vary", "Accept-Encoding")
+	c.Data(http.StatusOK, contentTypeForAsset(cleanPath), compressed.([]byte))
+	c.Abort()
+	return true
+}
+
+func acceptsGzip(value string) bool {
+	for _, part := range strings.Split(value, ",") {
+		encoding := strings.TrimSpace(strings.SplitN(part, ";", 2)[0])
+		if strings.EqualFold(encoding, "gzip") {
+			return !strings.Contains(strings.ToLower(part), "q=0")
+		}
+	}
+	return false
+}
+
+func isCompressibleAsset(path string) bool {
+	switch strings.ToLower(filepath.Ext(path)) {
+	case ".css", ".js", ".json", ".svg", ".txt", ".xml":
+		return true
+	default:
+		return false
+	}
+}
+
+func contentTypeForAsset(path string) string {
+	switch strings.ToLower(filepath.Ext(path)) {
+	case ".css":
+		return "text/css; charset=utf-8"
+	case ".js":
+		return "text/javascript; charset=utf-8"
+	case ".json":
+		return "application/json; charset=utf-8"
+	case ".svg":
+		return "image/svg+xml"
+	case ".xml":
+		return "application/xml; charset=utf-8"
+	default:
+		return "text/plain; charset=utf-8"
 	}
 }
 

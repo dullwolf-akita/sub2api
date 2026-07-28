@@ -4,7 +4,9 @@ package web
 
 import (
 	"bytes"
+	"compress/gzip"
 	"context"
+	"io"
 	"io/fs"
 	"net/http"
 	"net/http/httptest"
@@ -675,6 +677,45 @@ func TestFrontendServer_Middleware(t *testing.T) {
 
 		assert.Equal(t, http.StatusOK, assetWriter.Code)
 		assert.Equal(t, staticAssetsCacheControl, assetWriter.Header().Get("Cache-Control"))
+	})
+
+	t.Run("serves_compressible_static_files_with_gzip", func(t *testing.T) {
+		provider := &mockSettingsProvider{settings: map[string]string{"test": "value"}}
+		server, err := NewFrontendServer(provider)
+		require.NoError(t, err)
+
+		entries, err := fs.ReadDir(server.distFS, "assets")
+		require.NoError(t, err)
+		assetPath := ""
+		for _, entry := range entries {
+			candidate := "assets/" + entry.Name()
+			if !entry.IsDir() && isCompressibleAsset(candidate) {
+				assetPath = candidate
+				break
+			}
+		}
+		require.NotEmpty(t, assetPath)
+
+		router := gin.New()
+		router.Use(server.Middleware())
+		writer := httptest.NewRecorder()
+		request := httptest.NewRequest(http.MethodGet, "/"+assetPath, nil)
+		request.Header.Set("Accept-Encoding", "gzip")
+		router.ServeHTTP(writer, request)
+
+		assert.Equal(t, http.StatusOK, writer.Code)
+		assert.Equal(t, "gzip", writer.Header().Get("Content-Encoding"))
+		assert.Equal(t, "Accept-Encoding", writer.Header().Get("Vary"))
+
+		reader, err := gzip.NewReader(writer.Body)
+		require.NoError(t, err)
+		decompressed, err := io.ReadAll(reader)
+		require.NoError(t, err)
+		require.NoError(t, reader.Close())
+		expected, err := fs.ReadFile(server.distFS, assetPath)
+		require.NoError(t, err)
+		assert.Equal(t, expected, decompressed)
+		assert.Less(t, writer.Body.Len(), len(expected))
 	})
 }
 
