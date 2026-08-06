@@ -12,23 +12,29 @@ type contextKey struct{}
 // Breakdown is persisted with a usage log. Values are elapsed milliseconds
 // from the request timing start, rather than wall-clock timestamps.
 type Breakdown struct {
-	RequestReceivedMs int  `json:"request_received_ms"`
-	RequestBodyReadMs *int `json:"request_body_read_ms,omitempty"`
-	AuthMs            *int `json:"auth_ms,omitempty"`
-	RoutingMs         *int `json:"routing_ms,omitempty"`
-	QueueWaitMs       *int `json:"queue_wait_ms,omitempty"`
-	UpstreamRequestMs *int `json:"upstream_request_ms,omitempty"`
-	UpstreamTTFBMs    *int `json:"upstream_ttfb_ms,omitempty"`
-	FirstTokenMs      *int `json:"first_token_ms,omitempty"`
-	UpstreamTotalMs   *int `json:"upstream_total_ms,omitempty"`
-	ResponseWriteMs   *int `json:"response_write_ms,omitempty"`
-	TotalMs           int  `json:"total_ms"`
+	RequestReceivedMs     int  `json:"request_received_ms"`
+	RequestBodyReadMs     *int `json:"request_body_read_ms,omitempty"`
+	AuthMs                *int `json:"auth_ms,omitempty"`
+	RoutingMs             *int `json:"routing_ms,omitempty"`
+	QueueWaitMs           *int `json:"queue_wait_ms,omitempty"`
+	UpstreamRequestMs     *int `json:"upstream_request_ms,omitempty"`
+	UpstreamTTFBMs        *int `json:"upstream_ttfb_ms,omitempty"`
+	FirstTokenMs          *int `json:"first_token_ms,omitempty"`
+	UpstreamBodyMs        *int `json:"upstream_body_ms,omitempty"`
+	ClientResponseWriteMs *int `json:"client_response_write_ms,omitempty"`
+	TotalMs               int  `json:"total_ms"`
 }
 
 type Timing struct {
-	startedAt time.Time
-	mu        sync.Mutex
-	values    Breakdown
+	startedAt           time.Time
+	mu                  sync.Mutex
+	values              Breakdown
+	requestBodyRead     time.Duration
+	upstreamRequest     time.Duration
+	upstreamTTFB        time.Duration
+	upstreamBody        time.Duration
+	clientResponseWrite time.Duration
+	completedTotalMs    *int
 }
 
 func New(startedAt time.Time) *Timing {
@@ -64,6 +70,11 @@ func FromContext(ctx context.Context) (*Timing, bool) {
 	return t, ok && t != nil
 }
 
+func Active(ctx context.Context) bool {
+	_, ok := FromContext(ctx)
+	return ok
+}
+
 func Mark(ctx context.Context, field string) {
 	t, ok := FromContext(ctx)
 	if !ok {
@@ -92,10 +103,6 @@ func Mark(ctx context.Context, field string) {
 		set(&t.values.UpstreamTTFBMs)
 	case "first_token":
 		set(&t.values.FirstTokenMs)
-	case "upstream_total":
-		set(&t.values.UpstreamTotalMs)
-	case "response_write":
-		set(&t.values.ResponseWriteMs)
 	}
 }
 
@@ -120,8 +127,49 @@ func SetMs(ctx context.Context, field string, value int) {
 		set(&t.values.RoutingMs)
 	case "queue_wait":
 		set(&t.values.QueueWaitMs)
+	case "upstream_request":
+		set(&t.values.UpstreamRequestMs)
+	case "upstream_ttfb":
+		set(&t.values.UpstreamTTFBMs)
 	case "first_token":
 		set(&t.values.FirstTokenMs)
+	}
+}
+
+// AddDuration accumulates repeated intervals without losing sub-millisecond
+// writes. Snapshot converts the totals to milliseconds once.
+func AddDuration(ctx context.Context, field string, value time.Duration) {
+	t, ok := FromContext(ctx)
+	if !ok || value < 0 {
+		return
+	}
+	t.mu.Lock()
+	defer t.mu.Unlock()
+	switch field {
+	case "request_body_read":
+		t.requestBodyRead += value
+	case "upstream_request":
+		t.upstreamRequest += value
+	case "upstream_ttfb":
+		t.upstreamTTFB += value
+	case "upstream_body":
+		t.upstreamBody += value
+	case "client_response_write":
+		t.clientResponseWrite += value
+	}
+}
+
+// Complete freezes total_ms before asynchronous usage persistence starts.
+func Complete(ctx context.Context) {
+	t, ok := FromContext(ctx)
+	if !ok {
+		return
+	}
+	t.mu.Lock()
+	defer t.mu.Unlock()
+	if t.completedTotalMs == nil {
+		v := int(time.Since(t.startedAt).Milliseconds())
+		t.completedTotalMs = &v
 	}
 }
 
@@ -133,7 +181,22 @@ func Snapshot(ctx context.Context) *Breakdown {
 	t.mu.Lock()
 	defer t.mu.Unlock()
 	v := t.values
-	v.TotalMs = int(time.Since(t.startedAt).Milliseconds())
+	setDuration := func(dst **int, value time.Duration) {
+		if value > 0 {
+			ms := int(value.Milliseconds())
+			*dst = &ms
+		}
+	}
+	setDuration(&v.RequestBodyReadMs, t.requestBodyRead)
+	setDuration(&v.UpstreamRequestMs, t.upstreamRequest)
+	setDuration(&v.UpstreamTTFBMs, t.upstreamTTFB)
+	setDuration(&v.UpstreamBodyMs, t.upstreamBody)
+	setDuration(&v.ClientResponseWriteMs, t.clientResponseWrite)
+	if t.completedTotalMs != nil {
+		v.TotalMs = *t.completedTotalMs
+	} else {
+		v.TotalMs = int(time.Since(t.startedAt).Milliseconds())
+	}
 	return &v
 }
 
