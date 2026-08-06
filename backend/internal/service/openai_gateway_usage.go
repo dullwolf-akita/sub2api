@@ -325,7 +325,6 @@ func (s *OpenAIGatewayService) RecordUsage(ctx context.Context, input *OpenAIRec
 	usageLog.OpenAIWSMode = result.OpenAIWSMode
 	usageLog.DurationMs = &durationMs
 	usageLog.FirstTokenMs = result.FirstTokenMs
-	requesttiming.Mark(ctx, "upstream_total")
 	if result.FirstTokenMs != nil {
 		requesttiming.SetMs(ctx, "first_token", *result.FirstTokenMs)
 	}

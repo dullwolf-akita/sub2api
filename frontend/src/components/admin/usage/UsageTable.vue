@@ -345,6 +345,9 @@
             <span class="font-medium tabular-nums text-gray-900 dark:text-white">{{ formatDuration(item.value) }}</span>
           </div>
         </div>
+        <p class="mt-4 border-t border-gray-100 pt-3 text-xs leading-5 text-gray-500 dark:border-dark-700 dark:text-gray-400">
+          服务端只能统计请求到达 sub2api 后的处理时间，用户设备到服务器的公网传输延迟需要由客户端单独测量。
+        </p>
       </div>
     </div>
   </Teleport>
@@ -609,16 +612,16 @@ const tokenTooltipData = ref<AdminUsageLog | null>(null)
 const timingData = ref<AdminUsageLog | null>(null)
 
 const timingLabels: Record<string, string> = {
-  request_body_read_ms: 'Request body read',
-  auth_ms: 'Authentication',
-  routing_ms: 'Routing',
-  queue_wait_ms: 'Queue wait',
-  upstream_request_ms: 'Upstream request',
-  upstream_ttfb_ms: 'Upstream response headers',
-  first_token_ms: 'First token',
-  upstream_total_ms: 'Upstream complete',
-  response_write_ms: 'Response write',
-  total_ms: 'Total'
+  request_body_read_ms: '读取客户端请求体',
+  auth_ms: '鉴权处理',
+  routing_ms: '路由与账号选择',
+  queue_wait_ms: '并发排队等待',
+  upstream_request_ms: '请求上游网络耗时',
+  upstream_ttfb_ms: '上游首字节等待',
+  first_token_ms: '首个有效 Token',
+  upstream_body_ms: '上游响应读取',
+  client_response_write_ms: '返回客户端写出',
+  total_ms: '完整请求耗时'
 }
 
 const timingItems = computed(() => Object.entries(timingData.value?.timing_breakdown ?? {})

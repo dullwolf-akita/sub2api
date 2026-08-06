@@ -1053,7 +1053,6 @@ func (s *GatewayService) buildRecordUsageLog(
 }
 
 func timingBreakdown(ctx context.Context, result *ForwardResult) map[string]any {
-	requesttiming.Mark(ctx, "upstream_total")
 	if result != nil && result.FirstTokenMs != nil {
 		requesttiming.SetMs(ctx, "first_token", *result.FirstTokenMs)
 	}

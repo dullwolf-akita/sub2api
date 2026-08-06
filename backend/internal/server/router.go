@@ -65,8 +65,9 @@ func SetupRouter(
 	r.Use(func(c *gin.Context) {
 		timing := requesttiming.New(time.Now())
 		c.Request = c.Request.WithContext(requesttiming.With(c.Request.Context(), timing))
+		c.Writer = middleware2.NewRequestTimingResponseWriter(c.Writer, c.Request.Context())
 		c.Next()
-		requesttiming.Mark(c.Request.Context(), "response_write")
+		requesttiming.Complete(c.Request.Context())
 	})
 	r.Use(middleware2.CORS(cfg.CORS))
 	r.Use(middleware2.SecurityHeaders(cfg.Security.CSP, func() []string {

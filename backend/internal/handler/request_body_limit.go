@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"net/http"
+	"time"
 
 	"github.com/Wei-Shaw/sub2api/internal/config"
 	pkghttputil "github.com/Wei-Shaw/sub2api/internal/pkg/httputil"
@@ -31,9 +32,10 @@ func buildBodyTooLargeMessage(limit int64) string {
 }
 
 func readLenientJSONRequestBodyWithPrealloc(req *http.Request, cfg *config.Config) ([]byte, error) {
+	startedAt := time.Now()
 	body, err := pkghttputil.ReadLenientJSONRequestBodyWithPrealloc(req, gatewayMaxBodySize(cfg))
 	if err == nil && req != nil {
-		requesttiming.Mark(req.Context(), "request_body_read")
+		requesttiming.AddDuration(req.Context(), "request_body_read", time.Since(startedAt))
 	}
 	return body, err
 }

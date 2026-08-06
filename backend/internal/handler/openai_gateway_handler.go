@@ -159,6 +159,7 @@ func wrapUsageRecordTaskContext(parent context.Context, task service.UsageRecord
 	if task == nil {
 		return nil
 	}
+	requesttiming.Complete(parent)
 	return func(ctx context.Context) {
 		task(usageRecordContext(parent, ctx))
 	}
