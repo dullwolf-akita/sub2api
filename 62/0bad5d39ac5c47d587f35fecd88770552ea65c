@@ -1,0 +1,96 @@
+backend/internal/service/openai_gateway_usage.go
+  s_e49ee571d6a8df::t_cfc3bfeaba2e41 8
+  s_e49ee571d6a8df::t_e3e31a86a23a7a 18,329-334
+  s_e49ee571d6a8df::t_e756cab80432e2 328
+backend/internal/service/usage_log.go
+  s_e49ee571d6a8df::t_5cf8e76fd05668 165-170,172-173
+  s_e49ee571d6a8df::t_93d86123c043ac 171
+backend/internal/pkg/servertiming/http.go
+  s_e49ee571d6a8df::t_c963f09583faaf 8-9,63-66,77-80
+frontend/src/types/index.ts
+  s_e49ee571d6a8df::t_93d86123c043ac 1613
+backend/internal/server/router.go
+  s_e49ee571d6a8df::t_f22e1dfeaf71a3 11,65-70
+backend/internal/service/gateway_usage_billing.go
+  s_e49ee571d6a8df::t_3145b2f06ddbc0 5
+  s_e49ee571d6a8df::t_c963f09583faaf 10-11,1021,1055,1057-1068
+  s_e49ee571d6a8df::t_e756cab80432e2 1056
+  s_e49ee571d6a8df::t_0cedaa81302f64 1069-1070
+backend/ent/runtime/runtime.go
+  s_e49ee571d6a8df::t_5cf8e76fd05668 2062,2066,2070,2074,2078,2082,2086,2090,2094,2098,2102
+backend/ent/usagelog.go
+  s_e49ee571d6a8df::t_5cf8e76fd05668 90-91,201,437-444,712-713
+  s_e49ee571d6a8df::t_342ea236593da3 714
+backend/internal/repository/usage_log_repo_request_type_test.go
+  s_e49ee571d6a8df::t_4034fd21a002de 100,191
+  s_e49ee571d6a8df::t_2e11f221d078ea 851
+  s_e49ee571d6a8df::t_36a4b3337a0f03 927,986,1045
+backend/internal/handler/dto/mappers.go
+  s_e49ee571d6a8df::t_1b18b158eb6f61 663
+backend/ent/usagelog/usagelog.go
+  s_e49ee571d6a8df::t_5cf8e76fd05668 81-82,193
+backend/internal/service/ops_upstream_context.go
+  s_e49ee571d6a8df::t_aef6eab1396b4e 8-9,74-86
+backend/ent/schema/usage_log.go
+  s_e49ee571d6a8df::t_93d86123c043ac 124-126
+backend/ent/mutation.go
+  s_e49ee571d6a8df::t_5cf8e76fd05668 43400,45190-45238,46054,46151-46153,46265-46266,46366-46367,46627-46633,47043-47045,47120-47122,47254-47256
+backend/internal/repository/usage_log_repo_insert.go
+  s_e49ee571d6a8df::t_5cf8e76fd05668 1325
+  s_e49ee571d6a8df::t_494afed3de366d 83,280,288,736,740,742,827,887,987,991,1073,1133,1201,1209,1251
+backend/ent/usagelog_update.go
+  s_e49ee571d6a8df::t_5cf8e76fd05668 675-686,1267-1272,2150-2161,2772-2777
+frontend/src/i18n/locales/zh/dashboard.ts
+  s_e49ee571d6a8df::t_c7d153a1673f9c 320
+backend/internal/repository/usage_log_session_id_unit_test.go
+  s_e49ee571d6a8df::t_fde03b5f75d195 35,43-44,50,58,65
+backend/ent/usagelog_create.go
+  s_e49ee571d6a8df::t_5cf8e76fd05668 438-443,1051-1054,1802-1819,2732-2752,3867-3886
+  s_e49ee571d6a8df::t_b427fa1c7d2469 3887
+frontend/src/components/admin/usage/UsageTable.vue
+  s_e49ee571d6a8df::t_6fd7166c949577 215-223,304-321,607-628
+backend/internal/handler/request_body_limit.go
+  s_e49ee571d6a8df::t_e0505ca5ad6a9b 10,34-38
+backend/internal/repository/usage_log_repo_query.go
+  s_e49ee571d6a8df::t_1b18b158eb6f61 22,489,551,675,745-752
+  s_e49ee571d6a8df::t_d38c3ebea0e3de 720-730,754
+  s_e49ee571d6a8df::t_f3303c0970c7d3 753
+  s_e49ee571d6a8df::t_95f6ee50854208 755
+backend/internal/server/middleware/api_key_auth.go
+  s_e49ee571d6a8df::t_e756cab80432e2 12,188,288
+frontend/src/i18n/locales/en/dashboard.ts
+  s_e49ee571d6a8df::t_c7d153a1673f9c 315
+backend/internal/handler/dto/types.go
+  s_e49ee571d6a8df::t_5cf8e76fd05668 509-514
+  s_e49ee571d6a8df::t_93d86123c043ac 515
+backend/ent/usagelog/where.go
+  s_e49ee571d6a8df::t_5cf8e76fd05668 1683-1692
+backend/internal/pkg/requesttiming/timing.go
+  s_e49ee571d6a8df::t_5cf8e76fd05668 30-31
+  s_e49ee571d6a8df::t_93d86123c043ac 1-29,32-90,117-136
+  s_e49ee571d6a8df::t_aef6eab1396b4e 106-111
+  s_e49ee571d6a8df::t_3145b2f06ddbc0 99-104
+  s_e49ee571d6a8df::t_c963f09583faaf 91-98,105,112-116
+backend/migrations/194_add_usage_log_timing_breakdown.sql
+  s_e49ee571d6a8df::t_93d86123c043ac 1-6
+backend/ent/migrate/schema.go
+  s_e49ee571d6a8df::t_5cf8e76fd05668 1647,1675,1681,1687,1693,1699,1708,1713,1718,1723,1728,1733,1753,1758,1763
+backend/go.sum
+  s_e49ee571d6a8df::t_34fbd3390d3293 313-314,351-352,387-388,424-425
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "620bad5d39ac5c47d587f35fecd88770552ea65c",
+  "prompts": {},
+  "sessions": {
+    "s_e49ee571d6a8df": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_02b224a5cffe9uTpqX14AN3p4v",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Litien Zhao <DN7074@jsyyds.com>"
+    }
+  }
+}
