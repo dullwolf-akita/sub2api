@@ -17,8 +17,19 @@ type Breakdown struct {
 	AuthMs                *int `json:"auth_ms,omitempty"`
 	RoutingMs             *int `json:"routing_ms,omitempty"`
 	QueueWaitMs           *int `json:"queue_wait_ms,omitempty"`
+	UserQueueWaitMs       *int `json:"user_queue_wait_ms,omitempty"`
+	AccountQueueWaitMs    *int `json:"account_queue_wait_ms,omitempty"`
 	UpstreamRequestMs     *int `json:"upstream_request_ms,omitempty"`
 	UpstreamTTFBMs        *int `json:"upstream_ttfb_ms,omitempty"`
+	UpstreamConnectMs     *int `json:"upstream_connect_ms,omitempty"`
+	UpstreamConnWaitMs    *int `json:"upstream_conn_wait_ms,omitempty"`
+	UpstreamWriteMs       *int `json:"upstream_write_ms,omitempty"`
+	UpstreamHeaderWaitMs  *int `json:"upstream_header_wait_ms,omitempty"`
+	UpstreamBodyBytes     *int `json:"upstream_body_bytes,omitempty"`
+	UpstreamWireBytes     *int `json:"upstream_wire_bytes,omitempty"`
+	LargeRequestBody      bool `json:"large_request_body,omitempty"`
+	CompressionMs         *int `json:"compression_ms,omitempty"`
+	CompressionSavedBytes *int `json:"compression_saved_bytes,omitempty"`
 	FirstTokenMs          *int `json:"first_token_ms,omitempty"`
 	UpstreamBodyMs        *int `json:"upstream_body_ms,omitempty"`
 	ClientResponseWriteMs *int `json:"client_response_write_ms,omitempty"`
@@ -97,12 +108,43 @@ func Mark(ctx context.Context, field string) {
 		set(&t.values.RoutingMs)
 	case "queue_wait":
 		set(&t.values.QueueWaitMs)
+	case "user_queue_wait":
+		set(&t.values.UserQueueWaitMs)
+	case "account_queue_wait":
+		set(&t.values.AccountQueueWaitMs)
+	case "compression":
+		set(&t.values.CompressionMs)
 	case "upstream_request":
 		set(&t.values.UpstreamRequestMs)
 	case "upstream_ttfb":
 		set(&t.values.UpstreamTTFBMs)
 	case "first_token":
 		set(&t.values.FirstTokenMs)
+	}
+}
+
+func SetBytes(ctx context.Context, field string, value int) {
+	t, ok := FromContext(ctx)
+	if !ok || value < 0 {
+		return
+	}
+	t.mu.Lock()
+	defer t.mu.Unlock()
+	var dst **int
+	switch field {
+	case "upstream_body_bytes":
+		dst = &t.values.UpstreamBodyBytes
+	case "upstream_wire_bytes":
+		dst = &t.values.UpstreamWireBytes
+	case "compression_saved_bytes":
+		dst = &t.values.CompressionSavedBytes
+	default:
+		return
+	}
+	v := value
+	*dst = &v
+	if field == "upstream_body_bytes" && value >= 30<<20 {
+		t.values.LargeRequestBody = true
 	}
 }
 
@@ -133,6 +175,10 @@ func SetMs(ctx context.Context, field string, value int) {
 		set(&t.values.UpstreamTTFBMs)
 	case "first_token":
 		set(&t.values.FirstTokenMs)
+	case "user_queue_wait":
+		set(&t.values.UserQueueWaitMs)
+	case "account_queue_wait":
+		set(&t.values.AccountQueueWaitMs)
 	}
 }
 
@@ -156,6 +202,18 @@ func AddDuration(ctx context.Context, field string, value time.Duration) {
 		t.upstreamBody += value
 	case "client_response_write":
 		t.clientResponseWrite += value
+	case "upstream_connect":
+		ms := int(value.Milliseconds())
+		t.values.UpstreamConnectMs = &ms
+	case "upstream_conn_wait":
+		ms := int(value.Milliseconds())
+		t.values.UpstreamConnWaitMs = &ms
+	case "upstream_write":
+		ms := int(value.Milliseconds())
+		t.values.UpstreamWriteMs = &ms
+	case "upstream_header_wait":
+		ms := int(value.Milliseconds())
+		t.values.UpstreamHeaderWaitMs = &ms
 	}
 }
 

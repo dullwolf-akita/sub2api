@@ -242,8 +242,13 @@ func (h *UsageHandler) List(c *gin.Context) {
 	}
 
 	out := make([]dto.UsageLog, 0, len(records))
+	role, _ := middleware2.GetUserRoleFromContext(c)
 	for i := range records {
-		out = append(out, *dto.UsageLogFromService(&records[i]))
+		item := dto.UsageLogFromService(&records[i])
+		if role != service.RoleAdmin {
+			item.TimingBreakdown = nil
+		}
+		out = append(out, *item)
 	}
 	response.Paginated(c, out, result.Total, page, pageSize)
 }
@@ -389,7 +394,12 @@ func (h *UsageHandler) GetByID(c *gin.Context) {
 		return
 	}
 
-	response.Success(c, dto.UsageLogFromService(record))
+	item := dto.UsageLogFromService(record)
+	role, _ := middleware2.GetUserRoleFromContext(c)
+	if role != service.RoleAdmin {
+		item.TimingBreakdown = nil
+	}
+	response.Success(c, item)
 }
 
 // Stats handles getting usage statistics

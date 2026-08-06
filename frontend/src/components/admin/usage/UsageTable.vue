@@ -213,7 +213,7 @@
               <span class="text-gray-400 dark:text-gray-500">{{ t('usage.latencyDuration') }}</span>
               <span class="font-medium tabular-nums" :class="LATENCY_TEXT_CLASSES[durationSeverity(row.duration_ms ?? 0)]">{{ formatDuration(row.duration_ms) }}</span>
               <button
-                v-if="row.timing_breakdown"
+                v-if="showTimingDetails && row.timing_breakdown"
                 type="button"
                 class="ml-1 inline-flex h-5 w-5 items-center justify-center rounded-full text-gray-400 hover:bg-gray-100 hover:text-primary-500 dark:hover:bg-dark-700"
                 :title="t('usage.timingDetails')"
@@ -342,7 +342,7 @@
         <div class="space-y-2 text-sm">
           <div v-for="item in timingItems" :key="item.key" class="flex items-center justify-between gap-4">
             <span class="text-gray-500 dark:text-gray-400">{{ item.label }}</span>
-            <span class="font-medium tabular-nums text-gray-900 dark:text-white">{{ formatDuration(item.value) }}</span>
+            <span class="font-medium tabular-nums text-gray-900 dark:text-white">{{ formatTimingValue(item) }}</span>
           </div>
         </div>
         <p class="mt-4 border-t border-gray-100 pt-3 text-xs leading-5 text-gray-500 dark:border-dark-700 dark:text-gray-400">
@@ -553,6 +553,8 @@ interface Props {
   defaultSortOrder?: 'asc' | 'desc'
   showAccountBilling?: boolean
   showUpstreamEndpoint?: boolean
+  /** Only administrators should see the server-side timing breakdown. */
+  showTimingDetails?: boolean
   /** 嵌入统一卡片内使用：去掉自身卡片外观 */
   flat?: boolean
 }
@@ -564,6 +566,7 @@ const props = withDefaults(defineProps<Props>(), {
   defaultSortOrder: 'asc',
   showAccountBilling: true,
   showUpstreamEndpoint: true,
+  showTimingDetails: false,
   flat: false
 })
 const emit = defineEmits<{
@@ -574,6 +577,7 @@ const emit = defineEmits<{
 const { t } = useI18n()
 const showAccountBilling = props.showAccountBilling
 const showUpstreamEndpoint = props.showUpstreamEndpoint
+const showTimingDetails = props.showTimingDetails
 const ipGeoBatchLoading = ref(false)
 
 const showIpGeoToolbar = computed(() => props.columns.some((col) => col.key === 'ip_address'))
@@ -616,8 +620,19 @@ const timingLabels: Record<string, string> = {
   auth_ms: '鉴权处理',
   routing_ms: '路由与账号选择',
   queue_wait_ms: '并发排队等待',
+  user_queue_wait_ms: '用户队列等待',
+  account_queue_wait_ms: '账号队列等待',
   upstream_request_ms: '请求上游网络耗时',
   upstream_ttfb_ms: '上游首字节等待',
+  upstream_conn_wait_ms: '上游连接池等待',
+  upstream_connect_ms: '上游建立连接',
+  upstream_write_ms: '上游请求写入',
+  upstream_header_wait_ms: '上游响应头等待',
+  upstream_body_bytes: '最终请求体大小',
+  upstream_wire_bytes: '实际上游发送大小',
+  large_request_body: '请求体超过 30 MiB',
+  compression_ms: '请求压缩耗时',
+  compression_saved_bytes: '压缩节省字节',
   first_token_ms: '首个有效 Token',
   upstream_body_ms: '上游响应读取',
   client_response_write_ms: '返回客户端写出',
@@ -626,7 +641,14 @@ const timingLabels: Record<string, string> = {
 
 const timingItems = computed(() => Object.entries(timingData.value?.timing_breakdown ?? {})
   .filter(([key, value]) => timingLabels[key] && value != null)
-  .map(([key, value]) => ({ key, label: timingLabels[key], value: Number(value) })))
+  .map(([key, value]) => ({ key, label: timingLabels[key], value: Number(value), isBytes: key.endsWith('_bytes') })))
+
+const formatTimingValue = (item: { value: number; isBytes: boolean }) => {
+  if (!item.isBytes) return formatDuration(item.value)
+  if (item.value < 1024) return `${item.value} B`
+  if (item.value < 1024 * 1024) return `${(item.value / 1024).toFixed(1)} KiB`
+  return `${(item.value / (1024 * 1024)).toFixed(2)} MiB`
+}
 
 const openTimingDetails = (row: AdminUsageLog) => {
   timingData.value = row
