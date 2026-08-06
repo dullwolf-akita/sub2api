@@ -5,6 +5,8 @@ import (
 	"strings"
 	"time"
 
+	"github.com/Wei-Shaw/sub2api/internal/pkg/requesttiming"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -69,6 +71,19 @@ func SetOpsLatencyMs(c *gin.Context, key string, value int64) {
 		return
 	}
 	c.Set(key, value)
+	if c.Request == nil {
+		return
+	}
+	switch key {
+	case OpsAuthLatencyMsKey:
+		requesttiming.SetMs(c.Request.Context(), "auth", int(value))
+	case OpsRoutingLatencyMsKey:
+		requesttiming.SetMs(c.Request.Context(), "routing", int(value))
+	case OpsOpenAIWSQueueWaitMsKey:
+		requesttiming.SetMs(c.Request.Context(), "queue_wait", int(value))
+	case OpsTimeToFirstTokenMsKey:
+		requesttiming.SetMs(c.Request.Context(), "first_token", int(value))
+	}
 }
 
 func MarkOpsClientBusinessLimited(c *gin.Context, reason string) {

@@ -5,6 +5,8 @@ import (
 	"net/http"
 	"strings"
 	"time"
+
+	"github.com/Wei-Shaw/sub2api/internal/pkg/requesttiming"
 )
 
 type dependencyModuleKey struct{}
@@ -58,6 +60,10 @@ func Do(client *http.Client, req *http.Request) (*http.Response, error) {
 	startedAt := time.Now()
 	response, err := client.Do(req)
 	RecordDependency(req.Context(), dependencyModule(req), startedAt, time.Now())
+	requesttiming.Mark(req.Context(), "upstream_request")
+	if response != nil {
+		requesttiming.Mark(req.Context(), "upstream_ttfb")
+	}
 	return response, err
 }
 
@@ -68,6 +74,10 @@ func (t *timingRoundTripper) RoundTrip(req *http.Request) (*http.Response, error
 	startedAt := time.Now()
 	response, err := t.base.RoundTrip(req)
 	RecordDependency(req.Context(), dependencyModule(req), startedAt, time.Now())
+	requesttiming.Mark(req.Context(), "upstream_request")
+	if response != nil {
+		requesttiming.Mark(req.Context(), "upstream_ttfb")
+	}
 	return response, err
 }
 

@@ -435,6 +435,12 @@ func (_c *UsageLogCreate) SetNillableFirstTokenMs(v *int) *UsageLogCreate {
 	return _c
 }
 
+// SetTimingBreakdown sets the "timing_breakdown" field.
+func (_c *UsageLogCreate) SetTimingBreakdown(v map[string]interface{}) *UsageLogCreate {
+	_c.mutation.SetTimingBreakdown(v)
+	return _c
+}
+
 // SetUserAgent sets the "user_agent" field.
 func (_c *UsageLogCreate) SetUserAgent(v string) *UsageLogCreate {
 	_c.mutation.SetUserAgent(v)
@@ -1041,6 +1047,10 @@ func (_c *UsageLogCreate) createSpec() (*UsageLog, *sqlgraph.CreateSpec) {
 	if value, ok := _c.mutation.FirstTokenMs(); ok {
 		_spec.SetField(usagelog.FieldFirstTokenMs, field.TypeInt, value)
 		_node.FirstTokenMs = &value
+	}
+	if value, ok := _c.mutation.TimingBreakdown(); ok {
+		_spec.SetField(usagelog.FieldTimingBreakdown, field.TypeJSON, value)
+		_node.TimingBreakdown = value
 	}
 	if value, ok := _c.mutation.UserAgent(); ok {
 		_spec.SetField(usagelog.FieldUserAgent, field.TypeString, value)
@@ -1786,6 +1796,24 @@ func (u *UsageLogUpsert) AddFirstTokenMs(v int) *UsageLogUpsert {
 // ClearFirstTokenMs clears the value of the "first_token_ms" field.
 func (u *UsageLogUpsert) ClearFirstTokenMs() *UsageLogUpsert {
 	u.SetNull(usagelog.FieldFirstTokenMs)
+	return u
+}
+
+// SetTimingBreakdown sets the "timing_breakdown" field.
+func (u *UsageLogUpsert) SetTimingBreakdown(v map[string]interface{}) *UsageLogUpsert {
+	u.Set(usagelog.FieldTimingBreakdown, v)
+	return u
+}
+
+// UpdateTimingBreakdown sets the "timing_breakdown" field to the value that was provided on create.
+func (u *UsageLogUpsert) UpdateTimingBreakdown() *UsageLogUpsert {
+	u.SetExcluded(usagelog.FieldTimingBreakdown)
+	return u
+}
+
+// ClearTimingBreakdown clears the value of the "timing_breakdown" field.
+func (u *UsageLogUpsert) ClearTimingBreakdown() *UsageLogUpsert {
+	u.SetNull(usagelog.FieldTimingBreakdown)
 	return u
 }
 
@@ -2698,6 +2726,27 @@ func (u *UsageLogUpsertOne) UpdateFirstTokenMs() *UsageLogUpsertOne {
 func (u *UsageLogUpsertOne) ClearFirstTokenMs() *UsageLogUpsertOne {
 	return u.Update(func(s *UsageLogUpsert) {
 		s.ClearFirstTokenMs()
+	})
+}
+
+// SetTimingBreakdown sets the "timing_breakdown" field.
+func (u *UsageLogUpsertOne) SetTimingBreakdown(v map[string]interface{}) *UsageLogUpsertOne {
+	return u.Update(func(s *UsageLogUpsert) {
+		s.SetTimingBreakdown(v)
+	})
+}
+
+// UpdateTimingBreakdown sets the "timing_breakdown" field to the value that was provided on create.
+func (u *UsageLogUpsertOne) UpdateTimingBreakdown() *UsageLogUpsertOne {
+	return u.Update(func(s *UsageLogUpsert) {
+		s.UpdateTimingBreakdown()
+	})
+}
+
+// ClearTimingBreakdown clears the value of the "timing_breakdown" field.
+func (u *UsageLogUpsertOne) ClearTimingBreakdown() *UsageLogUpsertOne {
+	return u.Update(func(s *UsageLogUpsert) {
+		s.ClearTimingBreakdown()
 	})
 }
 
@@ -3812,6 +3861,27 @@ func (u *UsageLogUpsertBulk) UpdateFirstTokenMs() *UsageLogUpsertBulk {
 func (u *UsageLogUpsertBulk) ClearFirstTokenMs() *UsageLogUpsertBulk {
 	return u.Update(func(s *UsageLogUpsert) {
 		s.ClearFirstTokenMs()
+	})
+}
+
+// SetTimingBreakdown sets the "timing_breakdown" field.
+func (u *UsageLogUpsertBulk) SetTimingBreakdown(v map[string]interface{}) *UsageLogUpsertBulk {
+	return u.Update(func(s *UsageLogUpsert) {
+		s.SetTimingBreakdown(v)
+	})
+}
+
+// UpdateTimingBreakdown sets the "timing_breakdown" field to the value that was provided on create.
+func (u *UsageLogUpsertBulk) UpdateTimingBreakdown() *UsageLogUpsertBulk {
+	return u.Update(func(s *UsageLogUpsert) {
+		s.UpdateTimingBreakdown()
+	})
+}
+
+// ClearTimingBreakdown clears the value of the "timing_breakdown" field.
+func (u *UsageLogUpsertBulk) ClearTimingBreakdown() *UsageLogUpsertBulk {
+	return u.Update(func(s *UsageLogUpsert) {
+		s.ClearTimingBreakdown()
 	})
 }
 
