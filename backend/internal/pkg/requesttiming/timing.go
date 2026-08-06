@@ -45,6 +45,17 @@ func With(ctx context.Context, timing *Timing) context.Context {
 	return context.WithValue(ctx, contextKey{}, timing)
 }
 
+// Propagate copies the request timing object into a worker context. Usage
+// records are written asynchronously, so the worker cannot use the original
+// request context directly.
+func Propagate(parent, base context.Context) context.Context {
+	timing, ok := FromContext(parent)
+	if !ok {
+		return base
+	}
+	return With(base, timing)
+}
+
 func FromContext(ctx context.Context) (*Timing, bool) {
 	if ctx == nil {
 		return nil, false
