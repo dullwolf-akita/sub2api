@@ -302,23 +302,6 @@
                   </span>
                   <span class="font-medium text-white">{{ tokenTooltipData.cache_creation_1h_tokens.toLocaleString() }}</span>
   </div>
-  <Teleport to="body">
-    <div v-if="timingData" class="fixed inset-0 z-[70] flex items-center justify-center bg-black/30 p-4" @click.self="timingData = null">
-      <div class="w-full max-w-md rounded-lg bg-white p-5 shadow-xl dark:bg-dark-800">
-        <div class="mb-4 flex items-center justify-between">
-          <h3 class="text-base font-semibold text-gray-900 dark:text-white">{{ t('usage.timingDetails') }}</h3>
-          <button type="button" class="text-gray-400 hover:text-gray-700 dark:hover:text-gray-200" @click="timingData = null">&times;</button>
-        </div>
-        <div class="space-y-2 text-sm">
-          <div v-for="item in timingItems" :key="item.key" class="flex items-center justify-between gap-4">
-            <span class="text-gray-500 dark:text-gray-400">{{ item.label }}</span>
-            <span class="font-medium tabular-nums text-gray-900 dark:text-white">{{ formatDuration(item.value) }}</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </Teleport>
-</template>
               <!-- 无明细时，只显示聚合值 -->
               <div v-else class="flex items-center justify-between gap-4">
                 <span class="text-gray-400">{{ t('admin.usage.cacheCreationTokens') }}</span>
@@ -343,6 +326,24 @@
           </div>
         </div>
         <div class="absolute right-full top-1/2 h-0 w-0 -translate-y-1/2 border-b-[6px] border-r-[6px] border-t-[6px] border-b-transparent border-r-gray-900 border-t-transparent dark:border-r-gray-800"></div>
+      </div>
+    </div>
+  </Teleport>
+
+  <!-- Timing Breakdown Modal -->
+  <Teleport to="body">
+    <div v-if="timingData" class="fixed inset-0 z-[70] flex items-center justify-center bg-black/30 p-4" @click.self="timingData = null">
+      <div class="w-full max-w-md rounded-lg bg-white p-5 shadow-xl dark:bg-dark-800">
+        <div class="mb-4 flex items-center justify-between">
+          <h3 class="text-base font-semibold text-gray-900 dark:text-white">{{ t('usage.timingDetails') }}</h3>
+          <button type="button" class="text-gray-400 hover:text-gray-700 dark:hover:text-gray-200" @click="timingData = null">&times;</button>
+        </div>
+        <div class="space-y-2 text-sm">
+          <div v-for="item in timingItems" :key="item.key" class="flex items-center justify-between gap-4">
+            <span class="text-gray-500 dark:text-gray-400">{{ item.label }}</span>
+            <span class="font-medium tabular-nums text-gray-900 dark:text-white">{{ formatDuration(item.value) }}</span>
+          </div>
+        </div>
       </div>
     </div>
   </Teleport>
