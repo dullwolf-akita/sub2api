@@ -1,0 +1,19 @@
+frontend/src/components/admin/usage/UsageTable.vue
+  s_e49ee571d6a8df::t_00372538ac1e91 304-305
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "02772622b71397261948fd94fbee3e7bfbb98e26",
+  "prompts": {},
+  "sessions": {
+    "s_e49ee571d6a8df": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_02b224a5cffe9uTpqX14AN3p4v",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Litien Zhao <DN7074@jsyyds.com>"
+    }
+  }
+}
