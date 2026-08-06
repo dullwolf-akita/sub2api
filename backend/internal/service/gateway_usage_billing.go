@@ -2,9 +2,12 @@ package service
 
 import (
 	"context"
+	"encoding/json"
 	"log/slog"
 	"strings"
 	"time"
+
+	"github.com/Wei-Shaw/sub2api/internal/pkg/requesttiming"
 
 	"github.com/Wei-Shaw/sub2api/internal/config"
 	"github.com/Wei-Shaw/sub2api/internal/pkg/ctxkey"
@@ -1015,6 +1018,7 @@ func (s *GatewayService) buildRecordUsageLog(
 		Stream:                result.Stream,
 		DurationMs:            &durationMs,
 		FirstTokenMs:          result.FirstTokenMs,
+		TimingBreakdown:       timingBreakdown(ctx, result),
 		ImageCount:            result.ImageCount,
 		ImageSize:             optionalTrimmedStringPtr(result.ImageSize),
 		ImageInputSize:        optionalTrimmedStringPtr(result.ImageInputSize),
@@ -1046,6 +1050,22 @@ func (s *GatewayService) buildRecordUsageLog(
 	}
 
 	return usageLog
+}
+
+func timingBreakdown(ctx context.Context, result *ForwardResult) map[string]any {
+	requesttiming.Mark(ctx, "upstream_total")
+	if result != nil && result.FirstTokenMs != nil {
+		requesttiming.SetMs(ctx, "first_token", *result.FirstTokenMs)
+	}
+	data := requesttiming.JSON(ctx)
+	if len(data) == 0 {
+		return nil
+	}
+	var out map[string]any
+	if json.Unmarshal(data, &out) != nil {
+		return nil
+	}
+	return out
 }
 
 // resolveBillingMode 根据计费结果和请求类型确定计费模式。

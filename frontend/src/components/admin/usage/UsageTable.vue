@@ -212,6 +212,15 @@
               <span v-else class="text-gray-400 dark:text-gray-500">-</span>
               <span class="text-gray-400 dark:text-gray-500">{{ t('usage.latencyDuration') }}</span>
               <span class="font-medium tabular-nums" :class="LATENCY_TEXT_CLASSES[durationSeverity(row.duration_ms ?? 0)]">{{ formatDuration(row.duration_ms) }}</span>
+              <button
+                v-if="row.timing_breakdown"
+                type="button"
+                class="ml-1 inline-flex h-5 w-5 items-center justify-center rounded-full text-gray-400 hover:bg-gray-100 hover:text-primary-500 dark:hover:bg-dark-700"
+                :title="t('usage.timingDetails')"
+                @click="openTimingDetails(row)"
+              >
+                <Icon name="infoCircle" size="xs" />
+              </button>
             </div>
           </div>
         </template>
@@ -292,8 +301,24 @@
                     <span class="inline-flex items-center rounded px-1 py-px text-[10px] font-medium leading-tight bg-orange-500/20 text-orange-400 ring-1 ring-inset ring-orange-500/30">1h</span>
                   </span>
                   <span class="font-medium text-white">{{ tokenTooltipData.cache_creation_1h_tokens.toLocaleString() }}</span>
-                </div>
-              </template>
+  </div>
+  <Teleport to="body">
+    <div v-if="timingData" class="fixed inset-0 z-[70] flex items-center justify-center bg-black/30 p-4" @click.self="timingData = null">
+      <div class="w-full max-w-md rounded-lg bg-white p-5 shadow-xl dark:bg-dark-800">
+        <div class="mb-4 flex items-center justify-between">
+          <h3 class="text-base font-semibold text-gray-900 dark:text-white">{{ t('usage.timingDetails') }}</h3>
+          <button type="button" class="text-gray-400 hover:text-gray-700 dark:hover:text-gray-200" @click="timingData = null">&times;</button>
+        </div>
+        <div class="space-y-2 text-sm">
+          <div v-for="item in timingItems" :key="item.key" class="flex items-center justify-between gap-4">
+            <span class="text-gray-500 dark:text-gray-400">{{ item.label }}</span>
+            <span class="font-medium tabular-nums text-gray-900 dark:text-white">{{ formatDuration(item.value) }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Teleport>
+</template>
               <!-- 无明细时，只显示聚合值 -->
               <div v-else class="flex items-center justify-between gap-4">
                 <span class="text-gray-400">{{ t('admin.usage.cacheCreationTokens') }}</span>
@@ -579,6 +604,28 @@ const tooltipData = ref<AdminUsageLog | null>(null)
 const tokenTooltipVisible = ref(false)
 const tokenTooltipPosition = ref({ x: 0, y: 0 })
 const tokenTooltipData = ref<AdminUsageLog | null>(null)
+const timingData = ref<AdminUsageLog | null>(null)
+
+const timingLabels: Record<string, string> = {
+  request_body_read_ms: 'Request body read',
+  auth_ms: 'Authentication',
+  routing_ms: 'Routing',
+  queue_wait_ms: 'Queue wait',
+  upstream_request_ms: 'Upstream request',
+  upstream_ttfb_ms: 'Upstream response headers',
+  first_token_ms: 'First token',
+  upstream_total_ms: 'Upstream complete',
+  response_write_ms: 'Response write',
+  total_ms: 'Total'
+}
+
+const timingItems = computed(() => Object.entries(timingData.value?.timing_breakdown ?? {})
+  .filter(([key, value]) => timingLabels[key] && value != null)
+  .map(([key, value]) => ({ key, label: timingLabels[key], value: Number(value) })))
+
+const openTimingDetails = (row: AdminUsageLog) => {
+  timingData.value = row
+}
 
 const getRequestTypeLabel = (row: AdminUsageLog): string => {
   const requestType = resolveUsageRequestType(row)
