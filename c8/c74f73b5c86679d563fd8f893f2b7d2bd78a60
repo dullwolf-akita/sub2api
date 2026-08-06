@@ -1,0 +1,49 @@
+backend/internal/server/middleware/api_key_auth_google.go
+  s_e49ee571d6a8df::t_03a1d56d158e03 11,145,219
+backend/internal/handler/request_body_limit.go
+  s_e49ee571d6a8df::t_72d8800ff8431f 7,35
+  s_e49ee571d6a8df::t_776348e5f15574 38
+backend/internal/server/router.go
+  s_e49ee571d6a8df::t_e0c3650e3f9aa7 70
+  s_e49ee571d6a8df::t_83315c4962c17c 68
+backend/internal/pkg/servertiming/http.go
+  s_e49ee571d6a8df::t_0433f09d1c8d8a 5
+  s_e49ee571d6a8df::t_776348e5f15574 59,75,112
+  s_e49ee571d6a8df::t_fdcb42888848e8 66-68,82-84
+  s_e49ee571d6a8df::t_902475e93e291f 8,94,100,106,108-111,113-114
+  s_e49ee571d6a8df::t_72d8800ff8431f 69,85,90-91,93,95-99,101-105,107
+  s_e49ee571d6a8df::t_5957716c862cf5 92
+  s_e49ee571d6a8df::t_a83f6d75a1ae4b 115
+backend/internal/handler/openai_gateway_handler.go
+  s_e49ee571d6a8df::t_776348e5f15574 162
+backend/internal/pkg/requesttiming/timing.go
+  s_e49ee571d6a8df::t_5957716c862cf5 15-23,25
+  s_e49ee571d6a8df::t_776348e5f15574 29-32,35-37,73-77,130-133,139-141,150,156,158-175,184-190,193-199
+  s_e49ee571d6a8df::t_72d8800ff8431f 24,142-149,155,157
+  s_e49ee571d6a8df::t_fdcb42888848e8 33-34,151-154,191-192
+backend/internal/server/middleware/request_timing.go
+  s_e49ee571d6a8df::t_776348e5f15574 26,33,40
+  s_e49ee571d6a8df::t_83315c4962c17c 4,17-20
+  s_e49ee571d6a8df::t_0433f09d1c8d8a 1-3,5-16,21-25,27-32,34-39,41
+frontend/src/types/index.ts
+  s_e49ee571d6a8df::t_c5c1d7ec4c52da 1613
+frontend/src/components/admin/usage/UsageTable.vue
+  s_e49ee571d6a8df::t_c5c1d7ec4c52da 615-624
+  s_e49ee571d6a8df::t_6c7478afddd93f 348-350
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "c8c74f73b5c86679d563fd8f893f2b7d2bd78a60",
+  "prompts": {},
+  "sessions": {
+    "s_e49ee571d6a8df": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_02b224a5cffe9uTpqX14AN3p4v",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Litien Zhao <DN7074@jsyyds.com>"
+    }
+  }
+}
