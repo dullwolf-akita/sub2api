@@ -1111,6 +1111,9 @@ func (s *OpenAIGatewayService) buildUpstreamRequest(ctx context.Context, c *gin.
 
 	// 账号级请求头覆写（仅 openai api_key 账号启用时生效；OAuth 路径 no-op）
 	account.ApplyHeaderOverrides(req.Header)
+	if _, _, err := PrepareUpstreamRequest(req, body, account); err != nil {
+		return nil, err
+	}
 
 	return req, nil
 }

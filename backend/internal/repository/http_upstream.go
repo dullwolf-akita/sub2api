@@ -14,6 +14,7 @@ import (
 	"log/slog"
 	"net"
 	"net/http"
+	"net/http/httptrace"
 	"net/url"
 	"os"
 	"strings"
@@ -28,6 +29,7 @@ import (
 	"github.com/Wei-Shaw/sub2api/internal/config"
 	"github.com/Wei-Shaw/sub2api/internal/pkg/proxyurl"
 	"github.com/Wei-Shaw/sub2api/internal/pkg/proxyutil"
+	"github.com/Wei-Shaw/sub2api/internal/pkg/requesttiming"
 	"github.com/Wei-Shaw/sub2api/internal/pkg/servertiming"
 	"github.com/Wei-Shaw/sub2api/internal/pkg/tlsfingerprint"
 	"github.com/Wei-Shaw/sub2api/internal/pkg/xai"
@@ -202,6 +204,7 @@ func (s *httpUpstreamService) Do(req *http.Request, proxyURL string, accountID i
 	// 执行请求
 	client := httpClientForUpstreamRequest(entry.client, req)
 	client = httpClientWithGrokAccessDeniedFallback(client)
+	req = withUpstreamHTTPTrace(req)
 	resp, err := servertiming.Do(client, req)
 	if err != nil {
 		s.recordOpenAIHTTP2Failure(profile, entry.protocolMode, entry.proxyKey, err)
@@ -266,6 +269,7 @@ func (s *httpUpstreamService) DoWithTLS(req *http.Request, proxyURL string, acco
 
 	client := httpClientForUpstreamRequest(entry.client, req)
 	client = httpClientWithGrokAccessDeniedFallback(client)
+	req = withUpstreamHTTPTrace(req)
 	resp, err := servertiming.Do(client, req)
 	if err != nil {
 		atomic.AddInt64(&entry.inFlight, -1)
@@ -282,6 +286,44 @@ func (s *httpUpstreamService) DoWithTLS(req *http.Request, proxyURL string, acco
 	})
 
 	return resp, nil
+}
+
+func withUpstreamHTTPTrace(req *http.Request) *http.Request {
+	if req == nil || !requesttiming.Active(req.Context()) {
+		return req
+	}
+	startedAt := time.Now()
+	var connectStartedAt, writeStartedAt, wroteRequestAt time.Time
+	trace := &httptrace.ClientTrace{
+		GetConn: func(string) {
+			startedAt = time.Now()
+		},
+		GotConn: func(httptrace.GotConnInfo) {
+			now := time.Now()
+			requesttiming.AddDuration(req.Context(), "upstream_conn_wait", now.Sub(startedAt))
+			writeStartedAt = now
+		},
+		ConnectStart: func(string, string) {
+			connectStartedAt = time.Now()
+		},
+		ConnectDone: func(string, string, error) {
+			if !connectStartedAt.IsZero() {
+				requesttiming.AddDuration(req.Context(), "upstream_connect", time.Since(connectStartedAt))
+			}
+		},
+		WroteRequest: func(httptrace.WroteRequestInfo) {
+			wroteRequestAt = time.Now()
+			if !writeStartedAt.IsZero() {
+				requesttiming.AddDuration(req.Context(), "upstream_write", wroteRequestAt.Sub(writeStartedAt))
+			}
+		},
+		GotFirstResponseByte: func() {
+			if !wroteRequestAt.IsZero() {
+				requesttiming.AddDuration(req.Context(), "upstream_header_wait", time.Since(wroteRequestAt))
+			}
+		},
+	}
+	return req.WithContext(httptrace.WithClientTrace(req.Context(), trace))
 }
 
 func httpClientForUpstreamRequest(client *http.Client, req *http.Request) *http.Client {

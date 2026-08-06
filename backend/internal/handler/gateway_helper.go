@@ -245,6 +245,10 @@ func (h *ConcurrencyHelper) AcquireUserSlotWithWait(c *gin.Context, userID int64
 }
 
 func (h *ConcurrencyHelper) acquireUserSlotWithWaitTimeout(c *gin.Context, userID int64, maxConcurrency int, timeout time.Duration, isStream bool, streamStarted *bool) (func(), error) {
+	startedAt := time.Now()
+	defer func() {
+		service.SetOpsLatencyMs(c, service.OpsUserQueueWaitMsKey, time.Since(startedAt).Milliseconds())
+	}()
 	ctx := c.Request.Context()
 
 	// Try to acquire immediately
@@ -308,6 +312,10 @@ func (h *ConcurrencyHelper) withAPIKeySlot(ctx context.Context, apiKeyID int64, 
 // For streaming requests, sends ping events during the wait.
 // streamStarted is updated if streaming response has begun.
 func (h *ConcurrencyHelper) AcquireAccountSlotWithWait(c *gin.Context, accountID int64, maxConcurrency int, isStream bool, streamStarted *bool) (func(), error) {
+	startedAt := time.Now()
+	defer func() {
+		service.SetOpsLatencyMs(c, service.OpsAccountQueueWaitMsKey, time.Since(startedAt).Milliseconds())
+	}()
 	ctx := c.Request.Context()
 
 	// Try to acquire immediately
@@ -419,6 +427,10 @@ func (h *ConcurrencyHelper) waitForSlotWithPingTimeout(c *gin.Context, slotType 
 
 // AcquireAccountSlotWithWaitTimeout acquires an account slot with a custom timeout (keeps SSE ping).
 func (h *ConcurrencyHelper) AcquireAccountSlotWithWaitTimeout(c *gin.Context, accountID int64, maxConcurrency int, timeout time.Duration, isStream bool, streamStarted *bool) (func(), error) {
+	startedAt := time.Now()
+	defer func() {
+		service.SetOpsLatencyMs(c, service.OpsAccountQueueWaitMsKey, time.Since(startedAt).Milliseconds())
+	}()
 	return h.waitForSlotWithPingTimeout(c, "account", accountID, maxConcurrency, timeout, isStream, streamStarted, true)
 }
 

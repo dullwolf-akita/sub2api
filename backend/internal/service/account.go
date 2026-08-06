@@ -848,6 +848,16 @@ func (a *Account) GetOpenAICompactMode() string {
 	return normalizeOpenAICompactMode(mode)
 }
 
+// IsUpstreamRequestZstdEnabled is an explicit capability declaration for a
+// trusted upstream endpoint. Missing or invalid values keep compression off.
+func (a *Account) IsUpstreamRequestZstdEnabled() bool {
+	if a == nil || a.Extra == nil {
+		return false
+	}
+	mode, _ := a.Extra["upstream_request_compression"].(string)
+	return strings.EqualFold(strings.TrimSpace(mode), "zstd")
+}
+
 // OpenAICompactSupportKnown reports whether compact capability is known for this
 // account and, when known, whether it is supported.
 func (a *Account) OpenAICompactSupportKnown() (supported bool, known bool) {
