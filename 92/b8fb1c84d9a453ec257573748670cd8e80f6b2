@@ -1,0 +1,65 @@
+backend/internal/service/openai_gateway_forward.go
+  s_97bb5b29622ad9::t_658133ffc3d71b 1114-1116
+frontend/src/components/admin/usage/UsageTable.vue
+  s_97bb5b29622ad9::t_60e5d34c6398a0 216
+  s_97bb5b29622ad9::t_53deb2b66a904b 345,644-651
+  s_97bb5b29622ad9::t_ee43308ebfc5a6 556-557,569,580
+  s_97bb5b29622ad9::t_8564434b7fa6dd 633
+  s_97bb5b29622ad9::t_64edb0cc6716ae 623-624,627-632,634-635
+frontend/src/views/admin/UsageView.vue
+  s_97bb5b29622ad9::t_ee43308ebfc5a6 130
+backend/internal/service/gateway_upstream_request.go
+  s_97bb5b29622ad9::t_a4375e7722eec7 190
+  s_97bb5b29622ad9::t_658133ffc3d71b 191-192
+backend/internal/service/openai_gateway_passthrough.go
+  s_97bb5b29622ad9::t_658133ffc3d71b 458-460
+backend/internal/service/account.go
+  s_97bb5b29622ad9::t_3462461132a0f5 851-860
+backend/internal/pkg/requesttiming/timing.go
+  s_97bb5b29622ad9::t_5e92f94d5a2d03 20-21,24,26,28-29,31-32,111-114,126-145,149-150,205-207,211-213
+  s_97bb5b29622ad9::t_8564434b7fa6dd 30,146-148
+  s_97bb5b29622ad9::t_9d39bb75d53efe 27,115-116,214-216
+  s_97bb5b29622ad9::t_ab5f074486c81c 25,178-181,208-210
+backend/internal/repository/http_upstream.go
+  s_97bb5b29622ad9::t_9d39bb75d53efe 17,32,207,272,291-326
+  s_97bb5b29622ad9::t_eaa78fc84b6050 327-328
+backend/internal/service/upstream_request.go
+  s_97bb5b29622ad9::t_3462461132a0f5 5,7,47
+  s_97bb5b29622ad9::t_ab5f074486c81c 1-4,6,8-19,21-22,28-46,48-52,54
+  s_97bb5b29622ad9::t_a4375e7722eec7 20,23-27,53
+backend/internal/handler/usage_handler.go
+  s_97bb5b29622ad9::t_ee43308ebfc5a6 245,247-251,397-402
+frontend/src/components/account/EditAccountModal.vue
+  s_97bb5b29622ad9::t_f9eac4f6105abf 1489-1503,2924,3378,4783-4790
+  s_97bb5b29622ad9::t_27f8742f25c83e 4791-4793
+backend/internal/service/ops_upstream_context.go
+  s_97bb5b29622ad9::t_5e92f94d5a2d03 27-28,86-89
+frontend/src/i18n/locales/en/admin/accounts.ts
+  s_97bb5b29622ad9::t_8210bbb2aa3885 225-228
+backend/internal/service/upstream_request_test.go
+  s_97bb5b29622ad9::t_833083db412ddd 1-49
+backend/internal/handler/gateway_helper.go
+  s_97bb5b29622ad9::t_b85ef5fbaed0e2 315-318
+  s_97bb5b29622ad9::t_5e92f94d5a2d03 248-251,430-433
+backend/internal/service/gateway_anthropic_passthrough.go
+  s_97bb5b29622ad9::t_658133ffc3d71b 371-372
+  s_97bb5b29622ad9::t_a4375e7722eec7 370
+frontend/src/i18n/locales/zh/admin/accounts.ts
+  s_97bb5b29622ad9::t_8210bbb2aa3885 178-181
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "92b8fb1c84d9a453ec257573748670cd8e80f6b2",
+  "prompts": {},
+  "sessions": {
+    "s_97bb5b29622ad9": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_02a1aaabcffeSzL9nGLbiISGuA",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Litien Zhao <DN7074@jsyyds.com>"
+    }
+  }
+}
