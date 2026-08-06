@@ -1,0 +1,16 @@
+backend/internal/handler/openai_gateway_handler.go
+  h_8d64551f0eb8e7 20,148
+backend/internal/pkg/requesttiming/timing.go
+  h_8d64551f0eb8e7 48-58
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "a2fd77f81548cf01f6da48b233ed0f6227694bea",
+  "prompts": {},
+  "humans": {
+    "h_8d64551f0eb8e7": {
+      "author": "Litien Zhao <DN7074@jsyyds.com>"
+    }
+  }
+}
