@@ -35,7 +35,8 @@ export default {
         perRequestPrice: 'Per Request',
         intervals: 'Tiered Pricing',
         unitPerMillion: '/ 1M tokens',
-        unitPerRequest: '/ request'
+        unitPerRequest: '/ request',
+        unitPerSecond: '/ second'
       }
     },
 
@@ -93,7 +94,8 @@ export default {
       billingMode: {
         token: 'Token',
         perRequest: 'Per Request',
-        image: 'Image (Per Request)'
+        image: 'Image (Per Request)',
+        video: 'Video (Per Second)'
       },
       form: {
         name: 'Name',
@@ -132,6 +134,9 @@ export default {
         noPricingRules: 'No pricing rules yet. Click "Add" to create one.',
         perRequestPrice: 'Price per Request',
         perRequestPriceRequired: 'Per-request price or billing tiers required for per-request/image billing mode',
+        videoPriceRequired: 'Video per-second billing requires at least one resolution price',
+        videoResolutionPrices: 'Video price by resolution',
+        videoPricingHint: 'Cost = per-second resolution price × duration × video count × effective rate. Unconfigured resolutions fall back to Grok group pricing or system defaults.',
         tierLabel: 'Tier',
         resolution: 'Resolution',
         modelMapping: 'Model Mapping',

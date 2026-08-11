@@ -169,6 +169,55 @@ func TestCalculateCostUnified_ImageMode(t *testing.T) {
 	require.Equal(t, string(BillingModeImage), cost.BillingMode)
 }
 
+func TestCalculateCostUnified_VideoModeBillsResolutionPerSecond(t *testing.T) {
+	bs := newTestBillingService()
+	resolver := NewModelPricingResolver(nil, bs)
+	price720p := 0.07
+
+	cost, err := bs.CalculateCostUnified(CostInput{
+		Model:           "grok-imagine-video",
+		RequestCount:    2,
+		SizeTier:        "720P",
+		DurationSeconds: 10,
+		RateMultiplier:  0.5,
+		Resolver:        resolver,
+		Resolved: &ResolvedPricing{
+			Mode: BillingModeVideo,
+			RequestTiers: []PricingInterval{
+				{TierLabel: "720p", PerRequestPrice: &price720p},
+			},
+		},
+	})
+
+	require.NoError(t, err)
+	require.InDelta(t, 0.07*10*2, cost.TotalCost, 1e-10)
+	require.InDelta(t, 0.07*10*2*0.5, cost.ActualCost, 1e-10)
+	require.Equal(t, string(BillingModeVideo), cost.BillingMode)
+}
+
+func TestCalculateCostUnified_VideoModeRejectsMissingResolutionPrice(t *testing.T) {
+	bs := newTestBillingService()
+	resolver := NewModelPricingResolver(nil, bs)
+	price480p := 0.05
+
+	_, err := bs.CalculateCostUnified(CostInput{
+		Model:           "grok-imagine-video",
+		RequestCount:    1,
+		SizeTier:        "720p",
+		DurationSeconds: 8,
+		RateMultiplier:  1,
+		Resolver:        resolver,
+		Resolved: &ResolvedPricing{
+			Mode: BillingModeVideo,
+			RequestTiers: []PricingInterval{
+				{TierLabel: "480p", PerRequestPrice: &price480p},
+			},
+		},
+	})
+
+	require.ErrorIs(t, err, ErrModelPricingUnavailable)
+}
+
 // TestCalculateCostUnified_RateMultiplierZeroProducesZero 锁定新行为：
 // 保存时强制 > 0；若 0 仍泄漏到计费层，按 0 计费（而非历史上的 1.0）。
 func TestCalculateCostUnified_RateMultiplierZeroProducesZero(t *testing.T) {

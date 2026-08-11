@@ -87,7 +87,7 @@
             </label>
             <Select
               :modelValue="entry.billing_mode"
-              @update:modelValue="emit('update', { ...entry, billing_mode: $event as BillingMode, intervals: [] })"
+              @update:modelValue="changeBillingMode($event as BillingMode)"
               :options="billingModeOptions"
               class="mt-1"
             />
@@ -226,6 +226,31 @@
             />
           </div>
         </div>
+
+        <!-- Video mode -->
+        <div v-else-if="entry.billing_mode === 'video'" class="mt-3">
+          <label class="block text-xs font-medium text-gray-500 dark:text-gray-400">
+            {{ t('admin.channels.form.videoResolutionPrices') }}
+            <span class="ml-1 font-normal text-gray-400">$/s</span>
+          </label>
+          <div class="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-3">
+            <label v-for="resolution in videoResolutions" :key="resolution" class="block">
+              <span class="text-xs text-gray-400">{{ resolution }}</span>
+              <input
+                :value="videoPrice(resolution)"
+                @input="setVideoPrice(resolution, ($event.target as HTMLInputElement).value)"
+                type="number"
+                step="any"
+                min="0"
+                class="input mt-0.5 text-sm"
+                :placeholder="t('admin.channels.form.pricePlaceholder')"
+              />
+            </label>
+          </div>
+          <p class="mt-2 text-xs text-gray-400">
+            {{ t('admin.channels.form.videoPricingHint') }}
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -248,6 +273,7 @@ const { t } = useI18n()
 const props = defineProps<{
   entry: PricingFormEntry
   platform?: string
+  allowVideo?: boolean
 }>()
 
 const emit = defineEmits<{
@@ -261,8 +287,13 @@ const collapsed = ref(props.entry.models.length > 0)
 const billingModeOptions = computed(() => [
   { value: 'token', label: t('admin.channels.billingMode.token') },
   { value: 'per_request', label: t('admin.channels.billingMode.perRequest') },
-  { value: 'image', label: t('admin.channels.billingMode.image') }
+  { value: 'image', label: t('admin.channels.billingMode.image') },
+  ...(props.platform === 'grok' && props.allowVideo !== false
+    ? [{ value: 'video', label: t('admin.channels.billingMode.video') }]
+    : [])
 ])
+
+const videoResolutions = ['480p', '720p', '1080p'] as const
 
 const billingModeLabel = computed(() => {
   const opt = billingModeOptions.value.find(o => o.value === props.entry.billing_mode)
@@ -271,6 +302,38 @@ const billingModeLabel = computed(() => {
 
 function emitField(field: keyof PricingFormEntry, value: string) {
   emit('update', { ...props.entry, [field]: value === '' ? null : value })
+}
+
+function changeBillingMode(mode: BillingMode) {
+  emit('update', { ...props.entry, billing_mode: mode, intervals: [] })
+}
+
+function videoPrice(resolution: string): number | string | null {
+  return props.entry.intervals?.find(iv => iv.tier_label.toLowerCase() === resolution)?.per_request_price ?? null
+}
+
+function setVideoPrice(resolution: string, value: string) {
+  const intervals = [...(props.entry.intervals || [])]
+  const index = intervals.findIndex(iv => iv.tier_label.toLowerCase() === resolution)
+  if (value === '') {
+    if (index >= 0) intervals.splice(index, 1)
+  } else {
+    const interval: IntervalFormEntry = {
+      min_tokens: 0,
+      max_tokens: null,
+      tier_label: resolution,
+      input_price: null,
+      output_price: null,
+      cache_write_price: null,
+      cache_read_price: null,
+      per_request_price: value,
+      sort_order: videoResolutions.indexOf(resolution as typeof videoResolutions[number])
+    }
+    if (index >= 0) intervals[index] = interval
+    else intervals.push(interval)
+  }
+  intervals.sort((a, b) => a.sort_order - b.sort_order)
+  emit('update', { ...props.entry, intervals })
 }
 
 function addInterval() {

@@ -928,7 +928,8 @@ type CostInput struct {
 	GroupID                   *int64 // 用于渠道定价查找
 	Tokens                    UsageTokens
 	RequestCount              int    // 按次计费时使用
-	SizeTier                  string // 按次/图片模式的层级标签（"1K","2K","4K","HD" 等）
+	SizeTier                  string // 按次/图片/视频模式的层级标签（"1K","2K","480p","720p" 等）
+	DurationSeconds           int    // 视频模式：单个视频时长（秒）
 	RateMultiplier            float64
 	ServiceTier               string                // "priority","flex","" 等
 	Resolver                  *ModelPricingResolver // 定价解析器
@@ -974,6 +975,8 @@ func (s *BillingService) CalculateCostUnified(input CostInput) (*CostBreakdown, 
 	switch resolved.Mode {
 	case BillingModePerRequest, BillingModeImage:
 		breakdown, err = s.calculatePerRequestCost(resolved, input)
+	case BillingModeVideo:
+		breakdown, err = s.calculateChannelVideoCost(resolved, input)
 	default: // BillingModeToken
 		breakdown, err = s.calculateTokenCost(resolved, input)
 	}
@@ -1160,6 +1163,31 @@ func (s *BillingService) calculatePerRequestCost(resolved *ResolvedPricing, inpu
 	return &CostBreakdown{
 		TotalCost:  totalCost,
 		ActualCost: actualCost,
+	}, nil
+}
+
+func (s *BillingService) calculateChannelVideoCost(resolved *ResolvedPricing, input CostInput) (*CostBreakdown, error) {
+	count := input.RequestCount
+	if count <= 0 {
+		count = 1
+	}
+	resolution := NormalizeVideoBillingResolutionOrDefault(input.SizeTier)
+	var perSecondPrice *float64
+	for i := range resolved.RequestTiers {
+		tier := &resolved.RequestTiers[i]
+		if strings.EqualFold(strings.TrimSpace(tier.TierLabel), resolution) && tier.PerRequestPrice != nil {
+			perSecondPrice = tier.PerRequestPrice
+			break
+		}
+	}
+	if perSecondPrice == nil {
+		return nil, fmt.Errorf("no video price configured for resolution %s: %w", resolution, ErrModelPricingUnavailable)
+	}
+	duration := NormalizeVideoBillingDurationSecondsOrDefault(input.DurationSeconds)
+	totalCost := *perSecondPrice * float64(duration) * float64(count)
+	return &CostBreakdown{
+		TotalCost:  totalCost,
+		ActualCost: totalCost * input.RateMultiplier,
 	}, nil
 }
 

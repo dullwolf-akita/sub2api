@@ -642,6 +642,18 @@ func validatePricingEntries(pricing []ChannelModelPricing) error {
 	return validatePricingBillingMode(pricing)
 }
 
+func validateAccountStatsPricingEntries(pricing []ChannelModelPricing) error {
+	for _, p := range pricing {
+		if p.BillingMode == BillingModeVideo {
+			return infraerrors.BadRequest(
+				"ACCOUNT_STATS_VIDEO_PRICING_UNSUPPORTED",
+				"video billing mode is not supported in account stats pricing rules",
+			)
+		}
+	}
+	return validatePricingEntries(pricing)
+}
+
 // validatePricingBillingMode 校验计费模式配置：按次/图片模式必须配价格或区间，所有价格字段不能为负，区间至少有一个价格字段。
 func validatePricingBillingMode(pricing []ChannelModelPricing) error {
 	for _, p := range pricing {
@@ -665,6 +677,45 @@ func checkBillingModeRequirements(p ChannelModelPricing) error {
 				"BILLING_MODE_MISSING_PRICE",
 				"per-request price or intervals required for per_request/image billing mode",
 			)
+		}
+	}
+	if p.BillingMode == BillingModeVideo {
+		if p.Platform != PlatformGrok {
+			return infraerrors.BadRequest(
+				"VIDEO_PRICING_PLATFORM_UNSUPPORTED",
+				"video billing mode is only supported for the grok platform",
+			)
+		}
+		if len(p.Intervals) == 0 {
+			return infraerrors.BadRequest(
+				"BILLING_MODE_MISSING_PRICE",
+				"at least one resolution price is required for video billing mode",
+			)
+		}
+		seen := make(map[string]struct{}, len(p.Intervals))
+		for _, iv := range p.Intervals {
+			resolution := strings.ToLower(strings.TrimSpace(iv.TierLabel))
+			switch resolution {
+			case VideoBillingResolution480P, VideoBillingResolution720P, VideoBillingResolution1080P:
+			default:
+				return infraerrors.BadRequest(
+					"INVALID_VIDEO_RESOLUTION",
+					fmt.Sprintf("video pricing resolution must be 480p, 720p, or 1080p; got %q", iv.TierLabel),
+				)
+			}
+			if _, exists := seen[resolution]; exists {
+				return infraerrors.BadRequest(
+					"DUPLICATE_VIDEO_RESOLUTION",
+					fmt.Sprintf("duplicate video pricing resolution %q", resolution),
+				)
+			}
+			seen[resolution] = struct{}{}
+			if iv.PerRequestPrice == nil {
+				return infraerrors.BadRequest(
+					"VIDEO_RESOLUTION_MISSING_PRICE",
+					fmt.Sprintf("video pricing resolution %q requires a per-second price", resolution),
+				)
+			}
 		}
 	}
 	return nil
@@ -749,7 +800,7 @@ func (s *ChannelService) Create(ctx context.Context, input *CreateChannelInput) 
 		return nil, err
 	}
 	for i, rule := range channel.AccountStatsPricingRules {
-		if err := validatePricingEntries(rule.Pricing); err != nil {
+		if err := validateAccountStatsPricingEntries(rule.Pricing); err != nil {
 			return nil, fmt.Errorf("account stats pricing rule #%d: %w", i+1, err)
 		}
 	}
@@ -793,7 +844,7 @@ func (s *ChannelService) Update(ctx context.Context, id int64, input *UpdateChan
 		return nil, err
 	}
 	for i, rule := range channel.AccountStatsPricingRules {
-		if err := validatePricingEntries(rule.Pricing); err != nil {
+		if err := validateAccountStatsPricingEntries(rule.Pricing); err != nil {
 			return nil, fmt.Errorf("account stats pricing rule #%d: %w", i+1, err)
 		}
 	}
