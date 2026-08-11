@@ -1450,6 +1450,69 @@ func TestCreate_InvalidPricingIntervals(t *testing.T) {
 	require.Contains(t, err.Error(), "overlap")
 }
 
+func TestValidatePricingBillingMode_Video(t *testing.T) {
+	t.Run("accepts Grok resolution per-second tiers", func(t *testing.T) {
+		err := validatePricingBillingMode([]ChannelModelPricing{
+			{
+				Platform:    PlatformGrok,
+				Models:      []string{"grok-imagine-video"},
+				BillingMode: BillingModeVideo,
+				Intervals: []PricingInterval{
+					{TierLabel: "480p", PerRequestPrice: testPtrFloat64(0.05)},
+					{TierLabel: "720p", PerRequestPrice: testPtrFloat64(0.07)},
+				},
+			},
+		})
+		require.NoError(t, err)
+	})
+
+	t.Run("rejects non-Grok platform", func(t *testing.T) {
+		err := validatePricingBillingMode([]ChannelModelPricing{
+			{
+				Platform:    PlatformOpenAI,
+				Models:      []string{"video-model"},
+				BillingMode: BillingModeVideo,
+				Intervals: []PricingInterval{
+					{TierLabel: "720p", PerRequestPrice: testPtrFloat64(0.07)},
+				},
+			},
+		})
+		require.ErrorContains(t, err, "VIDEO_PRICING_PLATFORM_UNSUPPORTED")
+	})
+
+	t.Run("rejects unknown and duplicate resolutions", func(t *testing.T) {
+		unknownErr := validatePricingBillingMode([]ChannelModelPricing{
+			{
+				Platform:    PlatformGrok,
+				BillingMode: BillingModeVideo,
+				Intervals: []PricingInterval{
+					{TierLabel: "4k", PerRequestPrice: testPtrFloat64(0.25)},
+				},
+			},
+		})
+		require.ErrorContains(t, unknownErr, "INVALID_VIDEO_RESOLUTION")
+
+		duplicateErr := validatePricingBillingMode([]ChannelModelPricing{
+			{
+				Platform:    PlatformGrok,
+				BillingMode: BillingModeVideo,
+				Intervals: []PricingInterval{
+					{TierLabel: "720p", PerRequestPrice: testPtrFloat64(0.07)},
+					{TierLabel: "720P", PerRequestPrice: testPtrFloat64(0.08)},
+				},
+			},
+		})
+		require.ErrorContains(t, duplicateErr, "DUPLICATE_VIDEO_RESOLUTION")
+	})
+}
+
+func TestValidateAccountStatsPricingEntries_RejectsVideo(t *testing.T) {
+	err := validateAccountStatsPricingEntries([]ChannelModelPricing{
+		{Platform: PlatformGrok, BillingMode: BillingModeVideo},
+	})
+	require.ErrorContains(t, err, "ACCOUNT_STATS_VIDEO_PRICING_UNSUPPORTED")
+}
+
 func TestCreate_DefaultBillingModelSource(t *testing.T) {
 	var capturedChannel *Channel
 	repo := &mockChannelRepository{

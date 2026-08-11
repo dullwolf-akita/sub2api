@@ -220,6 +220,7 @@ func TestBillingModeIsValid(t *testing.T) {
 		{"token", BillingModeToken, true},
 		{"per_request", BillingModePerRequest, true},
 		{"image", BillingModeImage, true},
+		{"video", BillingModeVideo, true},
 		{"empty", BillingMode(""), true},
 		{"unknown", BillingMode("unknown"), false},
 		{"random", BillingMode("xyz"), false},
@@ -313,6 +314,15 @@ func TestChannelClone_EdgeCases(t *testing.T) {
 func TestValidateIntervals_Empty(t *testing.T) {
 	require.NoError(t, ValidateIntervals(nil, BillingModeToken))
 	require.NoError(t, ValidateIntervals([]PricingInterval{}, BillingModeToken))
+}
+
+func TestValidateIntervals_VideoTiers(t *testing.T) {
+	intervals := []PricingInterval{
+		{TierLabel: "480p", PerRequestPrice: testPtrFloat64(0.05)},
+		{TierLabel: "720p", PerRequestPrice: testPtrFloat64(0.07)},
+		{TierLabel: "1080p", PerRequestPrice: testPtrFloat64(0.25)},
+	}
+	require.NoError(t, ValidateIntervals(intervals, BillingModeVideo))
 }
 
 func TestValidateIntervals_ValidIntervals(t *testing.T) {
@@ -512,7 +522,6 @@ func TestSupportedModels_WildcardExpandedFromPricing(t *testing.T) {
 		require.NotContains(t, m.Name, "*")
 	}
 }
-
 
 func TestSupportedModels_MissingPricingKeepsNilPricing(t *testing.T) {
 	ch := &Channel{
