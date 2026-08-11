@@ -153,3 +153,6 @@ aicodex
 output/
 
 *.dump
+
+# Vitest / Vite cache at repo root
+.vite/
