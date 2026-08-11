@@ -1,0 +1,86 @@
+frontend/src/components/admin/channel/__tests__/types.spec.ts
+  s_5aaa5f10303f63::t_9da088d1ef13c5 58,67-73
+frontend/src/i18n/locales/en/admin/channels.ts
+  s_5aaa5f10303f63::t_ec2de5e6be8e1d 38-39,139
+  s_5aaa5f10303f63::t_3363e0eac4e54e 97-98,137-138
+frontend/src/i18n/locales/en/dashboard.ts
+  s_5aaa5f10303f63::t_ec2de5e6be8e1d 533-534,577,579-580
+frontend/src/components/modelPlaza/PlazaGroupSection.vue
+  s_5aaa5f10303f63::t_c580b8cd3a663f 57-58
+frontend/src/components/admin/channel/types.ts
+  s_5aaa5f10303f63::t_3363e0eac4e54e 125
+backend/internal/service/channel_plaza.go
+  s_5aaa5f10303f63::t_c580b8cd3a663f 49-50,100-101
+frontend/src/views/admin/ChannelsView.vue
+  s_5aaa5f10303f63::t_3363e0eac4e54e 580,1498,1508-1510
+  s_5aaa5f10303f63::t_be57a4864e958c 1511-1512
+frontend/src/i18n/locales/zh/dashboard.ts
+  s_5aaa5f10303f63::t_ec2de5e6be8e1d 538-539,582,584-585
+backend/internal/service/channel_service_test.go
+  s_5aaa5f10303f63::t_8780b93c28562c 1453-1515
+backend/internal/service/billing_service_unified_test.go
+  s_5aaa5f10303f63::t_9da088d1ef13c5 172-220
+backend/internal/handler/model_plaza_handler_test.go
+  s_5aaa5f10303f63::t_c580b8cd3a663f 95
+frontend/src/api/modelPlaza.ts
+  s_5aaa5f10303f63::t_c580b8cd3a663f 46-48
+backend/internal/service/model_pricing_resolver.go
+  s_5aaa5f10303f63::t_54c13c928e51b6 6,76,138,296
+backend/internal/handler/admin/channel_handler.go
+  s_5aaa5f10303f63::t_5e9d43d491c457 62
+backend/internal/service/channel.go
+  s_5aaa5f10303f63::t_5e9d43d491c457 17,23,103,109,114,172,291-292,313-314
+frontend/src/components/modelPlaza/__tests__/PlazaModelPricingTable.spec.ts
+  s_5aaa5f10303f63::t_c580b8cd3a663f 46-51,265
+  s_5aaa5f10303f63::t_7e1ad567ff7d27 259-262,268
+  s_5aaa5f10303f63::t_9da088d1ef13c5 232-258,263-264,266-267,269-270
+backend/internal/service/openai_gateway_record_usage_test.go
+  s_5aaa5f10303f63::t_987d41bf675ff9 2222-2260,2541-2545,2547-2554
+  s_5aaa5f10303f63::t_45544e7a7222ad 2546
+  s_5aaa5f10303f63::t_69a0613a4dbac0 2555-2557
+frontend/src/i18n/locales/zh/admin/channels.ts
+  s_5aaa5f10303f63::t_ec2de5e6be8e1d 38-39,139
+  s_5aaa5f10303f63::t_3363e0eac4e54e 97-98,137-138
+backend/internal/handler/model_plaza_handler.go
+  s_5aaa5f10303f63::t_c580b8cd3a663f 73-74,186-187
+backend/internal/service/channel_service.go
+  s_5aaa5f10303f63::t_9da088d1ef13c5 683-688
+  s_5aaa5f10303f63::t_5e9d43d491c457 645-656,682,689-720,803,847
+backend/internal/service/billing_service.go
+  s_5aaa5f10303f63::t_5e9d43d491c457 931-932,978-979,1169-1190
+  s_5aaa5f10303f63::t_7ad2d5a48855a1 1191-1193
+frontend/src/components/modelPlaza/PlazaModelPricingTable.vue
+  s_5aaa5f10303f63::t_3979b21b25fcaa 195,304-307
+  s_5aaa5f10303f63::t_ec2de5e6be8e1d 219,278-285,329,331-338
+  s_5aaa5f10303f63::t_c580b8cd3a663f 236-238,302-303,308-309,312-314
+frontend/src/components/channels/SupportedModelChip.vue
+  s_5aaa5f10303f63::t_ec2de5e6be8e1d 169,233-234,246-248
+backend/internal/service/openai_gateway_usage.go
+  s_5aaa5f10303f63::t_5e9d43d491c457 687
+  s_5aaa5f10303f63::t_faae209f663a04 678-679
+  s_5aaa5f10303f63::t_18fd3955dc5837 682-686,688-690
+frontend/src/constants/channel.ts
+  s_5aaa5f10303f63::t_3363e0eac4e54e 10,15
+frontend/src/components/admin/channel/PricingEntryCard.vue
+  s_5aaa5f10303f63::t_3363e0eac4e54e 90,229-253,276,290-293,296-297,307-337
+  s_5aaa5f10303f63::t_6439cb75473611 338
+backend/internal/service/channel_test.go
+  s_5aaa5f10303f63::t_9da088d1ef13c5 223,319-325
+  s_5aaa5f10303f63::t_a30827fe73a34a 326-327
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "120cd90466f770eb42c22d22a8eee16c1eef2b60",
+  "prompts": {},
+  "sessions": {
+    "s_5aaa5f10303f63": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_00fa0008effeNm3HGXdshDUd8X",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Litien Zhao <DN7074@jsyyds.com>"
+    }
+  }
+}
