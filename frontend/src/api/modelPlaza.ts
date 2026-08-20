@@ -43,6 +43,9 @@ export interface ModelPlazaGroup {
   /** 生图独立倍率：true 时图片计费模型的实付倍率取 image_rate_multiplier，不取分组/专属倍率。 */
   image_rate_independent: boolean
   image_rate_multiplier: number
+  /** 视频独立倍率：true 时视频按秒模型的实付倍率取 video_rate_multiplier。 */
+  video_rate_independent: boolean
+  video_rate_multiplier: number
   models: PlazaModel[]
 }
 

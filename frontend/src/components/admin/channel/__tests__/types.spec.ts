@@ -55,7 +55,7 @@ describe('validateIntervals', () => {
     })
   })
 
-  describe('image / per_request mode', () => {
+  describe('image / per_request / video mode', () => {
     it('allows multiple unbounded tiers identified by label', () => {
       const intervals: IntervalFormEntry[] = [
         makeInterval({ tier_label: '1K', per_request_price: 0.04 }),
@@ -64,6 +64,13 @@ describe('validateIntervals', () => {
       ]
       expect(validateIntervals(intervals, 'image', t)).toBeNull()
       expect(validateIntervals(intervals, 'per_request', t)).toBeNull()
+
+	  const videoIntervals: IntervalFormEntry[] = [
+	    makeInterval({ tier_label: '480p', per_request_price: 0.05 }),
+	    makeInterval({ tier_label: '720p', per_request_price: 0.07 }),
+	    makeInterval({ tier_label: '1080p', per_request_price: 0.25 }),
+	  ]
+	  expect(validateIntervals(videoIntervals, 'video', t)).toBeNull()
     })
 
     it('still rejects negative prices', () => {

@@ -43,7 +43,12 @@ function mountTable(
   models: PlazaModel[],
   rateMultiplier: number,
   userRateMultiplier?: number | null,
-  extraProps?: { imageRateIndependent?: boolean; imageRateMultiplier?: number | null }
+  extraProps?: {
+    imageRateIndependent?: boolean
+    imageRateMultiplier?: number | null
+    videoRateIndependent?: boolean
+    videoRateMultiplier?: number | null
+  }
 ) {
   return mount(PlazaModelPricingTable, {
     props: { models, rateMultiplier, userRateMultiplier: userRateMultiplier ?? null, ...extraProps }
@@ -224,6 +229,45 @@ describe('PlazaModelPricingTable', () => {
     expect(text).toContain('modelPlaza.table.perUnitRequest')
   })
 
+  it('video 模型按分辨率展示每秒价格', () => {
+    const model = tokenModel({
+      name: 'grok-imagine-video',
+      pricing: {
+        billing_mode: 'video',
+        input_price: null,
+        output_price: null,
+        cache_write_price: null,
+        cache_read_price: null,
+        image_input_price: null,
+        image_output_price: null,
+        per_request_price: null,
+        intervals: [
+          {
+            min_tokens: 0,
+            max_tokens: null,
+            tier_label: '720p',
+            input_price: null,
+            output_price: null,
+            cache_write_price: null,
+            cache_read_price: null,
+            per_request_price: 0.07
+          }
+        ]
+      },
+      official_pricing: null
+    })
+    const wrapper = mountTable([model], 0.5, null, {
+      videoRateIndependent: true,
+      videoRateMultiplier: 0.8
+    })
+    const text = wrapper.text()
+    expect(text).toContain('720p')
+    expect(text).toContain('$0.056')
+    expect(text).toContain('modelPlaza.table.perSecond')
+    expect(text).toContain('modelPlaza.table.perUnitSecond')
+    expect(wrapper.findAll('tbody tr td').at(-1)!.text()).toBe('0.8x')
+  })
+
   it('token 模型阶梯定价内联进输入/输出列,按倍率折算', () => {
     const model = tokenModel({
       pricing: {
@@ -382,5 +426,26 @@ describe('PlazaModelPricingTable', () => {
     expect(text).toContain('modelPlaza.table.perUnitImage')
     // 旧 bug:image_output_price × 0.1 = 0.000003 被当按次价
     expect(text).not.toContain('$0.000003')
+  })
+
+  it('Composite 分组中相同模型名按具体平台分别展示徽章', () => {
+    const anthropic = tokenModel({ name: 'shared-model', platform: 'anthropic' })
+    const openai = tokenModel({ name: 'shared-model', platform: 'openai' })
+    const wrapper = mount(PlazaModelPricingTable, {
+      props: {
+        models: [anthropic, openai],
+        platform: 'composite',
+        rateMultiplier: 1
+      }
+    })
+
+    const rows = wrapper.findAll('tbody tr')
+    expect(rows).toHaveLength(2)
+    expect(rows.map((row) => row.find('td').text())).toEqual([
+      'shared-modelAnthropic',
+      'shared-modelOpenAI'
+    ])
+    expect(wrapper.text()).toContain('Anthropic')
+    expect(wrapper.text()).toContain('OpenAI')
   })
 })

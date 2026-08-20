@@ -108,7 +108,7 @@ type ChannelMappingResult struct {
 	MappedModel        string // 映射后的模型名（无映射时等于原始模型名）
 	ChannelID          int64  // 渠道 ID（0 = 无渠道关联）
 	Mapped             bool   // 是否发生了映射
-	BillingModelSource string // 计费模型来源（"requested" / "upstream" / "channel_mapped"）
+	BillingModelSource string // 计费模型来源（"requested" / "upstream" / "channel_mapped" / "response_model"）
 }
 
 // BuildModelMappingChain 根据映射结果和上游实际模型构建映射链描述。
@@ -375,6 +375,13 @@ func channelLookupPlatform(ctx context.Context, groupPlatform string) string {
 	}
 	return groupPlatform
 }
+
+// InvalidateCache 失效并重建渠道缓存。
+// 供渠道以外、但会影响渠道缓存内容的变更调用（如分组平台变更）。
+func (s *ChannelService) InvalidateCache() {
+	s.invalidateCache()
+}
+
 func (s *ChannelService) invalidateCache() {
 	s.cache.Store((*channelCache)(nil))
 	s.cacheSF.Forget("channel_cache")
@@ -642,6 +649,18 @@ func validatePricingEntries(pricing []ChannelModelPricing) error {
 	return validatePricingBillingMode(pricing)
 }
 
+func validateAccountStatsPricingEntries(pricing []ChannelModelPricing) error {
+	for _, p := range pricing {
+		if p.BillingMode == BillingModeVideo {
+			return infraerrors.BadRequest(
+				"ACCOUNT_STATS_VIDEO_PRICING_UNSUPPORTED",
+				"video billing mode is not supported in account stats pricing rules",
+			)
+		}
+	}
+	return validatePricingEntries(pricing)
+}
+
 // validatePricingBillingMode 校验计费模式配置：按次/图片模式必须配价格或区间，所有价格字段不能为负，区间至少有一个价格字段。
 func validatePricingBillingMode(pricing []ChannelModelPricing) error {
 	for _, p := range pricing {
@@ -659,12 +678,51 @@ func validatePricingBillingMode(pricing []ChannelModelPricing) error {
 }
 
 func checkBillingModeRequirements(p ChannelModelPricing) error {
-	if p.BillingMode == BillingModePerRequest || p.BillingMode == BillingModeImage {
+	if p.BillingMode == BillingModePerRequest || p.BillingMode == BillingModeImage || p.BillingMode == BillingModeVideo {
 		if p.PerRequestPrice == nil && len(p.Intervals) == 0 {
 			return infraerrors.BadRequest(
 				"BILLING_MODE_MISSING_PRICE",
 				"per-request price or intervals required for per_request/image billing mode",
 			)
+		}
+	}
+	if p.BillingMode == BillingModeVideo {
+		if p.Platform != PlatformGrok {
+			return infraerrors.BadRequest(
+				"VIDEO_PRICING_PLATFORM_UNSUPPORTED",
+				"video billing mode is only supported for the grok platform",
+			)
+		}
+		if len(p.Intervals) == 0 {
+			return infraerrors.BadRequest(
+				"BILLING_MODE_MISSING_PRICE",
+				"at least one resolution price is required for video billing mode",
+			)
+		}
+		seen := make(map[string]struct{}, len(p.Intervals))
+		for _, iv := range p.Intervals {
+			resolution := strings.ToLower(strings.TrimSpace(iv.TierLabel))
+			switch resolution {
+			case VideoBillingResolution480P, VideoBillingResolution720P, VideoBillingResolution1080P:
+			default:
+				return infraerrors.BadRequest(
+					"INVALID_VIDEO_RESOLUTION",
+					fmt.Sprintf("video pricing resolution must be 480p, 720p, or 1080p; got %q", iv.TierLabel),
+				)
+			}
+			if _, exists := seen[resolution]; exists {
+				return infraerrors.BadRequest(
+					"DUPLICATE_VIDEO_RESOLUTION",
+					fmt.Sprintf("duplicate video pricing resolution %q", resolution),
+				)
+			}
+			seen[resolution] = struct{}{}
+			if iv.PerRequestPrice == nil {
+				return infraerrors.BadRequest(
+					"VIDEO_RESOLUTION_MISSING_PRICE",
+					fmt.Sprintf("video pricing resolution %q requires a per-second price", resolution),
+				)
+			}
 		}
 	}
 	return nil
@@ -749,7 +807,7 @@ func (s *ChannelService) Create(ctx context.Context, input *CreateChannelInput) 
 		return nil, err
 	}
 	for i, rule := range channel.AccountStatsPricingRules {
-		if err := validatePricingEntries(rule.Pricing); err != nil {
+		if err := validateAccountStatsPricingEntries(rule.Pricing); err != nil {
 			return nil, fmt.Errorf("account stats pricing rule #%d: %w", i+1, err)
 		}
 	}
@@ -793,7 +851,7 @@ func (s *ChannelService) Update(ctx context.Context, id int64, input *UpdateChan
 		return nil, err
 	}
 	for i, rule := range channel.AccountStatsPricingRules {
-		if err := validatePricingEntries(rule.Pricing); err != nil {
+		if err := validateAccountStatsPricingEntries(rule.Pricing); err != nil {
 			return nil, fmt.Errorf("account stats pricing rule #%d: %w", i+1, err)
 		}
 	}
@@ -962,10 +1020,26 @@ func conflictsBetween(a, b modelEntry) bool {
 	}
 }
 
-// toModelEntry 将模型名转换为 modelEntry
+// toModelEntry 将模型名转换为 modelEntry（用于模型映射的冲突检测）。
+// 归一化必须与 expandMappingToCache 写缓存键的方式一致：映射缓存只做 strings.ToLower。
 func toModelEntry(pattern string) modelEntry {
 	prefix, isWild := splitWildcardSuffix(strings.ToLower(pattern))
 	return modelEntry{pattern: pattern, prefix: prefix, wildcard: isWild}
+}
+
+// toPricingModelEntry 将模型名转换为 modelEntry（用于模型定价的冲突检测）。
+//
+// 与 toModelEntry 的区别：定价缓存的键走 normalizeChannelPricingModelName
+// （额外做 TrimSpace，并把 claude-* 的 "." 换成 "-"），冲突检测必须用同一套归一化，
+// 否则两个校验时看着不同、写进缓存后键相同的定价会互相静默覆盖。
+func toPricingModelEntry(pattern string) modelEntry {
+	// 先剥通配符再归一化，与 expandPricingToCache 的处理顺序保持一致
+	prefix, isWild := splitWildcardSuffix(pattern)
+	return modelEntry{
+		pattern:  pattern,
+		prefix:   normalizeChannelPricingModelName(prefix),
+		wildcard: isWild,
+	}
 }
 
 // validateNoConflictingModels 检查定价列表中是否有冲突模型模式（同一平台下）。
@@ -974,7 +1048,7 @@ func validateNoConflictingModels(pricingList []ChannelModelPricing) error {
 	byPlatform := make(map[string][]modelEntry)
 	for _, p := range pricingList {
 		for _, model := range p.Models {
-			byPlatform[p.Platform] = append(byPlatform[p.Platform], toModelEntry(model))
+			byPlatform[p.Platform] = append(byPlatform[p.Platform], toPricingModelEntry(model))
 		}
 	}
 	for platform, entries := range byPlatform {

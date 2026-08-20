@@ -33,7 +33,7 @@ type createChannelRequest struct {
 	GroupIDs                   []int64                          `json:"group_ids"`
 	ModelPricing               []channelModelPricingRequest     `json:"model_pricing"`
 	ModelMapping               map[string]map[string]string     `json:"model_mapping"`
-	BillingModelSource         string                           `json:"billing_model_source" binding:"omitempty,oneof=requested upstream channel_mapped"`
+	BillingModelSource         string                           `json:"billing_model_source" binding:"omitempty,oneof=requested upstream channel_mapped response_model"`
 	RestrictModels             bool                             `json:"restrict_models"`
 	Features                   string                           `json:"features"`
 	FeaturesConfig             map[string]any                   `json:"features_config"`
@@ -48,7 +48,7 @@ type updateChannelRequest struct {
 	GroupIDs                   *[]int64                          `json:"group_ids"`
 	ModelPricing               *[]channelModelPricingRequest     `json:"model_pricing"`
 	ModelMapping               map[string]map[string]string      `json:"model_mapping"`
-	BillingModelSource         string                            `json:"billing_model_source" binding:"omitempty,oneof=requested upstream channel_mapped"`
+	BillingModelSource         string                            `json:"billing_model_source" binding:"omitempty,oneof=requested upstream channel_mapped response_model"`
 	RestrictModels             *bool                             `json:"restrict_models"`
 	Features                   *string                           `json:"features"`
 	FeaturesConfig             map[string]any                    `json:"features_config"`
@@ -59,7 +59,7 @@ type updateChannelRequest struct {
 type channelModelPricingRequest struct {
 	Platform         string                   `json:"platform" binding:"omitempty,max=50"`
 	Models           []string                 `json:"models" binding:"required,min=1,max=100"`
-	BillingMode      string                   `json:"billing_mode" binding:"omitempty,oneof=token per_request image"`
+	BillingMode      string                   `json:"billing_mode" binding:"omitempty,oneof=token per_request image video"`
 	InputPrice       *float64                 `json:"input_price" binding:"omitempty,min=0"`
 	OutputPrice      *float64                 `json:"output_price" binding:"omitempty,min=0"`
 	CacheWritePrice  *float64                 `json:"cache_write_price" binding:"omitempty,min=0"`

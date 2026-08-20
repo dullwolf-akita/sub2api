@@ -35,7 +35,8 @@ export default {
         perRequestPrice: '每次请求',
         intervals: '阶梯定价',
         unitPerMillion: '/ 1M token',
-        unitPerRequest: '/ 次'
+        unitPerRequest: '/ 次',
+        unitPerSecond: '/ 秒'
       }
     },
 
@@ -93,7 +94,8 @@ export default {
       billingMode: {
         token: 'Token',
         perRequest: '按次',
-        image: '图片（按次）'
+        image: '图片（按次）',
+        video: '视频（按秒）'
       },
       form: {
         name: '名称',
@@ -127,11 +129,15 @@ export default {
         addInterval: '添加区间',
         requestTiers: '按次计费层级',
         imageTiers: '图片计费层级（按次）',
+        videoTiers: '视频分辨率层级（按秒）',
         addTier: '添加层级',
         noTiersYet: '暂无层级，点击添加配置按次计费价格',
         noPricingRules: '暂无定价规则，点击"添加"创建',
         perRequestPrice: '单次价格',
         perRequestPriceRequired: '按次/图片计费模式必须设置默认价格或至少一个计费层级',
+        videoPriceRequired: '视频按秒计费模式必须至少设置一个分辨率价格',
+        videoResolutionPrices: '视频分辨率每秒价格',
+        videoPricingHint: '费用 = 分辨率每秒价格 × 视频时长 × 视频数量 × 生效倍率。未配置的分辨率会回退到 Grok 分组价格或系统默认价格。',
         tierLabel: '层级',
         resolution: '分辨率',
         modelMapping: '模型映射',
@@ -143,6 +149,7 @@ export default {
         billingModelSourceChannelMapped: '以渠道映射后的模型计费',
         billingModelSourceRequested: '以请求模型计费',
         billingModelSourceUpstream: '以最终模型计费',
+        billingModelSourceResponse: '按上游响应模型计费',
         billingModelSourceHint: '控制使用哪个模型名称进行定价查找',
         selectedCount: '已选 {count} 个',
         searchGroups: '搜索分组...',
@@ -151,6 +158,7 @@ export default {
         restrictModelsHint: '开启后，仅允许模型定价列表中的模型。不在列表中的模型请求将被拒绝。',
         defaultPerRequestPrice: '默认单次价格（未命中层级时使用）',
         defaultImagePrice: '默认图片价格（未命中层级时使用）',
+        defaultVideoPrice: '默认视频每秒价格（未命中层级时使用）',
         platformConfig: '平台配置',
         webSearchEmulation: 'Web Search 模拟',
         webSearchEmulationHint: '⚠️ 开启后该渠道下所有 Anthropic 分组的账号将自动拦截 web_search 请求，请谨慎操作',

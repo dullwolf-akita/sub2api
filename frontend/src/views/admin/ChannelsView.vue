@@ -577,6 +577,7 @@
                       :key="pIdx"
                       :entry="entry"
                       :platform="section.platform"
+                      :allow-video="false"
                       @update="rule.pricing.splice(pIdx, 1, $event)"
                       @remove="removeRulePricingEntry(sIdx, ruleIndex, pIdx)"
                     />
@@ -713,7 +714,8 @@ const statusEditOptions = computed(() => [
 const billingModelSourceOptions = computed(() => [
   { value: 'channel_mapped', label: t('admin.channels.form.billingModelSourceChannelMapped', 'Bill by channel-mapped model') },
   { value: 'requested', label: t('admin.channels.form.billingModelSourceRequested', 'Bill by requested model') },
-  { value: 'upstream', label: t('admin.channels.form.billingModelSourceUpstream', 'Bill by final upstream model') }
+  { value: 'upstream', label: t('admin.channels.form.billingModelSourceUpstream', 'Bill by final upstream model') },
+  { value: 'response_model', label: t('admin.channels.form.billingModelSourceResponse', 'Bill by upstream response model') }
 ])
 
 // ── State ──
@@ -1494,7 +1496,7 @@ async function handleSubmit() {
     }
   }
 
-  // 校验 per_request/image 模式必须有价格 (只校验启用的平台)
+  // 校验非 token 模式必须有价格 (只校验启用的平台)
   for (const section of form.platforms.filter(s => s.enabled)) {
     for (const entry of section.model_pricing) {
       if (entry.models.length === 0) continue
@@ -1502,6 +1504,11 @@ async function handleSubmit() {
           (entry.per_request_price == null || entry.per_request_price === '') &&
           (!entry.intervals || entry.intervals.length === 0)) {
         appStore.showError(t('admin.channels.form.perRequestPriceRequired'))
+        return
+      }
+      if (entry.billing_mode === 'video' &&
+          (!entry.intervals || !entry.intervals.some(iv => iv.per_request_price != null && iv.per_request_price !== ''))) {
+        appStore.showError(t('admin.channels.form.videoPriceRequired'))
         return
       }
     }
