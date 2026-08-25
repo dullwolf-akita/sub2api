@@ -87,7 +87,12 @@
             </label>
             <Select
               :modelValue="entry.billing_mode"
-              @update:modelValue="changeBillingMode($event as BillingMode)"
+              @update:modelValue="emit('update', {
+                ...entry,
+                billing_mode: $event as BillingMode,
+                intervals: [],
+                time_pricing: { ...entry.time_pricing, periods: [] },
+              })"
               :options="billingModeOptions"
               class="mt-1"
             />
@@ -134,7 +139,20 @@
             </div>
           </div>
 
-          <!-- Token intervals (channel-only; group long-context uses official presets) -->
+          <div v-if="enableTierMultipliers" class="mt-3 grid max-w-md grid-cols-2 gap-2">
+            <div>
+              <label class="text-xs text-gray-400">{{ t('admin.channels.form.fastMultiplier') }}</label>
+              <input :value="entry.fast_multiplier" @input="emitField('fast_multiplier', ($event.target as HTMLInputElement).value)"
+                type="number" step="any" min="0.000001" class="input mt-0.5 text-sm" :placeholder="t('admin.channels.form.multiplierPlaceholder')" />
+            </div>
+            <div>
+              <label class="text-xs text-gray-400">{{ t('admin.channels.form.flexMultiplier') }}</label>
+              <input :value="entry.flex_multiplier" @input="emitField('flex_multiplier', ($event.target as HTMLInputElement).value)"
+                type="number" step="any" min="0.000001" class="input mt-0.5 text-sm" :placeholder="t('admin.channels.form.multiplierPlaceholder')" />
+            </div>
+          </div>
+
+          <!-- Channel token intervals; the group long-context toggle controls whether tiers apply. -->
           <div v-if="!hideTokenIntervals" class="mt-3">
             <div class="flex items-center justify-between">
               <label class="text-xs font-medium text-gray-500 dark:text-gray-400">
@@ -151,11 +169,18 @@
                 :key="idx"
                 :interval="iv"
                 :mode="entry.billing_mode"
+                :enable-multipliers="enableTierMultipliers"
                 @update="updateInterval(idx, $event)"
                 @remove="removeInterval(idx)"
               />
             </div>
           </div>
+
+          <TimePricingSection
+            v-if="enableTimePricing"
+            :model-value="entry.time_pricing"
+            @update:model-value="emit('update', { ...entry, time_pricing: $event })"
+          />
         </div>
 
         <!-- Per-request mode -->
@@ -226,31 +251,6 @@
             />
           </div>
         </div>
-
-        <!-- Video mode -->
-        <div v-else-if="entry.billing_mode === 'video'" class="mt-3">
-          <label class="block text-xs font-medium text-gray-500 dark:text-gray-400">
-            {{ t('admin.channels.form.videoResolutionPrices') }}
-            <span class="ml-1 font-normal text-gray-400">$/s</span>
-          </label>
-          <div class="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-3">
-            <label v-for="resolution in videoResolutions" :key="resolution" class="block">
-              <span class="text-xs text-gray-400">{{ resolution }}</span>
-              <input
-                :value="videoPrice(resolution)"
-                @input="setVideoPrice(resolution, ($event.target as HTMLInputElement).value)"
-                type="number"
-                step="any"
-                min="0"
-                class="input mt-0.5 text-sm"
-                :placeholder="t('admin.channels.form.pricePlaceholder')"
-              />
-            </label>
-          </div>
-          <p class="mt-2 text-xs text-gray-400">
-            {{ t('admin.channels.form.videoPricingHint') }}
-          </p>
-        </div>
       </div>
     </div>
   </div>
@@ -263,6 +263,7 @@ import Select from '@/components/common/Select.vue'
 import Icon from '@/components/icons/Icon.vue'
 import IntervalRow from './IntervalRow.vue'
 import ModelTagInput from './ModelTagInput.vue'
+import TimePricingSection from './TimePricingSection.vue'
 import type { PricingFormEntry, IntervalFormEntry } from './types'
 import { perTokenToMTok, getPlatformTagClass } from './types'
 import type { BillingMode } from '@/api/admin/channels'
@@ -273,10 +274,13 @@ const { t } = useI18n()
 const props = withDefaults(defineProps<{
   entry: PricingFormEntry
   platform?: string
-  allowVideo?: boolean
   hideTokenIntervals?: boolean
+  enableTimePricing?: boolean
+  enableTierMultipliers?: boolean
 }>(), {
   hideTokenIntervals: false,
+  enableTimePricing: false,
+  enableTierMultipliers: false,
 })
 
 const emit = defineEmits<{
@@ -294,8 +298,6 @@ const billingModeOptions = computed(() => [
   { value: 'video', label: t('admin.channels.billingMode.video') }
 ])
 
-const videoResolutions = ['480p', '720p', '1080p'] as const
-
 const billingModeLabel = computed(() => {
   const opt = billingModeOptions.value.find(o => o.value === props.entry.billing_mode)
   return opt ? opt.label : props.entry.billing_mode
@@ -305,44 +307,14 @@ function emitField(field: keyof PricingFormEntry, value: string) {
   emit('update', { ...props.entry, [field]: value === '' ? null : value })
 }
 
-function changeBillingMode(mode: BillingMode) {
-  emit('update', { ...props.entry, billing_mode: mode, intervals: [] })
-}
-
-function videoPrice(resolution: string): number | string | null {
-  return props.entry.intervals?.find(iv => iv.tier_label.toLowerCase() === resolution)?.per_request_price ?? null
-}
-
-function setVideoPrice(resolution: string, value: string) {
-  const intervals = [...(props.entry.intervals || [])]
-  const index = intervals.findIndex(iv => iv.tier_label.toLowerCase() === resolution)
-  if (value === '') {
-    if (index >= 0) intervals.splice(index, 1)
-  } else {
-    const interval: IntervalFormEntry = {
-      min_tokens: 0,
-      max_tokens: null,
-      tier_label: resolution,
-      input_price: null,
-      output_price: null,
-      cache_write_price: null,
-      cache_read_price: null,
-      per_request_price: value,
-      sort_order: videoResolutions.indexOf(resolution as typeof videoResolutions[number])
-    }
-    if (index >= 0) intervals[index] = interval
-    else intervals.push(interval)
-  }
-  intervals.sort((a, b) => a.sort_order - b.sort_order)
-  emit('update', { ...props.entry, intervals })
-}
-
 function addInterval() {
   const intervals = [...(props.entry.intervals || [])]
   intervals.push({
     min_tokens: 0, max_tokens: null, tier_label: '',
     input_price: null, output_price: null, cache_write_price: null,
     cache_read_price: null, per_request_price: null,
+    input_multiplier: null, output_multiplier: null,
+    cache_write_multiplier: null, cache_read_multiplier: null,
     sort_order: intervals.length
   })
   emit('update', { ...props.entry, intervals })
@@ -357,6 +329,8 @@ function addMediaTier() {
     min_tokens: 0, max_tokens: null, tier_label: labels[intervals.length] || '',
     input_price: null, output_price: null, cache_write_price: null,
     cache_read_price: null, per_request_price: null,
+    input_multiplier: null, output_multiplier: null,
+    cache_write_multiplier: null, cache_read_multiplier: null,
     sort_order: intervals.length
   })
   emit('update', { ...props.entry, intervals })
