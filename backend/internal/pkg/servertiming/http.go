@@ -2,13 +2,9 @@ package servertiming
 
 import (
 	"context"
-	"io"
 	"net/http"
 	"strings"
-	"sync"
 	"time"
-
-	"github.com/Wei-Shaw/sub2api/internal/pkg/requesttiming"
 )
 
 type dependencyModuleKey struct{}
@@ -56,61 +52,23 @@ func Do(client *http.Client, req *http.Request) (*http.Response, error) {
 	if client == nil {
 		client = http.DefaultClient
 	}
-	if req == nil || (!Active(req.Context()) && !requesttiming.Active(req.Context())) {
-		return client.Do(req)
+	if req == nil || !Active(req.Context()) {
+		return client.Do(req) //nolint:gosec // G704: 通用埋点包装器，不构造 URL；请求由调用方构造，SSRF 信任边界在调用方
 	}
 	startedAt := time.Now()
-	response, err := client.Do(req)
+	response, err := client.Do(req) //nolint:gosec // G704: 同上
 	RecordDependency(req.Context(), dependencyModule(req), startedAt, time.Now())
-	if response != nil {
-		elapsed := time.Since(startedAt)
-		requesttiming.AddDuration(req.Context(), "upstream_request", elapsed)
-		requesttiming.AddDuration(req.Context(), "upstream_ttfb", elapsed)
-		response.Body = &timedBody{ReadCloser: response.Body, ctx: req.Context(), startedAt: time.Now()}
-	}
 	return response, err
 }
 
 func (t *timingRoundTripper) RoundTrip(req *http.Request) (*http.Response, error) {
-	if req == nil || (!Active(req.Context()) && !requesttiming.Active(req.Context())) {
+	if req == nil || !Active(req.Context()) {
 		return t.base.RoundTrip(req)
 	}
 	startedAt := time.Now()
 	response, err := t.base.RoundTrip(req)
 	RecordDependency(req.Context(), dependencyModule(req), startedAt, time.Now())
-	if response != nil {
-		elapsed := time.Since(startedAt)
-		requesttiming.AddDuration(req.Context(), "upstream_request", elapsed)
-		requesttiming.AddDuration(req.Context(), "upstream_ttfb", elapsed)
-		response.Body = &timedBody{ReadCloser: response.Body, ctx: req.Context(), startedAt: time.Now()}
-	}
 	return response, err
-}
-
-type timedBody struct {
-	io.ReadCloser
-	ctx       context.Context
-	startedAt time.Time
-	once      sync.Once
-}
-
-func (b *timedBody) Read(p []byte) (int, error) {
-	n, err := b.ReadCloser.Read(p)
-	if err == io.EOF {
-		b.finish()
-	}
-	return n, err
-}
-
-func (b *timedBody) Close() error {
-	b.finish()
-	return b.ReadCloser.Close()
-}
-
-func (b *timedBody) finish() {
-	b.once.Do(func() {
-		requesttiming.AddDuration(b.ctx, "upstream_body", time.Since(b.startedAt))
-	})
 }
 
 func dependencyModule(req *http.Request) string {
