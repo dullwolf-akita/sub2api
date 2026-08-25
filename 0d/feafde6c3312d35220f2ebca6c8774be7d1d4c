@@ -1,0 +1,1665 @@
+backend/internal/service/openai_quota_reset_credits_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 17-18,31-34
+backend/internal/service/openai_ws_state_store_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 31-51,231-236
+  s_b7c291d594c7c2::t_0068efbb646d3a 237
+frontend/src/components/admin/channel/__tests__/TimePricingSection.spec.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-206
+backend/internal/service/openai_responses_namespace_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 97,128
+backend/internal/service/openai_apikey_responses_probe.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 122-144
+backend/internal/service/channel_monitor_quota_fetcher_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-681
+backend/internal/repository/codex_fingerprint_seed_migration_integration_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-150
+backend/internal/repository/custom_group_usage_timezone_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-16
+backend/internal/service/openai_codex_models_service.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 30-34,244,306-321,472-485,517-518,525-530
+backend/internal/service/openai_codex_turn_state_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-396
+frontend/src/components/account/__tests__/EditAccountModal.spec.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 293-304,358-529,1366-1424
+  s_b7c291d594c7c2::t_a69b2248e3eb34 1425
+frontend/src/components/modelPlaza/PlazaModelPricingTable.vue
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 3,5-7,9-10,12,61-62,65,69-79,95-101,105,114-115,118,126,128,131,134-149,151,156,160,194,198-208,211-221,224-239,241,260,265-271,297,311-317,365-369,372-386,389-393,433-467,469-474,477-489,495-498,502
+  s_b7c291d594c7c2::t_ce726a8b214fe2 357-359,403,418,420-422
+  s_b7c291d594c7c2::t_5d08d0eeb526fd 396-398
+backend/internal/handler/endpoint.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 18-32,84-85,119-127,200
+frontend/src/components/common/GroupBadge.vue
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 165-173,212-226
+backend/internal/service/grok_media_image_geometry.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-149
+backend/internal/service/antigravity_gateway_compat.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 267-270,287-316
+  s_b7c291d594c7c2::t_6bdeed95df587b 317-318
+frontend/src/constants/platforms.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-28
+backend/internal/service/gateway_count_tokens.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 369,433
+backend/internal/service/openai_gateway_service.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 250-252,256-257,290-292,405-406,426,451,462,472-476,613-616,1207-1217,1226
+backend/internal/service/gateway_anthropic_passthrough.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 299,314,554,633-635,704-769,803,807-810,812,840,842,844,879
+backend/internal/server/routes/composite_platform_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 136-207
+backend/ent/channelmonitorrequesttemplate/channelmonitorrequesttemplate.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 103-110,120
+backend/internal/service/openai_first_output_timeout_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 545,555,564-565,567-568
+backend/internal/service/ratelimit_cn_providers.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-154
+backend/internal/service/openai_gateway_responses_chat_fallback_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 12,14,58-101,151-187,269-408
+backend/internal/service/ratelimit_service_openai_image_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 122-171
+frontend/src/api/admin/channelMonitor.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 8-16,20-58,97-102,131,133,135-140,153-154,166-167,182-183
+backend/internal/handler/grok_audio.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 48-50,52-120,123-124,133
+backend/internal/service/openai_ws_ops_failure_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-57
+frontend/src/i18n/locales/en/admin/ops.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 310,343,345-352
+frontend/package.json
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 25,66-67
+backend/internal/service/composite_platform_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 28-31,66,70-75
+  s_b7c291d594c7c2::t_43add494e1229a 76
+frontend/src/views/admin/__tests__/AccountsView.usageWindowsHint.spec.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 104-107,161-168
+  s_b7c291d594c7c2::t_7f1e332865348b 169-170
+frontend/src/utils/platformColors.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 8-17,26-28,40-42,53-55,67-69,82-84,96-98,110-112,124-126,138-140,152-154,166-168,180-182,193-195,203-213,275-277
+backend/internal/repository/usage_cleanup_repo_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 24-28,406,421-423,426-430,438-493,502-504,508
+backend/internal/service/openai_quota_auto_reset_config.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-148
+frontend/src/components/account/credentialsBuilder.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 28,40-46,251-347
+  s_b7c291d594c7c2::t_9f7ce43504757d 348
+backend/internal/service/cn_provider_foraccount_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-125
+frontend/src/components/account/__tests__/CNProviderBalanceCell.spec.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-76
+frontend/src/components/account/__tests__/credentialsBuilder.cnAdaptive.spec.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-39
+backend/internal/service/openai_ws_forwarder_logutil.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 164-165,168-172,199,203-210
+backend/internal/service/openai_ws_forwarder_support.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 224-266,316,331-356,555-559,599-604,696-706
+  s_b7c291d594c7c2::t_cd8ccaf9128f53 707
+backend/internal/service/openai_ws_forwarder_ingress_session_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 735,753,791-800,804-807,819-820,833-834,1220,1245,1256-1257
+frontend/src/components/admin/channel/TimePricingSection.vue
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-188
+backend/internal/service/channel_monitor_quota_mode_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-624
+backend/internal/service/openai_alpha_search_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 13,62,96-103,168-171,316-321,327-453,631-647
+  s_b7c291d594c7c2::t_dd0c7e10896294 648
+backend/internal/handler/openai_gateway_ws_failover_resume_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-35
+backend/internal/repository/wire.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 99
+backend/internal/pkg/apicompat/responses_client_tools.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 30-36,83,122-124,128-132,147-210,219,221-222,226-228,238,243,252,257-260,262-265,270-272,275-290,314-354,580,615-622
+  s_b7c291d594c7c2::t_3b172ac815216a 623
+backend/internal/repository/migrations_runner_notx_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 194-231
+  s_b7c291d594c7c2::t_91bb7e0718acdb 191-193
+backend/internal/service/openai_gateway_chat_completions_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 492-531
+backend/internal/service/openai_visible_ttft_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 74-105
+backend/internal/service/openai_ws_http_bridge_resume_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-263
+backend/pkg/pluginapi/v1/manifest.schema.json
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-75
+backend/internal/service/plugin_runtime.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-418
+backend/internal/server/routes/admin.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 23-25,64-66,106-108,494-504,745-757
+  s_b7c291d594c7c2::t_57670985d1e8cb 758-760
+backend/cmd/server/wire.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 28-31,55,61,77-83,100,128,130,143-154,265-270,354-359
+backend/internal/service/scheduler_snapshot_group_lifecycle_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 328-329,444,456-457,475,480,484,500-501,549,556-557,574,578
+backend/internal/service/openai_responses_ingress_compat_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-94
+backend/internal/handler/no_account_error.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 7-8,37-59,134-138
+backend/migrations/226_add_usage_log_effective_model_indexes_notx.sql
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-13
+frontend/src/i18n/locales/zh/admin/resources.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 375
+backend/internal/service/gateway_record_usage_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 348-379,697-767
+backend/internal/handler/grok_media.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 349,364-365,367,373,378,403,414
+backend/internal/service/grok_upstream_failure.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 29-32,118-131,150,376-377,386-465,591-595,604-608
+backend/internal/service/openai_apikey_responses_probe_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 52-91
+backend/internal/pkg/apicompat/chatcompletions_responses_bridge.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 20-35,40-45,50,162-175,214-250,278-283,308,317,325-331,333-341,356,368-379,387-402,410,417,438,454,460-468,495,504,529-538,540-542,544,836-855,972-974,1205,1215-1219,1231,1246-1253,1289,1294,1310-1316,1425,1462-1464,1509-1535,1557-1559,1716,1732-1737,1870,1874,1888-1890,1960,1969,2060
+backend/internal/pkg/xai/cli_identity_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 44,59,66
+frontend/src/views/admin/__tests__/ChannelMonitorView.grok.spec.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 13,15-16,39-42,94-95,104
+backend/internal/handler/openai_gateway_count_tokens.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 6,14,18-131,175,196,235-237,242,271,290
+backend/internal/repository/http_upstream.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 104,945-958,1037-1039
+backend/internal/service/response_model_billing_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 375-380
+backend/internal/service/openai_images_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 15,475-485,596-656,850,1115-1142,1395-1440,1966-1979
+  s_b7c291d594c7c2::t_32e1cbfa5b25ed 1980
+backend/internal/pkg/geminicli/models_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 24-44
+frontend/src/i18n/locales/zh/admin/ops.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 310,343,345-352
+backend/internal/repository/openai_oauth_service_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 13,81-91,136-146
+backend/internal/service/grok_stream_idle.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 35-45
+frontend/src/style.css
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 12-16
+backend/internal/service/plugin_runtime_integration_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-105
+backend/internal/handler/endpoint_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 30,54,62,106
+backend/internal/service/channel_available.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 93,120-122,129
+backend/internal/service/openai_bulk_account_settings.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-225
+backend/internal/service/gemini_messages_compat_service.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 950,953-959,1469,1472-1475,1477-1478,1563,1670-1675,1679,1693,1697-1771,1871-1874,3590-3591,3597-3603,3638-3658
+  s_b7c291d594c7c2::t_8805ac7d7b6d18 3659
+backend/internal/service/antigravity_gateway_service_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 343-439
+backend/internal/service/api_key_auth_cache_impl.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 17,409-410,506-507
+backend/internal/repository/gateway_cache_reasoning_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-41
+backend/ent/channelmonitor/where.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 73-82,308-421
+  s_b7c291d594c7c2::t_4e1d1e166f6cfd 422
+backend/internal/service/upstream_billing_probe.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 600-602,971-973,986-987,1011-1013,1021-1024
+frontend/src/api/__tests__/tokenRefresh.spec.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 94-110
+backend/internal/handler/handler.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 22,34
+deploy/config.example.yaml
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 184,189-198,217-219,238-240,335-336,1032-1050
+  s_b7c291d594c7c2::t_fab29aa68527c1 1051
+backend/internal/pkg/openai/constants.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 48-50
+frontend/src/components/modelPlaza/__tests__/PlazaModelPricingTable.spec.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 49-50,413-634
+backend/internal/handler/openai_gateway_compact_log_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 108-109,115-130
+frontend/src/constants/channelMonitor.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 10,16-19,24-32,41-53
+backend/internal/service/cn_provider_probe_url.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-48
+backend/internal/service/openai_embeddings.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 37,50,54-56,95,139-141,143-146
+backend/ent/usagecleanuptask_update.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 7,54,60,377,383
+backend/internal/service/openai_gateway_response_failed_passthrough_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 8,15,17,90-183
+  s_b7c291d594c7c2::t_105e079e0a4c02 184
+backend/internal/service/openai_gateway_response_flush_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 390,397-416,418-419,421-424,435,438-440,444-540,593-596,609
+frontend/src/composables/useModelWhitelist.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 160,185-187,433-434
+frontend/src/api/admin/accounts.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 473,487
+backend/internal/service/gateway_usage_billing.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 782,845,857,946,952,976,1128-1129,1136,1149-1150,1152-1170,1178-1185,1226
+backend/internal/securityaudit/prompt_config_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 4,8,459-505
+  s_b7c291d594c7c2::t_1c81223b8116ba 506
+backend/internal/handler/ops_error_logger_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 12,41,44,46,50,52,194-195,197,204,208-210,288-589,693-709,726-754,854-954,1079-1083,1234,1243,1270,1297,1608-1854
+  s_b7c291d594c7c2::t_9b52814a2ff258 1855
+backend/internal/handler/openai_ws_turn_pricing_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 10-23,34,37
+backend/migrations/229_plugins.sql
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-54
+backend/internal/handler/gateway_models_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 10,325-345,360,371,410-458
+  s_b7c291d594c7c2::t_6e61c7de4747e5 459
+backend/internal/service/openai_codex_function_call_id_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 69-175
+backend/internal/repository/dashboard_aggregation_repo.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 8,18-19,38-45,140-147,153-156,239-243,245-249,251-261,267,286-345,595-599,603,616-632,636-663,665
+backend/internal/service/openai_compact_probe_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 31,50,62,74,89,102,114,123-198
+backend/internal/service/openai_responses_input_tokens_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-103
+backend/internal/service/openai_compact_model_mapping_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 12,43,56-129,211-213
+backend/internal/service/service_tier_billing.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-107
+backend/internal/service/account_test_service_openai_compact_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 13,18-22,47-48,62-63,65-66,73-77,129,142-145,155-156,171,173-175,180,202-203,217,220-330
+backend/internal/service/openai_account_runtime_transient_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 88
+frontend/src/i18n/locales/en/admin/accounts.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 107-140,167,473,475,481-482,620-621,623,828-835,1530-1537
+backend/internal/service/openai_gateway_compat_buffered_read_failover_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-152
+backend/internal/service/openai_ws_v2_passthrough_adapter.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 31,89-91,100,132,641-643,667-669,682,696,738-759,798-799,894,943,957-959,968,973,976,988-1014,1095-1098,1136,1145-1149,1156-1164,1182-1184,1199,1233-1236,1257-1258,1260-1263,1265,1268,1279,1297-1299,1325,1351-1353,1420-1422
+frontend/src/views/admin/__tests__/AccountsView.priorityColumn.spec.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-152
+backend/ent/usagecleanuptask_create.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 7,61,378,595,1002
+backend/internal/config/config.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 35,64-67,106-117,849-895,953-955,967-968,1096-1099,1132-1143,1790-1793,2290-2297,2359,2451-2454,2465,2650-2663,3275-3277,3287-3289
+backend/internal/service/channel_monitor_checker_body_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 202
+backend/internal/handler/admin/setting_handler.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 377,385-388
+backend/internal/service/channel_service_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 8,11,2107-2109,2135,2531-2589
+  s_b7c291d594c7c2::t_c7ba0454734316 2590
+backend/internal/repository/http_upstream_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 20,232,239,241,458,462,464,468,474-475,479,485,490,496-497,501,507-508,514-515,518,527-528,536,542
+backend/internal/service/cn_provider_probe_url_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-129
+backend/internal/service/dashboard_aggregation_service.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 21,23,25-28,100,235,276-303
+  s_b7c291d594c7c2::t_17a1ebe6fa4b96 304
+backend/internal/service/cn_provider_balance_check_service_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-106
+backend/internal/handler/failover_loop.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 59-65,79-123,212-213,220
+deploy/docker-compose.yml
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 159,161-164,166,175-193,196
+docs/PLUGIN_DEVELOPMENT.md
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-233
+frontend/src/components/admin/channel/PricingEntryCard.vue
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 90-95,142-155,172,178-183,266,278-279,282-283,316-317,332-333
+backend/internal/pkg/apicompat/chatcompletions_to_responses.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 381-389
+frontend/src/components/admin/monitor/MonitorFormDialog.vue
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 14-34,54-81,99,109,128,141,173-174,248,268-271,274-276,279-281,321-322,342-343,358-361,472-475,478-659,667-668,670-685,691,693-694,723-726,747-748,815-820,825,838-842,856,860-862
+backend/internal/service/openai_ws_protocol_resolver.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 59
+backend/internal/pkg/apicompat/chatcompletions_reasoning_alias_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 47
+backend/internal/service/plugin_package.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-387
+backend/internal/pkg/apicompat/chatcompletions_responses_bridge_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 20-75
+backend/internal/service/openai_compact_stream_bridge_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 321,515
+backend/internal/handler/admin/group_handler_platform_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-81
+backend/internal/service/openai_json_decode.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-24
+frontend/src/components/account/__tests__/credentialsBuilder.spec.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 109-115
+frontend/src/components/admin/channel/IntervalRow.vue
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 6-58,106,121-124
+frontend/src/components/admin/monitor/MonitorRunResultDialog.vue
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 15,17,44,57
+backend/internal/handler/no_account_error_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 64-78,131-132,154-155,164-175,234-235
+backend/internal/service/gemini_multiplatform_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 322-328
+backend/internal/service/gateway_request.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 120,228-230,289
+backend/internal/service/openai_account_runtime_block_fastpath.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 15-18,40,61-65,68-80,96-99,168-170,185-253,319,365-367,452-455
+backend/internal/service/account_stats_pricing.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 71
+backend/internal/service/openai_codex_models_service_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 4,352-353,456,458,627-670
+  s_b7c291d594c7c2::t_9be979abd28dbf 671
+backend/internal/service/dashboard_aggregation_service_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 27-46,51,54-56,115-210
+  s_b7c291d594c7c2::t_cf89fb4fe5b68a 211
+backend/internal/pkg/servertiming/http.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 55-56,59
+  s_b7c291d594c7c2::t_ce726a8b214fe2 65
+backend/internal/service/account_test_service_openai_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 251-357
+backend/internal/service/gemini_error_policy_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 221,233-248,330,332,372-374,377,388-394,409-410,420
+backend/migrations/composite_routes_cn_providers_migration_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-18
+backend/internal/repository/usage_log_repo_request_type_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 510,513-524,526-530,535-536,551,554-565,567,688,690-693,785
+backend/ent/schema/channel_monitor_history.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 6-7,48-51
+backend/internal/service/openai_responses_rejected_field_retry.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 10,12,20-29,33-34,38-64,66-69,71,79,82-83,88-92,94,102-107,122-131,133-136,138-158,160-194,216-245,247-263,274-385
+  s_b7c291d594c7c2::t_58834649d1bae6 386
+frontend/src/components/account/CNProviderBalanceCell.vue
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-184
+frontend/src/components/common/PlatformIcon.vue
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 28-46
+backend/internal/pkg/apicompat/chatcompletions_responses_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 410-482,535,569
+backend/internal/repository/proxy_probe_service_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 169-184
+backend/internal/service/openai_gateway_ollama_cloud_cc_reasoning_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-269
+backend/internal/service/model_plaza_service_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-495
+backend/internal/service/openai_responses_input_compat_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-163
+frontend/src/i18n/locales/en/admin/index.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 9,20
+backend/internal/handler/openai_alpha_search.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 33-34,78-81,116,190,199,207,219-237
+  s_b7c291d594c7c2::t_5448f70e586e48 238
+backend/internal/service/openai_codex_identity_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 325-348
+backend/internal/repository/channel_repo_pricing_time_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-181
+backend/internal/service/billing_service.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 94-114,128-135,144,153-180,207-227,321,323-324,360-384,670-671,683-684,696-697,708-734,940,942-950,955,973,978-980,996-1008,1104-1130,1132,1134,1137,1139,1142,1144,1150,1152,1170,1241-1253,1260-1261,1263-1265,1301,1513-1514,1537-1539,1543-1574
+  s_b7c291d594c7c2::t_0978de948d2f3f 1575
+backend/internal/service/openai_routing_hint.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 29
+backend/internal/service/model_plaza_service.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-364
+backend/internal/service/openai_capacity_shed_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 80-110,128-132,141-205,249-250,253-254,290-292,296-298,322-333
+frontend/src/components/account/CnBaseUrlPresets.vue
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-53
+backend/internal/handler/openai_gateway_cn_dispatch_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-77
+backend/pkg/pluginapi/v1/manifest_schema_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-21
+backend/internal/handler/auth_oidc_oauth.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1147,1150
+frontend/src/api/admin/cnProviders.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-70
+backend/internal/handler/openai_live.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 18,33,47-58,247
+backend/internal/util/responseheaders/responseheaders.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 35-37
+backend/pkg/pluginapi/docs/security.md
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-29
+backend/internal/service/openai_gateway_usage.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 151,183-184,207,219,231-232,262,265,495-507,519-520,570,573,602,610-612,614,663,666,672,674,682,864-893,1088-1090
+backend/internal/service/cn_provider_balance_service.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-305
+backend/internal/service/openai_quota_spark_window_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 192-217
+backend/internal/service/custom_group_usage_rollup_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-50
+backend/internal/repository/http_upstream_http2_keepalive_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 4-5,7,25-34,50,58,62,66,70-96,106
+backend/internal/service/grok_media.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 62-63,132-133,149-150,263-264,266,944-949,1122,1301,1303-1310
+backend/internal/service/openai_fast_service_tier_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-841
+backend/internal/handler/admin/channel_handler_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 308,335,376,399,413,424-506,545
+backend/internal/service/openai_apikey_health_breaker.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-130
+backend/internal/service/openai_model_mapping_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 225-344
+backend/go.mod
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 3,27-28,59-60,128,135,158,197-199,209
+backend/internal/service/scheduler_snapshot_retirement_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 179
+backend/migrations/225_backfill_codex_fingerprint_seed.sql
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-21
+backend/internal/server/api_contract_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 864,889,991,997,1173,1180,1303,1309
+backend/internal/service/openai_gateway_request_body.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 48-75,217,305-307,352-356,364-470,472,533-538,842-1078,1087-1096,1109-1114,1267-1317,1876,1921,1926-1948
+backend/internal/service/account_test_service_cn_adaptive.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-310
+backend/internal/service/openai_embeddings_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 107-188
+frontend/src/api/admin/plugins.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-156
+backend/internal/service/upstream_billing_probe_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 343-374
+backend/internal/handler/openai_codex_models_handler_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 119-131,303-306,313
+backend/internal/service/openai_gateway_response_handling.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 11,19,22,25,61,63,72-79,88,93,101-103,125,134,140,146,163,167,248-250,252,255,258-263,269,317,340,370,374-385,409,425,474-478,482-498,500,502-505,511-526,528-530,534,536,546-548,550,553-573,578-595,599,614,619,626,630,642,647,665,668-670,689,711,716-734,743-746,753-760,763-765,767,784-787,818,862,880-882,887-890,917-920,931,940,943-945,1046,1056-1062,1192-1196,1199-1202,1205-1206,1209-1212,1214-1288,1290-1311,1392-1442,1458-1472,1487-1497,1577,1593,1605,1610,1620-1623,1628,1630-1632,1676,1678-1688,1691,1717-1720,1725,1735-1736,1762,1764,1787-1834,1923,1995-2063,2072,2074-2082,2088-2093,2143-2144,2148,2157-2158,2233,2237,2269-2270,2336-2337
+backend/internal/service/upstream_response_model_bench_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 38,55
+frontend/src/components/user/monitor/MonitorCard.vue
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 26,28,58-60,87,92,94,100-103,124,131-132
+  s_b7c291d594c7c2::t_12a474f98972ee 133-134
+backend/internal/service/openai_codex_tool_names.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-455
+backend/internal/service/openai_agent_identity_compat_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 43,90,136-137,150
+backend/internal/service/gateway_service.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 195-196,455-458,493-502,617-629,679-687,1407-1417,1523,1529,1535
+backend/internal/service/openai_gateway_scheduling.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 69,74-87,108,260-297,301-302,363-372,376-377,379,386-401,413-416,427-430,434,441,444,446,453,524-555,796-797,799-833,839-875,877,881,934,997-998,1001,1106,1114,1164,1239,1244,1250-1251,1255,1259,1263,1271,1466,1519,1577,1579-1581,1604,1606
+  s_b7c291d594c7c2::t_7193c3c213bd9f 1605
+backend/internal/service/openai_guardian_affinity_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-450
+backend/internal/service/subscription_expiry_service_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 4,7,121-123,145-155,197-237
+backend/internal/service/custom_channel_time_pricing_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-190
+backend/internal/service/openai_messages_dispatch.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 82-88,119-121
+backend/internal/pkg/apicompat/chatcompletions_responses_bridge_custom_tools_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 37-90,230,321-382,399-410,427,459,775-791,943
+backend/internal/service/openai_account_scheduler_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 199-205,469-537,692-744,1580,2812,3272,3609
+backend/internal/service/account_test_service_cn_adaptive_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-279
+backend/internal/service/cn_providers_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-689
+backend/internal/service/gateway_forward_as_chat_completions.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 168,170,173-175,184,206,214-218
+backend/internal/service/grok_quota_service_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 136,138,305-320,761,801,826
+backend/internal/service/openai_access_state_failover_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-424
+backend/internal/service/openai_alpha_search_billing_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 8,54,62,70
+backend/internal/service/openai_compact_fallback.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-297
+backend/internal/service/scheduler_snapshot_bulk_event_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 117-131
+frontend/src/components/account/__tests__/BulkEditAccountModal.spec.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 3,8-11,17,40,88-89,220-237,429-723
+  s_b7c291d594c7c2::t_cfa369f02e39d2 724
+frontend/src/components/account/EditAccountModal.vue
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 31,55-119,557,1998,2284-2343,2853,2880,2894-2895,2898-2900,2905,2946-2949,2983-3095,3176-3178,3251,3543-3551,3661-3665,3708-3712,3731,3785,3788,3880,3913-3959,3967-3974,4606-4612,4649-4665,4726,5177-5183,5219-5220,5222
+backend/internal/service/openai_images_incomplete_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 10,165-248
+  s_b7c291d594c7c2::t_c02b2df99ef7c3 249
+backend/internal/service/openai_tool_continuation.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 238,245,247,256,265,274,281-289
+frontend/src/api/admin/channels.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 20-23,28-39,49-50,55
+backend/internal/handler/admin/account_handler_available_models_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 290-325
+backend/internal/repository/channel_monitor_repo.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 6,14,56-57,61-63,127-128,134-138,252-254,294,343-356,429,444-445,450,792,799-802,847-852
+  s_b7c291d594c7c2::t_702be641e8936d 853-854
+backend/internal/server/routes/gateway_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 97,106,348-357
+  s_b7c291d594c7c2::t_352a78453a3905 358-359
+backend/ent/group.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 7,101,104
+backend/internal/service/openai_codex_fingerprint.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 8,13,15-16,19-59,67-68,82-98,100-114,117-118,120-129,131-207,209,228-229,236-239,243-244,247,253-254,257,262-263,265-274,283-287,291-295,297,307-308,317,386,391-392,399-400,419,425-443,470,472-491,493-524,528-582,584-585,592-593
+backend/migrations/channel_monitor_quota_mode_migration_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-37
+backend/internal/service/openai_responses_stream_output_items_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-117
+backend/internal/service/gemini_error_policy_skipped_write_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-213
+backend/internal/service/openai_content_session_seed_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 47-105,332,345,350,381,386-390,393,401-402
+backend/internal/service/gateway_forward_partial_usage_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 11,18-47,217-303
+  s_b7c291d594c7c2::t_c72e1b17c11856 304
+backend/internal/pkg/xai/billing.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 22
+backend/internal/pkg/apicompat/chatcompletions_responses_reasoning_cache_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-161
+backend/internal/securityaudit/prompt_config_store.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 139,141-147,151-160,507-509,511,515
+backend/internal/pkg/antigravity/oauth_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 97-99
+backend/ent/runtime/runtime.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 638-643,645,651,653,655,659,677,681,687,691,695,701,705,803
+backend/internal/repository/user_repo.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 73-77,80-82,84-88,90-96,168-169
+backend/internal/service/gateway_request_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 45-60
+backend/ent/mutation.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 7,14611-14613,14888-14993,15843,15856-15861,15923-15926,15974-15977,16045-16058,16172-16174,16192-16193,16209-16215,16245-16247,16274-16276,16309-16314,17920,18325-18373,18471,18490-18492,18516-18517,18541-18542,18596-18602,18676-18678,18702-18704,18731-18733,22145-22146,24407-24408,24413,24424,24438-24440,24444,26518,43154-43155,43379-43380,43385,43396,43410-43412,43416,43967
+backend/internal/service/channel_available_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 258,284,305
+backend/internal/service/openai_gateway_grok.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 25-31,112,118-121,128-129,134-141,143,151,177-179,183,185-192,269,278-279,282,289-364,367-387,432,466,482-483,590-597,661,672,698,718,725-730,737-741,745,765,771,870-932,948-950,953,957-1016,1018-1021,1024-1035,1039,1057,1060-1067,1079,1083,1093-1105,1123-1125,1140-1162,1221,1353,1380,1382-1389,1526,1563-1566,1614,1942,1961,1964-1967
+backend/internal/repository/usage_log_repo_stats.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 8,698-712,714-733,738-741,743-750,752-767,769-773,775-802,804-806,809-815,817-819
+backend/internal/service/openai_responses_ingress_compat.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-205
+backend/internal/service/openai_upstream_client_error_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 167,188-191
+backend/cmd/server/wire_gen_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 69,97,99
+backend/internal/handler/dto/settings.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 308,319-322,418,422-424
+backend/internal/model/error_passthrough_rule_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-20
+backend/internal/service/openai_ws_http_bridge_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 34,42-683,820-865,896-899,923-925,966-1146,1158,1161,1434,1438-1440,1602
+backend/internal/service/openai_gateway_messages.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 37-40,42-53,116,119,147,182,188,197-201,233,315,336,342,354,382,465,499-502,516-517,564,566-569,582,622-624,647,664,697-727,730,810,813,815,818-819,822-823,825,839,850,860,864,867-868,871-872,874,915,951,965,984,990,1032-1036,1126
+frontend/src/components/admin/monitor/__tests__/MonitorPrimaryModelCell.spec.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-73
+frontend/src/i18n/locales/en/common.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 179
+backend/internal/service/setting_service_public_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 119-141
+frontend/src/api/admin/groups.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 449,452-454,456-457
+backend/internal/service/adaptive_api_protocol_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-227
+backend/internal/service/account_test_service.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 104,149,163-168,295-307,327-347,654-656,702,718,775-776,780,797,2022-2025,2050,2052,2064,2075-2079,2091-2093,2108-2110,2118-2123,2134,2137,2156,2158,2180-2184,3016-3017,3021,3032,3082-3088
+frontend/src/components/common/Select.vue
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 114,157-160,166,177-179,202-205,207-208,292-293,394-398,404-413,499-502
+backend/internal/service/dashboard_service.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 215
+backend/internal/service/openai_ws_http_bridge.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 15,26-76,120,134-137,143-145,152,162-190,242-278,312-351,353-370,387-389,391,403-423,427-443,452,455,459-463,467-469,488-490,492-497,516-517,530,545-548,553-584,587-594,608,631,647-657,661-671,682-691,694-706,720-734,737-738,740-764,767-769,774-779,803-811
+frontend/src/composables/useChannelMonitorFormat.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 14,20-24,29-31,69,75-96,107-132,161-176,217-218,220,253-260
+docs/COMPOSITE_GROUPS.md
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 56-61
+backend/internal/service/openai_responses_item_id_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-158
+backend/internal/handler/request_body_read_log.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-79
+backend/ent/migrate/schema.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 626-628,653,662,672,677,682-687,743,755,764,769,779
+backend/internal/domain/channel_monitor_quota.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-68
+backend/internal/service/openai_gateway_count_tokens.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 10,43-213,218-223,245,267-289,326
+backend/internal/service/openai_ws_forwarder.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 99-134,254-255,260
+backend/pkg/pluginapi/v1/plugin.proto
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-117
+backend/internal/pkg/antigravity/gemini_types.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 115-116
+frontend/src/components/account/OllamaCloudUsageCell.vue
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 23-47,53-56,60-63,65-82
+backend/internal/repository/gateway_cache_cyber_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-97
+backend/internal/service/billing_service_unified_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 172-186,189-204,206-210,212-227,229-230,233-265,267-269,271-317
+.github/audit-exceptions.yml
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 38-44
+backend/internal/service/openai_compact_body_signal.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 3-152,156-157
+backend/internal/service/openai_ws_pool.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 80-86,864,1024-1041,1044-1048,1056,1252,1262,1810,1993,2021-2022,2025-2055
+backend/internal/handler/admin/openai_oauth_handler.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 490,521,599-611
+backend/internal/service/openai_responses_lite_tools.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 10-20,30-34,37,42-46,50,80-84,100-111,115-131,140
+backend/internal/service/openai_ws_forwarder_v2_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-96
+frontend/src/i18n/locales/zh/common.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 179
+backend/internal/service/openai_team_linked_error.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-99
+frontend/src/components/admin/monitor/MonitorActionsCell.spec.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 37-38
+backend/internal/service/openai_gateway_messages_failed_response_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 158-184
+backend/internal/service/gemini_messages_compat_service_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 474-511
+backend/internal/service/domain_constants.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 46-50,56-98,108-110,114-115,120-121,481-487,520-523,540-541
+backend/internal/pkg/apicompat/responses_tool_search_discoveries.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-263
+backend/internal/pkg/usagestats/usage_log_types.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 118,120-123
+backend/internal/service/billing_service_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 218,296-297,304-329,1182,1195-1205,1225-1243,1267,1269,1280-1287,1653-1654,1656,1671,1673,1699-1704,1731-1732,1734-1751
+backend/internal/service/gateway_anthropic_apikey_passthrough_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 772-797,1288,1305,1318,1321,1324,1328,1335
+backend/internal/service/openai_codex_fingerprint_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 4,7,10,16-17,19-26,67-73,90,93,95,98,101-104,111-112,117-118,123,134-136,138-170,231-235,291-293,365-399,471-475,514-516,549-930
+backend/internal/service/openai_gateway_anthropic_native_pump_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-244
+backend/internal/service/gateway_hotpath_optimization_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 161-167,612-701
+  s_b7c291d594c7c2::t_45b8b1b3b4045f 702
+backend/internal/service/openai_gateway_anthropic_native_pump.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-126
+backend/internal/service/openai_gateway_record_usage_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 507-571,1151,1167,1222,1237-1239,1255-1257,1279-1330,1365,2766-2779,2808,2848,2881,2945,2954-3014
+backend/internal/handler/request_body_read_log_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-40
+backend/internal/service/openai_gateway_search_surcharge_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 8,40-41,71-72,117-118
+backend/pkg/pluginapi/v1/runtime.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-59
+frontend/src/components/account/longContextBilling.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-11
+backend/migrations/user_platform_quota_cn_providers_migration_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-22
+backend/internal/service/grok_audio.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 19-22,132,136-166,169,172-174,179,184,186,188-204,214,248,258-295
+  s_b7c291d594c7c2::t_a6e9e6e1fc772e 296
+backend/internal/service/openai_ws_forwarder_ingress.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 21-42,73,86-91,105-116,118-119,136-138,187-196,265-279,315-323,347,392,465-474,481,564-565,582-584,594-602,651-653,658-673,685-693,707-709,837-839,866,910,992,994-1017,1078,1093,1141,1145,1179-1180,1268,1702-1712,1776-1778,1861
+frontend/src/i18n/locales/en/admin/plugins.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-50
+backend/internal/service/openai_gateway_chat_completions_raw.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 75,106-115,160,178,205,207-214,338-339,391,393,472,493,495
+backend/internal/service/gateway_forward_as_responses_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 146-158
+backend/internal/service/openai_gateway_cn_fixes_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-144
+backend/ent/channelmonitor.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 30-33,36,121,123,172-184,346-353
+backend/migrations/224_user_platform_quotas_add_cn_providers.sql
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-17
+backend/internal/service/openai_cyber_session_block.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 7-8,19-21,24-64,100-101,112,117-119,122,126-151,153-157,159-160,162
+backend/internal/service/ops_upstream_context.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 8,19,41-43,51-58,77-82,85-94,96,121-132,153-178,212-235,239-303,317-331,389-394,432-435,456
+backend/internal/handler/wire.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 26,38,68,80,122,134,199,263,275
+backend/internal/service/openai_ws_v2/passthrough_relay.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 4,17-18,36-41,56,60,76-77,103-116,127-136,145-147,183-189,207,209-216,282-309,363-366,368,458-464,535,573-576,769,771-822,828,831,836,840-842,856,867,871,924-948,958-962,970-988,1004-1028,1043,1047-1049,1062,1064,1066,1068,1070,1072,1079-1081,1091-1099,1108-1115,1119-1159,1206,1254-1255,1263-1264,1267
+backend/internal/service/channel_monitor_aggregator.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 207-208,247
+backend/internal/handler/gateway_handler_responses.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 8,179,373-382,384-396,399
+backend/internal/service/openai_ws_v2/passthrough_relay_internal_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 310,328-350,361,369-503,526,535-550,562,747-797
+backend/migrations/230_plugin_artifacts.sql
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-4
+backend/internal/service/antigravity_gateway_retry.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 51-52,58,67-69,73-88,507
+backend/internal/service/openai_gpt56_max_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 27-28
+backend/internal/service/setting_public.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 234,238,360,364-366,429-432,461,476,619-628,702,706
+backend/internal/service/api_key_auth_cache.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 87-88
+frontend/src/components/account/AccountUsageCell.vue
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 368,382,391,400,406-409,432-446,572,651-652,654,719-727,750-758,1118,1122-1127,1135-1136,1160-1161,1171-1172,1177-1185,1193-1197,1536-1537
+  s_b7c291d594c7c2::t_b9f0b046528682 1538-1539
+frontend/src/components/account/ModelWhitelistSelector.vue
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 202-211
+backend/.golangci.yml
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 124-133
+backend/internal/service/openai_gateway_ollama_cloud_cc_reasoning.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-174
+backend/internal/repository/group_usage_rollup_trigger_integration_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-518
+frontend/src/i18n/locales/zh/admin/settings.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 34-36,55-60,1082,1105-1120
+frontend/src/i18n/__tests__/openaiFastPolicyLocales.spec.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 30-55
+backend/internal/service/openai_quota_auto_reset_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-332
+backend/internal/service/openai_response_terminal_usage_compat_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-115
+backend/internal/service/service_tier_billing_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-71
+backend/internal/service/openai_guardian_affinity.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-133
+backend/internal/service/channel_monitor_validate.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 12-40,43,49-86,193-200,202-204,211-246
+  s_b7c291d594c7c2::t_56e6e81161a66c 247
+backend/internal/service/gateway_multiplatform_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 294-300
+backend/internal/service/openai_compact_probe.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 13-14,27-32,41,43,45-69,95-100,124-125,128-131,156-160,163,165
+.github/workflows/backend-ci.yml
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 20,36,76,80
+backend/cmd/server/VERSION
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1
+backend/internal/service/model_pricing_resolver_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 145,264,266,307,312,537,551,554,695-698
+  s_b7c291d594c7c2::t_ae7b72de87d167 699-701
+backend/internal/service/upstream_models_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 143-147,162-208,397-420
+  s_b7c291d594c7c2::t_277ce39e7efc0c 421
+backend/internal/service/wire.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 192-214,257,271,289-327,490-492,776-778,868,870-872,924,935,944,1003-1009,1016
+backend/ent/usagecleanuptask.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 7,29
+frontend/src/composables/__tests__/useModelWhitelist.spec.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 54-55
+backend/internal/handler/admin/cn_provider_handler.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-69
+backend/internal/server/middleware/security_headers_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 135-153,320-334,486-494
+backend/cmd/server/wire_gen.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 197,203-206,224-226,257,287,294,307-308,322-323,339,346-347,350,352-355,363-366,380-386,403,431,433,445-456,567-572
+backend/internal/service/admin_service_bulk_update_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 21-22,55-56,58,65-71,321-597
+backend/internal/service/openai_gateway_grok_chat_bridge.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 610,636,638-645
+backend/internal/service/openai_ws_account_sticky_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 212,242-279
+backend/internal/pkg/xai/models_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 15-16,18,20,22,71,75-86
+frontend/src/components/modelPlaza/__tests__/PlazaGroupSection.spec.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-139
+.github/workflows/security-scan.yml
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 26
+backend/internal/service/account_header_override_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 30-32,35-37
+backend/internal/service/openai_gateway_messages_anthropic_native.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-546
+backend/internal/service/setting_parse.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 193,196,204-207,803-805,810,824
+backend/ent/channelmonitorhistory.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 6,15,35-36,70-71,137-144,214-215
+  s_b7c291d594c7c2::t_eb6e6a3e4b3bc2 216
+backend/internal/service/bedrock_stream.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 142
+backend/internal/service/gateway_anthropic_apikey_passthrough_benchmark_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 22,43
+backend/internal/service/openai_compact_fallback_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-405
+frontend/src/components/admin/account/AccountTableFilters.vue
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 21,29
+frontend/src/stores/app.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 376
+backend/internal/service/plugin_manager_routing_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-114
+backend/internal/service/overload_cooldown_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 39,44-48,278-334
+  s_b7c291d594c7c2::t_adcd12a1d6d44d 335
+backend/internal/service/ratelimit_service.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 28,36-39,105-108,270-274,285-287,307-315,465-471,503,935-938,1079-1088,1095-1097,1100-1106,1111,1627,1629
+backend/pkg/pluginapi/docs/development.md
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-67
+frontend/src/components/account/__tests__/longContextBilling.spec.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-29
+backend/internal/service/openai_ws_session_preemption_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-183
+backend/internal/service/gateway_upstream_request.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 22
+backend/internal/service/openai_codex_account_identity_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-230
+backend/internal/service/openai_profit_control_pricing_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 4,112-114,133-134
+backend/internal/service/gateway_forward_as_chat_completions_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 33-49
+backend/internal/service/setting_service_codex_policy_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 205-235
+backend/internal/service/admin_service_group_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 7,10,161-215,1032-1068
+  s_b7c291d594c7c2::t_41130db8c56f9b 1069
+backend/internal/service/account_service.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 169-171,239,342-344,517-518
+  s_b7c291d594c7c2::t_5ffdd849a9314a 519
+backend/internal/pkg/antigravity/client.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 657,661-663,697,702-703
+backend/internal/handler/admin/channel_monitor_handler.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 10,43,45-46,57-62,67,82-85,115-120,124-130,134-141,185-188,205,218,297,355-356,451-452
+backend/internal/pkg/antigravity/request_transformer.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 159-165,713-725
+  s_b7c291d594c7c2::t_3b2f4a39c8f85e 726-727
+backend/internal/service/openai_gateway_grok_tool_protocol.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 18-31,36,39,48,53-57,61-64,107,112,121,127-128,132-140,224
+backend/internal/service/account_usage_service.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 108-115,506-512,732-734,842,872-875,927-929
+backend/internal/service/openai_quota_auto_reset.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-809
+backend/internal/handler/openai_service_tier_validation_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-94
+backend/internal/service/openai_ws_pool_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 626-825
+backend/internal/service/openai_gateway_cc_tool_call_identity_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-179
+backend/internal/service/ops_metrics_collector_memory_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-110
+frontend/src/components/account/OpenAIQuotaResetCell.vue
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 66-91,201-235
+  s_b7c291d594c7c2::t_33e539c93bce42 236
+frontend/src/api/__tests__/admin.groups.usage-summary.spec.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-29
+backend/internal/service/antigravity_gateway_compat_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 6,226-266,268
+  s_b7c291d594c7c2::t_989805d389a9b0 267,269-270
+backend/internal/service/openai_setup_token_compat_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-247
+backend/internal/service/antigravity_rate_limit_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1012,1020-1052,1054-1059
+backend/internal/handler/openai_embeddings.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 218,242,253
+backend/migrations/226_channel_monitor_quota_mode.sql
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-78
+backend/internal/service/setting_service.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 152
+backend/internal/repository/usage_log_repo_group_summary_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-33
+backend/ent/channelmonitor/channelmonitor.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 26-29,98-99,136-139,177-184,194,229-237
+  s_b7c291d594c7c2::t_2ffb00b6fb693b 238
+frontend/src/components/admin/monitor/MonitorPrimaryModelCell.vue
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 2-6,17,57-60,68,76
+backend/internal/service/channel_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 200-208,219-227
+.github/workflows/release.yml
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 118
+backend/internal/service/admin_service.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 480-485
+backend/internal/service/openai_upstream_transport_error.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 123,132-135
+  s_b7c291d594c7c2::t_421f2e3f905113 136-137
+backend/internal/handler/user_msg_queue_helper.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 124-125,128,231-232,235
+backend/internal/handler/gateway_handler_chat_completions.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 8,177,389-394
+  s_b7c291d594c7c2::t_3b955a4f591fed 395-396
+backend/internal/handler/gateway_handler.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1150,1153-1155,1377
+backend/pkg/pluginapi/docs/ui-bridge.md
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-56
+backend/internal/service/openai_responses_lite_tools_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 61-75,165,167-253,335-336,389,414-452
+frontend/src/components/admin/channel/__tests__/PricingEntryCard.timePricing.spec.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-86
+backend/internal/service/openai_gateway_grok_inline_image_tool_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-184
+backend/internal/service/openai_gateway_grok_tool_protocol_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 68-121,231-255
+  s_b7c291d594c7c2::t_3cd565aa7a5ba0 256
+backend/internal/repository/temp_unsched_cache.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 15-38,116-143
+backend/internal/service/openai_alpha_search.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 33-35,64,80,104-108,110-111,113,163,182,184-186,188-191,224-227,255,259,264,271,274,278,282,400-401,405,410,417,420,468,672
+backend/internal/service/openai_messages_dispatch_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 72-93
+backend/internal/service/openai_plugin_transport.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-45
+backend/internal/pkg/apicompat/chatcompletions_responses_stream_lifecycle_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 217-288
+backend/internal/repository/usage_cleanup_repo.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 294-296,307,322-383
+backend/internal/service/openai_quota_reset_credits.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 11-13,35-42,78,103-113,120
+backend/internal/service/channel_monitor_service_grok_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 12,35,57
+backend/internal/service/upstream_response_model.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 23-28,33-39,73-88,92,94-160,164,217-247,252,257,266,269,273,294,298-319
+  s_b7c291d594c7c2::t_0890e2d7abcd1f 320
+frontend/src/components/user/__tests__/MonitorCard.quota.spec.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-103
+backend/internal/pkg/geminicli/models.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 25-43
+backend/internal/service/openai_gateway_chat_completions_raw_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 610-689
+backend/internal/service/openai_gateway_response_handling_type_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 31
+backend/internal/service/gateway_tool_rewrite.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 251-256,262,271-281,302-321,323
+  s_b7c291d594c7c2::t_d300b14c1046be 322,324
+backend/internal/service/openai_ws_v2/passthrough_relay_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 44-53,192-223,417-468,569-630,724-859
+  s_b7c291d594c7c2::t_3295ee196d7955 860
+frontend/src/components/common/DateRangePicker.vue
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 408
+frontend/src/components/modelPlaza/PlazaGroupSection.vue
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 45-51,64-65,93-94,96,100-103,105,109-120
+backend/internal/handler/composite_platform_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 25,28-41,43-60
+frontend/src/components/user/MonitorDetailDialog.vue
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 33,86
+frontend/src/utils/featureFlags.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 112-116,194-203
+  s_b7c291d594c7c2::t_062ca6b10c1a93 204
+backend/internal/repository/account_repo.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 74-106,2556,2589-2591,2833,2921,2960-2962
+backend/internal/service/openai_images_responses.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 602-605,615,644-703,943-952,954,967-968,1308-1311,1313,1315,1373-1383,1410-1412,1477-1490,1773,1780,1822-1830,1909-1927,1964-1972,2007-2022,2027-2035
+backend/migrations/227_composite_routes_add_cn_providers.sql
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-8
+backend/cmd/server/main.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 156-160
+backend/internal/service/admin_service_composite_group_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 9,178-184,199,203-213
+  s_b7c291d594c7c2::t_284559b8763c1d 214
+backend/internal/service/gateway_context_management_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 7,654-696
+  s_b7c291d594c7c2::t_ade028ff35e512 697-698
+backend/internal/service/openai_gateway_responses_client_tools_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-280
+backend/internal/service/openai_responses_item_id.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 11-45,47,49-50,53-61,71-77,79,83-86,89,92-97,99,103-122,125
+backend/internal/service/openai_chatgpt_headers.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 9
+backend/internal/service/channel.go
+  s_b7c291d594c7c2::t_ce726a8b214fe2 17,124,197,325-326,347
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 90-107,110-123,126-142,219-227,371,388-401
+backend/internal/service/openai_content_session_seed.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 21-23,121,126-130,133,141-142
+docs/ADMIN_PAYMENT_INTEGRATION_API.md
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 122-123,242-243
+backend/internal/service/openai_sse_data.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 46-76
+backend/ent/group_update.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 7,806,812,2927,2933
+backend/internal/handler/openai_chat_completions.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 58,92-95,190,248,250,252,264-305,324,329,337-338,376,391,396,398,401
+backend/internal/service/plugin_compatibility_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-48
+backend/internal/service/scheduler_snapshot_full_rebuild_lifecycle_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 293,295,299,370-371,377-378,401,419-420,459,531,540-541,564-565,571,603-605,635,639,657
+backend/internal/service/models_list_response_limit.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-10
+backend/internal/service/account_wildcard_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 540-585
+backend/internal/repository/openai_oauth_service.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 49,52-53,99,102-103
+backend/internal/service/openai_ws_ratelimit_signal_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 555-581
+backend/migrations/225_channel_model_time_pricing.sql
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-5
+backend/internal/repository/channel_repo_pricing.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 19,54-57,64-65,67-68,99,140,157,179,183-184,191-195,237-240,250-251,254-255,271-292,296-297,300
+backend/internal/service/ops_service_batch_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 72,95,97
+backend/internal/repository/temp_unsched_cache_health_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-50
+backend/internal/handler/admin/openai_oauth_handler_reset_quota_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 218,240,263,288,310,334,438
+backend/internal/repository/gateway_cache.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 18,35-38,73-163,230-270,272-313,316-317,324-350
+  s_b7c291d594c7c2::t_2efa633c2fa6d6 351
+backend/internal/service/account.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 18,275-295,297-298,328-333,635-637,672-674,1305-1317,1342-1344,1346-1491,1494-1498,1502-1568,1681-1697,1706,1713,1887-1889,1892-1894,1901-1903,1908-1910,1918-1920,1940,2043,2146
+backend/internal/service/openai_gateway_grok_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 46-146,261-265,267-270,274,284,292,301-304,320,328-338,388-397,431,433-434,831,1135,1202,1325-1326,1387-1438,1649,1869,1872,1985-1986,1999,2052,2055,2134-2143,2262,2448,2501,2624,2639,2688,2730,2740,3528-3563
+  s_b7c291d594c7c2::t_969d8645eab926 3564
+deploy/docker-compose.standalone.yml
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 109,111-114,116,125-143,146
+backend/internal/handler/openai_gateway_handler.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 62,102-118,122-129,194-195,197-198,210-220,227-241,246-261,341,357-363,385,398-401,418-427,429-436,438,472-480,524-527,544-545,587,593,628-650,672,687,689,691,702-745,764,768-770,774,786-787,836,848,862,864,868,877-878,888-893,896,898,903,906,908-913,942,1048,1091,1250,1252,1254,1265-1309,1328,1333,1341-1342,1385-1387,1390,1397,1402,1404,1407,1472-1479,1561-1564,1576,1579-1582,1622-1644,1647,1677,1688-1689,1719,1742-1743,1870,1888,1922-1924,1931-1944,1948-1951,2017,2022,2025-2048,2054,2058,2068,2073,2129,2137,2211-2213,2245-2261,2266-2267,2272,2275,2278-2279,2304,2364-2365,2391,2428,2433,2464,2479-2482,2484-2492,2495-2529,2532-2534,2558,2800-2807,2814-2821,2864-2870,3195-3197,3199-3200,3202-3238,3240-3242,3437,3468-3508,3515-3517,3551,3633-3640
+backend/internal/handler/openai_gateway_credential_failover_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 16,68-174,308,331-332,337-401
+Dockerfile
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 11
+backend/ent/schema/channel_monitor_request_template.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 42-43
+backend/internal/pkg/xai/usage_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-30
+backend/internal/service/auth_service_register_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 8,18,30-31,47-48
+backend/internal/handler/openai_profit_slot_recheck_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 8,143,147-148
+frontend/src/views/__tests__/HomeView.compact.spec.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 28-31,62-68,133-183
+backend/internal/handler/admin/setting_handler_update.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 335,350-352,444,1896-1901,1944-1949,2361,2369-2372
+backend/internal/pkg/antigravity/request_transformer_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 568-623
+backend/internal/repository/plugin_repo.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-335
+frontend/src/components/layout/AppHeader.vue
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 124-125
+backend/internal/service/grok_upstream_errors.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 9-10,119-121,177,204-209,212,218-269
+  s_b7c291d594c7c2::t_92791a70c6f730 270
+backend/internal/service/openai_gateway_grok_chat_image_tools.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-83
+backend/internal/handler/openai_gateway_compact_body_signal_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 28-39,41-60,62-89,95-100,108-232,266-267,270-271,274,279,281,314
+backend/internal/service/kimi_anthropic_usage_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-248
+backend/internal/repository/migrations_runner.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 62-64,301-307
+backend/internal/service/gateway_pool_mode_retry_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-78
+backend/internal/service/ops_metrics_collector.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 604-605,616-625,628,633-667
+  s_b7c291d594c7c2::t_fc80a11418da71 668-669
+frontend/src/components/admin/user/__tests__/UserEditModal.spec.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-90
+frontend/src/i18n/locales/en/admin/settings.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 34-36,55-60,1088,1111-1126
+backend/internal/service/usage_log.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 131-132
+backend/internal/service/auth_service.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 248,255-256,278-279,1274-1329
+  s_b7c291d594c7c2::t_faec35320540c3 1330-1331
+backend/internal/service/openai_failover_cached_body_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 130-131
+backend/ent/group_create.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 7,578,2448,3618,5008
+backend/internal/pkg/apicompat/types.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 158-163,170-177,312,315-319,361-367,693,696,705-711,745-747
+backend/internal/service/cn_provider_quota_service.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-582
+backend/internal/service/model_pricing_resolver.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 212-214,223-225,256-258,277-281,285-294,297,299-301,304,306-308,311,316-320,323,325-327
+backend/internal/service/openai_gateway_model_availability.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 37
+backend/internal/handler/admin/channel_handler.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 60-85,89-101,130-156,160-173,265-266,271-290,296-309,313,323-329,331-343,346-350,359-360,365,371-389,395,456,530,617,620-622
+backend/internal/service/openai_codex_transform.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 79-80,97-101,106,108,110,115,118-119,122-131,144,150-151,172-174,263-274,922-1039,1220,1513-1578,1581-1583,1616,1633,1644-1655
+backend/internal/config/config_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 26-64,563-571,1813-1816
+  s_b7c291d594c7c2::t_e93c1444bb40d9 1817
+frontend/src/components/admin/ErrorPassthroughRulesModal.vue
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 436,489
+backend/internal/repository/plugin_repo_integration_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-70
+backend/migrations/channel_pricing_multipliers_migration_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-43
+backend/internal/repository/scheduler_cache.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1003-1004
+backend/internal/service/scheduler_snapshot_service.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 590,612,827-828,840,858
+backend/internal/service/openai_gateway_passthrough.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 19,28-125,138,141,153,182-241,354-355,357-361,363-367,376,383-420,422-426,428,431-436,439-443,445-498,500,502-503,511-512,527-528,587-590,598,603-605,626-629,645,662,671,681,684,699,701-706,709,719-721,760-762,766-768,904-905,910,1040-1052,1075-1153,1170-1171,1251-1277,1300-1305,1329-1334,1344-1346,1357-1364,1369-1402,1476-1478,1482-1488,1492,1527-1585,1665-1667,1679-1687,1728-1730,1732,1735-1740,1746,1766-1785,1810-1814,1820,1844,1851-1871,1873-1875,1879,1881,1891-1914,1916,1920-1935,1942,1944,1946-1948,1980-1988,1991,2012-2015,2017,2072,2081,2104,2119,2134-2138,2155,2157-2167,2170,2195,2205,2273-2281
+backend/internal/service/ratelimit_service_openai_team_linked_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-192
+backend/internal/service/image_generation_intent.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 296,301-302
+  s_b7c291d594c7c2::t_1014b93c9d5c76 303-305
+frontend/src/components/admin/monitor/MonitorTemplateManagerDialog.vue
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 252-256,277-280,292
+frontend/src/i18n/__tests__/opsLocaleKeys.spec.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 24-30,39-43
+  s_b7c291d594c7c2::t_225d03f8fa9c2c 44-45
+backend/ent/channelmonitorhistory_create.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 16,87-92,236-239,415-432,604-624,962-981
+  s_b7c291d594c7c2::t_13a9a4cf113dd1 982
+backend/internal/handler/admin/plugin_handler.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-257
+backend/internal/pkg/apicompat/responses_to_chatcompletions_tool_name_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-44
+backend/internal/service/api_key_auth_cache_pricing_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-50
+frontend/src/components/admin/monitor/MonitorFiltersBar.vue
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 74-77,103-106
+backend/internal/repository/user_repo_invitation_claim_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-113
+backend/internal/service/openai_profit_control.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 345,361
+  s_b7c291d594c7c2::t_45ef25ba0504ec 362-363
+backend/internal/service/openai_ws_forwarder_ingress_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 812-840,855-938
+  s_b7c291d594c7c2::t_ca3edf6a9326c2 939
+backend/internal/service/setting_update.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 420,426,438
+backend/internal/service/plugin_manager.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-1091
+backend/internal/service/openai_codex_pat_service.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 61
+.gitignore
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-2,147-150,153-155,161,167-168
+backend/ent/schema/channel_monitor.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 38-54,59-60,63,135
+backend/ent/channelmonitor_update.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 69-109,497-501,566-577,816-856,1257-1261,1343-1354
+backend/internal/service/openai_ws_protocol_resolver_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 32-57,90-97
+  s_b7c291d594c7c2::t_134d6239ff4014 98
+backend/internal/service/openai_account_scheduler_compact_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 119-374
+backend/resources/model-pricing/model_prices_and_context_window.json
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 5165,5170,5180,5213,5218,5228
+frontend/src/api/modelPlaza.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 8,10,19-43,49,52-55,76-77
+backend/internal/service/upstream_response_model_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 62-132,197-272
+backend/internal/service/openai_gateway_service_codex_cli_only_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 290,292-307,330-333,338-352,361-365
+  s_b7c291d594c7c2::t_8c2181dd9cbd7a 291
+backend/internal/service/openai_compact_body_signal_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 9,58-108
+backend/internal/service/channel_monitor_service.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 14,81-84,158-161,172,183-184,250-251,306,311-321,370-371,376-379,389-398,400-401,403,409-428,443-450,470-548,602-604,617-618,621-631,636-669,683,738-745,898-906,909-924,927-930,932
+backend/internal/pkg/antigravity/client_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 18-19,1522,1567-1594,1605,1625,1655,1683,1702,1719,1781
+backend/migrations/228_channel_pricing_multipliers.sql
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-56
+backend/pkg/pluginapi/README.md
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-80
+frontend/src/components/common/__tests__/MonitorQuotaView.spec.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-128
+frontend/src/components/user/dashboard/UserDashboardStats.vue
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 81,95
+backend/ent/channelmonitor_create.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 68-95,334-337,392-399,516-523,717-752,1062-1103,1616-1656
+  s_b7c291d594c7c2::t_2f5d82302ec19e 1657
+backend/internal/service/openai_gateway_messages_chat_fallback.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 161,207,221,256
+backend/internal/service/openai_gateway_request_body_reasoning_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 202-292
+backend/internal/util/responseheaders/responseheaders_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 41-63
+backend/internal/handler/openai_responses_input_tokens_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-21
+backend/internal/handler/ops_capture_writer_nil_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 15-46,122-204
+backend/internal/service/openai_ws_state_store.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 16-17,29-34,60-61,81-82,98,107-172,197-212,417-420,521-524
+  s_b7c291d594c7c2::t_9b0263badb8ec1 525
+backend/internal/service/auth_service_invitation_race_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-236
+backend/internal/handler/admin/grok_oauth_handler.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 618-619,621
+backend/internal/handler/openai_codex_models_handler.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 30-31
+deploy/Dockerfile
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 10
+backend/internal/service/openai_gateway_service_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 118,176-179,209,214,219,539,548-563,732-738,1788,1860-1861,1905-1906,2318,2350,2978-2997,3432,3434-3435,3462-3498,3529-3552,3586,3705,3732,3756
+backend/ent/channelmonitorhistory/where.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 368-377
+frontend/src/components/account/CNProviderQuotaCell.vue
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-242
+frontend/src/components/layout/AppSidebar.vue
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 196,478-481,695,782
+frontend/src/i18n/locales/en/dashboard.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 434-466,594-595,604-615
+frontend/src/components/common/PlatformTypeBadge.vue
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 93-95,194-202,219-227
+frontend/src/stores/__tests__/app.spec.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 60
+backend/internal/handler/openai_images.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 274-278,294,311-312,314,320,325,350,375,377
+backend/internal/repository/user_platform_quota_repo_integration_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 101-129
+backend/internal/service/openai_gateway_passthrough_flush_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 194-235
+backend/internal/service/openai_codex_turn_state.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-165
+backend/internal/service/openai_tool_continuation_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 210-216
+  s_b7c291d594c7c2::t_519794ed0bb80a 209
+backend/internal/service/openai_compaction_context.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-32
+backend/internal/service/plugin_security_regression_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-239
+backend/internal/service/account_scheduling_threshold_eval.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 61-64,310-347
+  s_b7c291d594c7c2::t_842eff315f90d5 348
+backend/internal/service/leader_lock_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 95,98,108,111,130,133
+backend/internal/handler/admin/group_handler.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 11,101,169,237,737-738,740
+backend/internal/service/billing_context_schedule.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-470
+backend/internal/service/channel_monitor_checker.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 173-177,220-228,457-460,477-488,490
+backend/internal/service/openai_gateway_grok_model_input.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-380
+backend/internal/service/openai_gateway_apikey_item_id_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 42-45,47,65-158,213,217,219-226,260-294
+frontend/src/components/user/monitor/ProviderIcon.vue
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 59-80
+backend/internal/service/openai_gateway_upstream_errors.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 120,135-143,173-193,238-241,254-259,263-265,292,297-298,302,309-323,327-412,419-423
+  s_b7c291d594c7c2::t_35d54498b54dde 424
+backend/internal/pkg/apicompat/responses_to_chatcompletions.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 26-30,122,192-198,224-226,310-312,338-344,414-418,430-434
+backend/internal/service/openai_ws_forwarder_payload.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 36-41,51,102-108,114-119,121,124,127,143-144,146,171,175,211,255,273,366,460,479,614-647,686,719-743
+  s_b7c291d594c7c2::t_e61d351d06d9db 744-745
+backend/internal/service/channel_service.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 360,649-652,655-671,674-689,738-748,756-758,811-812,853-854
+backend/internal/service/error_policy_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 69-123
+backend/internal/pkg/antigravity/oauth.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 57
+backend/internal/service/openai_ws_forwarder_v2.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 25,66-73,76-81,581,583,701-703,782,785
+backend/Dockerfile
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1
+backend/internal/repository/channel_monitor_quota_integration_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-155
+backend/internal/service/setting_gateway_runtime.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 460-490
+frontend/src/i18n/locales/zh/admin/plugins.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-50
+frontend/src/components/admin/channel/types.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1,13-16,28-29,34-164,176-181,204-207,222-225,358-371,408-410,423-425
+backend/internal/repository/custom_group_usage_rollup_repo.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-259
+backend/internal/service/billing_token_cost_request.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-103
+backend/internal/service/openai_compact_sse_keepalive_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 74-87
+backend/internal/handler/setting_handler.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 110,114-116
+backend/internal/service/openai_quota_service.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 90,184-187,198,283-301,341-344,348,363-366
+backend/migrations/plugins_migration_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-35
+backend/internal/service/openai_oauth_passthrough_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 669,738-748,762,1951-2156,2386-2395
+backend/internal/handler/gemini_v1beta_handler.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 572-578,593-594
+backend/internal/pkg/apicompat/responses_client_tools_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 20-23,51,55,58,63,69-414,434-549,643-669
+backend/internal/service/openai_quota_reset_workflow.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-86
+backend/internal/service/openai_codex_identity.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 79-110,245
+backend/internal/config/proxy_probe_config_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-47
+frontend/src/components/account/__tests__/CNProviderQuotaCell.spec.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-95
+backend/internal/service/openai_cyber_session_block_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 5,8,28,30,35,39,43,47,51,54-97,103-105,110,114-122,126-137,212-223,225-226,233,235-236,239,266-296,298-308,310-324,326-331
+backend/ent/channelmonitorhistory_update.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 17,149-160,283-288,457-468,621-626
+backend/internal/service/pricing_service.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 604
+frontend/src/i18n/locales/zh/dashboard.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 439-471,599-600,609-619
+backend/internal/service/antigravity_quota_fetcher.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 13,32,36-37,60
+backend/internal/service/openai_account_scheduler.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 24,75,80,88-91,379-381,390,405-412,431-447,498-502,521,524-525,532,536-537,543,550,554,569-571,1446,1454-1456,1769-1771,1783-1785,2170,2181-2212,2229,2234-2236,2239,2241-2245,2249-2282,2286,2311,2360,2364-2365,2419-2431,2433,2438,2441-2450,2806,2870,2888
+frontend/src/components/account/__tests__/AccountUsageCell.spec.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 75,104-105,115-120,1020-1257
+  s_b7c291d594c7c2::t_8928250f63effb 1258
+backend/ent/schema/user_platform_quota.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 44-45
+backend/internal/service/plugin_package_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-245
+deploy/docker-compose.dev.yml
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 56-59,61,70-88,91
+backend/internal/config/env_reachability_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 48-61,79
+backend/internal/service/gateway_forward.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 17,91,96-105,814,821-830,849,863,891,899-942
+  s_b7c291d594c7c2::t_2384874059126e 943
+frontend/src/components/account/__tests__/OpenAIQuotaResetCell.spark_shadow.spec.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 347-388
+frontend/src/i18n/locales/en/admin/resources.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 378
+backend/internal/service/openai_codex_tool_names_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-250
+backend/internal/handler/ops_ingress_reject_capture_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 18,24
+backend/internal/service/openai_fast_policy_ws_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 351-367
+frontend/src/constants/__tests__/platforms.spec.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-26
+backend/internal/repository/dashboard_aggregation_group_usage_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-319
+.dockerignore
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 52-54
+backend/internal/service/channel_monitor_const.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 48,52-53,61-96,154-166
+backend/internal/service/openai_ws_session_preemption.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-275
+backend/internal/service/openai_gateway_messages_anthropic_native_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-139
+backend/internal/service/openai_gateway_cc_pipeline.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 128-129,134,155,225,252,276-281,341-344
+  s_b7c291d594c7c2::t_751a3dd4747b82 345
+backend/internal/handler/openai_gateway_cyber_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 27,50,57,78,91,100,142-158,167
+backend/internal/service/openai_gateway_chat_completions_anthropic_native.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-486
+backend/internal/service/account_header_override.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 12-13,73-74,81
+backend/internal/service/plugin_compatibility.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-104
+backend/internal/service/settings_view.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 204,215-218,383,394-396,568-583
+  s_b7c291d594c7c2::t_39cf35febdb804 584
+backend/internal/service/http_upstream_profile.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 12,39
+frontend/src/i18n/locales/zh/admin/channels.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 74,85-91,133-140,142-151,531,545-557
+backend/internal/service/grok_upstream_failure_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 57-64,72-127,142-171,178-183,252-263
+  s_b7c291d594c7c2::t_88e44d9d65bbc2 264
+backend/internal/service/openai_compact_sse_keepalive.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 164-176,181-185
+backend/internal/repository/scheduler_cache_unit_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 312-313,326-327
+backend/internal/service/composite_platform.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 109-114,142-148,195-196
+backend/internal/handler/available_channel_handler.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 287-289,292-293,305-317
+backend/internal/server/routes/gateway.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 50-52,60,69-74,98-101,176-179,561-564,575,581-593,612-613,620-627,703-706
+backend/internal/service/openai_gateway_service_hotpath_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 722,759,923,927-932
+  s_b7c291d594c7c2::t_30d0b411987433 933
+backend/internal/service/upstream_models.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 102-103,107-108,139-140,345-347,353,358-360,380-441,508-513,570,634-636
+backend/internal/pkg/xai/oauth_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 353-354,360,371
+frontend/src/api/admin/index.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 21,38,59,75-76,95,111-112,124-129
+backend/internal/service/openai_gateway_grok_chat_bridge_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 254,355,409-410,466-467,484,537
+deploy/docker-compose.local.yml
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 162,164-167,169,178-196,199
+frontend/src/i18n/locales/zh/admin/overview.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 581-582,603,817,886-888,1013
+backend/internal/service/grok_observed_models.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 95
+backend/internal/service/gateway_tool_rewrite_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 5,153-179
+  s_b7c291d594c7c2::t_77ab73871fc02d 180
+backend/internal/service/openai_ws_passthrough_turn_pricing_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 63-65,67-69,79-85,87-92,99,101,130-131,134-234
+backend/internal/repository/account_repo_codex_fingerprint_seed_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-123
+backend/internal/pkg/apicompat/chatcompletions_anthropic_bridge_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 677,991,1061
+backend/internal/service/grok_media_image_geometry_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-60
+frontend/src/api/admin/settings.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 39-40,44-45,50-51,721,730,1021,1030
+backend/internal/service/openai_gateway_responses_chat_fallback.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 4,52,56-62,90-93,102,124,126,134,148-149,163,174,188,219-222,233,239-252,254-256,277,295-391
+backend/internal/service/subscription_expiry_service.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 18,41-43,128-130,169-188
+  s_b7c291d594c7c2::t_c7432a51c13f5c 189-190
+frontend/src/router/index.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 529-539
+  s_b7c291d594c7c2::t_b0852aa02ee6ac 528
+backend/internal/service/custom_channel_time_pricing.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-143
+backend/internal/service/gateway_upstream_response.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 683,1399
+backend/internal/service/grok_stream_idle_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 24-26,28-35
+backend/internal/service/openai_ws_forwarder_success_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 403-405,427-429,433-473,801,803-804,1026-1027,1033-1122,1905,1911
+frontend/src/components/common/MonitorQuotaView.vue
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-156
+backend/internal/service/cn_provider_balance_service_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-130
+backend/internal/service/plugin_manifest.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-214
+backend/internal/service/setting_openai_apikey_health.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-68
+backend/internal/service/temp_unsched.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 28-33
+backend/migrations/223_group_usage_rollup_timezone.sql
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-89
+frontend/src/components/account/__tests__/CreateAccountModal.grok.spec.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 17-18
+frontend/src/components/admin/user/UserEditModal.vue
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 34-38,46-55,86,93,104-117,144-146
+backend/internal/handler/failover_loop_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 61-114,377-391
+  s_b7c291d594c7c2::t_81383fd8a55f75 392
+frontend/src/i18n/locales/zh/admin/accounts.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 314-347,374,493-500,559,561,567-568,698-699,701,900-907
+backend/internal/service/cn_provider_balance_check_service.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-279
+backend/internal/service/billing_token_cost_request_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-147
+backend/internal/service/openai_gateway_ollama_cloud_max_tokens.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-83
+deploy/tests/docker-compose-gateway-env-test.sh
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-47
+backend/internal/service/channel_monitor_quota_fetcher.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-540
+backend/internal/service/openai_compat_model_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1013
+backend/internal/handler/openai_live_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 90-92
+backend/internal/repository/usage_log_repo_trend.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 718,720
+backend/internal/service/openai_live.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 307
+backend/internal/service/gateway_forward_as_responses.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 40-47,88,181,183,186-188,268,273-277,288-323
+backend/internal/service/anthropic_apikey_auth.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 17-19,21-24
+backend/internal/pkg/xai/models.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 54,60,62-63,69,72,98,100,111-112,118,164,181,275
+backend/internal/testutil/stubs.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 121-127
+frontend/src/components/account/__tests__/OllamaCloudUsageCell.spec.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-2,7-18,79-83,103-105,111,119-141
+backend/internal/handler/model_plaza_handler_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 94,112-117,133-182,184-223
+backend/internal/repository/proxy_probe_service.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 34-45,47-51,60-61,64,70-74,76-80,96-106,154-155,214-244
+  s_b7c291d594c7c2::t_6bfb2df0278f3d 245
+backend/migrations/222_group_usage_daily_rollups.sql
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-138
+backend/internal/service/openai_ws_forwarder_hotpath_optimization_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 40-51,69,71-73
+frontend/src/components/account/__tests__/CreateAccountModal.spec.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 10,16,28-32,93-127,129,140-141,190,204-231,286-321
+  s_b7c291d594c7c2::t_4c624678a736e8 322
+backend/internal/service/openai_ws_protocol_forward_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 181,260,264,359,412
+backend/internal/service/openai_images.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 565,592,627,662-664,666-669
+backend/internal/pkg/xai/usage.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-25
+backend/internal/service/account_stats_pricing_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 771-790
+backend/internal/service/admin_group.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 270,513,893,990-995
+backend/internal/handler/openai_gateway_handler_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 649-650,655-657,661-663,675-676,685-686,858,880-907,911-932,1463-1464,1473,1475,1480,1482,1644-1665
+  s_b7c291d594c7c2::t_0d00973032637d 1666
+backend/internal/service/openai_responses_input_compat.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-76
+DEV_GUIDE.md
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 37-38,50,56,206
+backend/internal/pkg/apicompat/service_tier_passthrough_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-175
+frontend/src/api/channelMonitor.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 7,36-40
+backend/internal/service/channel_monitor_types.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 3-7,52-56,101-104,128-132,143-144,160-162,209,221,231,252
+deploy/.env.example
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 288-292
+backend/ent/channelmonitorhistory/channelmonitorhistory.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 30-31,56
+frontend/src/i18n/locales/zh/admin/index.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 9,20
+backend/internal/repository/usage_log_repo_stats_integration_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 46-54,65-78,85-103
+frontend/src/i18n/locales/en/admin/overview.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 516-517,582,824,953-955,1016
+backend/internal/service/ops_service.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 442-443
+backend/internal/service/api_key_auth_cache_profit_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 56
+backend/internal/service/upstream_path_guard_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 137,149-184
+  s_b7c291d594c7c2::t_470a10602943f6 185
+backend/internal/service/openai_responses_rejected_field_retry_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 10,34-60,87-91,104-130,177-520,685-723
+backend/internal/service/openai_codex_pat_service_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 43
+backend/migrations/group_usage_rollup_migration_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-52
+backend/pkg/pluginapi/docs/package-format.md
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-45
+frontend/src/components/common/__tests__/Select.spec.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 64,117-218
+  s_b7c291d594c7c2::t_482402399b9fac 219
+backend/internal/service/openai_gateway_ollama_cloud_max_tokens_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-160
+backend/internal/service/grok_upstream_errors_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 86-103,300-312
+  s_b7c291d594c7c2::t_d7c89798e68070 313-314
+backend/internal/service/antigravity_quota_fetcher_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 6,8-9,11,15,398-425
+  s_b7c291d594c7c2::t_f12b56914be49c 426-427
+backend/internal/service/openai_apikey_health_breaker_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-140
+backend/internal/service/openai_codex_account_identity.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-275
+backend/internal/service/openai_gateway_cc_tool_call_identity.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-103
+backend/internal/server/middleware/security_headers.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 56-58,202-203,205-213,215-229,231-232,234-238
+backend/internal/service/openai_gateway_forward.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 24,26-29,55-61,65-67,70-79,82-86,89,126-137,147-171,174,258,342,347-348,350-351,354-365,372-382,460,473-477,485-494,508-511,516-524,537,577-578,617-639,662-670,696,795,935,937,966,1039-1056,1078-1079,1084,1088,1092-1099,1114-1147,1159-1170,1183,1187-1188,1204-1205,1229-1247,1255-1260,1264-1266,1274,1281-1284,1304,1321-1324,1341,1344,1349,1367,1370,1373-1376,1378,1382,1393-1395
+backend/internal/service/openai_codex_transform_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 130-151,258,278,298,305-396,585,1768,1774-1775,1789-1828,1930,1953-1954
+backend/internal/service/openai_responses_namespace.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 45,61,90
+backend/migrations/usage_log_effective_model_index_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-19
+frontend/src/components/account/CreateAccountModal.vue
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 164-205,456-549,1253,1259,1267-1294,1303,1683,2980,3067,3069,3761,3763,3768-3769,3772-3774,3833-3868,3883-3886,3952-4069,4072-4074,4078,4175,4568-4579,5020-5022,5068,5167-5169,5485-5507,5539
+backend/internal/domain/constants.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 26-47
+backend/internal/service/account_codex_fingerprint_seed_lifecycle_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-245
+backend/internal/service/account_long_context_billing_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 261,267,270-274
+backend/internal/model/error_passthrough_rule.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 4-8,39-46,51-60
+backend/internal/service/openai_cyber_transcript.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-157
+backend/internal/handler/admin/account_handler.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1028-1029,2617-2619,2621-2624
+backend/internal/service/openai_gateway_chat_completions.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 4,49-53,63-66,95-138,159,173,196-197,241,251-255,267,273-275,321,329,379-382,384-385,399-400,473,475,487,528-530,561,576-616,647,682,694,714,718,726,760-764,933
+backend/internal/service/openai_passthrough_normalization_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 23-232
+backend/internal/service/openai_responses_tool_schema.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 5-7,9-11,15-23,27-83,88-92,94-162,164-167,170-171,173-222,224-310,313-342,346-354,356-387,389-522,524-527,529-531,533-580,582-620,622-646,649-653,655-660,662-706
+backend/internal/handler/ops_error_logger.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 33,35,471,522-545,548-551,555-560,562,567-596,600,603-606,609-633,636-638,641-649,651,654-656,658-664,667-709,711-721,725-726,729-730,733-734,737-739,742-743,746-772,775-776,779-781,784-785,788-790,793-794,799-800,803-804,807-808,812-813,816-817,819-821,825-826,829-878,880-1037,1039-1059,1061,1064-1065,1068,1075,1081,1092,1104-1106,1113-1117,1119-1130,1137-1138,1170-1171,1173-1176,1230-1231,1239-1248,1276-1407,1416-1417,1419,1421,1423-1424,1469-1470,1472-1475,1533-1536,1559-1622,1628-1632,1683,1688-1731,1760-1764,1771-1773,1788,1791-1797,1800,1803-1807,1813-2057,2104-2106,2112,2156,2172,2191,2194-2196,2201,2208-2211,2423
+backend/internal/service/channel_pricing_multipliers_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-288
+backend/internal/service/upstream_billing_probe_multiplatform_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 14-15,19,128-135,172-176,185-189
+backend/internal/handler/model_plaza_handler.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 20,27,32,38,45-46,49-64,70-73,92-96,124,187-192,196-210,218-233,245
+backend/internal/service/billing_context_schedule_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-620
+frontend/src/components/account/BulkEditAccountModal.vue
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 136-195,605,1033-1127,1479-1487,1602,1661-1663,1697-1702,1710,1767-1825,1926-1930,1991-2014,2092-2093,2194-2196,2277,2280-2287,2289-2292,2312-2313,2356-2358,2365,2374-2376
+frontend/src/components/admin/channel/__tests__/types.spec.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 2-59,70-73,152-225
+backend/internal/service/openai_account_runtime_block_fastpath_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 16-32,35-36,43-60,62-114,140,437-438,489,497-499
+backend/internal/service/openai_gateway_grok_model_input_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-177
+backend/internal/service/openai_channel_restriction_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 89-308
+backend/internal/service/custom_group_usage_rollup.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-40
+backend/internal/service/models_list_response_limit_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-25
+backend/internal/service/openai_gateway_responses_anthropic_native.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 1-492
+backend/internal/handler/gateway_helper.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 19-41,430-431,434
+backend/internal/handler/channel_monitor_user_handler.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 6,43-51,66-68,98,116,129-132,170,173
+frontend/src/i18n/locales/en/admin/channels.ts
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 74,85-91,133-140,142-151,531,545-557
+backend/internal/service/gemini_chat_completions_compat_service.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 207,243-247,864,866-870
+backend/internal/handler/admin/user_platform_quota_admin_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 115-116,119-121
+backend/internal/service/openai_responses_tool_schema_test.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 5,66-118,128,150,169-296,388-556,590-592,605-643
+backend/internal/service/usage_log_helpers.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 13-19
+backend/internal/service/admin_account.go
+  s_b7c291d594c7c2::t_0a6c0ea9c3cf34 131-148,409,473-476,566-573,664,670,690-692,875-876,902-903,933-936,942,949-952,954-962,1052-1055
+README.md
+  s_b7c291d594c7c2::t_bc096450384367 7,197,643-668,747,877,879-881
+README_CN.md
+  s_b7c291d594c7c2::t_9e887b6d44025d 7,199,761,763-765
+README_JA.md
+  s_b7c291d594c7c2::t_be73798459a7b9 7,198,717,719-721
+backend/go.sum
+  s_b7c291d594c7c2::t_e3163a2bf9302e 123-124,181,238-239,268-271,279-280,293-294,321-322,325-326,366-367,451,520-521,526-533,623-624,632-634,698-699,705-708,713-714,721-722
+backend/pkg/pluginapi/v1/plugin.pb.go
+  s_b7c291d594c7c2::t_bf359fef8f7fd3 1-1315
+backend/pkg/pluginapi/v1/plugin_grpc.pb.go
+  s_b7c291d594c7c2::t_1a4363cdb2cbee 1-306
+frontend/pnpm-lock.yaml
+  s_b7c291d594c7c2::t_61840f43aea74c 11,39-40,1625,2304-2305,2620,2625,3302-3303,4378,4761,4804,6003,6383-6384,6499,6937,8036,8401,8599
+frontend/src/types/index.ts
+  s_b7c291d594c7c2::t_06b004c649e51d 271-272,276,531,888,1137-1147
+frontend/src/views/HomeView.vue
+  s_b7c291d594c7c2::t_c8d99a97482928 43-51,144-154,503,518,534-539
+frontend/src/views/admin/AccountsView.vue
+  s_b7c291d594c7c2::t_90766276cbb3b6 637,2457-2469
+frontend/src/views/admin/AnnouncementsView.vue
+  s_b7c291d594c7c2::t_fcd612def70ae8 151
+frontend/src/views/admin/ChannelMonitorView.vue
+  s_b7c291d594c7c2::t_e5932ea5f64d39 81-84,211-212
+frontend/src/views/admin/ChannelsView.vue
+  s_b7c291d594c7c2::t_b4db0800582cd5 450-451,638,767-769,808-810,866-867,871-872,902-903,907-908,973-974,1090-1091,1129-1130,1134-1135,1198,1217-1218,1230-1231,1235-1236,1425-1426,1542-1549,1562-1575
+frontend/src/views/admin/GroupsView.vue
+  s_b7c291d594c7c2::t_9d28f0536fecfd 149-155,342-351,1584,1586,1617,1619,1658-1664,3312,3314,3345,3347,3386-3391,3985-3991,4436-4439,4459,4476,4520-4522,4534,4554,4578,4759,4763,4767,4926,5772,5777,6661,6663-6664,6711,6713-6714,6763,6767-6769
+frontend/src/views/admin/PluginsView.vue
+  s_b7c291d594c7c2::t_116b56cd4933d4 1-716
+frontend/src/views/admin/ProxiesView.vue
+  s_b7c291d594c7c2::t_5a5c95d4071f08 1279,1292-1296,1301,1306-1308,1311
+frontend/src/views/admin/SettingsView.vue
+  s_b7c291d594c7c2::t_52dd5b516cca38 1131-1171,1271-1277,1279,1284-1287,1351,1353,7095-7106,7194-7217,9462,9775,9782-9783,10779-10781,11433,11440,12074-12083
+frontend/src/views/admin/SubscriptionsView.vue
+  s_b7c291d594c7c2::t_a169840d50472a 791,1000
+frontend/src/views/admin/__tests__/ChannelMonitorView.checkModeBadge.spec.ts
+  s_b7c291d594c7c2::t_73ca7c5044ce2d 1-159
+frontend/src/views/admin/__tests__/ChannelMonitorView.duplicate.spec.ts
+  s_b7c291d594c7c2::t_fecdceee187b75 99-100
+frontend/src/views/admin/__tests__/GroupsView.columnSettings.spec.ts
+  s_b7c291d594c7c2::t_86d10eb40a1d86 46-48,157-159,387,394-408
+frontend/src/views/admin/__tests__/GroupsView.compositePlatforms.spec.ts
+  s_b7c291d594c7c2::t_5ebd56ece20d2a 1-10
+frontend/src/views/admin/__tests__/MonitorFormDialog.accountSelector.spec.ts
+  s_b7c291d594c7c2::t_e1b0ebb961a842 1-376
+frontend/src/views/admin/__tests__/PluginsView.spec.ts
+  s_b7c291d594c7c2::t_e926344bf2a2c3 1-169
+frontend/src/views/admin/__tests__/ProxiesView.ipv6.spec.ts
+  s_b7c291d594c7c2::t_a35cb40dabd241 1-51
+frontend/src/views/admin/__tests__/SettingsView.spec.ts
+  s_b7c291d594c7c2::t_b4a0e25094d37d 232-236,1269-1305
+frontend/src/views/admin/__tests__/channelPlatformOptions.spec.ts
+  s_b7c291d594c7c2::t_9c1449f5740561 1-14
+frontend/src/views/admin/__tests__/groupsMessagesDispatch.spec.ts
+  s_b7c291d594c7c2::t_a5e35da166f904 8,12-17
+frontend/src/views/admin/__tests__/platformFilterCatalogUsage.spec.ts
+  s_b7c291d594c7c2::t_698ced774284b6 1-33
+frontend/src/views/admin/groupsMessagesDispatch.ts
+  s_b7c291d594c7c2::t_f780d2d3e81a39 16-19
+frontend/src/views/admin/ops/OpsDashboard.vue
+  s_b7c291d594c7c2::t_451996ce983198 122,127,135,382-388,520-521,528-547
+frontend/src/views/admin/ops/components/OpsDashboardHeader.vue
+  s_b7c291d594c7c2::t_4647555ecfaab7 5,113,394,1273
+frontend/src/views/admin/ops/components/OpsErrorDetailModal.vue
+  s_b7c291d594c7c2::t_fa02f6ceff3943 96-104,114-115,128-132,134-141,214-223,235,241,246,262-271,274-286,288-292,294-296,378-382,426,431-435
+frontend/src/views/admin/ops/components/OpsErrorDetailsModal.vue
+  s_b7c291d594c7c2::t_8085e54ece631e 18,116-126,171
+frontend/src/views/admin/ops/components/OpsErrorDistributionChart.vue
+  s_b7c291d594c7c2::t_056c609d587a83 149
+frontend/src/views/admin/ops/components/OpsRequestDetailsModal.vue
+  s_b7c291d594c7c2::t_c28c8905d66a5e 26,102
+frontend/src/views/admin/ops/components/__tests__/OpsErrorDetailModal.spec.ts
+  s_b7c291d594c7c2::t_7719e5d2dd0b84 1-79
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "0dfeafde6c3312d35220f2ebca6c8774be7d1d4c",
+  "prompts": {},
+  "sessions": {
+    "s_b7c291d594c7c2": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_fc9302af3fferPmTUnhUbsLygW",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Litien Zhao <DN7074@jsyyds.com>"
+    }
+  }
+}
