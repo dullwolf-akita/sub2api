@@ -568,7 +568,6 @@ func scanUsageLog(scanner interface{ Scan(...any) error }) (*service.UsageLog, e
 		&sessionID,
 		&nativeCompactionV2,
 		&timingBreakdown,
-		&timingBreakdown,
 		&createdAt,
 	); err != nil {
 		return nil, err
