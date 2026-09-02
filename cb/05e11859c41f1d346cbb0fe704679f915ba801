@@ -1,0 +1,19 @@
+backend/cmd/server/VERSION
+  s_c95c8373f8fe35::t_a48a5d2fc263f5 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "cb05e11859c41f1d346cbb0fe704679f915ba801",
+  "prompts": {},
+  "sessions": {
+    "s_c95c8373f8fe35": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f9ffeca1fffeLhRjxa0yjl4NN4",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Litien Zhao <DN7074@jsyyds.com>"
+    }
+  }
+}
