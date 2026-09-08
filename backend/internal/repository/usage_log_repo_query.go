@@ -756,6 +756,17 @@ func nullStringIntMapJSON(v map[string]int) any {
 	return string(payload)
 }
 
+func nullAnyMapJSON(v map[string]interface{}) any {
+	if len(v) == 0 {
+		return nil
+	}
+	payload, err := json.Marshal(v)
+	if err != nil {
+		return nil
+	}
+	return string(payload)
+}
+
 func stringIntMapFromNullJSON(v sql.NullString) map[string]int {
 	if !v.Valid || strings.TrimSpace(v.String) == "" {
 		return nil
