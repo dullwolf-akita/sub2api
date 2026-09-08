@@ -1,0 +1,19 @@
+backend/internal/repository/usage_log_repo_query.go
+  s_37cb157a524eb5::t_cc8246738df703 759-769
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "ba5b9c620a63377fb2b263bf9a6adf36edec55a4",
+  "prompts": {},
+  "sessions": {
+    "s_37cb157a524eb5": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f7fc2f45affebpto56MyjWTl39",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "Litien Zhao <DN7074@jsyyds.com>"
+    }
+  }
+}
