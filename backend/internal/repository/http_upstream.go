@@ -14,7 +14,6 @@ import (
 	"log/slog"
 	"net"
 	"net/http"
-	"net/http/httptrace"
 	"net/url"
 	"os"
 	"strings"
@@ -30,7 +29,6 @@ import (
 	"github.com/Wei-Shaw/sub2api/internal/config"
 	"github.com/Wei-Shaw/sub2api/internal/pkg/proxyurl"
 	"github.com/Wei-Shaw/sub2api/internal/pkg/proxyutil"
-	"github.com/Wei-Shaw/sub2api/internal/pkg/requesttiming"
 	"github.com/Wei-Shaw/sub2api/internal/pkg/servertiming"
 	"github.com/Wei-Shaw/sub2api/internal/pkg/tlsfingerprint"
 	"github.com/Wei-Shaw/sub2api/internal/pkg/xai"
@@ -215,9 +213,8 @@ func (s *httpUpstreamService) Do(req *http.Request, proxyURL string, accountID i
 	}
 
 	// 执行请求
-	client := httpClientForUpstreamRequest(entry.client, req)
+	client := s.httpClientForUpstreamRequest(entry.client, req)
 	client = httpClientWithGrokAccessDeniedFallback(client)
-	req = withUpstreamHTTPTrace(req)
 	resp, err := servertiming.Do(client, req)
 	if err != nil {
 		s.recordOpenAIHTTP2Failure(profile, entry.protocolMode, entry.proxyKey, err)
@@ -280,9 +277,8 @@ func (s *httpUpstreamService) DoWithTLS(req *http.Request, proxyURL string, acco
 		return nil, err
 	}
 
-	client := httpClientForUpstreamRequest(entry.client, req)
+	client := s.httpClientForUpstreamRequest(entry.client, req)
 	client = httpClientWithGrokAccessDeniedFallback(client)
-	req = withUpstreamHTTPTrace(req)
 	resp, err := servertiming.Do(client, req)
 	if err != nil {
 		atomic.AddInt64(&entry.inFlight, -1)
@@ -301,53 +297,27 @@ func (s *httpUpstreamService) DoWithTLS(req *http.Request, proxyURL string, acco
 	return resp, nil
 }
 
-func withUpstreamHTTPTrace(req *http.Request) *http.Request {
-	if req == nil || !requesttiming.Active(req.Context()) {
-		return req
-	}
-	startedAt := time.Now()
-	var connectStartedAt, writeStartedAt, wroteRequestAt time.Time
-	trace := &httptrace.ClientTrace{
-		GetConn: func(string) {
-			startedAt = time.Now()
-		},
-		GotConn: func(httptrace.GotConnInfo) {
-			now := time.Now()
-			requesttiming.AddDuration(req.Context(), "upstream_conn_wait", now.Sub(startedAt))
-			writeStartedAt = now
-		},
-		ConnectStart: func(string, string) {
-			connectStartedAt = time.Now()
-		},
-		ConnectDone: func(string, string, error) {
-			if !connectStartedAt.IsZero() {
-				requesttiming.AddDuration(req.Context(), "upstream_connect", time.Since(connectStartedAt))
-			}
-		},
-		WroteRequest: func(httptrace.WroteRequestInfo) {
-			wroteRequestAt = time.Now()
-			if !writeStartedAt.IsZero() {
-				requesttiming.AddDuration(req.Context(), "upstream_write", wroteRequestAt.Sub(writeStartedAt))
-			}
-		},
-		GotFirstResponseByte: func() {
-			if !wroteRequestAt.IsZero() {
-				requesttiming.AddDuration(req.Context(), "upstream_header_wait", time.Since(wroteRequestAt))
-			}
-		},
-	}
-	return req.WithContext(httptrace.WithClientTrace(req.Context(), trace))
-}
-
-func httpClientForUpstreamRequest(client *http.Client, req *http.Request) *http.Client {
-	if client == nil || req == nil || !service.HTTPUpstreamRedirectsDisabled(req.Context()) {
+// httpClientForUpstreamRequest 按请求上下文的标记派生客户端：禁用重定向，或对重定向的每一跳做主机校验。
+// 派生的克隆与缓存客户端共享 Transport；未打标记时原样返回。
+func (s *httpUpstreamService) httpClientForUpstreamRequest(client *http.Client, req *http.Request) *http.Client {
+	if client == nil || req == nil {
 		return client
 	}
-	clone := *client
-	clone.CheckRedirect = func(*http.Request, []*http.Request) error {
-		return http.ErrUseLastResponse
+	ctx := req.Context()
+	switch {
+	case service.HTTPUpstreamRedirectsDisabled(ctx):
+		clone := *client
+		clone.CheckRedirect = func(*http.Request, []*http.Request) error {
+			return http.ErrUseLastResponse
+		}
+		return &clone
+	case service.HTTPUpstreamPublicHostsOnly(ctx) && client.CheckRedirect == nil:
+		clone := *client
+		clone.CheckRedirect = s.redirectChecker
+		return &clone
+	default:
+		return client
 	}
-	return &clone
 }
 
 // grokAccessDeniedFallbackTransport preserves the subscription CLI proxy as
@@ -629,8 +599,11 @@ func (s *httpUpstreamService) shouldValidateResolvedIP() bool {
 	return !s.cfg.Security.URLAllowlist.AllowPrivateHosts
 }
 
+// validateRequestHost 校验请求主机的解析结果不落在回环、私网、链路本地或未指定地址。
+// 是否全局启用由 security.url_allowlist 决定；带 WithHTTPUpstreamPublicHostsOnly 标记的请求无论配置如何都校验。
 func (s *httpUpstreamService) validateRequestHost(req *http.Request) error {
-	if !s.shouldValidateResolvedIP() {
+	publicHostsOnly := req != nil && service.HTTPUpstreamPublicHostsOnly(req.Context())
+	if !s.shouldValidateResolvedIP() && !publicHostsOnly {
 		return nil
 	}
 	if req == nil || req.URL == nil {
