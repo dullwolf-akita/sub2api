@@ -126,7 +126,6 @@ func fillGlobalPricingFallback(pricingService *PricingService, models []Supporte
 				models[i].Pricing = synthesizePricingFromLiteLLM(lp, models[i].Pricing)
 			}
 		}
-		models[i].Pricing = withDefaultMaxReasoningEffortMultiplier(models[i].Pricing, models[i].Name)
 	}
 }
 

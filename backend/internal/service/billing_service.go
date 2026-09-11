@@ -215,27 +215,15 @@ func applyCostBreakdownMultiplier(cost *CostBreakdown, multiplier float64) {
 	cost.ActualCost *= multiplier
 }
 
-const claudeFable51MaxReasoningEffortMultiplier = 3.0
-
 func isClaudeFable51Model(model string) bool {
 	model = strings.ToLower(strings.TrimSpace(model))
 	for _, marker := range []string{"fable-5-1", "fable-5.1", "fable5.1", "fable51"} {
 		if at := strings.Index(model, marker); at >= 0 {
 			after := at + len(marker)
-			if after == len(model) || model[after] < '0' || model[after] > '9' {
-				return true
-			}
+			if after == len(model) || model[after] < '0' || model[after] > '9' { return true }
 		}
 	}
 	return false
-}
-
-func defaultMaxReasoningEffortMultiplier(model string) *float64 {
-	if !isClaudeFable51Model(model) {
-		return nil
-	}
-	multiplier := claudeFable51MaxReasoningEffortMultiplier
-	return &multiplier
 }
 
 func maxReasoningEffortBillingMultiplier(model, effort string, pricing *ModelPricing) float64 {
@@ -245,10 +233,7 @@ func maxReasoningEffortBillingMultiplier(model, effort string, pricing *ModelPri
 	if pricing != nil && pricing.MaxReasoningEffortMultiplier != nil && *pricing.MaxReasoningEffortMultiplier > 0 {
 		return *pricing.MaxReasoningEffortMultiplier
 	}
-	if multiplier := defaultMaxReasoningEffortMultiplier(model); multiplier != nil {
-		return *multiplier
-	}
-	return 1
+ return 1
 }
 
 func resolvedChannelTimeMultiplier(resolved *ResolvedPricing, at time.Time) float64 {
@@ -1743,17 +1728,13 @@ func (s *BillingService) applyModelSpecificPricingPolicyEx(model string, pricing
 	}
 	normalized := normalizeKnownOpenAICodexModel(model)
 	isGPT56 := isOpenAIGPT56Model(normalized)
-	needsMaxReasoningEffortMultiplier := isClaudeFable51Model(model) && pricing.MaxReasoningEffortMultiplier == nil
 	needsCacheCreationPolicy := isGPT56 && !pricing.CacheCreationPriceExplicit && (pricing.CacheCreationPricePerToken <= 0 ||
 		(pricing.InputPricePerTokenPriority > 0 && pricing.CacheCreationPricePerTokenPriority <= 0))
 	fastRatio := openAIModelFastPricingRatio(normalized)
-	if !needsCacheCreationPolicy && fastRatio <= 0 && !needsMaxReasoningEffortMultiplier {
+ if !needsCacheCreationPolicy && fastRatio <= 0 {
 		return pricing
 	}
 	cloned := *pricing
-	if needsMaxReasoningEffortMultiplier {
-		cloned.MaxReasoningEffortMultiplier = defaultMaxReasoningEffortMultiplier(model)
-	}
 	if isGPT56 && !cloned.CacheCreationPriceExplicit {
 		if cloned.CacheCreationPricePerToken <= 0 {
 			cloned.CacheCreationPricePerToken = cloned.InputPricePerToken * 1.25
