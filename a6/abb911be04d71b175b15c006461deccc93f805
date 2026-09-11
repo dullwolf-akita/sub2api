@@ -1,0 +1,19 @@
+backend/cmd/server/VERSION
+  s_65b96b20e262b2::t_677fcee52de8d6 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "a6abb911be04d71b175b15c006461deccc93f805",
+  "prompts": {},
+  "sessions": {
+    "s_65b96b20e262b2": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f709fd320ffeaml6VE9ec5mneE",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "Litien Zhao <DN7074@jsyyds.com>"
+    }
+  }
+}
