@@ -1,0 +1,19 @@
+frontend/src/views/user/CustomPageView.vue
+  s_65b96b20e262b2::t_0571eea24111a5 97,393-396
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "8c57765be765f0faa5e155e28f0f5450b6440116",
+  "prompts": {},
+  "sessions": {
+    "s_65b96b20e262b2": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f709fd320ffeaml6VE9ec5mneE",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "Litien Zhao <DN7074@jsyyds.com>"
+    }
+  }
+}
