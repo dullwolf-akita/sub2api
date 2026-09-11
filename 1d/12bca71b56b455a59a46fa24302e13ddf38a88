@@ -1,0 +1,22 @@
+backend/internal/service/model_plaza_service.go
+  s_65b96b20e262b2::t_3fcbe941a8cfad 234,242
+backend/internal/service/billing_service.go
+  s_65b96b20e262b2::t_2f563cc69ba8cd 223
+  s_65b96b20e262b2::t_3fcbe941a8cfad 236,1734
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "1d12bca71b56b455a59a46fa24302e13ddf38a88",
+  "prompts": {},
+  "sessions": {
+    "s_65b96b20e262b2": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f709fd320ffeaml6VE9ec5mneE",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "Litien Zhao <DN7074@jsyyds.com>"
+    }
+  }
+}
