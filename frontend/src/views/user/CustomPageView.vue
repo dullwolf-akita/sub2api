@@ -390,6 +390,10 @@ onUnmounted(() => {
   height: calc(100vh - 64px - 4rem);
 }
 
+.custom-page-layout > .card {
+  @apply flex min-h-0;
+}
+
 .toc-sidebar {
   @apply flex flex-col h-full border-r border-gray-200 dark:border-dark-600 bg-gray-50 dark:bg-dark-800;
   width: min(240px, 30%);
