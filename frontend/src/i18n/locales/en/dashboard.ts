@@ -634,8 +634,7 @@ export default {
       perRequestPrice: 'Per Request',
       intervals: 'Tiered Pricing',
       unitPerMillion: '/ 1M tokens',
-      unitPerRequest: '/ request',
-      unitPerSecond: '/ second'
+      unitPerRequest: '/ request'
     }
   },
 
