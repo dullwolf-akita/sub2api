@@ -49,8 +49,24 @@ func TestIsGrokVideoStatusBillable(t *testing.T) {
 	// URL alone (legacy/non-official shapes) is not enough
 	require.False(t, IsGrokVideoStatusBillable([]byte(`{"url":"https://example.com/v.mp4"}`)))
 	require.False(t, IsGrokVideoStatusBillable([]byte(`{"download_url":"/v1/videos/task/content"}`)))
-	// "completed" is not the official enum value
-	require.False(t, IsGrokVideoStatusBillable([]byte(`{"status":"completed","video":{"url":"https://vidgen.x.ai/x.mp4"}}`)))
+	// Relay upstreams finalize as "completed"; it must bill like "done".
+	require.True(t, IsGrokVideoStatusBillable([]byte(`{"status":"completed","video":{"url":"https://vidgen.x.ai/x.mp4"}}`)))
+	require.False(t, IsGrokVideoStatusBillable([]byte(`{"status":"completed"}`)))
+}
+
+func TestIsGrokVideoStatusBillableAcceptsRelayMetadataURL(t *testing.T) {
+	t.Parallel()
+	// Relay status shape: status=completed + metadata.video_url (upstream Sub2API proxy).
+	require.True(t, IsGrokVideoStatusBillable([]byte(`{
+		"id":"task_XVJP64vZuJ0ybaFcsRrD6x4Hat5Dsbn2",
+		"status":"completed",
+		"progress":100,
+		"metadata":{"video_url":"/v1/videos/task_XVJP/content"}
+	}`)))
+
+	// metadata.video_url without a success status is still not billable.
+	require.False(t, IsGrokVideoStatusBillable([]byte(`{"status":"queued","metadata":{"video_url":"/v1/videos/t/content"}}`)))
+	require.False(t, IsGrokVideoStatusBillable([]byte(`{"status":"unknown","progress":0}`)))
 }
 
 func TestExtractGrokVideoBillingFromStatusBodyPrefersUpstreamParams(t *testing.T) {
@@ -105,6 +121,11 @@ func TestExtractGrokVideoBillingRejectsNonDoneStatus(t *testing.T) {
 		pending, "req",
 	))
 	require.Nil(t, ExtractGrokVideoBillingFromStatusBody(
+		[]byte(`{"status":"queued","metadata":{"video_url":"/v1/videos/req/content"}}`),
+		pending, "req",
+	))
+	// Relay "completed" finalizes the job and must be billable.
+	require.NotNil(t, ExtractGrokVideoBillingFromStatusBody(
 		[]byte(`{"status":"completed","video":{"url":"https://vidgen.x.ai/x.mp4","duration":8}}`),
 		pending, "req",
 	))
@@ -139,11 +160,19 @@ func TestGrokMediaUsageFromResponseVideoStatusBillsOnOfficialDone(t *testing.T) 
 	)
 	require.Equal(t, 0, pendingOnly.VideoCount)
 
-	// completed is not official done.
+	// completed is a valid relay terminal status and must bill.
 	completed := grokMediaUsageFromResponse(
 		GrokMediaEndpointVideoStatus,
 		GrokMediaRequestInfo{},
 		[]byte(`{"status":"completed","video":{"url":"https://vidgen.x.ai/a.mp4","duration":9}}`),
 	)
-	require.Equal(t, 0, completed.VideoCount)
+	require.Equal(t, 1, completed.VideoCount)
+
+	// Relay metadata.video_url shape bills too.
+	relay := grokMediaUsageFromResponse(
+		GrokMediaEndpointVideoStatus,
+		GrokMediaRequestInfo{},
+		[]byte(`{"status":"completed","progress":100,"metadata":{"video_url":"/v1/videos/task_X/content"}}`),
+	)
+	require.Equal(t, 1, relay.VideoCount)
 }
