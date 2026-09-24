@@ -39,8 +39,7 @@ export default {
         perRequestPrice: '每次请求',
         intervals: '阶梯定价',
         unitPerMillion: '/ 1M token',
-        unitPerRequest: '/ 次',
-        unitPerSecond: '/ 秒'
+        unitPerRequest: '/ 次'
       }
     },
 
