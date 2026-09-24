@@ -554,21 +554,46 @@ func StableGrokVideoBillingRequestID(taskRequestID string) string {
 // Request may include resolution ("480p"|"720p"|"1080p"); completed status does not
 // document a resolution field — bill resolution from the create-time request snapshot.
 
-// IsGrokVideoStatusBillable matches official success: status == "done" AND non-empty video.url.
-// pending / expired / failed, or done without a video URL, are not billable.
+// IsGrokVideoStatusBillable matches a successful async video status: a terminal
+// success status AND a non-empty video URL.
+// pending / expired / failed, or a success status without a video URL, are not billable.
 func IsGrokVideoStatusBillable(statusBody []byte) bool {
 	if len(statusBody) == 0 || !gjson.ValidBytes(statusBody) {
 		return false
 	}
-	if !isOfficialGrokVideoStatusDone(statusBody) {
+	if !isGrokVideoStatusSuccess(statusBody) {
 		return false
 	}
-	return strings.TrimSpace(gjson.GetBytes(statusBody, "video.url").String()) != ""
+	return extractGrokVideoResultURL(statusBody) != ""
 }
 
-func isOfficialGrokVideoStatusDone(statusBody []byte) bool {
-	// Official enum: pending | done | expired | failed.
-	return strings.EqualFold(strings.TrimSpace(gjson.GetBytes(statusBody, "status").String()), "done")
+// isGrokVideoStatusSuccess reports whether the status marks a finished video.
+//
+// xAI documents "done" for api.x.ai, but relayed/normalized upstreams commonly
+// return "completed". Accepting only "done" silently disabled video billing for
+// those upstreams, so both terminal-success spellings are recognized here.
+func isGrokVideoStatusSuccess(statusBody []byte) bool {
+	// Official enum: pending | done | expired | failed. Relays may emit completed.
+	switch strings.ToLower(strings.TrimSpace(gjson.GetBytes(statusBody, "status").String())) {
+	case "done", "completed":
+		return true
+	default:
+		return false
+	}
+}
+
+// extractGrokVideoResultURL returns the generated video URL from a status body.
+//
+// Official shape nests it at video.url; relay shapes (e.g. an upstream Sub2API
+// proxy) put it at metadata.video_url. Both are accepted so billing and content
+// proxying keep working across upstream flavors.
+func extractGrokVideoResultURL(statusBody []byte) string {
+	for _, path := range []string{"video.url", "metadata.video_url"} {
+		if value := strings.TrimSpace(gjson.GetBytes(statusBody, path).String()); value != "" {
+			return value
+		}
+	}
+	return ""
 }
 
 // ExtractGrokVideoBillingFromStatusBody builds usage units from an official done status.
@@ -930,7 +955,7 @@ func (s *OpenAIGatewayService) forwardGrokMediaVideoContent(
 }
 
 func grokMediaSignedVideoContentURL(body []byte, requestID string) (string, error) {
-	rawURL := strings.TrimSpace(gjson.GetBytes(body, "video.url").String())
+	rawURL := extractGrokVideoResultURL(body)
 	if rawURL == "" {
 		return "", nil
 	}
@@ -1461,16 +1486,21 @@ func rewriteGrokMediaKnownVideoURL(value *any, proxyURL string) bool {
 	if !ok {
 		return false
 	}
-	video, ok := root["video"].(map[string]any)
-	if !ok {
-		return false
+	changed := false
+	if video, ok := root["video"].(map[string]any); ok {
+		if rawURL, ok := video["url"].(string); ok && strings.TrimSpace(rawURL) != "" {
+			video["url"] = proxyURL
+			changed = true
+		}
 	}
-	rawURL, ok := video["url"].(string)
-	if !ok || strings.TrimSpace(rawURL) == "" {
-		return false
+	// Relay status shapes carry the URL at metadata.video_url instead of video.url.
+	if metadata, ok := root["metadata"].(map[string]any); ok {
+		if rawURL, ok := metadata["video_url"].(string); ok && strings.TrimSpace(rawURL) != "" {
+			metadata["video_url"] = proxyURL
+			changed = true
+		}
 	}
-	video["url"] = proxyURL
-	return true
+	return changed
 }
 
 func rewriteGrokMediaVideoContentURLValue(value *any, requestID, proxyURL string) bool {
