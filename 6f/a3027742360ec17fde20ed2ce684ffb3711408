@@ -1,0 +1,25 @@
+backend/internal/service/grok_media.go
+  s_7c9ff3f85366e1::t_65a04eaf940ad1 958
+  s_7c9ff3f85366e1::t_96723e27017631 1489-1494,1496-1501,1503
+  s_7c9ff3f85366e1::t_cc2a0bb5745052 557-559,564,567,570-596
+backend/internal/service/grok_media_video_billing_test.go
+  s_7c9ff3f85366e1::t_e1bfeaca979f14 124-128
+  s_7c9ff3f85366e1::t_132fff86b2eb1a 163,169-177
+  s_7c9ff3f85366e1::t_a796175d2be6d1 52-69
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "6fa3027742360ec17fde20ed2ce684ffb3711408",
+  "prompts": {},
+  "sessions": {
+    "s_7c9ff3f85366e1": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f2e8d1f43ffe62XdTzOeWkBK4I",
+        "model": "gpt-6-sol"
+      },
+      "human_author": "Litien Zhao <DN7074@jsyyds.com>"
+    }
+  }
+}
