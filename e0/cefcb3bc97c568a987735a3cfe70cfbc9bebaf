@@ -1,0 +1,18 @@
+backend/internal/web/embed_test.go
+  h_8d64551f0eb8e7 658,662,816,820
+frontend/src/views/user/__tests__/CustomPageView.race.spec.ts
+  h_8d64551f0eb8e7 8-12
+frontend/src/views/user/__tests__/CustomPageView.spec.ts
+  h_8d64551f0eb8e7 13-17
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "e0cefcb3bc97c568a987735a3cfe70cfbc9bebaf",
+  "prompts": {},
+  "humans": {
+    "h_8d64551f0eb8e7": {
+      "author": "Litien Zhao <DN7074@jsyyds.com>"
+    }
+  }
+}
