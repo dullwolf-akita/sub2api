@@ -10,7 +10,11 @@ const { appStore } = vi.hoisted(() => ({
 }))
 
 vi.mock('@/components/layout/AppLayout.vue', () => ({ default: { template: '<div><slot /></div>' } }))
-vi.mock('vue-router', () => ({ useRoute: () => ({ params: { id: 'docs' } }) }))
+vi.mock('vue-router', () => ({ useRoute: () => ({ params: { id: 'docs' } }), useRouter: () => ({ replace: vi.fn() }) }))
+vi.mock('@/composables/useChannelAgentAccess', async () => {
+  const { ref } = await import('vue')
+  return { useChannelAgentAccess: () => ({ isChannelAgent: ref(false) }) }
+})
 vi.mock('vue-i18n', () => ({ useI18n: () => ({ t: (key: string) => key, locale: { value: 'en' } }) }))
 vi.mock('@/stores', () => ({ useAppStore: () => appStore }))
 vi.mock('@/stores/auth', () => ({ useAuthStore: () => ({ isAdmin: false, user: { id: 7 }, token: 'test-token' }) }))
