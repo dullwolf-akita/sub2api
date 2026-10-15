@@ -78,8 +78,8 @@ func streamExportCSV(c *gin.Context, sqlitePath, model, q string) {
 
 	cw := csv.NewWriter(w)
 	cw.UseCRLF = false
-	headers := make([]string, len(ColumnOrder))
-	for i, col := range ColumnOrder {
+	headers := make([]string, len(ExportColumnOrder))
+	for i, col := range ExportColumnOrder {
 		if zh, ok := LabelMap[col]; ok {
 			headers[i] = zh
 		} else {
@@ -120,8 +120,8 @@ func streamExportCSV(c *gin.Context, sqlitePath, model, q string) {
 		if err := rows.Scan(ptrs...); err != nil {
 			break
 		}
-		line := make([]string, len(ColumnOrder))
-		for i, col := range ColumnOrder {
+		line := make([]string, len(ExportColumnOrder))
+		for i, col := range ExportColumnOrder {
 			idx, ok := colIndex[col]
 			var v any
 			if ok {

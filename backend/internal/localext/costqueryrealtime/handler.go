@@ -16,7 +16,9 @@ import (
 )
 
 type Handler struct {
-	reg *Registry
+	reg            *Registry
+	shareLimiter   *simpleIPLimiter
+	shareExportLim *simpleIPLimiter
 }
 
 type createJobReq struct {
@@ -256,7 +258,7 @@ func (h *Handler) GetRows(c *gin.Context) {
 		"total":   total,
 		"offset":  offset,
 		"limit":   limit,
-		"columns": ColumnOrder,
+		"columns": ExportColumnOrder,
 		"labels":  LabelMap,
 		"rows":    outRows,
 	})

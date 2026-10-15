@@ -115,12 +115,30 @@ export async function downloadExportStreaming(
   document.body.removeChild(link)
 }
 
+export interface CostQueryShareResult {
+  hashcode: string
+  url: string
+  expires_at: string
+  email: string
+  job_id: string
+  ttl_seconds: number
+}
+
+export async function createShare(jobId: string): Promise<CostQueryShareResult> {
+  const { data } = await apiClient.post<CostQueryShareResult>(
+    `/admin/cost-query-realtime/jobs/${jobId}/share`,
+    {}
+  )
+  return data
+}
+
 export const costQueryRealtimeAPI = {
   createJob,
   getJob,
   getStats,
   getRows,
-  downloadExportStreaming
+  downloadExportStreaming,
+  createShare
 }
 
 export default costQueryRealtimeAPI

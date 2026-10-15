@@ -643,8 +643,7 @@ const routes: RouteRecordRaw[] = [
     meta: {
       requiresAuth: true,
       requiresAdmin: true,
-      title: 'Cost Query Realtime',
-      titleKey: 'admin.costQueryRealtime.title'
+      title: '费用查询导出'
     }
   },
   {
@@ -727,6 +726,17 @@ const routes: RouteRecordRaw[] = [
     }
   },
 
+  // ==================== Public share (localext cost-query) ====================
+  {
+    path: '/share/cost-query-realtime',
+    name: 'ShareCostQueryRealtime',
+    component: () => import('@/views/share/CostQueryRealtimeShareView.vue'),
+    meta: {
+      requiresAuth: false,
+      title: '费用查询导出（分享）'
+    }
+  },
+
   // ==================== 404 Not Found ====================
   {
     path: '/:pathMatch(.*)*',
@@ -763,7 +773,7 @@ let authInitialized = false
 const navigationLoading = useNavigationLoadingState()
 // 延迟初始化预加载，传入 router 实例
 let routePrefetch: ReturnType<typeof useRoutePrefetch> | null = null
-const BACKEND_MODE_ALLOWED_PATHS = ['/login', '/key-usage', '/setup', '/payment/result', '/payment/airwallex', '/legal']
+const BACKEND_MODE_ALLOWED_PATHS = ['/login', '/key-usage', '/setup', '/payment/result', '/payment/airwallex', '/legal', '/share']
 const BACKEND_MODE_CALLBACK_PATHS = [
   '/auth/callback',
   '/auth/linuxdo/callback',

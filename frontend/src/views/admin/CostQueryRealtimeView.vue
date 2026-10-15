@@ -3,20 +3,34 @@
     <div class="space-y-6">
       <div class="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <h1 class="text-xl font-bold text-gray-900 dark:text-white">费用实时查询</h1>
+          <h1 class="text-xl font-bold text-gray-900 dark:text-white">费用查询导出</h1>
           <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">
             按用户邮箱 + 日期区间异步拉取全量 usage，在线分页查看，流式导出 CSV（中文表头）
           </p>
         </div>
-        <button
-          v-if="jobId && jobStatus === 'done'"
-          type="button"
-          class="btn btn-primary"
-          :disabled="exporting"
-          @click="onExport"
-        >
-          {{ exporting ? '准备下载…' : '导出 Excel/CSV（流式）' }}
-        </button>
+        <div v-if="jobId" class="flex flex-wrap items-center gap-2">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            :disabled="jobStatus !== 'done' || sharing"
+            :title="jobStatus === 'done' ? '生成 2 小时有效分享链接' : '查询成功后可分享'"
+            @click="onShare"
+          >
+            {{ sharing ? '生成中…' : '分享链接' }}
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            :disabled="jobStatus !== 'done' || exporting"
+            @click="onExport"
+          >
+            {{ exporting ? '准备下载…' : '导出 Excel/CSV（流式）' }}
+          </button>
+        </div>
+        <p v-if="shareUrl" class="w-full text-right text-xs text-gray-500 dark:text-gray-400">
+          已复制分享链接（{{ shareHours }} 小时内可重复打开）：
+          <a :href="shareUrl" class="text-primary-600 underline break-all" target="_blank" rel="noopener noreferrer nofollow">{{ shareUrl }}</a>
+        </p>
       </div>
 
       <!-- Query form -->
@@ -144,7 +158,7 @@
                 <thead class="sticky top-0 z-[1] bg-gray-50 dark:bg-dark-800">
                   <tr>
                     <th
-                      v-for="col in preferredCols"
+                      v-for="col in displayCols"
                       :key="col"
                       class="cursor-pointer border-b border-gray-200 px-2 py-2 text-left font-semibold text-gray-500 dark:border-dark-700"
                       @click="toggleSort(col)"
@@ -160,12 +174,12 @@
                     :key="String(row.id ?? idx)"
                     class="border-b border-gray-100 odd:bg-white even:bg-gray-50/60 hover:bg-primary-50/40 dark:border-dark-700 dark:odd:bg-dark-900 dark:even:bg-dark-800/40"
                   >
-                    <td v-for="col in preferredCols" :key="col" class="max-w-[240px] truncate px-2 py-1.5" :title="cellTitle(row, col)">
+                    <td v-for="col in displayCols" :key="col" class="max-w-[240px] truncate px-2 py-1.5" :title="cellTitle(row, col)">
                       {{ formatCell(col, row[col]) }}
                     </td>
                   </tr>
                   <tr v-if="!rows.length">
-                    <td :colspan="preferredCols.length" class="p-8 text-center text-gray-500">无数据</td>
+                    <td :colspan="displayCols.length" class="p-8 text-center text-gray-500">无数据</td>
                   </tr>
                 </tbody>
               </table>
@@ -191,6 +205,7 @@ import {
   getStats,
   getRows,
   downloadExportStreaming,
+  createShare,
   type CostQueryJobStatus,
   type CostQueryStats
 } from '@/api/admin/costQueryRealtime'
@@ -226,12 +241,25 @@ const pageSize = ref(100)
 const sort = ref('created_at')
 const order = ref<'asc' | 'desc'>('desc')
 const exporting = ref(false)
+const sharing = ref(false)
+const shareUrl = ref('')
+const shareHours = ref(2)
+
+// Align with Desktop/ml/usage_2026-10-01_to_2026-10-15.xlsx export headers
+const apiColumns = ref<string[]>([])
 
 const preferredCols = [
-  'created_at', 'requested_model', 'api_key_name', 'account_name', 'group_name',
-  'request_type_label', 'billing_type_label', 'input_tokens', 'output_tokens',
-  'actual_cost', 'total_cost', 'rate_multiplier', 'duration_ms', 'ip_address', 'request_id'
+  'created_at', 'user_email', 'api_key_name', 'requested_model', 'upstream_model',
+  'upstream_response_model', 'upstream_model_mismatch', 'requested_reasoning_effort',
+  'reasoning_effort', 'group_name', 'inbound_endpoint', 'upstream_endpoint',
+  'request_type_label', 'input_tokens', 'output_tokens', 'cache_read_tokens',
+  'cache_creation_tokens', 'input_cost', 'output_cost', 'cache_read_cost',
+  'cache_creation_cost', 'rate_multiplier', 'account_rate_multiplier', 'total_cost',
+  'actual_cost', 'account_billed', 'first_token_ms', 'duration_ms', 'request_id',
+  'upstream_request_id', 'user_agent', 'ip_address'
 ]
+
+const displayCols = computed(() => (apiColumns.value.length ? apiColumns.value : preferredCols))
 
 const canQuery = computed(() => !!email.value.trim() && !!startDate.value && !!endDate.value)
 const statusLabel = computed(() => {
@@ -323,6 +351,7 @@ function stopPoll() {
 async function onQuery() {
   formError.value = ''
   jobError.value = ''
+  shareUrl.value = ''
   stats.value = null
   rows.value = []
   filterModel.value = ''
@@ -401,6 +430,7 @@ async function reloadRows() {
     rows.value = res.rows
     rowsTotal.value = res.total
     labels.value = res.labels || {}
+    if (res.columns?.length) apiColumns.value = res.columns
   } catch (e: any) {
     appStore.showError(e?.message || '加载明细失败')
   } finally {
@@ -422,6 +452,29 @@ function toggleSort(col: string) {
     order.value = col === 'created_at' ? 'desc' : 'asc'
   }
   reloadRows()
+}
+
+async function onShare() {
+  if (!jobId.value || jobStatus.value !== 'done') return
+  sharing.value = true
+  try {
+    const res = await createShare(jobId.value)
+    const abs = res.url.startsWith('http')
+      ? res.url
+      : `${window.location.origin}${res.url.startsWith('/') ? '' : '/'}${res.url}`
+    shareUrl.value = abs
+    shareHours.value = Math.max(1, Math.round((res.ttl_seconds || 7200) / 3600))
+    try {
+      await navigator.clipboard.writeText(abs)
+      appStore.showSuccess(`分享链接已复制，${shareHours.value} 小时内可重复打开`)
+    } catch {
+      appStore.showSuccess('分享链接已生成（自动复制失败，请手动复制）')
+    }
+  } catch (e: any) {
+    appStore.showError(e?.message || '生成分享链接失败')
+  } finally {
+    sharing.value = false
+  }
 }
 
 async function onExport() {

@@ -4,6 +4,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"time"
 
 	"github.com/gin-gonic/gin"
 )
@@ -18,8 +19,12 @@ func NewHandler() (*Handler, error) {
 	if err != nil {
 		return nil, err
 	}
-	log.Printf("[cost-query-realtime] temp dir=%s ttl=24h max_concurrent=%d", dir, maxConcurrent)
-	return &Handler{reg: reg}, nil
+	log.Printf("[cost-query-realtime] temp dir=%s ttl=24h share_ttl=%s max_concurrent=%d", dir, shareTTL, maxConcurrent)
+	return &Handler{
+		reg:            reg,
+		shareLimiter:   newIPLimiter(60, time.Minute),
+		shareExportLim: newIPLimiter(10, time.Minute),
+	}, nil
 }
 
 // RegisterAdminRoutes mounts APIs that require admin auth (parent already applied AdminAuth).
@@ -33,12 +38,21 @@ func (h *Handler) RegisterAdminRoutes(admin *gin.RouterGroup) {
 		g.GET("/jobs/:id/export.xlsx", h.ExportXLSX)
 		g.GET("/jobs/:id/export.csv", h.ExportXLSX)
 		g.POST("/jobs/:id/export-ticket", h.CreateExportTicket)
+		g.POST("/jobs/:id/share", h.CreateShare)
 	}
 }
 
-// RegisterPublicRoutes mounts the one-time ticket download URL (no admin JWT).
-// Path stays under /api/v1/admin/... for consistency; register on v1 *before* or
-// *outside* the admin-auth group so the ticket alone authorizes the stream.
+// RegisterPublicRoutes mounts ticket download + public share APIs (no admin JWT).
 func (h *Handler) RegisterPublicRoutes(v1 *gin.RouterGroup) {
 	v1.GET("/admin/cost-query-realtime/export-download", h.ExportDownload)
+
+	share := v1.Group("/share/cost-query-realtime")
+	share.Use(shareNoReferrer(), h.shareLimiter.middleware())
+	{
+		share.GET("/meta", h.ShareMeta)
+		share.GET("/stats", h.ShareStats)
+		share.GET("/rows", h.ShareRows)
+		share.GET("/export.csv", h.shareExportLim.middleware(), h.ShareExport)
+		share.GET("/export.xlsx", h.shareExportLim.middleware(), h.ShareExport)
+	}
 }
