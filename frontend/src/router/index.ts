@@ -637,6 +637,17 @@ const routes: RouteRecordRaw[] = [
     }
   },
   {
+    path: '/admin/cost-query-realtime',
+    name: 'AdminCostQueryRealtime',
+    component: () => import('@/views/admin/CostQueryRealtimeView.vue'),
+    meta: {
+      requiresAuth: true,
+      requiresAdmin: true,
+      title: 'Cost Query Realtime',
+      titleKey: 'admin.costQueryRealtime.title'
+    }
+  },
+  {
     path: '/admin/affiliates',
     redirect: '/admin/affiliates/invites'
   },
