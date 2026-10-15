@@ -3,7 +3,7 @@
     <div class="space-y-6">
       <div class="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <h1 class="text-xl font-bold text-gray-900 dark:text-white">费用实时查询</h1>
+          <h1 class="text-xl font-bold text-gray-900 dark:text-white">费用查询导出</h1>
           <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">
             按用户邮箱 + 日期区间异步拉取全量 usage，在线分页查看，流式导出 CSV（中文表头）
           </p>

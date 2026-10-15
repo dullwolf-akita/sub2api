@@ -643,8 +643,7 @@ const routes: RouteRecordRaw[] = [
     meta: {
       requiresAuth: true,
       requiresAdmin: true,
-      title: 'Cost Query Realtime',
-      titleKey: 'admin.costQueryRealtime.title'
+      title: '费用查询导出'
     }
   },
   {
