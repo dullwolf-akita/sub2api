@@ -1,0 +1,18 @@
+frontend/src/components/layout/AppSidebar.vue
+  h_8d64551f0eb8e7 843
+frontend/src/router/index.ts
+  h_8d64551f0eb8e7 646
+frontend/src/views/admin/CostQueryRealtimeView.vue
+  h_8d64551f0eb8e7 6
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "26c6177b577dc18ff3623d609f53d64ce318c5a8",
+  "prompts": {},
+  "humans": {
+    "h_8d64551f0eb8e7": {
+      "author": "Litien Zhao <DN7074@jsyyds.com>"
+    }
+  }
+}
