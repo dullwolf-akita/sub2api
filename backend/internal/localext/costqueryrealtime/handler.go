@@ -256,7 +256,7 @@ func (h *Handler) GetRows(c *gin.Context) {
 		"total":   total,
 		"offset":  offset,
 		"limit":   limit,
-		"columns": ColumnOrder,
+		"columns": ExportColumnOrder,
 		"labels":  LabelMap,
 		"rows":    outRows,
 	})

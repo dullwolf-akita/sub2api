@@ -144,7 +144,7 @@
                 <thead class="sticky top-0 z-[1] bg-gray-50 dark:bg-dark-800">
                   <tr>
                     <th
-                      v-for="col in preferredCols"
+                      v-for="col in displayCols"
                       :key="col"
                       class="cursor-pointer border-b border-gray-200 px-2 py-2 text-left font-semibold text-gray-500 dark:border-dark-700"
                       @click="toggleSort(col)"
@@ -160,12 +160,12 @@
                     :key="String(row.id ?? idx)"
                     class="border-b border-gray-100 odd:bg-white even:bg-gray-50/60 hover:bg-primary-50/40 dark:border-dark-700 dark:odd:bg-dark-900 dark:even:bg-dark-800/40"
                   >
-                    <td v-for="col in preferredCols" :key="col" class="max-w-[240px] truncate px-2 py-1.5" :title="cellTitle(row, col)">
+                    <td v-for="col in displayCols" :key="col" class="max-w-[240px] truncate px-2 py-1.5" :title="cellTitle(row, col)">
                       {{ formatCell(col, row[col]) }}
                     </td>
                   </tr>
                   <tr v-if="!rows.length">
-                    <td :colspan="preferredCols.length" class="p-8 text-center text-gray-500">无数据</td>
+                    <td :colspan="displayCols.length" class="p-8 text-center text-gray-500">无数据</td>
                   </tr>
                 </tbody>
               </table>
@@ -227,11 +227,21 @@ const sort = ref('created_at')
 const order = ref<'asc' | 'desc'>('desc')
 const exporting = ref(false)
 
+// Align with Desktop/ml/usage_2026-10-01_to_2026-10-15.xlsx export headers
+const apiColumns = ref<string[]>([])
+
 const preferredCols = [
-  'created_at', 'requested_model', 'api_key_name', 'account_name', 'group_name',
-  'request_type_label', 'billing_type_label', 'input_tokens', 'output_tokens',
-  'actual_cost', 'total_cost', 'rate_multiplier', 'duration_ms', 'ip_address', 'request_id'
+  'created_at', 'user_email', 'api_key_name', 'requested_model', 'upstream_model',
+  'upstream_response_model', 'upstream_model_mismatch', 'requested_reasoning_effort',
+  'reasoning_effort', 'group_name', 'inbound_endpoint', 'upstream_endpoint',
+  'request_type_label', 'input_tokens', 'output_tokens', 'cache_read_tokens',
+  'cache_creation_tokens', 'input_cost', 'output_cost', 'cache_read_cost',
+  'cache_creation_cost', 'rate_multiplier', 'account_rate_multiplier', 'total_cost',
+  'actual_cost', 'account_billed', 'first_token_ms', 'duration_ms', 'request_id',
+  'upstream_request_id', 'user_agent', 'ip_address'
 ]
+
+const displayCols = computed(() => (apiColumns.value.length ? apiColumns.value : preferredCols))
 
 const canQuery = computed(() => !!email.value.trim() && !!startDate.value && !!endDate.value)
 const statusLabel = computed(() => {
@@ -401,6 +411,7 @@ async function reloadRows() {
     rows.value = res.rows
     rowsTotal.value = res.total
     labels.value = res.labels || {}
+    if (res.columns?.length) apiColumns.value = res.columns
   } catch (e: any) {
     appStore.showError(e?.message || '加载明细失败')
   } finally {
