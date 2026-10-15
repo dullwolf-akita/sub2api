@@ -94,6 +94,9 @@ func RegisterAdminRoutes(
 		// 使用记录管理
 		registerUsageRoutes(admin, h)
 
+		// 本地扩展：费用实时查询（新文件，避免与上游冲突）
+		registerCostQueryRealtimeLocal(admin, h)
+
 		// 用户属性管理
 		registerUserAttributeRoutes(admin, h)
 
