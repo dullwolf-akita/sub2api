@@ -8,15 +8,29 @@
             按用户邮箱 + 日期区间异步拉取全量 usage，在线分页查看，流式导出 CSV（中文表头）
           </p>
         </div>
-        <button
-          v-if="jobId && jobStatus === 'done'"
-          type="button"
-          class="btn btn-primary"
-          :disabled="exporting"
-          @click="onExport"
-        >
-          {{ exporting ? '准备下载…' : '导出 Excel/CSV（流式）' }}
-        </button>
+        <div v-if="jobId" class="flex flex-wrap items-center gap-2">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            :disabled="jobStatus !== 'done' || sharing"
+            :title="jobStatus === 'done' ? '生成 2 小时有效分享链接' : '查询成功后可分享'"
+            @click="onShare"
+          >
+            {{ sharing ? '生成中…' : '分享链接' }}
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            :disabled="jobStatus !== 'done' || exporting"
+            @click="onExport"
+          >
+            {{ exporting ? '准备下载…' : '导出 Excel/CSV（流式）' }}
+          </button>
+        </div>
+        <p v-if="shareUrl" class="w-full text-right text-xs text-gray-500 dark:text-gray-400">
+          已复制分享链接（{{ shareHours }} 小时内可重复打开）：
+          <a :href="shareUrl" class="text-primary-600 underline break-all" target="_blank" rel="noopener noreferrer nofollow">{{ shareUrl }}</a>
+        </p>
       </div>
 
       <!-- Query form -->
@@ -191,6 +205,7 @@ import {
   getStats,
   getRows,
   downloadExportStreaming,
+  createShare,
   type CostQueryJobStatus,
   type CostQueryStats
 } from '@/api/admin/costQueryRealtime'
@@ -226,6 +241,9 @@ const pageSize = ref(100)
 const sort = ref('created_at')
 const order = ref<'asc' | 'desc'>('desc')
 const exporting = ref(false)
+const sharing = ref(false)
+const shareUrl = ref('')
+const shareHours = ref(2)
 
 // Align with Desktop/ml/usage_2026-10-01_to_2026-10-15.xlsx export headers
 const apiColumns = ref<string[]>([])
@@ -333,6 +351,7 @@ function stopPoll() {
 async function onQuery() {
   formError.value = ''
   jobError.value = ''
+  shareUrl.value = ''
   stats.value = null
   rows.value = []
   filterModel.value = ''
@@ -433,6 +452,29 @@ function toggleSort(col: string) {
     order.value = col === 'created_at' ? 'desc' : 'asc'
   }
   reloadRows()
+}
+
+async function onShare() {
+  if (!jobId.value || jobStatus.value !== 'done') return
+  sharing.value = true
+  try {
+    const res = await createShare(jobId.value)
+    const abs = res.url.startsWith('http')
+      ? res.url
+      : `${window.location.origin}${res.url.startsWith('/') ? '' : '/'}${res.url}`
+    shareUrl.value = abs
+    shareHours.value = Math.max(1, Math.round((res.ttl_seconds || 7200) / 3600))
+    try {
+      await navigator.clipboard.writeText(abs)
+      appStore.showSuccess(`分享链接已复制，${shareHours.value} 小时内可重复打开`)
+    } catch {
+      appStore.showSuccess('分享链接已生成（自动复制失败，请手动复制）')
+    }
+  } catch (e: any) {
+    appStore.showError(e?.message || '生成分享链接失败')
+  } finally {
+    sharing.value = false
+  }
 }
 
 async function onExport() {

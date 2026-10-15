@@ -106,6 +106,7 @@ type Registry struct {
 	running  int
 	dataDir  string
 	tickets  map[string]*exportTicket
+	shares   map[string]*ShareLink // tokenHash -> share
 }
 
 type exportTicket struct {
@@ -127,6 +128,7 @@ func NewRegistry(dataDir string) (*Registry, error) {
 		jobs:    make(map[string]*Job),
 		dataDir: dataDir,
 		tickets: make(map[string]*exportTicket),
+		shares:  make(map[string]*ShareLink),
 	}
 	go r.cleanupLoop()
 	return r, nil
@@ -144,12 +146,31 @@ func (r *Registry) Cleanup() {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	now := time.Now()
+	r.cleanupSharesLocked(now)
+
+	// jobID -> latest active share expiry (zero if none)
+	shareKeep := make(map[string]time.Time)
+	for _, s := range r.shares {
+		if s == nil || s.Revoked || now.After(s.ExpiresAt) {
+			continue
+		}
+		if s.ExpiresAt.After(shareKeep[s.JobID]) {
+			shareKeep[s.JobID] = s.ExpiresAt
+		}
+	}
+
 	for id, job := range r.jobs {
 		job.mu.Lock()
 		age := now.Sub(job.CreatedAt)
 		status := job.Status
 		path := job.SQLitePath
 		job.mu.Unlock()
+
+		// Keep job files alive at least until any active share expires.
+		if keepUntil, ok := shareKeep[id]; ok && now.Before(keepUntil) {
+			continue
+		}
+
 		if age > jobTTL || (status == StatusFailed && age > time.Hour) {
 			if path != "" {
 				_ = os.Remove(path)
@@ -164,7 +185,15 @@ func (r *Registry) Cleanup() {
 			delete(r.tickets, tid)
 		}
 	}
-	// also sweep orphaned files
+	// also sweep orphaned files (skip those still referenced by live jobs/shares)
+	livePaths := make(map[string]struct{})
+	for _, job := range r.jobs {
+		job.mu.Lock()
+		if job.SQLitePath != "" {
+			livePaths[job.SQLitePath] = struct{}{}
+		}
+		job.mu.Unlock()
+	}
 	entries, err := os.ReadDir(r.dataDir)
 	if err != nil {
 		return
@@ -173,12 +202,23 @@ func (r *Registry) Cleanup() {
 		if e.IsDir() {
 			continue
 		}
+		full := filepath.Join(r.dataDir, e.Name())
+		base := full
+		for _, suf := range []string{"-wal", "-shm"} {
+			if len(full) > len(suf) && full[len(full)-len(suf):] == suf {
+				base = full[:len(full)-len(suf)]
+				break
+			}
+		}
+		if _, ok := livePaths[base]; ok {
+			continue
+		}
 		info, err := e.Info()
 		if err != nil {
 			continue
 		}
 		if now.Sub(info.ModTime()) > jobTTL {
-			_ = os.Remove(filepath.Join(r.dataDir, e.Name()))
+			_ = os.Remove(full)
 		}
 	}
 }

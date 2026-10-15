@@ -16,7 +16,9 @@ import (
 )
 
 type Handler struct {
-	reg *Registry
+	reg            *Registry
+	shareLimiter   *simpleIPLimiter
+	shareExportLim *simpleIPLimiter
 }
 
 type createJobReq struct {
