@@ -255,7 +255,7 @@ func (h *UsageHandler) List(c *gin.Context) {
 	out := make([]dto.UsageLog, 0, len(records))
 	role, _ := middleware2.GetUserRoleFromContext(c)
 	for i := range records {
-		item := dto.UsageLogFromService(&records[i])
+		item := dto.UsageLogFromService(&records[i]).Localized(c.GetHeader("Accept-Language"))
 		if role != service.RoleAdmin {
 			item.TimingBreakdown = nil
 		}
@@ -405,7 +405,7 @@ func (h *UsageHandler) GetByID(c *gin.Context) {
 		return
 	}
 
-	item := dto.UsageLogFromService(record)
+	item := dto.UsageLogFromService(record).Localized(c.GetHeader("Accept-Language"))
 	role, _ := middleware2.GetUserRoleFromContext(c)
 	if role != service.RoleAdmin {
 		item.TimingBreakdown = nil
