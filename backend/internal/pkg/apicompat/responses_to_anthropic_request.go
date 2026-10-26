@@ -28,6 +28,10 @@ func ResponsesToAnthropicRequest(req *ResponsesRequest) (*AnthropicRequest, erro
 		Temperature: req.Temperature,
 		TopP:        req.TopP,
 		Stream:      req.Stream,
+		// Default ON: OpenAI-compat clients cannot send Anthropic block-level
+		// cache_control. Top-level automatic caching is required for API Key
+		// upstreams to populate cache_*_input_tokens (#8285).
+		CacheControl: &AnthropicCacheControl{Type: "ephemeral"},
 	}
 
 	if len(system) > 0 {

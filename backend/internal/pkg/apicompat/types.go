@@ -33,6 +33,11 @@ type AnthropicRequest struct {
 	// user_id，进而导致请求被归类为第三方 app。
 	Metadata     json.RawMessage        `json:"metadata,omitempty"`
 	OutputConfig *AnthropicOutputConfig `json:"output_config,omitempty"`
+	// CacheControl is Anthropic automatic prompt caching (top-level).
+	// OpenAI Chat Completions / Responses clients have no Anthropic block-level
+	// cache_control; setting this enables cache_*_input_tokens on API Key upstreams.
+	// See https://github.com/Wei-Shaw/sub2api/issues/8285
+	CacheControl *AnthropicCacheControl `json:"cache_control,omitempty"`
 }
 
 // AnthropicOutputConfig controls output generation parameters.

@@ -100,19 +100,25 @@ func (s *GatewayService) ForwardAsResponses(
 		zap.Bool("client_stream", clientStream),
 	)
 
-	// 5. Marshal Anthropic request body
-	anthropicBody, err := json.Marshal(anthropicReq)
-	if err != nil {
-		return nil, fmt.Errorf("marshal anthropic request: %w", err)
-	}
-
-	// 6. Apply Claude Code mimicry for OAuth accounts (non-Claude-Code endpoints).
+	// 5. Apply Claude Code mimicry for OAuth accounts (non-Claude-Code endpoints).
 	// OpenAI Responses 协议进来的请求永远不是 Claude Code 客户端，所以对 OAuth 账号
 	// 必须完整执行 /v1/messages 主路径上的伪装链路（system 重写 + normalize + metadata 注入），
 	// 否则会被 Anthropic 判为第三方应用并扣 extra usage。
 	// 见 applyClaudeCodeOAuthMimicryToBody 的 godoc。
 	isClaudeCode := false
 	shouldMimicClaudeCode := account.IsOAuth() && !isClaudeCode
+	// OAuth mimicry injects block-level cache breakpoints. Keep top-level auto
+	// cache only for API Key paths; stacking both can exceed Anthropic's 4-block
+	// limit (Found 5 / #2013).
+	if shouldMimicClaudeCode {
+		anthropicReq.CacheControl = nil
+	}
+
+	// 6. Marshal Anthropic request body
+	anthropicBody, err := json.Marshal(anthropicReq)
+	if err != nil {
+		return nil, fmt.Errorf("marshal anthropic request: %w", err)
+	}
 
 	if shouldMimicClaudeCode {
 		anthropicBody = s.applyClaudeCodeOAuthMimicryToBody(ctx, c, account, anthropicBody, anthropicReq.System, mappedModel)

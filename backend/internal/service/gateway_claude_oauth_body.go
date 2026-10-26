@@ -1057,9 +1057,28 @@ func collectCacheControlPaths(body []byte) (invalidThinking []cacheControlPath, 
 }
 
 // enforceCacheControlLimit 让出站 cache_control 满足上游约束：
-// 先执行块数量限制，再修正 TTL 顺序。
+// 先去掉与块级断点冲突的顶层自动缓存，再执行块数量限制，最后修正 TTL 顺序。
 func enforceCacheControlLimit(body []byte) []byte {
-	return normalizeCacheControlTTLOrder(enforceCacheControlBlockLimit(body))
+	return normalizeCacheControlTTLOrder(enforceCacheControlBlockLimit(dropTopLevelCacheControlIfExplicitBreakpoints(body)))
+}
+
+// dropTopLevelCacheControlIfExplicitBreakpoints removes top-level automatic
+// cache_control when the body already has block-level breakpoints. Anthropic
+// counts both toward the 4-breakpoint limit; stacking them yields Found 5 (#2013).
+// Explicit block breakpoints win because OAuth mimicry and native clients that
+// set them intend those anchors.
+func dropTopLevelCacheControlIfExplicitBreakpoints(body []byte) []byte {
+	if len(body) == 0 || !gjson.GetBytes(body, "cache_control").Exists() {
+		return body
+	}
+	_, messagePaths, toolPaths, systemPaths := collectCacheControlPaths(body)
+	if len(messagePaths)+len(toolPaths)+len(systemPaths) == 0 {
+		return body
+	}
+	if next, ok := deleteJSONPathBytes(body, "cache_control"); ok {
+		return next
+	}
+	return body
 }
 
 // enforceCacheControlBlockLimit 强制执行 cache_control 块数量限制（最多 4 个）
