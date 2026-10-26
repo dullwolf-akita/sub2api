@@ -1,0 +1,814 @@
+.github/workflows/backend-ci.yml
+  h_8d64551f0eb8e7 38,78
+.github/workflows/release.yml
+  h_8d64551f0eb8e7 140
+.github/workflows/security-scan.yml
+  h_8d64551f0eb8e7 26
+Dockerfile
+  h_8d64551f0eb8e7 11
+Makefile
+  h_8d64551f0eb8e7 8
+README.md
+  h_8d64551f0eb8e7 57-58,149-163
+README_CN.md
+  h_8d64551f0eb8e7 58-59,152-166
+README_JA.md
+  h_8d64551f0eb8e7 57-58,151-165
+backend/cmd/server/VERSION
+  h_8d64551f0eb8e7 1
+backend/cmd/server/wire.go
+  h_8d64551f0eb8e7 107,248-253
+backend/cmd/server/wire_gen.go
+  h_8d64551f0eb8e7 299-301,358,418,558-563
+backend/cmd/server/wire_gen_test.go
+  h_8d64551f0eb8e7 77
+backend/ent/group.go
+  h_8d64551f0eb8e7 33-34,263,328-335,830-832
+backend/ent/group/group.go
+  h_8d64551f0eb8e7 29-30,233,332-333
+backend/ent/group_create.go
+  h_8d64551f0eb8e7 95-100,1056-1059,1243-1245,1481-1484,1945-1956,3071-3084,4531-4544
+backend/ent/group_update.go
+  h_8d64551f0eb8e7 100-105,1590-1592,2303-2308,3823-3825
+backend/ent/migrate/schema.go
+  h_8d64551f0eb8e7 911,983,988,993,998,1008,1013
+backend/ent/mutation.go
+  h_8d64551f0eb8e7 22089,22509-22544,25961,25977-25979,26181-26182,26324-26325,26492-26498,27452-27454
+backend/ent/runtime/runtime.go
+  h_8d64551f0eb8e7 1040-1043,1045,1049,1053,1059,1065,1069,1073,1079,1083,1089,1095,1099,1103,1107,1111,1115,1119,1123,1127,1131,1135,1139,1143,1147,1151,1155,1159,1163,1167,1171,1175,1179,1183,1187,1191,1195,1201,1205,1209,1213,1217,1223,1229,1233,1237,1241
+backend/ent/schema/group.go
+  h_8d64551f0eb8e7 47-51
+backend/go.mod
+  h_8d64551f0eb8e7 3
+backend/internal/config/config.go
+  h_8d64551f0eb8e7 982-984,1011-1012,2041,2099,2537,2714-2716
+backend/internal/config/config_test.go
+  h_8d64551f0eb8e7 13,34-56,858,871-883
+backend/internal/domain/constants.go
+  h_8d64551f0eb8e7 116-123,181-185
+backend/internal/domain/constants_test.go
+  h_8d64551f0eb8e7 108-129
+backend/internal/domain/group_i18n.go
+  h_8d64551f0eb8e7 1-113
+backend/internal/domain/group_i18n_test.go
+  h_8d64551f0eb8e7 1-107
+backend/internal/handler/admin/account_codex_import.go
+  h_8d64551f0eb8e7 911-912,918-920,937-940
+backend/internal/handler/admin/account_codex_import_test.go
+  h_8d64551f0eb8e7 306-307,468-469,474-545
+backend/internal/handler/admin/account_handler.go
+  h_8d64551f0eb8e7 3007,3013
+backend/internal/handler/admin/account_handler_available_models_test.go
+  h_8d64551f0eb8e7 348-350,352-353
+backend/internal/handler/admin/group_handler.go
+  h_8d64551f0eb8e7 145-146,162,173,183,190,265,672,818
+backend/internal/handler/api_key_handler.go
+  h_8d64551f0eb8e7 145,177,225,293,337
+backend/internal/handler/available_channel_handler.go
+  h_8d64551f0eb8e7 65-67,160,170,185-191,269
+backend/internal/handler/dto/account_quota_service_account_test.go
+  h_8d64551f0eb8e7 1-78
+backend/internal/handler/dto/group_localize.go
+  h_8d64551f0eb8e7 1-49
+backend/internal/handler/dto/group_localize_test.go
+  h_8d64551f0eb8e7 1-71
+backend/internal/handler/dto/mappers.go
+  h_8d64551f0eb8e7 185,344-345
+backend/internal/handler/dto/types.go
+  h_8d64551f0eb8e7 102-105
+backend/internal/handler/endpoint.go
+  h_8d64551f0eb8e7 35,57,122-123,201,237-239
+backend/internal/handler/endpoint_test.go
+  h_8d64551f0eb8e7 40-41,107
+backend/internal/handler/gateway_compat_stream_usage_test.go
+  h_8d64551f0eb8e7 1-229
+backend/internal/handler/gateway_handler.go
+  h_8d64551f0eb8e7 55-62,231-234,346-348,643-645,1194,1309,1458-1460
+backend/internal/handler/gateway_handler_chat_completions.go
+  h_8d64551f0eb8e7 116-119,324-361,392-394,399
+backend/internal/handler/gateway_handler_responses.go
+  h_8d64551f0eb8e7 120-123,306-343,375-377,382
+backend/internal/handler/gateway_handler_warmup_intercept_unit_test.go
+  h_8d64551f0eb8e7 161-165
+backend/internal/handler/gateway_models_test.go
+  h_8d64551f0eb8e7 327-332,342,352,381,1417-1470
+backend/internal/handler/gemini_cached_contents_billing_test.go
+  h_8d64551f0eb8e7 1-955
+backend/internal/handler/gemini_cached_contents_handler.go
+  h_8d64551f0eb8e7 1-848
+backend/internal/handler/gemini_cached_contents_handler_test.go
+  h_8d64551f0eb8e7 1-264
+backend/internal/handler/gemini_client_cancel_test.go
+  h_8d64551f0eb8e7 37-42,61-62,74
+backend/internal/handler/gemini_image_generation_gate.go
+  h_8d64551f0eb8e7 1-17
+backend/internal/handler/gemini_image_generation_gate_test.go
+  h_8d64551f0eb8e7 1-168
+backend/internal/handler/gemini_v1beta_handler.go
+  h_8d64551f0eb8e7 42,44-46,79,90,228,230-232,251-254,256-257,262,276,310-311,313-314,331,335-338,362-370,379-384,411,415,423,427,434-438,475,539-551,553-557,560-570,576-585,587-591,698-702,756-759,885-886,921-922,924-935,945-960,964-965,1077-1089
+backend/internal/handler/gemini_v1beta_handler_test.go
+  h_8d64551f0eb8e7 112,158,219-290
+backend/internal/handler/gemini_vertex_models_test.go
+  h_8d64551f0eb8e7 1-83
+backend/internal/handler/group_localize_test.go
+  h_8d64551f0eb8e7 1-92
+backend/internal/handler/model_plaza_handler.go
+  h_8d64551f0eb8e7 154-157,188-198
+backend/internal/handler/model_plaza_handler_test.go
+  h_8d64551f0eb8e7 6,12-13,268-307
+backend/internal/handler/no_account_error.go
+  h_8d64551f0eb8e7 126-129,133
+backend/internal/handler/no_account_error_test.go
+  h_8d64551f0eb8e7 306-324
+backend/internal/handler/openai_gateway_handler.go
+  h_8d64551f0eb8e7 2543-2547
+backend/internal/handler/ops_error_logger.go
+  h_8d64551f0eb8e7 1186-1193,2225-2229
+backend/internal/handler/ops_error_logger_google_test.go
+  h_8d64551f0eb8e7 1-135
+backend/internal/handler/payment_handler.go
+  h_8d64551f0eb8e7 81,129
+backend/internal/handler/payment_webhook_handler.go
+  h_8d64551f0eb8e7 106,118-119,126-131,181-184,195,198,200
+backend/internal/handler/payment_webhook_handler_test.go
+  h_8d64551f0eb8e7 207,209
+backend/internal/handler/redeem_handler.go
+  h_8d64551f0eb8e7 62,101,118
+backend/internal/handler/security_audit_errors.go
+  h_8d64551f0eb8e7 103,106-110
+backend/internal/handler/security_audit_order_test.go
+  h_8d64551f0eb8e7 27
+backend/internal/handler/single_account_retry_probe_unit_test.go
+  h_8d64551f0eb8e7 1-120
+backend/internal/handler/subscription_handler.go
+  h_8d64551f0eb8e7 62,84,113-115,117,156
+backend/internal/handler/usage_handler.go
+  h_8d64551f0eb8e7 258,408
+backend/internal/handler/wire.go
+  h_8d64551f0eb8e7 116,122
+backend/internal/payment/provider/alipay.go
+  h_8d64551f0eb8e7 13,28-31,44-49,351-352,356,361-363,370,372,377-420,463
+backend/internal/payment/provider/alipay_test.go
+  h_8d64551f0eb8e7 11,448-573
+backend/internal/payment/provider/easypay.go
+  h_8d64551f0eb8e7 10,13,32,307-332,335-342,344,346-351,354-355,357-361,364-367,372-386,396-397,402-415,417-430,432,434-435,437-461,475-482,491-495,504
+backend/internal/payment/provider/easypay_confirm_test.go
+  h_8d64551f0eb8e7 1-253
+backend/internal/payment/provider/easypay_query_test.go
+  h_8d64551f0eb8e7 23,68-101,103-125,151-153,155-160,169-174
+backend/internal/payment/types.go
+  h_8d64551f0eb8e7 5-8,198-199,242-251
+backend/internal/pkg/antigravity/claude_types.go
+  h_8d64551f0eb8e7 172-177,217-219,289-291
+backend/internal/pkg/antigravity/claude_types_test.go
+  h_8d64551f0eb8e7 42-50,79-98
+backend/internal/pkg/antigravity/client.go
+  h_8d64551f0eb8e7 242-245,250-274,685,687-700,715-717
+backend/internal/pkg/antigravity/client_test.go
+  h_8d64551f0eb8e7 9,264-265,1474-1580,1900-1944
+backend/internal/pkg/antigravity/oauth.go
+  h_8d64551f0eb8e7 37,126,128
+backend/internal/pkg/antigravity/oauth_test.go
+  h_8d64551f0eb8e7 6,12,18-118,799-802
+backend/internal/pkg/antigravity/request_transformer.go
+  h_8d64551f0eb8e7 591,642-666
+backend/internal/pkg/antigravity/request_transformer_test.go
+  h_8d64551f0eb8e7 697-757
+backend/internal/pkg/antigravity/response_transformer.go
+  h_8d64551f0eb8e7 280-281,285
+backend/internal/pkg/antigravity/stream_transformer.go
+  h_8d64551f0eb8e7 112-113,116,194
+backend/internal/pkg/antigravity/usage_contract_test.go
+  h_8d64551f0eb8e7 41-66
+backend/internal/pkg/apicompat/anthropic_responses_test.go
+  h_8d64551f0eb8e7 1943-2008
+backend/internal/pkg/apicompat/anthropic_to_responses.go
+  h_8d64551f0eb8e7 16-21,59-60
+backend/internal/pkg/apicompat/anthropic_to_responses_response.go
+  h_8d64551f0eb8e7 56,75,288
+backend/internal/pkg/apicompat/chatcompletions_anthropic_bridge.go
+  h_8d64551f0eb8e7 43-48,72-73
+backend/internal/pkg/apicompat/chatcompletions_anthropic_bridge_test.go
+  h_8d64551f0eb8e7 270-306
+backend/internal/pkg/apicompat/chatcompletions_responses_test.go
+  h_8d64551f0eb8e7 5,294-333,362-376
+backend/internal/pkg/apicompat/chatcompletions_to_responses.go
+  h_8d64551f0eb8e7 21-26,71-72
+backend/internal/pkg/apicompat/responses_to_anthropic_request.go
+  h_8d64551f0eb8e7 19-20,60-63,66,75,88-98,113-122
+backend/internal/pkg/apicompat/types.go
+  h_8d64551f0eb8e7 863-868
+backend/internal/pkg/claude/constants.go
+  h_8d64551f0eb8e7 226-231
+backend/internal/pkg/claude/constants_model_test.go
+  h_8d64551f0eb8e7 46-58
+backend/internal/pkg/claude/effort_catalog.go
+  h_8d64551f0eb8e7 30,55-59,79-81
+backend/internal/pkg/claude/effort_catalog_test.go
+  h_8d64551f0eb8e7 21-23,63-78
+backend/internal/pkg/gemini/models.go
+  h_8d64551f0eb8e7 31
+backend/internal/pkg/geminicli/models.go
+  h_8d64551f0eb8e7 23
+backend/internal/pkg/openai/request.go
+  h_8d64551f0eb8e7 52,262,265-298
+backend/internal/pkg/openai/request_codex_identity_normalization_test.go
+  h_8d64551f0eb8e7 1-78
+backend/internal/repository/api_key_repo.go
+  h_8d64551f0eb8e7 860,876,982
+backend/internal/repository/api_key_repo_integration_test.go
+  h_8d64551f0eb8e7 467-470
+backend/internal/repository/billing_inflight_cache.go
+  h_8d64551f0eb8e7 28-41,102-123,177-203,207
+backend/internal/repository/billing_inflight_cache_test.go
+  h_8d64551f0eb8e7 288-356
+backend/internal/repository/gemini_cached_content_repo.go
+  h_8d64551f0eb8e7 1-205
+backend/internal/repository/gemini_cached_content_repo_integration_test.go
+  h_8d64551f0eb8e7 1-120
+backend/internal/repository/group_repo.go
+  h_8d64551f0eb8e7 170-173,438-443,970-992
+backend/internal/repository/group_repo_integration_test.go
+  h_8d64551f0eb8e7 8,10,54-102,255-296,353-355,358-360,378-447
+backend/internal/repository/scheduler_cache.go
+  h_8d64551f0eb8e7 8,11,13-14,19,35-40,49-58,247-268,283-287,291-294,296-298,302-303,305-307,309,313-334,336,343,358-359,361,368-414,416,418,420-421,423-491,789-795,805,830,844-847,973-979,985-988,991-992,994-998,1000-1004,1007-1019,1034-1038,1042-1045,1049-1050,1052,1055-1061,1064-1066,1070-1120,1251-1255
+backend/internal/repository/scheduler_cache_snapshot_memo_unit_test.go
+  h_8d64551f0eb8e7 1-980
+backend/internal/repository/scheduler_cache_test.go
+  h_8d64551f0eb8e7 23-39
+backend/internal/repository/setting_repo.go
+  h_8d64551f0eb8e7 5,13-40
+backend/internal/repository/simple_mode_default_groups.go
+  h_8d64551f0eb8e7 80
+backend/internal/repository/simple_mode_default_groups_integration_test.go
+  h_8d64551f0eb8e7 37-48
+backend/internal/repository/usage_billing_repo.go
+  h_8d64551f0eb8e7 205-208,469-474,478,482-484,486-487,489-492,496,500-502,504-505,507-524,531-612,617,619,639
+backend/internal/repository/usage_billing_repo_integration_test.go
+  h_8d64551f0eb8e7 8,14,222-269,307-360,447-580
+backend/internal/repository/usage_billing_repo_unit_test.go
+  h_8d64551f0eb8e7 8,26,142-177,225-318
+backend/internal/repository/wire.go
+  h_8d64551f0eb8e7 85
+backend/internal/server/routes/composite_platform_test.go
+  h_8d64551f0eb8e7 188-234
+backend/internal/server/routes/gateway.go
+  h_8d64551f0eb8e7 352-357,589-596
+backend/internal/server/routes/gateway_models_pinned_test.go
+  h_8d64551f0eb8e7 30-37
+backend/internal/server/routes/prompt_audit_route_coverage_test.go
+  h_8d64551f0eb8e7 50
+backend/internal/service/account.go
+  h_8d64551f0eb8e7 10,78-80,135-140,146-148,211,354-360,482,495-506,640-642,662,666-679,714,740-748,753-759,761-826,829-834,965-968,1439,1444-1458,1711,1724-1741,2423-2426
+backend/internal/service/account_kimi_coding_test.go
+  h_8d64551f0eb8e7 1-83
+backend/internal/service/account_model_mapping_signature_test.go
+  h_8d64551f0eb8e7 1-96
+backend/internal/service/account_quota_schedulable_test.go
+  h_8d64551f0eb8e7 116-157
+backend/internal/service/account_quota_service_account_test.go
+  h_8d64551f0eb8e7 1-204
+backend/internal/service/account_shared_snapshot_test.go
+  h_8d64551f0eb8e7 1-82
+backend/internal/service/account_stats_pricing_test.go
+  h_8d64551f0eb8e7 936
+backend/internal/service/account_test_service.go
+  h_8d64551f0eb8e7 2467,2472,2491-2492,2501-2507,2595,2604-2606
+backend/internal/service/account_test_service_antigravity_test.go
+  h_8d64551f0eb8e7 6,18-82
+backend/internal/service/account_websearch_test.go
+  h_8d64551f0eb8e7 89,95-112
+backend/internal/service/admin_group.go
+  h_8d64551f0eb8e7 314-324,382,391,404-407,535,579,791-797
+backend/internal/service/admin_group_duplicate.go
+  h_8d64551f0eb8e7 100
+backend/internal/service/admin_service.go
+  h_8d64551f0eb8e7 238,319
+backend/internal/service/admin_service_group_i18n_test.go
+  h_8d64551f0eb8e7 1-150
+backend/internal/service/admin_service_group_test.go
+  h_8d64551f0eb8e7 596-615,618-636
+backend/internal/service/antigravity_gateway_claude.go
+  h_8d64551f0eb8e7 64-66
+backend/internal/service/antigravity_gateway_compat.go
+  h_8d64551f0eb8e7 74,228-230
+backend/internal/service/antigravity_gateway_gemini.go
+  h_8d64551f0eb8e7 99-101,147-148
+backend/internal/service/antigravity_gateway_retry.go
+  h_8d64551f0eb8e7 81,853,855-858
+backend/internal/service/antigravity_gateway_service.go
+  h_8d64551f0eb8e7 347-352,355-361,368-372,396-397,453-454,470-502,521-525,558-559,561,587,619-628,633
+backend/internal/service/antigravity_gateway_service_test.go
+  h_8d64551f0eb8e7 2015-2186
+backend/internal/service/antigravity_gateway_streaming.go
+  h_8d64551f0eb8e7 353,469,472,499-501,564,568,572,575-576,578-582,584,599-601,613-614,617
+backend/internal/service/antigravity_gemini_thinking_variant.go
+  h_8d64551f0eb8e7 132-141,155-165
+backend/internal/service/antigravity_gemini_thinking_variant_test.go
+  h_8d64551f0eb8e7 80,93-94,97-105,108
+backend/internal/service/antigravity_rate_limit_test.go
+  h_8d64551f0eb8e7 847-868,1096-1104
+backend/internal/service/api_key_service.go
+  h_8d64551f0eb8e7 133-134
+backend/internal/service/apicompat_config.go
+  h_8d64551f0eb8e7 1-28
+backend/internal/service/billing_cache_service.go
+  h_8d64551f0eb8e7 6,577-581,592,637,640-641,684-687,690,693,793-896
+backend/internal/service/billing_inflight_reservation.go
+  h_8d64551f0eb8e7 6,29-38,68,74-76,134-142,238,257-297,300,308
+backend/internal/service/billing_service.go
+  h_8d64551f0eb8e7 445-458,489-493,495-497,525-545,979-992,1050,1068-1070,1118-1124,1289-1293,1391-1402,1555-1556,1572,1659
+backend/internal/service/billing_service_test.go
+  h_8d64551f0eb8e7 1206-1257,2110-2136
+backend/internal/service/channel_available.go
+  h_8d64551f0eb8e7 19,70
+backend/internal/service/channel_monitor_checker.go
+  h_8d64551f0eb8e7 639-640,648
+backend/internal/service/channel_monitor_checker_body_test.go
+  h_8d64551f0eb8e7 282-292
+backend/internal/service/cn_provider_probe_url_test.go
+  h_8d64551f0eb8e7 9,11,83,95-167
+backend/internal/service/cn_provider_quota_service.go
+  h_8d64551f0eb8e7 500,532-533,541,551-552,597,600,608-610,612-618
+backend/internal/service/cn_providers_test.go
+  h_8d64551f0eb8e7 129-182
+backend/internal/service/composite_model_route.go
+  h_8d64551f0eb8e7 35-39
+backend/internal/service/composite_platform_test.go
+  h_8d64551f0eb8e7 16,106-134
+backend/internal/service/composite_route_resolver.go
+  h_8d64551f0eb8e7 8-22,25-35,142-147
+backend/internal/service/composite_route_resolver_test.go
+  h_8d64551f0eb8e7 224-250
+backend/internal/service/content_moderation.go
+  h_8d64551f0eb8e7 723-734
+backend/internal/service/gateway_anthropic_base_url_test.go
+  h_8d64551f0eb8e7 1-106
+backend/internal/service/gateway_anthropic_passthrough.go
+  h_8d64551f0eb8e7 187,212,304,329-330,357
+backend/internal/service/gateway_bedrock.go
+  h_8d64551f0eb8e7 133-135,268-269,275,287,304,313,332
+backend/internal/service/gateway_claude_oauth_body.go
+  h_8d64551f0eb8e7 266-270
+backend/internal/service/gateway_context_management_test.go
+  h_8d64551f0eb8e7 374-392
+backend/internal/service/gateway_count_tokens.go
+  h_8d64551f0eb8e7 25-31,52,56,60,225-226,272-274,329,402,449,470,472,562
+backend/internal/service/gateway_forward.go
+  h_8d64551f0eb8e7 692,716,826,1019-1072
+backend/internal/service/gateway_forward_as_chat_completions.go
+  h_8d64551f0eb8e7 47,190,192-198,392,394-395,399-408,426,428,431-433,435-436,439,455-457,470-471,478-482,488-489,492,506-508,510,513-519
+backend/internal/service/gateway_forward_as_chat_completions_ping_test.go
+  h_8d64551f0eb8e7 193,197-198
+backend/internal/service/gateway_forward_as_responses.go
+  h_8d64551f0eb8e7 40,201,203-209,556,558-559,563-572,577,592-594,625-626,636-643,659-663,670-671,689-691,693
+backend/internal/service/gateway_forward_compat_client_disconnect_test.go
+  h_8d64551f0eb8e7 1-831
+backend/internal/service/gateway_forward_compat_stream.go
+  h_8d64551f0eb8e7 1-291
+backend/internal/service/gateway_hotpath_optimization_test.go
+  h_8d64551f0eb8e7 183-186
+backend/internal/service/gateway_image_reasoning_pricing_test.go
+  h_8d64551f0eb8e7 134
+backend/internal/service/gateway_model_availability.go
+  h_8d64551f0eb8e7 24-26
+backend/internal/service/gateway_request.go
+  h_8d64551f0eb8e7 573,583-585,587-598,605-607,624-625,627-636,638,640,642-645,648-651
+backend/internal/service/gateway_request_haiku55_test.go
+  h_8d64551f0eb8e7 1-55
+backend/internal/service/gateway_scheduling.go
+  h_8d64551f0eb8e7 1125-1140,1324,1326
+backend/internal/service/gateway_service.go
+  h_8d64551f0eb8e7 23,25,654-656,704,1465-1470,1488-1493,1518-1520,1526,1528-1531
+backend/internal/service/gateway_upstream_request.go
+  h_8d64551f0eb8e7 12,22-48,50-52,61,63,159,161,174,263-272,467-468,473
+backend/internal/service/gateway_upstream_request_test.go
+  h_8d64551f0eb8e7 1-73
+backend/internal/service/gateway_upstream_response.go
+  h_8d64551f0eb8e7 530-532,538-542,562,569
+backend/internal/service/gateway_usage_billing.go
+  h_8d64551f0eb8e7 140,244-245,348-349,546,550-551,560-563,798-800,818,844-846,858,861,907-1012,1050-1056,1071-1078
+backend/internal/service/gateway_usage_billing_account_quota_test.go
+  h_8d64551f0eb8e7 1-92
+backend/internal/service/gateway_usage_billing_request_id_test.go
+  h_8d64551f0eb8e7 34,38-54
+backend/internal/service/gateway_websearch_emulation.go
+  h_8d64551f0eb8e7 55-69,75,86,89,164-172,174,201
+backend/internal/service/gateway_websearch_emulation_test.go
+  h_8d64551f0eb8e7 381-465
+backend/internal/service/gemini_cache_storage_pricing.go
+  h_8d64551f0eb8e7 1-72
+backend/internal/service/gemini_cache_storage_pricing_test.go
+  h_8d64551f0eb8e7 1-80
+backend/internal/service/gemini_cached_content.go
+  h_8d64551f0eb8e7 1-1226
+backend/internal/service/gemini_cached_content_hardening_test.go
+  h_8d64551f0eb8e7 1-480
+backend/internal/service/gemini_cached_content_not_found_test.go
+  h_8d64551f0eb8e7 1-186
+backend/internal/service/gemini_cached_content_test.go
+  h_8d64551f0eb8e7 1-522
+backend/internal/service/gemini_chat_completions_compat_service.go
+  h_8d64551f0eb8e7 45-54,103-105,107,128-129,136-138,148-151,217,256-257,265-266,297-300,315,432,443-445,546-550,558,591,599,654-688,692,702,716,726,737,741,760,786,800-804,810,813,834,837,844,850,857
+backend/internal/service/gemini_compat_thinking.go
+  h_8d64551f0eb8e7 1-320
+backend/internal/service/gemini_compat_thinking_test.go
+  h_8d64551f0eb8e7 1-367
+backend/internal/service/gemini_error_policy_single_check_test.go
+  h_8d64551f0eb8e7 1-201
+backend/internal/service/gemini_error_policy_test.go
+  h_8d64551f0eb8e7 634-768,772,779,785-786,809-874
+backend/internal/service/gemini_image_generation_gate.go
+  h_8d64551f0eb8e7 1-94
+backend/internal/service/gemini_image_generation_gate_test.go
+  h_8d64551f0eb8e7 1-263
+backend/internal/service/gemini_messages_compat_service.go
+  h_8d64551f0eb8e7 48-49,558-560,562-563,694,705-707,717-718,721,727-729,779-780,787,792,799-800,817-820,837,889,1021-1022,1030-1031,1059-1062,1075-1076,1126-1128,1247,1257-1259,1269-1270,1272,1278-1280,1310-1312,1319-1326,1412-1419,1440,1548-1549,1558-1559,1594-1597,1611,1618-1620,1623,1625,1635-1669,1777-1803,1808,1810,1817,1823,2095-2098,2170,2180-2188,2228-2277,2698-2701,2712-2730,2878-2879,2883-2884,2917-2920,2948-2953,2959,3088-3089,3091,3134-3137,3161-3167,3192-3231,3240-3241,3243-3245,3524,3532,3539-3543,3578-3582,3587,3591,3614,3618-3621,3655-3688,3818-3821,3828-3835,3843,3846-3909,3944
+backend/internal/service/gemini_messages_compat_service_test.go
+  h_8d64551f0eb8e7 512-731,927-1025,1170-1179
+backend/internal/service/gemini_models_endpoints.go
+  h_8d64551f0eb8e7 1-302
+backend/internal/service/gemini_models_endpoints_test.go
+  h_8d64551f0eb8e7 1-208
+backend/internal/service/gemini_native_reasoning_pricing_test.go
+  h_8d64551f0eb8e7 140,171-173,188
+backend/internal/service/gemini_native_response_signal_test.go
+  h_8d64551f0eb8e7 183-205
+backend/internal/service/gemini_quota.go
+  h_8d64551f0eb8e7 376-379
+backend/internal/service/gemini_quota_test.go
+  h_8d64551f0eb8e7 1-80
+backend/internal/service/gemini_stream_client_abort.go
+  h_8d64551f0eb8e7 1-25
+backend/internal/service/gemini_stream_client_abort_test.go
+  h_8d64551f0eb8e7 1-244
+backend/internal/service/gemini_vertex_api_key_forward_test.go
+  h_8d64551f0eb8e7 1-165
+backend/internal/service/gemini_vertex_token_error.go
+  h_8d64551f0eb8e7 1-60
+backend/internal/service/gemini_vertex_token_error_test.go
+  h_8d64551f0eb8e7 1-207
+backend/internal/service/group.go
+  h_8d64551f0eb8e7 22
+backend/internal/service/group_i18n.go
+  h_8d64551f0eb8e7 1-64
+backend/internal/service/group_i18n_test.go
+  h_8d64551f0eb8e7 1-83
+backend/internal/service/image_storage.go
+  h_8d64551f0eb8e7 11,13,16-17,19-20,62-178,339,341-344
+backend/internal/service/image_storage_test.go
+  h_8d64551f0eb8e7 4,9-10,13-14,81-90,93,95,98,258-497
+backend/internal/service/model_plaza_service.go
+  h_8d64551f0eb8e7 43,129
+backend/internal/service/model_rate_limit.go
+  h_8d64551f0eb8e7 5,83,168,174-178,213-215,227-230,232-236
+backend/internal/service/model_rate_limit_snapshot_cow_test.go
+  h_8d64551f0eb8e7 1-209
+backend/internal/service/model_rate_limit_test.go
+  h_8d64551f0eb8e7 258-282
+backend/internal/service/openai_account_runtime_block_fastpath.go
+  h_8d64551f0eb8e7 161-162,177-178
+backend/internal/service/openai_account_scheduler.go
+  h_8d64551f0eb8e7 1815
+backend/internal/service/openai_account_scheduler_test.go
+  h_8d64551f0eb8e7 51-54
+backend/internal/service/openai_alpha_search_billing_test.go
+  h_8d64551f0eb8e7 54,62,70
+backend/internal/service/openai_capacity_shed_test.go
+  h_8d64551f0eb8e7 6,18,113-139,156-157,181-186,250-312
+backend/internal/service/openai_codex_identity.go
+  h_8d64551f0eb8e7 35,46,134,138,152,155-157,212-213
+backend/internal/service/openai_codex_identity_test.go
+  h_8d64551f0eb8e7 177-178
+backend/internal/service/openai_codex_model_metadata.go
+  h_8d64551f0eb8e7 126-131,177,192,260
+backend/internal/service/openai_codex_model_metadata_test.go
+  h_8d64551f0eb8e7 12-76
+backend/internal/service/openai_codex_models_service.go
+  h_8d64551f0eb8e7 190-193,196,214-219,297,326,484,543-545,905-917,1104
+backend/internal/service/openai_codex_models_service_test.go
+  h_8d64551f0eb8e7 337-344,2414,3809,3862-3883
+backend/internal/service/openai_codex_version_sync_service_test.go
+  h_8d64551f0eb8e7 10,331,338,521-523,526,529,533
+backend/internal/service/openai_compact_fallback.go
+  h_8d64551f0eb8e7 60-62,74-78
+backend/internal/service/openai_gateway_anthropic_native_pump.go
+  h_8d64551f0eb8e7 3-5,7,23-24,30-33,42,80-81,83-88,95,97-121,123-124,155,157-159
+backend/internal/service/openai_gateway_anthropic_native_pump_test.go
+  h_8d64551f0eb8e7 133-213
+backend/internal/service/openai_gateway_cc_pipeline.go
+  h_8d64551f0eb8e7 70-83,89
+backend/internal/service/openai_gateway_chat_completions.go
+  h_8d64551f0eb8e7 10-11,234,375,392-409,463-611
+backend/internal/service/openai_gateway_chat_completions_anthropic_native.go
+  h_8d64551f0eb8e7 60,172,359
+backend/internal/service/openai_gateway_chat_completions_raw.go
+  h_8d64551f0eb8e7 64-74
+backend/internal/service/openai_gateway_chat_completions_test.go
+  h_8d64551f0eb8e7 6,8,18,38-577,1868
+backend/internal/service/openai_gateway_cn_fixes_test.go
+  h_8d64551f0eb8e7 77
+backend/internal/service/openai_gateway_count_tokens.go
+  h_8d64551f0eb8e7 107,349
+backend/internal/service/openai_gateway_deepseek_input_image_test.go
+  h_8d64551f0eb8e7 66,76,84,92,95,101-109,155,178
+backend/internal/service/openai_gateway_forward.go
+  h_8d64551f0eb8e7 68,193
+backend/internal/service/openai_gateway_grok_chat_bridge.go
+  h_8d64551f0eb8e7 544
+backend/internal/service/openai_gateway_messages.go
+  h_8d64551f0eb8e7 48-57,157
+backend/internal/service/openai_gateway_messages_chat_fallback.go
+  h_8d64551f0eb8e7 55-58
+backend/internal/service/openai_gateway_model_availability.go
+  h_8d64551f0eb8e7 59-61
+backend/internal/service/openai_gateway_passthrough.go
+  h_8d64551f0eb8e7 217,1090-1092,1154,1167,1183,1195-1196,1198-1208,1919-1921,1996,2071
+backend/internal/service/openai_gateway_request_body.go
+  h_8d64551f0eb8e7 14,136-137,196-198,280-281,288,291,1435-1438,1440,1456
+backend/internal/service/openai_gateway_response_flush_test.go
+  h_8d64551f0eb8e7 374,384,672
+backend/internal/service/openai_gateway_response_handling.go
+  h_8d64551f0eb8e7 344,386,671-675,1676,1777,1838-1841,1868-1871,1873-1878,1884-1886,1890-1892
+backend/internal/service/openai_gateway_responses_anthropic_native.go
+  h_8d64551f0eb8e7 174,370
+backend/internal/service/openai_gateway_responses_chat_fallback.go
+  h_8d64551f0eb8e7 32
+backend/internal/service/openai_gateway_responses_chat_fallback_test.go
+  h_8d64551f0eb8e7 8,23-50
+backend/internal/service/openai_gateway_scheduling.go
+  h_8d64551f0eb8e7 443
+backend/internal/service/openai_gateway_search_surcharge_test.go
+  h_8d64551f0eb8e7 41,73,120
+backend/internal/service/openai_gateway_service.go
+  h_8d64551f0eb8e7 36,60-61,616-619,621-623
+backend/internal/service/openai_gateway_upstream_errors.go
+  h_8d64551f0eb8e7 10,12,198-254,398-400
+backend/internal/service/openai_gateway_usage.go
+  h_8d64551f0eb8e7 18,242,255,289,320,499,572-585,598,655,750,758-759,767
+backend/internal/service/openai_image_generation_controls_test.go
+  h_8d64551f0eb8e7 427-496,597-632
+backend/internal/service/openai_model_retirement.go
+  h_8d64551f0eb8e7 1-91
+backend/internal/service/openai_model_retirement_test.go
+  h_8d64551f0eb8e7 1-236
+backend/internal/service/openai_models_list.go
+  h_8d64551f0eb8e7 164-167,169-179
+backend/internal/service/openai_oauth_passthrough_test.go
+  h_8d64551f0eb8e7 1174
+backend/internal/service/openai_response_model_rewrite_test.go
+  h_8d64551f0eb8e7 59
+backend/internal/service/openai_responses_created_at.go
+  h_8d64551f0eb8e7 1-94
+backend/internal/service/openai_responses_created_at_test.go
+  h_8d64551f0eb8e7 1-355
+backend/internal/service/openai_responses_ingress_compat.go
+  h_8d64551f0eb8e7 8,17-20,51,113,119
+backend/internal/service/openai_setup_token_compat_test.go
+  h_8d64551f0eb8e7 14,216,233
+backend/internal/service/openai_subscription_long_context_test.go
+  h_8d64551f0eb8e7 1-238
+backend/internal/service/openai_ws_forwarder_ingress.go
+  h_8d64551f0eb8e7 272
+backend/internal/service/openai_ws_forwarder_success_test.go
+  h_8d64551f0eb8e7 1027,1029
+backend/internal/service/openai_ws_forwarder_support.go
+  h_8d64551f0eb8e7 574,613
+backend/internal/service/openai_ws_http_bridge.go
+  h_8d64551f0eb8e7 12,373-376,399-402,404,410,412-414,654,726,808-810
+backend/internal/service/openai_ws_http_bridge_test.go
+  h_8d64551f0eb8e7 1195-1198
+backend/internal/service/openai_ws_v2_passthrough_adapter.go
+  h_8d64551f0eb8e7 749,1001
+backend/internal/service/ops_upstream_context.go
+  h_8d64551f0eb8e7 57-64,147-182
+backend/internal/service/payment_config_plans.go
+  h_8d64551f0eb8e7 89-91,125
+backend/internal/service/payment_fulfillment.go
+  h_8d64551f0eb8e7 21,60-86,249-250,252-279,288-290,947-949
+backend/internal/service/payment_notification_confirm_test.go
+  h_8d64551f0eb8e7 1-101
+backend/internal/service/payment_order.go
+  h_8d64551f0eb8e7 123-129,131-132
+backend/internal/service/payment_order_type_test.go
+  h_8d64551f0eb8e7 1-80
+backend/internal/service/payment_refund.go
+  h_8d64551f0eb8e7 213-214,299-306,308,325,449-452,455-459,466-469,472,477-479,487,524-526,555-558,580-656,659-691,693-704,707-721,724,726-733,736-737,804-820,823-833,845-851,853-854,856,873
+backend/internal/service/payment_refund_pending_hold_test.go
+  h_8d64551f0eb8e7 1-312
+backend/internal/service/payment_refund_test.go
+  h_8d64551f0eb8e7 302,360-361,376-380,510-529,614-618,664,704,707-708
+backend/internal/service/payment_resume_service.go
+  h_8d64551f0eb8e7 247-254,256,276-294
+backend/internal/service/payment_resume_service_test.go
+  h_8d64551f0eb8e7 112-147
+backend/internal/service/payment_service.go
+  h_8d64551f0eb8e7 137-138
+backend/internal/service/pricing_service.go
+  h_8d64551f0eb8e7 142-149,234-236,272,748-750,1340,1343,1399,1402-1427,1429,1467,1480-1485
+backend/internal/service/pricing_service_test.go
+  h_8d64551f0eb8e7 616-619,728-781,786-858,1318-1356
+backend/internal/service/ratelimit_service.go
+  h_8d64551f0eb8e7 313-315,341,343-344,390,392,1006-1007,1009-1018,1125-1128,1132-1180,2644-2699,2764-2768,2772-2774,2788-2789,2839-2840,2849-2853,2864-2866,2873,2889
+backend/internal/service/ratelimit_service_403_html_test.go
+  h_8d64551f0eb8e7 107-108,133-193
+backend/internal/service/request_metadata.go
+  h_8d64551f0eb8e7 5,15-23,120-142
+backend/internal/service/scheduler_cache.go
+  h_8d64551f0eb8e7 79-80
+backend/internal/service/setting_gateway_runtime.go
+  h_8d64551f0eb8e7 101,342,503,507
+backend/internal/service/settings_view.go
+  h_8d64551f0eb8e7 250
+backend/internal/service/single_account_retry_probe_test.go
+  h_8d64551f0eb8e7 1-191
+backend/internal/service/temp_unsched.go
+  h_8d64551f0eb8e7 19-20
+backend/internal/service/temp_unsched_scope_test.go
+  h_8d64551f0eb8e7 1-493
+backend/internal/service/upstream_models.go
+  h_8d64551f0eb8e7 13,29-32,343-347,745,752-756,762,764-786,793,796,800,807-808,810-813,815-825,827,829-831,834-901,1269,1271,1276,1280,1285,1287,1289,1295,1298,1305-1309,1341-1360,1405-1410,1459,1462-1485,1501-1528,1537-1543,1551-1553,1558-1560,1566-1568
+backend/internal/service/upstream_models_antigravity_test.go
+  h_8d64551f0eb8e7 1-245
+backend/internal/service/upstream_models_vertex_test.go
+  h_8d64551f0eb8e7 1-276
+backend/internal/service/usage_billing.go
+  h_8d64551f0eb8e7 45-49
+backend/internal/service/vertex_service_account.go
+  h_8d64551f0eb8e7 32-33,42-44,66-72,144,283-288,303-386,404-405,409
+backend/internal/service/vertex_service_account_test.go
+  h_8d64551f0eb8e7 33-88
+backend/internal/service/wire.go
+  h_8d64551f0eb8e7 643-649,895
+backend/internal/util/logredact/redact.go
+  h_8d64551f0eb8e7 45-46,104
+backend/internal/util/logredact/redact_test.go
+  h_8d64551f0eb8e7 41-62
+backend/migrations/242_group_i18n.sql
+  h_8d64551f0eb8e7 1-5
+backend/migrations/243_gemini_cached_contents.sql
+  h_8d64551f0eb8e7 1-30
+backend/migrations/244_gemini_cached_contents_channel_usage.sql
+  h_8d64551f0eb8e7 1-4
+backend/migrations/245_gemini_cached_contents_mutation_lease.sql
+  h_8d64551f0eb8e7 1-10
+backend/migrations/246_enable_gemini_image_generation_groups.sql
+  h_8d64551f0eb8e7 1-6
+backend/migrations/gemini_image_generation_groups_migration_test.go
+  h_8d64551f0eb8e7 1-24
+backend/resources/model-pricing/model_prices_and_context_window.json
+  h_8d64551f0eb8e7 67-78,396-429,2665-2668,2674-2675,2679-2712
+deploy/config.example.yaml
+  h_8d64551f0eb8e7 220-222,259-261,327-328,1113-1120
+docs/OPENAI_GPT55_RETIREMENT.md
+  h_8d64551f0eb8e7 1-43
+frontend/package.json
+  h_8d64551f0eb8e7 26,68-70
+frontend/pnpm-lock.yaml
+  h_8d64551f0eb8e7 11,13,41-42,2330-2331,2564-2565,6055,6556,7004,7298,8105
+frontend/src/components/account/AccountCapacityCell.vue
+  h_8d64551f0eb8e7 42,180
+frontend/src/components/account/AccountGroupsCell.vue
+  h_8d64551f0eb8e7 3-4,13-14,65-66
+frontend/src/components/account/AccountTestModal.vue
+  h_8d64551f0eb8e7 301
+frontend/src/components/account/AccountUsageCell.vue
+  h_8d64551f0eb8e7 492,557-579,606,621,709-710,782-792,796-797,811,832,834,998-1001,1009,1012,1026,1084,1599
+frontend/src/components/account/CreateAccountModal.vue
+  h_8d64551f0eb8e7 384-385,833,836,843-844,1072,1219-1240,1244,1246,1248-1250,1252,1254,1256-1294,1296-1314,1316-1337,1339-1367,1369-1379,1381,1583,1585,1848-1889,2350,2352,2736-2773,4149-4150,4167,4206,4296,4387-4388,4639-4640,4774-4784,4976-4988,4996-4997,5006-5007,5016-5017,5205-5206,5404-5405,5428,5448-5449,5658-5659,5713-5714,6063-6084,6126,6189-6194,6286,6288
+frontend/src/components/account/EditAccountModal.vue
+  h_8d64551f0eb8e7 242,503-544,960-970,972-983,994,1624-1661,2251,2253,2322,2324,3249-3250,3266-3270,3319,3486-3487,3662-3667,3681-3682,4121-4133,4141-4142,4151-4152,4161-4162,4317,4429-4430,4442-4443,4641-4644,4692,4719-4720,4834,4903-4904,4927,4947-4948,5046,5048,5051-5052,5151-5160,5462-5467,5519,5521-5557,5559-5572,5938-5942,6020-6021
+frontend/src/components/account/ModelWhitelistSelector.vue
+  h_8d64551f0eb8e7 158,347
+frontend/src/components/account/UsageProgressBar.vue
+  h_8d64551f0eb8e7 65,100-104
+frontend/src/components/account/__tests__/AccountUsageCell.spec.ts
+  h_8d64551f0eb8e7 1712-1871
+frontend/src/components/account/__tests__/CreateAccountModal.spec.ts
+  h_8d64551f0eb8e7 898-1043
+frontend/src/components/account/__tests__/EditAccountModal.spec.ts
+  h_8d64551f0eb8e7 1718-1737,1758-1813,1913-2060
+frontend/src/components/account/__tests__/ModelWhitelistSelector.spec.ts
+  h_8d64551f0eb8e7 32,247-266
+frontend/src/components/account/__tests__/UsageProgressBar.spec.ts
+  h_8d64551f0eb8e7 71-90
+frontend/src/components/admin/account/AccountActionMenu.vue
+  h_8d64551f0eb8e7 71,139
+frontend/src/components/admin/account/AccountTableFilters.vue
+  h_8d64551f0eb8e7 2-15,20
+frontend/src/components/admin/account/AccountTestModal.vue
+  h_8d64551f0eb8e7 445
+frontend/src/components/admin/group/GroupI18nField.vue
+  h_8d64551f0eb8e7 1-179
+frontend/src/components/admin/group/GroupRPMOverridesModal.vue
+  h_8d64551f0eb8e7 249,277,279-280,282-284,288,292,301-303,434
+frontend/src/components/admin/group/GroupRateMultipliersModal.vue
+  h_8d64551f0eb8e7 429
+frontend/src/components/admin/group/__tests__/GroupI18nField.spec.ts
+  h_8d64551f0eb8e7 2-6,13-14,19-20,22-44,46,49-56,58-66,69-79,82-94,97-112,115-195
+frontend/src/components/admin/group/__tests__/GroupRPMOverridesModal.requests.spec.ts
+  h_8d64551f0eb8e7 1-100
+frontend/src/components/admin/group/__tests__/GroupRateMultipliersModal.edit.spec.ts
+  h_8d64551f0eb8e7 1-52
+frontend/src/components/common/GroupBadge.vue
+  h_8d64551f0eb8e7 11,48-49,62
+frontend/src/components/common/LocaleSwitcher.vue
+  h_8d64551f0eb8e7 72-73
+frontend/src/components/common/PlatformTypeBadge.vue
+  h_8d64551f0eb8e7 111
+frontend/src/components/common/Select.vue
+  h_8d64551f0eb8e7 449
+frontend/src/components/common/__tests__/LocaleSwitcher.spec.ts
+  h_8d64551f0eb8e7 1-60
+frontend/src/components/common/__tests__/Select.ime.spec.ts
+  h_8d64551f0eb8e7 1-32
+frontend/src/components/payment/PaymentQRDialog.vue
+  h_8d64551f0eb8e7 237,243
+frontend/src/components/payment/PaymentStatusPanel.vue
+  h_8d64551f0eb8e7 453,456
+frontend/src/components/payment/__tests__/paymentCountdown.spec.ts
+  h_8d64551f0eb8e7 1-68
+frontend/src/composables/__tests__/useGeminiOAuth.errors.spec.ts
+  h_8d64551f0eb8e7 1-39
+frontend/src/composables/__tests__/useModelWhitelist.spec.ts
+  h_8d64551f0eb8e7 103-112,174-188
+frontend/src/composables/useGeminiOAuth.ts
+  h_8d64551f0eb8e7 5,65-66
+frontend/src/composables/useModelWhitelist.ts
+  h_8d64551f0eb8e7 42,60-61,67,70-75,99,101-120,331,388-400,402-403,414-415,425
+frontend/src/features/channel-monitor-v2/MonitorSettingsPanel.vue
+  h_8d64551f0eb8e7 92-109,284-285,307-318
+frontend/src/features/channel-monitor-v2/__tests__/MonitorSettingsPanel.spec.ts
+  h_8d64551f0eb8e7 1-153
+frontend/src/i18n/locales/en/admin/accounts.ts
+  h_8d64551f0eb8e7 420,436-441,600,602-611,621-622,872-877,1433,1456-1457,1518
+frontend/src/i18n/locales/en/admin/ops.ts
+  h_8d64551f0eb8e7 431
+frontend/src/i18n/locales/en/admin/overview.ts
+  h_8d64551f0eb8e7 976-981
+frontend/src/i18n/locales/en/admin/settings.ts
+  h_8d64551f0eb8e7 551-552
+frontend/src/i18n/locales/en/batchImage.ts
+  h_8d64551f0eb8e7 99,177,180
+frontend/src/i18n/locales/en/channelMonitorV2.ts
+  h_8d64551f0eb8e7 99-100
+frontend/src/i18n/locales/zh/admin/accounts.ts
+  h_8d64551f0eb8e7 468,484-489,718,720-729,739-740,975-980,1524,1547-1548,1608
+frontend/src/i18n/locales/zh/admin/ops.ts
+  h_8d64551f0eb8e7 431
+frontend/src/i18n/locales/zh/admin/overview.ts
+  h_8d64551f0eb8e7 1010-1015
+frontend/src/i18n/locales/zh/admin/settings.ts
+  h_8d64551f0eb8e7 544-545
+frontend/src/i18n/locales/zh/batchImage.ts
+  h_8d64551f0eb8e7 99,177,180
+frontend/src/i18n/locales/zh/channelMonitorV2.ts
+  h_8d64551f0eb8e7 98-99
+frontend/src/types/index.ts
+  h_8d64551f0eb8e7 567-576,640-641,808,874,1027,1052-1053,1059-1060,1068-1069
+frontend/src/utils/__tests__/geminiExplicitCache.spec.ts
+  h_8d64551f0eb8e7 1-50
+frontend/src/utils/accountQuota.ts
+  h_8d64551f0eb8e7 1-6
+frontend/src/utils/geminiExplicitCache.ts
+  h_8d64551f0eb8e7 1-47
+frontend/src/views/admin/AccountsView.vue
+  h_8d64551f0eb8e7 499,657-681,1113,1320-1330,1332
+frontend/src/views/admin/GroupsView.vue
+  h_8d64551f0eb8e7 491,493-495,502,504-507,510,2130,2132-2134,2140,2142-2145,2147,4282,4303,4367,4947,5312,5776,6032,6059-6064,6390,6730
+frontend/src/views/admin/__tests__/groupsImagePricing.spec.ts
+  h_8d64551f0eb8e7 4,31-38
+frontend/src/views/admin/groupsImagePricing.ts
+  h_8d64551f0eb8e7 12-17
+frontend/src/views/admin/ops/components/OpsDashboardHeader.vue
+  h_8d64551f0eb8e7 13,181-182
+frontend/src/views/admin/ops/components/OpsRequestDetailsModal.vue
+  h_8d64551f0eb8e7 11,48,98,165-185,239-241,281-283,314-316
+frontend/src/views/admin/ops/components/__tests__/OpsDashboardHeader.timezone.spec.ts
+  h_8d64551f0eb8e7 1-54
+frontend/src/views/admin/ops/components/__tests__/OpsRequestDetailsModal.spec.ts
+  h_8d64551f0eb8e7 7,9,11,17,42,46-48,52-58,88,93-102
+frontend/src/views/admin/ops/utils/accountNameMap.ts
+  h_8d64551f0eb8e7 1-33
+frontend/src/views/user/ChannelStatusV1View.vue
+  h_8d64551f0eb8e7 10,70,112-113
+frontend/src/views/user/PaymentQRCodeView.vue
+  h_8d64551f0eb8e7 160,166
+frontend/src/views/user/StripePaymentView.vue
+  h_8d64551f0eb8e7 141-146,155
+frontend/src/views/user/__tests__/ChannelStatusV1View.details.spec.ts
+  h_8d64551f0eb8e7 1-77
+frontend/src/views/user/__tests__/StripePaymentView.spec.ts
+  h_8d64551f0eb8e7 68-71,93-119,152-187,247-248
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "5d52903a1fdec64621c7d3c52004466bde176f3e",
+  "prompts": {},
+  "humans": {
+    "h_8d64551f0eb8e7": {
+      "author": "Litien Zhao <DN7074@jsyyds.com>"
+    }
+  }
+}
