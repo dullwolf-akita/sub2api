@@ -1,0 +1,27 @@
+frontend/src/views/admin/CostQueryRealtimeView.vue
+  f1494841487c7750 257-258
+frontend/src/views/share/CostQueryRealtimeShareView.vue
+  f1494841487c7750 151-152
+backend/internal/localext/costqueryrealtime/labels.go
+  f1494841487c7750 21
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.0",
+  "base_commit_sha": "a4dd8e4eef832acc1949b69aa95bff473408266d",
+  "prompts": {
+    "f1494841487c7750": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_e6602bd95fferKS857h5v7wJBA",
+        "model": "openllm/gpt-6.1-sol"
+      },
+      "human_author": "Litien Zhao",
+      "messages": [],
+      "total_additions": 5,
+      "total_deletions": 9,
+      "accepted_lines": 5,
+      "overriden_lines": 0
+    }
+  }
+}
