@@ -148,8 +148,8 @@ const preferredCols = [
   'reasoning_effort', 'group_name', 'inbound_endpoint', 'upstream_endpoint',
   'request_type_label', 'input_tokens', 'output_tokens', 'cache_read_tokens',
   'cache_creation_tokens', 'input_cost', 'output_cost', 'cache_read_cost',
-  'cache_creation_cost', 'rate_multiplier', 'account_rate_multiplier', 'total_cost',
-  'actual_cost', 'account_billed', 'first_token_ms', 'duration_ms', 'request_id',
+  'cache_creation_cost', 'rate_multiplier', 'total_cost',
+  'actual_cost', 'first_token_ms', 'duration_ms', 'request_id',
   'upstream_request_id', 'user_agent', 'ip_address'
 ]
 const displayCols = computed(() => (apiColumns.value.length ? apiColumns.value : preferredCols))
