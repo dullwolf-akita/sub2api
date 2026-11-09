@@ -1,0 +1,23 @@
+scripts/restart-prod.sh
+  7ce95572caa5afcb 84-94,100-101,128-135,137-140,143
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.0.0",
+  "base_commit_sha": "42641c7ef9249de15c1be503088b8d7c80cb85a2",
+  "prompts": {
+    "7ce95572caa5afcb": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_e51075f39ffeIeht4yMaa92zfW",
+        "model": "openllm/gpt-6.1-sol"
+      },
+      "human_author": "Litien Zhao",
+      "messages": [],
+      "total_additions": 28,
+      "total_deletions": 337,
+      "accepted_lines": 28,
+      "overriden_lines": 0
+    }
+  }
+}
