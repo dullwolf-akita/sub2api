@@ -43,6 +43,18 @@ is_local_host() {
   esac
 }
 
+# TCP reachability check for local Redis (no redis-cli required)
+redis_port_open() {
+  local host="$1"
+  local port="$2"
+  if command -v redis-cli >/dev/null 2>&1; then
+    redis-cli -h "$host" -p "$port" ping 2>/dev/null | grep -qi pong && return 0
+  fi
+  # bash /dev/tcp fallback
+  (exec 3<>"/dev/tcp/${host}/${port}") >/dev/null 2>&1 && exec 3<&- && exec 3>&- && return 0
+  return 1
+}
+
 # External Postgres: explicit flag, Aliyun RDS host, or any non-loopback host
 use_external_db=false
 case "${USE_EXTERNAL_DATABASE}" in
@@ -59,12 +71,13 @@ ensure_container() {
   local c="$1"
   if docker ps --format '{{.Names}}' | grep -qx "$c"; then
     echo "$c running"
+    return 0
   elif docker ps -a --format '{{.Names}}' | grep -qx "$c"; then
     echo "Starting $c..."
     docker start "$c" >/dev/null
+    return 0
   else
-    echo "ERROR: container $c not found, run deploy-prod.sh first"
-    exit 1
+    return 1
   fi
 }
 
@@ -72,14 +85,62 @@ ensure_container() {
 if [ "$use_external_db" = true ]; then
   echo "Using external database at ${HOST_DATABASE_HOST}:${HOST_DATABASE_PORT} (skip ${PG_CONTAINER})"
 else
-  ensure_container "$PG_CONTAINER"
+  if ! ensure_container "$PG_CONTAINER"; then
+    echo "ERROR: container $PG_CONTAINER not found, run deploy-prod.sh first"
+    exit 1
+  fi
 fi
 
-# Redis: keep local container checks when Redis still points at loopback
-if is_local_host "${HOST_REDIS_HOST}"; then
-  ensure_container "$REDIS_CONTAINER"
+# Redis stays local: reuse any reachable local port; only require named container if port is down
+if ! is_local_host "${HOST_REDIS_HOST}"; then
+  echo "Using non-local Redis at ${HOST_REDIS_HOST}:${HOST_REDIS_PORT} (skip ${REDIS_CONTAINER})"
 else
-  echo "Using external Redis at ${HOST_REDIS_HOST}:${HOST_REDIS_PORT} (skip ${REDIS_CONTAINER})"
+  if redis_port_open "${HOST_REDIS_HOST}" "${HOST_REDIS_PORT}"; then
+    echo "Local Redis already reachable at ${HOST_REDIS_HOST}:${HOST_REDIS_PORT} (skip ${REDIS_CONTAINER})"
+  else
+    reused=false
+    for alt in 6380 6381; do
+      if [ "$alt" = "${HOST_REDIS_PORT}" ]; then
+        continue
+      fi
+      if redis_port_open 127.0.0.1 "$alt"; then
+        echo "Configured Redis ${HOST_REDIS_HOST}:${HOST_REDIS_PORT} not up; reusing local Redis on 127.0.0.1:${alt} (skip ${REDIS_CONTAINER})"
+        HOST_REDIS_HOST="127.0.0.1"
+        HOST_REDIS_PORT="$alt"
+        reused=true
+        break
+      fi
+    done
+
+    if [ "$reused" != true ]; then
+      if ensure_container "$REDIS_CONTAINER"; then
+        echo "Waiting for Redis container ${REDIS_CONTAINER}..."
+        ready=false
+        for i in $(seq 1 30); do
+          if docker exec "$REDIS_CONTAINER" redis-cli ping >/dev/null 2>&1 \
+            || redis_port_open "${HOST_REDIS_HOST}" "${HOST_REDIS_PORT}"; then
+            ready=true
+            break
+          fi
+          sleep 1
+        done
+        if [ "$ready" != true ]; then
+          echo "ERROR: started ${REDIS_CONTAINER} but Redis not reachable on ${HOST_REDIS_HOST}:${HOST_REDIS_PORT}"
+          exit 1
+        fi
+        echo "Redis ready via ${REDIS_CONTAINER}"
+      else
+        echo "ERROR: local Redis not reachable on ${HOST_REDIS_HOST}:${HOST_REDIS_PORT} (also checked 6380/6381),"
+        echo "       and container ${REDIS_CONTAINER} not found."
+        echo "Fix one of:"
+        echo "  1) point HOST_REDIS_PORT / REDIS_PORT at an existing local Redis (e.g. 6380 shared with sub2api)"
+        echo "  2) start a local Redis on ${HOST_REDIS_PORT}, e.g."
+        echo "       docker run -d --name ${REDIS_CONTAINER} -p 127.0.0.1:${HOST_REDIS_PORT}:6379 redis:8-alpine"
+        echo "  3) run scripts/deploy-prod.sh once to create ${REDIS_CONTAINER}"
+        exit 1
+      fi
+    fi
+  fi
 fi
 
 if [ "$use_external_db" = true ]; then
@@ -90,16 +151,6 @@ else
     docker exec "$PG_CONTAINER" pg_isready -U sub2api >/dev/null 2>&1 && break
     sleep 1
   done
-fi
-
-if is_local_host "${HOST_REDIS_HOST}"; then
-  echo "Waiting for Redis..."
-  for i in $(seq 1 30); do
-    docker exec "$REDIS_CONTAINER" redis-cli ping >/dev/null 2>&1 && break
-    sleep 1
-  done
-else
-  echo "Skipping local Redis container health check"
 fi
 
 # Kill existing process on port
