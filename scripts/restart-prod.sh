@@ -81,12 +81,24 @@ ensure_container() {
   fi
 }
 
+ensure_redis_container() {
+  if ensure_container "$REDIS_CONTAINER"; then
+    return 0
+  fi
+
+  echo "Creating Redis container ${REDIS_CONTAINER} on 127.0.0.1:${HOST_REDIS_PORT}..."
+  docker run -d --name "$REDIS_CONTAINER" \
+    -p "127.0.0.1:${HOST_REDIS_PORT}:6379" \
+    redis:8-alpine >/dev/null
+}
+
 # Ensure dependency containers are running (skip local PG when using external RDS/host)
 if [ "$use_external_db" = true ]; then
   echo "Using external database at ${HOST_DATABASE_HOST}:${HOST_DATABASE_PORT} (skip ${PG_CONTAINER})"
 else
   if ! ensure_container "$PG_CONTAINER"; then
-    echo "ERROR: container $PG_CONTAINER not found, run deploy-prod.sh first"
+    echo "ERROR: PostgreSQL container $PG_CONTAINER not found, and no external database is configured."
+    echo "       Set DATABASE_HOST to the external database host or start the configured PostgreSQL service."
     exit 1
   fi
 fi
@@ -113,32 +125,22 @@ else
     done
 
     if [ "$reused" != true ]; then
-      if ensure_container "$REDIS_CONTAINER"; then
-        echo "Waiting for Redis container ${REDIS_CONTAINER}..."
-        ready=false
-        for i in $(seq 1 30); do
-          if docker exec "$REDIS_CONTAINER" redis-cli ping >/dev/null 2>&1 \
-            || redis_port_open "${HOST_REDIS_HOST}" "${HOST_REDIS_PORT}"; then
-            ready=true
-            break
-          fi
-          sleep 1
-        done
-        if [ "$ready" != true ]; then
-          echo "ERROR: started ${REDIS_CONTAINER} but Redis not reachable on ${HOST_REDIS_HOST}:${HOST_REDIS_PORT}"
-          exit 1
+      ensure_redis_container
+      echo "Waiting for Redis container ${REDIS_CONTAINER}..."
+      ready=false
+      for i in $(seq 1 30); do
+        if docker exec "$REDIS_CONTAINER" redis-cli ping >/dev/null 2>&1 \
+          || redis_port_open "${HOST_REDIS_HOST}" "${HOST_REDIS_PORT}"; then
+          ready=true
+          break
         fi
-        echo "Redis ready via ${REDIS_CONTAINER}"
-      else
-        echo "ERROR: local Redis not reachable on ${HOST_REDIS_HOST}:${HOST_REDIS_PORT} (also checked 6380/6381),"
-        echo "       and container ${REDIS_CONTAINER} not found."
-        echo "Fix one of:"
-        echo "  1) point HOST_REDIS_PORT / REDIS_PORT at an existing local Redis (e.g. 6380 shared with sub2api)"
-        echo "  2) start a local Redis on ${HOST_REDIS_PORT}, e.g."
-        echo "       docker run -d --name ${REDIS_CONTAINER} -p 127.0.0.1:${HOST_REDIS_PORT}:6379 redis:8-alpine"
-        echo "  3) run scripts/deploy-prod.sh once to create ${REDIS_CONTAINER}"
+        sleep 1
+      done
+      if [ "$ready" != true ]; then
+        echo "ERROR: started ${REDIS_CONTAINER} but Redis not reachable on ${HOST_REDIS_HOST}:${HOST_REDIS_PORT}"
         exit 1
       fi
+      echo "Redis ready via ${REDIS_CONTAINER}"
     fi
   fi
 fi
