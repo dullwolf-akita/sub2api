@@ -137,7 +137,7 @@
     <div class="mb-3 flex items-center justify-between">
       <h3 class="text-sm font-semibold text-gray-900 dark:text-white">{{ t('dashboard.platformBreakdown') }}</h3>
       <span class="text-xs text-gray-500 dark:text-gray-400">
-        {{ t('dashboard.platformCount', { count: platformCount }) }}
+        {{ tFill('dashboard.platformCount', { count: platformCount }) }}
       </span>
     </div>
     <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
@@ -213,7 +213,7 @@
                   />
                 </div>
                 <p v-if="quotaVal(item.quota, `${w}_window_resets_at`)" class="text-[10px] text-gray-400">
-                  {{ t('dashboard.platformQuota.resetsAt', { time: formatResetTime(quotaVal(item.quota, `${w}_window_resets_at`) as string) }) }}
+                  {{ tFill('dashboard.platformQuota.resetsAt', { time: formatResetTime(quotaVal(item.quota, `${w}_window_resets_at`) as string) }) }}
                 </p>
               </template>
             </div>
@@ -248,6 +248,16 @@ const props = defineProps<{
   platformQuotas?: PlatformQuotaItem[] | null
 }>()
 const { t } = useI18n()
+
+// 部分生产构建会去掉 vue-i18n 的消息编译器，此时 t() 会把 "{count}" 原样返回。
+// 先走正常插值，再按占位符补一层替换，两种构建都能显示数字。
+function tFill(key: string, params: Record<string, string | number>): string {
+  let s = t(key, params)
+  for (const [k, v] of Object.entries(params)) {
+    s = s.replaceAll(`{${k}}`, String(v))
+  }
+  return s
+}
 
 const PLATFORM_LABELS: Record<string, string> = {
   anthropic: 'Claude',
