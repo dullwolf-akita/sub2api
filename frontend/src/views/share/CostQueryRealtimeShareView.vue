@@ -67,7 +67,7 @@
               v-model="searchQ"
               type="search"
               class="min-w-[200px] flex-1 rounded-lg border border-gray-300 bg-white px-3 py-1.5 text-sm dark:border-dark-600 dark:bg-dark-800"
-              placeholder="搜索模型 / 密钥 / 账户 / 请求ID / IP…"
+              placeholder="搜索模型 / 密钥 / 请求ID / IP…"
               @keyup.enter="reloadRows"
             />
             <select v-model.number="pageSize" class="rounded-lg border border-gray-300 px-2 py-1.5 text-sm dark:border-dark-600 dark:bg-dark-800" @change="page = 1; reloadRows()">

@@ -18,6 +18,10 @@ var boolCols = map[string]bool{
 }
 
 func buildWhere(model, q string) (string, []any) {
+	return buildWhereWithSearch(model, q, searchCols)
+}
+
+func buildWhereWithSearch(model, q string, cols []string) (string, []any) {
 	where := make([]string, 0, 2)
 	args := make([]any, 0, 8)
 	model = strings.TrimSpace(model)
@@ -32,8 +36,8 @@ func buildWhere(model, q string) (string, []any) {
 	}
 	if q != "" {
 		like := "%" + q + "%"
-		parts := make([]string, 0, len(searchCols))
-		for _, c := range searchCols {
+		parts := make([]string, 0, len(cols))
+		for _, c := range cols {
 			parts = append(parts, fmt.Sprintf(`CAST("%s" AS TEXT) LIKE ?`, c))
 			args = append(args, like)
 		}
@@ -48,6 +52,10 @@ func buildWhere(model, q string) (string, []any) {
 }
 
 func streamExportCSV(c *gin.Context, sqlitePath, model, q string) {
+	streamExportCSVFiltered(c, sqlitePath, model, q, false)
+}
+
+func streamExportCSVFiltered(c *gin.Context, sqlitePath, model, q string, forShare bool) {
 	db, err := openJobSQLite(sqlitePath, true)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"code": 500, "message": "打开结果库失败: " + err.Error()})
@@ -55,7 +63,13 @@ func streamExportCSV(c *gin.Context, sqlitePath, model, q string) {
 	}
 	defer db.Close()
 
-	wheresql, args := buildWhere(model, q)
+	search := searchCols
+	exportCols := ExportColumnOrder
+	if forShare {
+		search = shareSearchColumns()
+		exportCols = shareExportColumns()
+	}
+	wheresql, args := buildWhereWithSearch(model, q, search)
 	fname := fmt.Sprintf("cost_query_%s.csv", time.Now().Format("20060102_150405"))
 
 	c.Status(http.StatusOK)
@@ -78,8 +92,8 @@ func streamExportCSV(c *gin.Context, sqlitePath, model, q string) {
 
 	cw := csv.NewWriter(w)
 	cw.UseCRLF = false
-	headers := make([]string, len(ExportColumnOrder))
-	for i, col := range ExportColumnOrder {
+	headers := make([]string, len(exportCols))
+	for i, col := range exportCols {
 		if zh, ok := LabelMap[col]; ok {
 			headers[i] = zh
 		} else {
@@ -120,8 +134,8 @@ func streamExportCSV(c *gin.Context, sqlitePath, model, q string) {
 		if err := rows.Scan(ptrs...); err != nil {
 			break
 		}
-		line := make([]string, len(ExportColumnOrder))
-		for i, col := range ExportColumnOrder {
+		line := make([]string, len(exportCols))
+		for i, col := range exportCols {
 			idx, ok := colIndex[col]
 			var v any
 			if ok {
@@ -225,4 +239,3 @@ func formatZhTime(s string) string {
 	local := t.In(loc)
 	return local.Format("2006年01月02日 15:04:05")
 }
-
