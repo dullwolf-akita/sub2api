@@ -221,6 +221,7 @@
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, reactive, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { makeTFill } from '@/utils/tFill'
 import { useAppStore } from '@/stores/app'
 import { FeatureFlags, resolveFeatureFlag } from '@/utils/featureFlags'
 import { keysAPI, usageAPI, userGroupsAPI } from '@/api'
@@ -256,6 +257,7 @@ import type { Column } from '@/components/common/types'
 import { COMMON_ERROR_STATUS_CODES } from '@/utils/errorBadges'
 
 const { t } = useI18n()
+const tFill = makeTFill(t)
 const appStore = useAppStore()
 
 type DistributionMetric = 'tokens' | 'actual_cost'
@@ -647,7 +649,7 @@ const queryExportPage = async (params: UsageQueryParams) => {
         Math.max(error.retry_after_seconds ?? EXPORT_RATE_LIMIT_MAX_WAIT_SECONDS, 1),
         EXPORT_RATE_LIMIT_MAX_WAIT_SECONDS
       )
-      appStore.showInfo(t('usage.exportRateLimited', { seconds: waitSeconds }))
+      appStore.showInfo(tFill('usage.exportRateLimited', { seconds: waitSeconds }))
       await new Promise((resolve) => setTimeout(resolve, waitSeconds * 1000))
     }
   }

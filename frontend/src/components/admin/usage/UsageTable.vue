@@ -5,7 +5,7 @@
       class="flex items-center justify-end gap-2 border-b border-gray-200 px-4 py-2 dark:border-dark-700"
     >
       <span v-if="pendingIpCount > 0" class="text-xs text-gray-500 dark:text-gray-400">
-        {{ t('usage.ipGeo.pending', { count: pendingIpCount }) }}
+        {{ tFill('usage.ipGeo.pending', { count: pendingIpCount }) }}
       </span>
       <button
         type="button"
@@ -577,6 +577,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { makeTFill } from '@/utils/tFill'
 import { useAppStore } from '@/stores/app'
 import { formatDateTime, formatReasoningEffort, reasoningEffortValuesEqual } from '@/utils/format'
 import { formatCacheTokens, formatMultiplier } from '@/utils/formatters'
@@ -661,6 +662,7 @@ const emit = defineEmits<{
   ipGeoBatchFailed: []
 }>()
 const { t } = useI18n()
+const tFill = makeTFill(t)
 const appStore = useAppStore()
 const copiedRequestId = ref<string | null>(null)
 const showAccountBilling = props.showAccountBilling
