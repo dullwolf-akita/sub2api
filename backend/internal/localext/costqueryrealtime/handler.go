@@ -193,8 +193,19 @@ func (h *Handler) GetRows(c *gin.Context) {
 	if order != "asc" && order != "desc" {
 		order = "desc"
 	}
+	share := isShareRequest(c)
+	allowedCols := ColumnOrder
+	search := searchCols
+	colsOut := ExportColumnOrder
+	labelsOut := LabelMap
+	if share {
+		allowedCols = shareExportColumns()
+		search = shareSearchColumns()
+		colsOut = shareExportColumns()
+		labelsOut = shareLabels()
+	}
 	allowedSort := false
-	for _, col := range ColumnOrder {
+	for _, col := range allowedCols {
 		if col == sort {
 			allowedSort = true
 			break
@@ -211,7 +222,7 @@ func (h *Handler) GetRows(c *gin.Context) {
 	}
 	defer db.Close()
 
-	wheresql, args := buildWhere(model, q)
+	wheresql, args := buildWhereWithSearch(model, q, search)
 	var total int64
 	if err := db.QueryRow(`SELECT COUNT(*) FROM usage`+wheresql, args...).Scan(&total); err != nil {
 		response.Error(c, http.StatusInternalServerError, err.Error())
@@ -252,14 +263,17 @@ func (h *Handler) GetRows(c *gin.Context) {
 			}
 			m[col] = v
 		}
+		if share {
+			m = projectShareRow(m)
+		}
 		outRows = append(outRows, m)
 	}
 	response.Success(c, gin.H{
 		"total":   total,
 		"offset":  offset,
 		"limit":   limit,
-		"columns": ExportColumnOrder,
-		"labels":  LabelMap,
+		"columns": colsOut,
+		"labels":  labelsOut,
 		"rows":    outRows,
 	})
 }
@@ -334,4 +348,3 @@ func (h *Handler) requireDoneJob(c *gin.Context) *Job {
 	}
 	return job
 }
-

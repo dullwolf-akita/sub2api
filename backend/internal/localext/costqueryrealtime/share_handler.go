@@ -28,11 +28,11 @@ func (h *Handler) CreateShare(c *gin.Context) {
 	}
 	path := fmt.Sprintf("/share/cost-query-realtime?hashcode=%s", raw)
 	response.Success(c, gin.H{
-		"hashcode":   raw,
-		"url":        path,
-		"expires_at": link.ExpiresAt,
-		"email":      link.Email,
-		"job_id":     link.JobID,
+		"hashcode":    raw,
+		"url":         path,
+		"expires_at":  link.ExpiresAt,
+		"email":       link.Email,
+		"job_id":      link.JobID,
 		"ttl_seconds": int(shareTTL.Seconds()),
 	})
 }
@@ -75,8 +75,8 @@ func (h *Handler) ShareMeta(c *gin.Context) {
 		"end_date":   job.EndDate,
 		"timezone":   job.Timezone,
 		"expires_at": link.ExpiresAt,
-		"columns":    ExportColumnOrder,
-		"labels":     LabelMap,
+		"columns":    shareExportColumns(),
+		"labels":     shareLabels(),
 	})
 }
 
@@ -86,7 +86,7 @@ func (h *Handler) ShareStats(c *gin.Context) {
 	if !ok {
 		return
 	}
-	// reuse admin stats logic via internal path
+	c.Set(shareRequestKey, true)
 	c.Params = append(c.Params, gin.Param{Key: "id", Value: job.ID})
 	h.GetStats(c)
 }
@@ -97,6 +97,7 @@ func (h *Handler) ShareRows(c *gin.Context) {
 	if !ok {
 		return
 	}
+	c.Set(shareRequestKey, true)
 	c.Params = append(c.Params, gin.Param{Key: "id", Value: job.ID})
 	h.GetRows(c)
 }
@@ -116,6 +117,5 @@ func (h *Handler) ShareExport(c *gin.Context) {
 		h.abortShare(c, "job_missing")
 		return
 	}
-	streamExportCSV(c, path, c.Query("model"), c.Query("q"))
+	streamExportCSVFiltered(c, path, c.Query("model"), c.Query("q"), true)
 }
-
