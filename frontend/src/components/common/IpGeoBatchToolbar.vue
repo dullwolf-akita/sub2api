@@ -4,7 +4,7 @@
     class="flex flex-shrink-0 items-center justify-end gap-2 border-b border-gray-200 px-4 py-2 dark:border-dark-700"
   >
     <span v-if="pendingCount > 0" class="text-xs text-gray-500 dark:text-gray-400">
-      {{ t('usage.ipGeo.pending', { count: pendingCount }) }}
+      {{ tFill('usage.ipGeo.pending', { count: pendingCount }) }}
     </span>
     <button
       type="button"
@@ -20,6 +20,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { makeTFill } from '@/utils/tFill'
 import { fetchBatch, getEntry } from '@/utils/ipGeoLookup'
 
 // 当前页 IP 批量地理查询工具条:传入原始 IP 列表(可含空值),内部去重;
@@ -33,6 +34,7 @@ const emit = defineEmits<{
 }>()
 
 const { t } = useI18n()
+const tFill = makeTFill(t)
 
 const uniqueIps = computed(() =>
   Array.from(new Set(props.ips.filter((ip): ip is string => Boolean(ip))))
