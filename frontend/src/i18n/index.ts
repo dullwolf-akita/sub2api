@@ -1,4 +1,5 @@
 import { createI18n } from 'vue-i18n'
+import { installTFillOnComposer } from '@/utils/tFill'
 
 type LocaleCode = 'en' | 'zh'
 
@@ -39,6 +40,11 @@ export const i18n = createI18n({
   // 这些内容是内部定义的，不存在 XSS 风险
   warnHtmlMessage: false
 })
+
+// 生产构建使用 vue-i18n 运行时版本（见 vite.config.ts），未预编译的文案
+// 会把 "{count}" 原样返回。这里给全局 t() 补一层与 d58d468 相同的占位符替换，
+// 管理后台和用户端已有的 t(key, { ... }) 都能显示数字，不必逐处改成 tFill。
+installTFillOnComposer(i18n.global)
 
 const loadedLocales = new Set<LocaleCode>()
 
