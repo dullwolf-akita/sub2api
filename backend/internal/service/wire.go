@@ -685,6 +685,19 @@ func ProvideOpsScheduledReportService(
 	return svc
 }
 
+// ProvideAccountDemotionService creates and starts AccountDemotionService.
+// The service sends Lark notifications (no priority mutation) for accounts
+// breaching health thresholds. Disabled when ops.account_demotion.enabled is false.
+func ProvideAccountDemotionService(
+	db *sql.DB,
+	redisClient *redis.Client,
+	cfg *config.Config,
+) *AccountDemotionService {
+	svc := NewAccountDemotionService(db, redisClient, cfg)
+	svc.Start()
+	return svc
+}
+
 // ProvideAPIKeyAuthCacheInvalidator 提供 API Key 认证缓存失效能力
 func ProvideAPIKeyAuthCacheInvalidator(apiKeyService *APIKeyService) APIKeyAuthCacheInvalidator {
 	// Start Pub/Sub subscriber for L1 cache invalidation across instances
@@ -935,6 +948,7 @@ var ProviderSet = wire.NewSet(
 	ProvideOpsAlertEvaluatorService,
 	ProvideOpsCleanupService,
 	ProvideOpsScheduledReportService,
+	ProvideAccountDemotionService,
 	NewEmailService,
 	NewNotificationEmailService,
 	ProvideEmailQueueService,

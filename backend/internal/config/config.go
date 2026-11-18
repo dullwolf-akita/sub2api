@@ -1732,6 +1732,9 @@ type OpsConfig struct {
 
 	// Pre-aggregation configuration.
 	Aggregation OpsAggregationConfig `mapstructure:"aggregation"`
+
+	// AccountDemotion controls the automatic account priority demotion service.
+	AccountDemotion OpsAccountDemotionConfig `mapstructure:"account_demotion"`
 }
 
 type OpsCleanupConfig struct {
@@ -1748,6 +1751,46 @@ type OpsCleanupConfig struct {
 
 type OpsAggregationConfig struct {
 	Enabled bool `mapstructure:"enabled"`
+}
+
+// OpsAccountDemotionConfig 账号自动降权服务配置。
+type OpsAccountDemotionConfig struct {
+	// Enabled 总开关；false 时服务不启动任何定时任务。
+	Enabled bool `mapstructure:"enabled"`
+
+	// LarkWebhookURL 飞书机器人 webhook 地址，用于降权通知；空则不发送通知。
+	LarkWebhookURL string `mapstructure:"lark_webhook_url"`
+
+	// --- 任务 A：窗口判据（每小时） ---
+
+	// WindowJobSchedule 任务 A 的 cron 表达式，默认每小时第 5 分钟。
+	WindowJobSchedule string `mapstructure:"window_job_schedule"`
+
+	// ErrorRateThreshold 错误率阈值（0~1），超过则触发，默认 0.3。
+	ErrorRateThreshold float64 `mapstructure:"error_rate_threshold"`
+
+	// ErrorRateMinSamples 错误率判据最小样本量（总请求数），默认 20。
+	ErrorRateMinSamples int `mapstructure:"error_rate_min_samples"`
+
+	// TPSRatioThreshold TPS 相对池中位数的比值下界，低于则触发，默认 0.5。
+	TPSRatioThreshold float64 `mapstructure:"tps_ratio_threshold"`
+
+	// TPSMinSamples TPS 判据最小流式请求样本数，默认 50。
+	TPSMinSamples int `mapstructure:"tps_min_samples"`
+
+	// TTFTRatioThreshold TTFT 相对池中位数的比值上界，高于则触发，默认 2.0。
+	TTFTRatioThreshold float64 `mapstructure:"ttft_ratio_threshold"`
+
+	// TTFTMinSamples TTFT 判据最小流式请求样本数，默认 30。
+	TTFTMinSamples int `mapstructure:"ttft_min_samples"`
+
+	// --- 任务 B：连续错误判据（每 10 分钟） ---
+
+	// ConsecutiveJobSchedule 任务 B 的 cron 表达式，默认每 10 分钟。
+	ConsecutiveJobSchedule string `mapstructure:"consecutive_job_schedule"`
+
+	// ConsecutiveErrorThreshold 连续错误阈值（第 N 条），默认 5。
+	ConsecutiveErrorThreshold int `mapstructure:"consecutive_error_threshold"`
 }
 
 type OpsMetricsCollectorCacheConfig struct {
@@ -2413,6 +2456,19 @@ func setDefaults() {
 	viper.SetDefault("ops.metrics_collector_cache.enabled", true)
 	// TTL should be slightly larger than collection interval (1m) to maximize cross-replica cache hits.
 	viper.SetDefault("ops.metrics_collector_cache.ttl", 65*time.Second)
+
+	// Account auto-demotion service defaults.
+	viper.SetDefault("ops.account_demotion.enabled", false)
+	viper.SetDefault("ops.account_demotion.lark_webhook_url", "")
+	viper.SetDefault("ops.account_demotion.window_job_schedule", "5 * * * *")
+	viper.SetDefault("ops.account_demotion.error_rate_threshold", 0.3)
+	viper.SetDefault("ops.account_demotion.error_rate_min_samples", 20)
+	viper.SetDefault("ops.account_demotion.tps_ratio_threshold", 0.5)
+	viper.SetDefault("ops.account_demotion.tps_min_samples", 50)
+	viper.SetDefault("ops.account_demotion.ttft_ratio_threshold", 2.0)
+	viper.SetDefault("ops.account_demotion.ttft_min_samples", 30)
+	viper.SetDefault("ops.account_demotion.consecutive_job_schedule", "*/10 * * * *")
+	viper.SetDefault("ops.account_demotion.consecutive_error_threshold", 5)
 
 	// JWT
 	viper.SetDefault("jwt.secret", "")
